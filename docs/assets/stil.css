@@ -401,6 +401,29 @@ h1 { font-size: 32px; font-weight: 600; line-height: 1.15; margin: 0 0 10px;
    Kaesten aus. Nur Rahmen und ein flacher Schatten - kein Anheben, das
    verrutscht bei einem Raster aus acht Kacheln unruhig. */
 .kachel:hover { border-color: var(--blue); box-shadow: 0 1px 6px rgba(40,40,40,.10); }
+
+/*
+ * GANZE KACHEL KLICKBAR - aber nur, wo es genau ein Ziel gibt: Buchkacheln
+ * auf der Startseite und Einzelseiten-Kacheln auf einer Buchseite.
+ * Kapitelkacheln enthalten eine Liste mehrerer Seiten; dort waere unklar,
+ * wohin ein Klick zwischen die Zeilen fuehrt.
+ *
+ * Umgesetzt als aufgezogene Flaeche des vorhandenen Links, nicht als Umbauen
+ * des Markups: so bleibt EIN Link mit sprechendem Text (der Buchname), den
+ * Vorleseprogramme richtig ankuendigen. Ein <a> um die ganze Kachel wuerde
+ * Beschreibung und Seitenzahl in den Linktext ziehen.
+ */
+.kachel-buch, .kachel-seite { position: relative; }
+.kachel-buch:hover, .kachel-seite:hover { cursor: pointer; }
+.kachel-buch h2 a::after, .kachel-seite h2 a::after {
+  content: ''; position: absolute; inset: 0; border-radius: inherit;
+}
+/* Bei Tastaturbedienung die ganze Kachel umranden, nicht nur den Text -
+   sonst sieht man den Fokus in einer grossen Kachel kaum. */
+.kachel-buch:focus-within, .kachel-seite:focus-within {
+  outline: 2px solid var(--blue); outline-offset: 2px; border-color: var(--blue);
+}
+.kachel-buch h2 a:focus-visible, .kachel-seite h2 a:focus-visible { outline: none; }
 .kachel h2 { font-size: 17px; font-weight: 600; margin: 0 0 8px; }
 .kachel ul { list-style: none; margin: 0; padding: 0; font-size: 14.5px; }
 .kachel li { margin: 4px 0; }

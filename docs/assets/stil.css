@@ -232,7 +232,6 @@ body { display: flex; flex-direction: column; min-height: 100vh; }
 .nav-buch[open] > summary::before { content: '\25BE'; }
 .nav-buch > summary:hover { background: var(--mint-pale); }
 .nav-buch > summary a { color: var(--ink); text-decoration: none; }
-.nav-buch > summary a:hover { text-decoration: underline; }
 
 /* Kapitel: eine Stufe eingerueckt, leichtere Schrift, keine eigene Linie. */
 .nav-kapitel > summary {
@@ -314,7 +313,10 @@ h1 { font-size: 32px; font-weight: 600; line-height: 1.15; margin: 0 0 10px;
 .inhalt > h4, .inhalt > blockquote, .inhalt > .callout { max-width: 570px; }
 .inhalt ul, .inhalt ol { padding-left: 22px; }
 .inhalt li { margin: 3px 0; }
-.inhalt a { color: var(--blue); text-decoration: underline; }
+/* Keine Unterstreichung, dafuer halbfett: sonst waere die FARBE das
+   einzige Merkmal eines Links, und wer Farben schlecht unterscheidet,
+   erkennt ihn im Text nicht mehr. Das Gewicht traegt diese Aufgabe jetzt. */
+.inhalt a { color: var(--blue); text-decoration: none; font-weight: 600; }
 .inhalt a:hover { color: #2830a0; }
 .verweis-inaktiv { color: var(--ink-soft); }
 .verweis-inaktiv::before { content: '\00BB\00A0'; }
@@ -400,12 +402,33 @@ h1 { font-size: 32px; font-weight: 600; line-height: 1.15; margin: 0 0 10px;
 .kacheln { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
 .kachel {
   border: 1px solid var(--line); border-radius: var(--rund); padding: 16px 18px; background: #fff;
-  transition: border-color .12s, box-shadow .12s;
+  /* Ausgangszustand mit einem Hauch Schatten, damit beim Zeigen nicht aus
+     dem Nichts einer erscheint, sondern ein vorhandener staerker wird. */
+  box-shadow: 0 1px 2px rgba(40,40,40,.05);
+  transition: box-shadow .16s ease, transform .16s ease;
+  /* Fuer das Vergroessern: die gezeigte Kachel muss ueber den Nachbarn liegen,
+     sonst schneiden deren Rahmen die vergroesserte Kante an. */
+  position: relative;
 }
-/* Rueckmeldung beim Zeigen: die Kacheln sind Links, sahen aber wie reine
-   Kaesten aus. Nur Rahmen und ein flacher Schatten - kein Anheben, das
-   verrutscht bei einem Raster aus acht Kacheln unruhig. */
-.kachel:hover { border-color: var(--blue); box-shadow: 0 1px 6px rgba(40,40,40,.10); }
+/*
+ * Rueckmeldung beim Zeigen: grauer Schatten und ein Hauch groesser.
+ * Kein blauer Rahmen mehr - Blau ist hier fuer LINKS und den Tastaturfokus
+ * reserviert, und ein blau umrandeter Kasten sah aus wie ausgewaehlt statt
+ * wie angezeigt.
+ * 1,5 % Vergroesserung, nicht mehr: darueber wird die Schrift beim Skalieren
+ * sichtbar unscharf, und in einem Raster aus acht Kacheln wirkt jede
+ * groessere Bewegung unruhig.
+ */
+.kachel:hover {
+  box-shadow: 0 4px 14px rgba(40,40,40,.13);
+  transform: scale(1.015);
+  z-index: 2;
+}
+/* Wer Bewegung im System abgeschaltet hat, bekommt nur den Schatten. */
+@media (prefers-reduced-motion: reduce) {
+  .kachel { transition: box-shadow .16s ease; }
+  .kachel:hover { transform: none; }
+}
 
 /*
  * GANZE KACHEL KLICKBAR - aber nur, wo es genau ein Ziel gibt: Buchkacheln
@@ -424,16 +447,17 @@ h1 { font-size: 32px; font-weight: 600; line-height: 1.15; margin: 0 0 10px;
   content: ''; position: absolute; inset: 0; border-radius: inherit;
 }
 /* Bei Tastaturbedienung die ganze Kachel umranden, nicht nur den Text -
-   sonst sieht man den Fokus in einer grossen Kachel kaum. */
+   sonst sieht man den Fokus in einer grossen Kachel kaum. Blau bleibt hier
+   bewusst: der Fokus MUSS deutlich sein, und er ist damit klar vom Zeigen
+   unterscheidbar - Zeigen macht Schatten, Fokus macht Rahmen. */
 .kachel-buch:focus-within, .kachel-seite:focus-within {
-  outline: 2px solid var(--blue); outline-offset: 2px; border-color: var(--blue);
+  outline: 2px solid var(--blue); outline-offset: 2px;
 }
 .kachel-buch h2 a:focus-visible, .kachel-seite h2 a:focus-visible { outline: none; }
 .kachel h2 { font-size: 17px; font-weight: 600; margin: 0 0 8px; }
 .kachel ul { list-style: none; margin: 0; padding: 0; font-size: 14.5px; }
 .kachel li { margin: 4px 0; }
 .kachel a { color: var(--blue); text-decoration: none; }
-.kachel a:hover { text-decoration: underline; }
 .kachel-buch h2 { font-size: 19px; }
 .kachel-text { font-size: 14px; color: var(--ink-soft); margin: 0 0 8px; }
 .kachel-zahl { font-size: 12.5px; color: var(--ink-soft); margin: 0; }
@@ -451,7 +475,7 @@ h1 { font-size: 32px; font-weight: 600; line-height: 1.15; margin: 0 0 10px;
    ganze Breite verteilt. */
 .fuss-rechts { display: flex; gap: 18px; align-items: baseline; }
 .fuss a { color: var(--blue); text-decoration: none; }
-.fuss a:hover { text-decoration: underline; }
+.fuss a:hover { color: var(--ink); }
 .fuss a:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 
 /* ------------------------------------------------------------- Sprunglink */

@@ -142,13 +142,21 @@ h1 { font-size: 30px; font-weight: 600; line-height: 1.2; margin: 0 0 14px;
 .inhalt p, .inhalt li { font-size: 16px; }
 .inhalt p { margin: 0 0 14px; }
 
-/* ZEILENLAENGE. Bei 1440 px war die Textspalte rund 790 px breit, das sind
-   ueber 100 Zeichen je Zeile - beim Zeilenwechsel verliert das Auge dann die
-   Zeile. Angenehm sind 60 bis 75. Begrenzt wird nur der FLIESSTEXT, nicht die
-   Spalte: Tabellen, Codebloecke und Bilder duerfen weiterhin die ganze Breite
-   nutzen, sonst muesste man in ihnen quer scrollen. */
+/* ZEILENLAENGE. Bei 1440 px war die Textspalte 773 px breit - gemessen
+   93 Zeichen je Zeile. Beim Zeilenwechsel verliert das Auge dann die Zeile;
+   angenehm sind 60 bis 75. 600 px ergeben hier rund 73 Zeichen, passend fuer
+   deutsche Fachtexte mit langen Zusammensetzungen.
+
+   NICHT in "ch" angeben: 1ch ist die Breite der NULL, und die ist in
+   Montserrat 10,6 px breit, waehrend ein durchschnittliches Zeichen nur
+   8,2 px braucht. "72ch" loeste zu 763 px auf und aenderte praktisch nichts -
+   die Regel sah richtig aus und tat nichts (03.09.2026 gemessen).
+
+   Begrenzt wird nur der FLIESSTEXT, nicht die Spalte: Tabellen, Codebloecke
+   und Bilder nutzen weiterhin die ganze Breite, sonst muesste man in ihnen
+   quer scrollen. */
 .inhalt > p, .inhalt > ul, .inhalt > ol, .inhalt > h2, .inhalt > h3,
-.inhalt > h4, .inhalt > blockquote, .inhalt > .callout { max-width: 72ch; }
+.inhalt > h4, .inhalt > blockquote, .inhalt > .callout { max-width: 600px; }
 .inhalt ul, .inhalt ol { padding-left: 22px; }
 .inhalt li { margin: 3px 0; }
 .inhalt a { color: var(--blue); text-decoration: underline; }

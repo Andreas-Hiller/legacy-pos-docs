@@ -76,9 +76,14 @@ body { display: flex; flex-direction: column; min-height: 100vh; }
   position: sticky; top: 0; z-index: 20;
   box-shadow: 0 1px 0 rgba(0,0,0,.25);
 }
+/* Breite und Innenabstand MUESSEN mit .rahmen uebereinstimmen, sonst sitzt das
+   Logo nicht ueber der Navigation. Am 03.09.2026 auseinandergelaufen: die
+   Leiste stand noch auf 1560, waehrend .rahmen schon auf 1320 begrenzt war -
+   53 px Versatz zwischen Logo und Navigationsspalte. Wer eine der beiden
+   Breiten aendert, aendert die andere mit. */
 .kopf-innen {
   display: flex; align-items: center; gap: 24px;
-  max-width: 1560px; margin: 0 auto; padding: 10px 20px;
+  width: min(1320px, 100%); margin: 0 auto; padding: 10px 20px;
 }
 .kopf-logo img { height: 30px; width: auto; display: block; }
 .kopf-logo:focus-visible { outline: 2px solid var(--mint); outline-offset: 3px; }

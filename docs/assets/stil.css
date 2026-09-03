@@ -40,17 +40,31 @@ html, body {
 }
 
 /* ---------------------------------------------------------------- Kopfleiste */
+/* Die Leiste selbst laeuft ueber die ganze Breite, ihr INHALT sitzt aber im
+   gleichen Raster wie die Spalten darunter (max-width und padding wie
+   .rahmen). Sonst wandert das Logo auf breiten Bildschirmen nach aussen,
+   waehrend die Navigation darunter am 1560-px-Raster klebt. */
 .kopf {
-  display: flex; align-items: center; gap: 24px;
   background: var(--kopf); color: #c8d4e8;
-  padding: 10px 20px; position: sticky; top: 0; z-index: 20;
+  position: sticky; top: 0; z-index: 20;
+  box-shadow: 0 1px 0 rgba(0,0,0,.25);
+}
+.kopf-innen {
+  display: flex; align-items: center; gap: 24px;
+  max-width: 1560px; margin: 0 auto; padding: 10px 20px;
 }
 .kopf-logo img { height: 30px; width: auto; display: block; }
-.kopf-firma { margin-left: auto; font-size: 13px; white-space: nowrap; }
+.kopf-logo:focus-visible { outline: 2px solid var(--mint); outline-offset: 3px; }
+.kopf-firma { margin-left: auto; font-size: 13px; white-space: nowrap; letter-spacing: .01em; }
 .kopf-suche { position: relative; flex: 1 1 auto; max-width: 520px; }
+/* Lupe als Hintergrundbild statt als zusaetzliches Element im Markup: das
+   Suchfeld bleibt ein einzelnes input, das die Suche unveraendert anspricht. */
 #suchfeld {
-  width: 100%; padding: 7px 12px; border: 1px solid #2f3c63; border-radius: 3px;
-  background: #141a2e; color: #e8edf7; font: inherit; font-size: 14px;
+  width: 100%; padding: 8px 12px 8px 34px; border: 1px solid #2f3c63; border-radius: 3px;
+  background: #141a2e no-repeat 11px center;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%237c89a8' stroke-width='1.7' stroke-linecap='round'%3E%3Ccircle cx='6.8' cy='6.8' r='4.6'/%3E%3Cpath d='M10.4 10.4 14 14'/%3E%3C/svg%3E");
+  background-size: 15px 15px;
+  color: #e8edf7; font: inherit; font-size: 14px;
 }
 #suchfeld::placeholder { color: #7c89a8; }
 #suchfeld:focus { outline: 2px solid var(--mint); outline-offset: -1px; }
@@ -95,42 +109,71 @@ html, body {
 
 /* Buchebene - nur das aktuelle Buch ist aufgeklappt, sonst waere die Leiste
    bei ueber hundert Seiten unbenutzbar. */
-.nav-buch { border-bottom: 1px solid var(--line); }
+/* TRENNLINIEN NUR AUF BUCHEBENE. Vorher trug jedes Buch UND jedes Kapitel
+   eine, wodurch die Leiste bei acht Buechern mit Kapiteln wie ein Liniengitter
+   aussah. Die Ebenen unterscheidet jetzt die Schrift, nicht ein Strich. */
+.nav-buch + .nav-buch { border-top: 1px solid var(--line); }
 .nav-buch > summary {
-  cursor: pointer; padding: 7px 8px; font-weight: 600; list-style: none;
+  cursor: pointer; padding: 8px 8px; font-weight: 600; list-style: none;
 }
 .nav-buch > summary::-webkit-details-marker { display: none; }
-.nav-buch > summary::before { content: '\25B8'; margin-right: 7px; color: var(--ink-soft); }
+.nav-buch > summary::before {
+  content: '\25B8'; display: inline-block; width: 13px;
+  color: var(--ink-soft); font-size: 11px;
+}
 .nav-buch[open] > summary::before { content: '\25BE'; }
 .nav-buch > summary:hover { background: var(--mint-pale); }
 .nav-buch > summary a { color: var(--ink); text-decoration: none; }
 .nav-buch > summary a:hover { text-decoration: underline; }
-/* Kapitel innerhalb eines Buchs eine Stufe einruecken */
-.nav-buch .nav-kapitel > summary { padding-left: 20px; font-weight: 400; }
-.nav-buch .nav-seite { padding-left: 38px; }
-.nav-kapitel { border-bottom: 1px solid var(--line); }
+
+/* Kapitel: eine Stufe eingerueckt, leichtere Schrift, keine eigene Linie. */
 .nav-kapitel > summary {
-  cursor: pointer; padding: 7px 8px; font-weight: 600; list-style: none;
+  cursor: pointer; padding: 6px 8px; font-weight: 400; list-style: none;
+  color: var(--ink-soft);
 }
+.nav-buch .nav-kapitel > summary { padding-left: 21px; }
 .nav-kapitel > summary::-webkit-details-marker { display: none; }
-.nav-kapitel > summary::before { content: '\25B8'; margin-right: 7px; color: var(--ink-soft); }
-.nav-kapitel[open] > summary::before { content: '\25BE'; }
-.nav-kapitel > summary:hover { background: var(--mint-pale); }
-.nav-seite {
-  display: block; padding: 5px 8px 5px 24px; color: var(--ink);
-  text-decoration: none; border-left: 2px solid transparent;
+.nav-kapitel > summary::before {
+  content: '\25B8'; display: inline-block; width: 13px; font-size: 11px;
 }
+.nav-kapitel[open] > summary::before { content: '\25BE'; }
+.nav-kapitel[open] > summary { color: var(--ink); }
+.nav-kapitel > summary:hover { background: var(--mint-pale); }
+
+/* Seiten: FLACHER eingerueckt als vorher (38 px), und die Zugehoerigkeit
+   zeigt eine feine Fuehrungslinie statt Leerraum. Bei 288 px Spaltenbreite
+   brachen lange Seitennamen sonst mitten im Wort um. */
+.nav-seite {
+  display: block; padding: 5px 8px 5px 21px; color: var(--ink);
+  text-decoration: none; border-left: 2px solid transparent;
+  line-height: 1.4;
+}
+.nav-buch .nav-seite { padding-left: 27px; }
+.nav-kapitel .nav-seite { margin-left: 21px; border-left-color: var(--line); }
+.nav-buch .nav-kapitel .nav-seite { padding-left: 12px; }
 .nav-seite:hover { background: var(--mint-pale); }
 .nav-seite.aktuell {
   background: var(--mint-pale); border-left-color: var(--blue); font-weight: 600;
 }
 
 /* ------------------------------------------------------------------- Inhalt */
-.brotkrumen { font-size: 13px; color: var(--ink-soft); margin: 0 0 6px; }
-h1 { font-size: 30px; font-weight: 600; line-height: 1.2; margin: 0 0 14px;
-     padding-bottom: 8px; border-bottom: 2px solid var(--blue); }
-.seitenmeta { font-size: 12.5px; color: #4a4a4a; margin: 0 0 22px;
-              padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+.brotkrumen {
+  font-size: 12.5px; color: var(--ink-soft); margin: 0 0 8px;
+  letter-spacing: .04em; text-transform: uppercase;
+}
+h1 { font-size: 32px; font-weight: 600; line-height: 1.15; margin: 0 0 10px;
+     letter-spacing: -.01em; }
+/* EINE Trennlinie unter dem Seitenkopf, nicht zwei. Vorher lagen ein 2-px-Strich
+   unter der Ueberschrift und ein 1-px-Strich unter der Herkunftszeile knapp
+   uebereinander - zwei Regeln im Abstand von 30 px, die den Kopf zerteilten.
+   Die Linie sitzt jetzt unter dem gesamten Kopf, die Ueberschrift traegt keine. */
+.seitenkopf {
+  padding-bottom: 12px; margin-bottom: 26px; border-bottom: 2px solid var(--blue);
+}
+.seitenmeta {
+  font-size: 12.5px; color: #4a4a4a; margin: 0;
+  font-variant-numeric: tabular-nums;
+}
 .entwurf-band {
   background: #fdeeee; border: 1px solid var(--warn); border-radius: 3px;
   color: #8f1f1f; font-weight: 600; font-size: 14px; padding: 8px 12px; margin: 0 0 14px;
@@ -173,7 +216,12 @@ h1 { font-size: 30px; font-weight: 600; line-height: 1.2; margin: 0 0 14px;
   background: var(--mint); color: var(--ink); font-weight: 600; text-align: left;
   border-bottom: 2px solid var(--blue); padding: 7px 10px; vertical-align: top;
 }
-.inhalt td { border-bottom: 1px solid var(--line); padding: 7px 10px; vertical-align: top; }
+.inhalt td {
+  border-bottom: 1px solid var(--line); padding: 9px 12px; vertical-align: top;
+  /* Ziffern in gleicher Breite: in den Referenztabellen stehen Versionen,
+     Groessen und Nummern untereinander und sollen als Spalte lesbar sein. */
+  font-variant-numeric: tabular-nums;
+}
 .inhalt tbody tr:nth-child(even) td { background: var(--mint-pale); }
 
 /* -------------------------------------------------------------------- Code */
@@ -281,6 +329,21 @@ h1 { font-size: 30px; font-weight: 600; line-height: 1.2; margin: 0 0 14px;
     clip: auto; order: 3;
   }
 }
+
+/* -------------------------------------------------- Bedienung per Tastatur */
+/* Sichtbarer Fokus auf allem, was man anspringen kann. Ohne ihn ist die Seite
+   ohne Maus nicht bedienbar: man sieht nicht, wo man gerade steht.
+   :focus-visible statt :focus, damit ein Mausklick keinen Rahmen hinterlaesst. */
+.inhalt a:focus-visible,
+.nav a:focus-visible,
+.kachel a:focus-visible,
+.nav-buch > summary:focus-visible,
+.nav-kapitel > summary:focus-visible,
+#suchergebnis a:focus-visible {
+  outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 2px;
+}
+/* Innerhalb der dunklen Kopfleiste ist Blau auf Marine nicht zu sehen. */
+.kopf a:focus-visible { outline: 2px solid var(--mint); outline-offset: 3px; }
 
 /* ------------------------------------------------------------------- Druck */
 @media print {

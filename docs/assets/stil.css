@@ -246,6 +246,11 @@ body { display: flex; flex-direction: column; min-height: 100vh; }
   color: var(--ink-soft);
 }
 .nav-buch .nav-kapitel > summary { padding-left: 21px; }
+/* Farbe MUSS gesetzt werden. Seit der Kapitelname ein Link auf die
+   Kapitelseite ist, faerbte ihn der Browser sonst mit seiner Vorgabe
+   #0000EE ein - und nach dem Besuchen lila. Mit "inherit" nimmt er die
+   Farbe der Zeile, also grau und aufgeklappt anthrazit. */
+.nav-kapitel > summary a { color: inherit; text-decoration: none; }
 .nav-kapitel > summary::-webkit-details-marker { display: none; }
 .nav-kapitel > summary::before {
   content: '\25B8'; display: inline-block; width: 13px; font-size: 11px;

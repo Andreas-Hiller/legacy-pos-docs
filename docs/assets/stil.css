@@ -131,10 +131,19 @@ body { display: flex; flex-direction: column; min-height: 100vh; }
  * rechts nur wenig Luft bleibt: 288 + 32 + 660 + 32 + 260 = 1272 plus
  * Innenabstand passt in 1320.
  */
+/*
+ * width, NICHT nur max-width. Seit die Fusszeile ueber einen Flex-Koerper
+ * unten gehalten wird, ist .rahmen ein FLEX-ELEMENT - und dort macht
+ * "margin: 0 auto" die Breite abhaengig vom Inhalt statt von der Vorgabe.
+ * Die beiden Seitenarten kamen dadurch auf 1312 und 1320 px, zentriert also
+ * auf zwei verschiedene Anfaenge: 4 px Restsprung beim Blaettern, nachdem der
+ * grosse Sprung von 44 px schon behoben war (03.09.2026).
+ * Eine feste Breite macht den Kasten fuer jede Seitenart gleich.
+ */
 .rahmen {
   display: grid; grid-template-columns: 288px minmax(0,660px) 260px;
   gap: 32px; justify-content: start;
-  max-width: 1320px; margin: 0 auto; padding: 24px 20px 40px;
+  width: min(1320px, 100%); margin: 0 auto; padding: 24px 20px 40px;
 }
 /* Seiten ohne rechte Spalte (Startseite, Buchseiten, 404) bekommen deren
    Platz - dort stehen Kacheln, die von Breite profitieren, kein Fliesstext.

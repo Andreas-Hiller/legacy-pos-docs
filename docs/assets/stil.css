@@ -271,6 +271,13 @@ body { display: flex; flex-direction: column; min-height: 100vh; }
 .nav-kapitel .nav-seite { margin-left: 21px; border-left-color: var(--line); }
 .nav-buch .nav-kapitel .nav-seite { padding-left: 12px; }
 .nav-seite:hover { background: var(--mint-pale); }
+/* "Uebersicht" fuehrt zur Buch- bzw. Kapitelseite. Sie steht hier, weil der
+   Klick auf die Zeile darueber jetzt nur auf- und zuklappt - ohne diesen
+   Eintrag waere die Seite aus der Navigation nicht mehr erreichbar. Leicht
+   zurueckgenommen, damit sie nicht mit den Inhaltsseiten konkurriert. */
+.nav-uebersicht { color: var(--ink-soft); font-size: 13.5px; }
+.nav-uebersicht:hover { color: var(--ink); }
+
 .nav-seite.aktuell {
   background: var(--mint-pale); border-left-color: var(--blue); font-weight: 600;
 }

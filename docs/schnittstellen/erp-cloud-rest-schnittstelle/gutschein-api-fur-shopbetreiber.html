@@ -7,7 +7,7 @@
 <title>Gutschein-API für Shopbetreiber | Schnittstellen</title>
 <meta name="description" content="Referenz der REST-Schnittstelle, mit der ein Online-Shop digitale Gutscheine (Kundenkarten mit Guthaben) in der ERP-Cloud anlegt und auflädt. Angelegte Gutscheine werden an alle Kassen des Kunden repl">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=4a123430">
+<link rel="stylesheet" href="../../assets/stil.css?v=25f33f2f">
 </head>
 <body>
 <header class="kopf">
@@ -27,7 +27,7 @@
   <main class="spalte-mitte" id="inhalt"><div class="seitenkopf"><p class="brotkrumen">Schnittstellen &rsaquo; ERP-Cloud REST-Schnittstelle</p><h1>Gutschein-API für Shopbetreiber</h1><p class="seitenmeta">Letzte &Auml;nderung 29.08.2026 &middot; Version 1 &middot; Seiten-ID 765</p></div><p class="entwurf-band">Entwurf &ndash; diese Seite ist noch nicht gepr&uuml;ft und kann Fehler enthalten.</p><div class="inhalt"><p id="bkmrk-referenz-der-rest-sc">Referenz der REST-Schnittstelle, mit der ein Online-Shop digitale Gutscheine (Kundenkarten mit Guthaben) in der ERP-Cloud anlegt und auflädt. Angelegte Gutscheine werden an alle Kassen des Kunden repliziert; eingelöst werden sie an der Kasse durch Scannen des Gutschein-Codes.</p>
 <p id="bkmrk-der-shop-nutzt-die-s">Der Shop nutzt die Schnittstelle ausschließlich für den Kaufvorgang: <strong>Anlegen</strong> und <strong>Aufladen</strong>. Jede weitere Bearbeitung — Änderung, Widerruf, Reaktivierung — erfolgt im Webinterface des CentralPoint. Verteilung an die Kassen und Einlösen sind nicht Teil dieser Schnittstelle.</p>
 <h2 id="bkmrk-umgebung">Umgebung</h2>
-<table id="bkmrk-umgebung-basis-url-t">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-umgebung-basis-url-t">
 <thead>
 <tr>
 <th>Umgebung</th>
@@ -44,10 +44,10 @@
 <td><code>https://erp.pos.alvara.cloud</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-beide-umgebungen-hab">Beide Umgebungen haben identische Endpunkte und <strong>eigene Zugangsdaten</strong>. Datenformat ist XML in UTF-8. Alle schreibenden Requests gehen an <code>POST /basic/pos/process</code>.</p>
 <h2 id="bkmrk-authentifizierung">Authentifizierung</h2>
-<table id="bkmrk-header-wert-beschrei">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-header-wert-beschrei">
 <thead>
 <tr>
 <th>Header</th>
@@ -67,11 +67,11 @@
 <td>Hex-Zeichenkette, kleingeschrieben; Datum ist der Tag des Requests</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-zugangs-uuid-und-sec">Zugangs-UUID und Secret erhalten Sie je Umgebung von YUVENDA Enterprise Solutions GmbH. Hinterlegen Sie beide Werte nur serverseitig im Shop.</p>
 <p id="bkmrk-der-server-akzeptier">Der Server akzeptiert zusätzlich den Hash des Vortages und des Folgetages (±1 Tag), damit ein Client in einer anderen Zeitzone oder mit leicht abweichender Uhr nicht scheitert. Ältere oder weiter in der Zukunft liegende Datumswerte werden mit <code>401</code> abgewiesen, ein abweichendes Datumsformat ebenfalls.</p>
 <h2 id="bkmrk-identifikatoren">Identifikatoren</h2>
-<table id="bkmrk-name-vergeben-durch-">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-name-vergeben-durch-">
 <thead>
 <tr>
 <th>Name</th>
@@ -96,7 +96,7 @@
 <td>Kundennummer, wird automatisch vergeben und bleibt bei weiteren Schreibvorgängen erhalten</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-an-der-kasse-wird-de">An der Kasse wird der Gutschein über Kartennummer oder Kundennummer identifiziert, nicht über die UUID. Eine neue UUID legt einen neuen Gutschein an. Fehlt die <code>uid</code>, antwortet der Server mit <code>500</code> („UID must be provided").</p>
 <h2 id="bkmrk-gutschein-anlegen">Gutschein anlegen</h2>
 <p id="bkmrk-post-%2Fbasic%2Fpos%2Fproc"><code>POST /basic/pos/process</code></p>
@@ -110,7 +110,7 @@
   &lt;/consumer&gt;
 &lt;/consumerNotification&gt;
 </code></pre>
-<table id="bkmrk-feld-pflicht-max.-l%C3%A4">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-feld-pflicht-max.-l%C3%A4">
 <thead>
 <tr>
 <th>Feld</th>
@@ -199,7 +199,7 @@
 <td>alternativer Scan-Code</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-antwort%3A-200%2C-body-l">Antwort: <code>200</code>, Body leer. Guthaben wird hier nicht übergeben, das ist ein eigener Request.</p>
 <p id="bkmrk-ein-zu-langer-wert-w">Ein zu langer Wert wird nicht abgeschnitten: der Request wird mit <code>500</code> abgewiesen und es entsteht kein Datensatz.</p>
 <p class="callout danger" id="bkmrk-senden-sie-immer-bei">Senden Sie immer beide Namensfelder. Fehlt eines der beiden, setzt der Server <strong>beide</strong> auf <code>Anonym</code> — aus „Oster Gutschein 2026" wird „Anonym Anonym", mit Antwortcode <code>200</code> und ohne Hinweis. Der ursprüngliche Name ist damit verloren und lässt sich nur im CentralPoint von Hand wiederherstellen.</p>
@@ -216,7 +216,7 @@
   &lt;/prepaidTransaction&gt;
 &lt;/prepaidTransactionNotification&gt;
 </code></pre>
-<table id="bkmrk-feld-pflicht-standar">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-feld-pflicht-standar">
 <thead>
 <tr>
 <th>Feld</th>
@@ -263,11 +263,11 @@
 <td>Zeitstempel in UTC, <code>JJJJ-MM-TT HH:MM:SS</code>. Der übergebene Wert hat keine Wirkung</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-antwort%3A-200.-mehrer">Antwort: <code>200</code>. Mehrere Aufladungen summieren sich. Das Aufladen berührt keine Stammdatenfelder. <code>cardNumber</code> darf im <code>consumer</code>-Element mitgesendet werden, ist aber nicht erforderlich.</p>
 <p class="callout warning" id="bkmrk-ohne-uid-am-prepaidt">Ohne <code>uid</code> am <code>prepaidTransaction</code> wird ein wiederholter Request — etwa ein Wiederholungsversuch nach einem Zeitüberlauf — doppelt gebucht. Vergeben Sie je Buchung eine eigene UUID; der Server erkennt die Wiederholung dann und bucht nicht erneut. Ein ungültiges UUID-Format wird ignoriert und wirkt wie ein fehlendes Attribut.</p>
 <h2 id="bkmrk-antwortcodes">Antwortcodes</h2>
-<table id="bkmrk-code-bedeutung-200-a">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-code-bedeutung-200-a">
 <thead>
 <tr>
 <th>Code</th>
@@ -304,7 +304,7 @@
 <td>technisches Problem oder Eingabefehler: Pflichtfeld fehlt, Feldwert zu lang, BOM im Body, Betrag mit Komma, Währung ungleich <code>EUR</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="bkmrk-regeln-f%C3%BCr-den-shop">Regeln für den Shop</h2>
 <ul id="bkmrk-immer-den-vollst%C3%A4ndi">
 <li><strong>Immer den vollständigen Datensatz senden.</strong> Eine <code>consumerNotification</code> beschreibt den kompletten Zustand des Gutscheins, nicht einzelne Felder. Nicht mitgesendete Felder werden geleert. Der Shop legt jeden Gutschein einmal an und lädt ihn einmal auf; wird ein zweiter Schreibvorgang doch nötig, muss der Request erneut alle Felder enthalten.</li>
@@ -332,6 +332,6 @@
   <span>ITR Partner Service</span>
   <span>Stand 03.09.2026</span>
 </footer>
-<script src="../../assets/suche.js?v=5ba6b751"></script>
+<script src="../../assets/suche.js?v=b87d1332"></script>
 </body>
 </html>

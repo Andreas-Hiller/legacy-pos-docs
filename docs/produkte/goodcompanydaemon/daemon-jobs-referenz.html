@@ -7,7 +7,7 @@
 <title>Daemon Jobs: Referenz | Produkte</title>
 <meta name="description" content="Alle Jobs, die in einem Daemon Job über call: aufgerufen werden können, mit ihren Parametern. Wie ein Daemon Job angelegt, zeitgesteuert und geprüft wird, steht in ITR Partner Service → Produkte → Goo">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=4a123430">
+<link rel="stylesheet" href="../../assets/stil.css?v=25f33f2f">
 </head>
 <body>
 <header class="kopf">
@@ -27,7 +27,7 @@
   <main class="spalte-mitte" id="inhalt"><div class="seitenkopf"><p class="brotkrumen">Produkte &rsaquo; GoodCompanyDaemon</p><h1>Daemon Jobs: Referenz</h1><p class="seitenmeta">Letzte &Auml;nderung 29.08.2026 &middot; Version 1 &middot; Seiten-ID 785</p></div><p class="entwurf-band">Entwurf &ndash; diese Seite ist noch nicht gepr&uuml;ft und kann Fehler enthalten.</p><div class="inhalt"><p id="bkmrk-alle-jobs%2C-die-in-ei">Alle Jobs, die in einem Daemon Job über <code>call:</code> aufgerufen werden können, mit ihren Parametern. Wie ein Daemon Job angelegt, zeitgesteuert und geprüft wird, steht in <a href="../../produkte/goodcompanydaemon/daemon-jobs-einrichten.html">ITR Partner Service → Produkte → GoodCompanyDaemon → Daemon Jobs einrichten</a>.</p>
 <p id="bkmrk-aufrufform%3A-call%3A%3Cjo">Aufrufform: <code>call:&lt;Jobname&gt;</code> gefolgt von den Parametern, je Parameter eine Zeile mit vorangestelltem <code>#</code>. Mehrere Kommandos in einem Job werden mit Semikolon getrennt.</p>
 <h2 id="bkmrk-jobs-nach-aufgabe">Jobs nach Aufgabe</h2>
-<table id="bkmrk-aufgabe-jobs-stammda">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-aufgabe-jobs-stammda">
 <thead>
 <tr>
 <th>Aufgabe</th>
@@ -68,11 +68,11 @@
 <td><code>ExecuteSql</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="bkmrk-import-von-stammdate">Import von Stammdaten</h2>
 <h3 id="bkmrk-vectroniposimporter"><code>VectronIPOSImporter</code></h3>
 <p id="bkmrk-importiert-beliebige">Importiert beliebige Stammdaten aus dem Vectron-Format. Beim Import wird je Feld geprüft, ob sich der Wert geändert hat — dadurch ist ein partieller Import möglich, ohne andere gepflegte Daten zu überschreiben.</p>
-<table id="bkmrk-parameter-beschreibu">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-parameter-beschreibu">
 <thead>
 <tr>
 <th>Parameter</th>
@@ -101,13 +101,13 @@
 <td>vollständiger Pfad</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-die-definitionsdatei">Die Definitionsdatei enthält Wertepaare <code>Property=Feldnummer</code>, jede Zeile mit dem Prefix des Datentyps (<code>Article.</code>, <code>Customer.</code>, <code>Operator.</code>, <code>Group.</code>, <code>MainGroup.</code>, <code>Order.</code>).</p>
 <p class="callout info" id="bkmrk-die-fr%C3%BCheren-paramet">Die früheren Parameter <code>prefixDallasKey</code>, <code>suffixDallasKey</code>, <code>passwordTemplate</code>, <code>createOperatorsForAllBranches</code>, <code>roleMappings</code>, <code>ignoreZeroValues</code>, <code>operatorProperties</code> und <code>filePriceModifier</code> wurden in die <code>objectProperties</code> verschoben.</p>
 <p id="bkmrk-voraussetzung-bei-da">Voraussetzung bei Daten aus Zuliefersystemen ist die Zuordnung von Kassen zu Filialen — siehe <a href="../../produkte/goodcompanydaemon/filialuberwachung-und-timer-einrichten.html">ITR Partner Service → Produkte → GoodCompanyDaemon → Filialüberwachung und Timer einrichten</a>.</p>
 <h3 id="bkmrk-csvconverter"><code>CSVConverter</code></h3>
 <p id="bkmrk-bringt-stammdaten-im">Bringt Stammdaten im CSV-Format (Hauptgruppen, Warengruppen, Kunden, Artikel, Bediener) in ein Vectron-Format, das der <code>VectronIPOSImporter</code> anschließend verarbeitet.</p>
-<table id="bkmrk-parameter-beschreibu-1">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-parameter-beschreibu-1">
 <thead>
 <tr>
 <th>Parameter</th>
@@ -122,9 +122,9 @@
 <td>vollständiger Pfad</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-eintr%C3%A4ge-der-konfigu">Einträge der Konfigurationsdatei, je Stammdatum mit Prefix (etwa <code>Customer.</code>):</p>
-<table id="bkmrk-eintrag-beschreibung">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-eintrag-beschreibung">
 <thead>
 <tr>
 <th>Eintrag</th>
@@ -174,11 +174,11 @@
 <td>1–50</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="bkmrk-stammdaten-verteilen">Stammdaten verteilen</h2>
 <h3 id="bkmrk-copyobjectstobranche"><code>CopyObjectsToBranches</code></h3>
 <p id="bkmrk-kopiert-stammdaten-v">Kopiert Stammdaten von einer Filiale auf andere. Derzeit möglich sind Artikel und Bediener.</p>
-<table id="bkmrk-parameter-beschreibu-2">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-parameter-beschreibu-2">
 <thead>
 <tr>
 <th>Parameter</th>
@@ -243,12 +243,12 @@
 <td><code>true</code>, <code>false</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p class="callout warning" id="bkmrk-mit-updateolddata%3Dtr">Mit <code>updateolddata=true</code> werden vorhandene Einträge in den Ziel-Filialen überschrieben. Preise und Bezeichnungen, die dort abweichend gepflegt sind, gehen dabei verloren — sie werden über <code>articles.excludedfields</code> ausgenommen.</p>
 <h2 id="bkmrk-bediener-und-kunden-">Bediener und Kunden ableiten</h2>
 <h3 id="bkmrk-bz2iposoperators"><code>BZ2IposOperators</code></h3>
 <p id="bkmrk-legt-mitarbeiter-aus">Legt Mitarbeiter aus der BrotZEIT als Bediener an.</p>
-<table id="bkmrk-parameter-beschreibu-3">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-parameter-beschreibu-3">
 <thead>
 <tr>
 <th>Parameter</th>
@@ -301,7 +301,7 @@
 <td><code>true</code>, <code>false</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-regeln-beim-import%3A">Regeln beim Import:</p>
 <ul id="bkmrk-ein-mitarbeiter-wird">
 <li>Ein Mitarbeiter wird nur importiert, wenn er mindestens einer Arbeitsstätte im Einsatzmodell zugeordnet ist.</li>
@@ -314,7 +314,7 @@
 <p id="bkmrk-bei-passwordtemplate">Bei <code>passwordtemplate=birthday:&lt;Datumsformat&gt;</code> sind alle gültigen Datumsformate zulässig; das Passwort entsteht aus dem Geburtsdatum im angegebenen Format.</p>
 <h3 id="bkmrk-operator2customer"><code>Operator2Customer</code></h3>
 <p id="bkmrk-legt-angelegte-bedie">Legt angelegte Bediener zusätzlich als Kunden an. Übernommen werden nur Bediener im angegebenen Nummernbereich. Existiert bereits ein Kunde mit der Bedienernummer, werden Vor- und Nachname geprüft und angepasst.</p>
-<table id="bkmrk-parameter-beschreibu-4">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-parameter-beschreibu-4">
 <thead>
 <tr>
 <th>Parameter</th>
@@ -355,11 +355,11 @@
 <td><code>true</code>, <code>false</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="bkmrk-best%C3%A4nde-und-konten">Bestände und Konten</h2>
 <h3 id="bkmrk-vectronstockimporter"><code>VectronStockImporter</code></h3>
 <p id="bkmrk-%C3%9Cbernimmt-aus-dem-12">Übernimmt aus dem 121er Vectron-Bericht Liefermengen als Lagermengen.</p>
-<table id="bkmrk-parameter-beschreibu-5">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-parameter-beschreibu-5">
 <thead>
 <tr>
 <th>Parameter</th>
@@ -400,10 +400,10 @@
 <td>beliebiger Tag</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="bkmrk-loadprepayaccountval"><code>LoadPrePayAccountValues</code></h3>
 <p id="bkmrk-importiert-best%C3%A4nde-">Importiert Bestände für PrePay-Konten. Im Modus <code>REPLACE</code> wird der Kontostand auf den Wert aus der Datei gesetzt, im Modus <code>ADD</code> addiert. Die Importdatei muss RFID, Barcode oder Kundennummer sowie eine Spalte mit dem Kontostand enthalten. Vor dem Import wird die Datei mit Zeitstempel umbenannt; das verhindert einen doppelten Import.</p>
-<table id="bkmrk-parameter-beschreibu-6">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-parameter-beschreibu-6">
 <thead>
 <tr>
 <th>Parameter</th>
@@ -462,11 +462,11 @@
 <td>Ganzzahl</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="bkmrk-umsatzdaten-exportie">Umsatzdaten exportieren</h2>
 <h3 id="bkmrk-vectronexporter"><code>VectronExporter</code></h3>
 <p id="bkmrk-exportiert-umsatzdat">Exportiert Umsatzdaten und Bestellungen im Vectron-Format.</p>
-<table id="bkmrk-parameter-beschreibu-7">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-parameter-beschreibu-7">
 <thead>
 <tr>
 <th>Parameter</th>
@@ -576,10 +576,10 @@
 <td>–</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-einzelne-felder-unte">Einzelne Felder unterdrücken: <code>#FromReport&lt;Berichtsnummer&gt;Ignore&lt;Feldnummer&gt;=true</code>.</p>
 <p id="bkmrk-verf%C3%BCgbare-berichte%3A">Verfügbare Berichte:</p>
-<table id="bkmrk-nummer-bericht-1-art">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-nummer-bericht-1-art">
 <thead>
 <tr>
 <th>Nummer</th>
@@ -656,11 +656,11 @@
 <td>Kundenvorbestellung</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p class="callout info" id="bkmrk-includecpcanceledrec"><code>includeCPcanceledReceipts</code> steht ab Version 7.0.13 zur Verfügung.</p>
 <h3 id="bkmrk-kakom-exporte">KAKOM-Exporte</h3>
 <p id="bkmrk-drei-jobs-exportiere">Drei Jobs exportieren im KAKOM-Format:</p>
-<table id="bkmrk-job-inhalt-exportkak">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-job-inhalt-exportkak">
 <thead>
 <tr>
 <th>Job</th>
@@ -681,8 +681,8 @@
 <td>An- und Abmeldedaten der Bediener</td>
 </tr>
 </tbody>
-</table>
-<table id="bkmrk-parameter-beschreibu-8">
+</table></div>
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-parameter-beschreibu-8">
 <thead>
 <tr>
 <th>Parameter</th>
@@ -705,10 +705,10 @@
 <td><code>kakom</code>, <code>bit</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-beim-format-bit-wird">Beim Format <code>bit</code> wird in <code>ExportKakomTransSal</code> die Filialnummer exportiert, nicht die Nummer der ersten Kasse.</p>
 <h2 id="bkmrk-zeitdaten">Zeitdaten</h2>
-<table id="bkmrk-job-zweck-bbntimeexp">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-job-zweck-bbntimeexp">
 <thead>
 <tr>
 <th>Job</th>
@@ -729,9 +729,9 @@
 <td>formt Zeitdaten-Eingangsdateien in ein generisches Format um, das anschließend über den ASCII-Import eingelesen wird</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="bkmrk-bbntimeexport"><code>BBNTimeExport</code></h3>
-<table id="bkmrk-parameter-beschreibu-9">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-parameter-beschreibu-9">
 <thead>
 <tr>
 <th>Parameter</th>
@@ -766,9 +766,9 @@
 <td><code>true</code>, <code>false</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="bkmrk-optitimeexport"><code>OptiTimeExport</code></h3>
-<table id="bkmrk-parameter-beschreibu-10">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-parameter-beschreibu-10">
 <thead>
 <tr>
 <th>Parameter</th>
@@ -803,9 +803,9 @@
 <td><code>true</code>, <code>false</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="bkmrk-timeconverter"><code>TimeConverter</code></h3>
-<table id="bkmrk-parameter-beschreibu-11">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-parameter-beschreibu-11">
 <thead>
 <tr>
 <th>Parameter</th>
@@ -876,11 +876,11 @@
 <td>Zeichen</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-f%C3%BCr-den-anschlie%C3%9Fend">Für den anschließenden ASCII-Import gilt: ohne Filialnummer die Schnittstelle <em>Generisches Format für Zeitdaten</em> verwenden, mit Filialnummer die Variante inklusive Filialen.</p>
 <h2 id="bkmrk-berichte-drucken">Berichte drucken</h2>
 <p id="bkmrk-alle-vier-jobs-geben">Alle vier Jobs geben Berichte des CentralPoint als PDF oder auf Papier aus.</p>
-<table id="bkmrk-job-bericht-printtur">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-job-bericht-printtur">
 <thead>
 <tr>
 <th>Job</th>
@@ -905,9 +905,9 @@
 <td>Eigene Berichte</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-gemeinsame-parameter">Gemeinsame Parameter:</p>
-<table id="bkmrk-parameter-beschreibu-12">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-parameter-beschreibu-12">
 <thead>
 <tr>
 <th>Parameter</th>
@@ -930,9 +930,9 @@
 <td>Ganzzahl</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-zus%C3%A4tzlich-je-job%3A">Zusätzlich je Job:</p>
-<table id="bkmrk-job-parameter-beschr">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-job-parameter-beschr">
 <thead>
 <tr>
 <th>Job</th>
@@ -1027,7 +1027,7 @@
 <td><code>true</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="bkmrk-freie-sql-verarbeitu">Freie SQL-Verarbeitung</h2>
 <h3 id="bkmrk-executesql"><code>ExecuteSql</code></h3>
 <p id="bkmrk-f%C3%BChrt-eine-sql-anwei">Führt eine SQL-Anweisung aus. Übergeben wird sie im Parameter <code>sql</code>. Typisch ist die Kombination aus vorherigem <code>delete file:</code> und einem <code>SELECT ... INTO OUTFILE</code>, um eine Exportdatei neu zu erzeugen.</p>
@@ -1048,6 +1048,6 @@
   <span>ITR Partner Service</span>
   <span>Stand 03.09.2026</span>
 </footer>
-<script src="../../assets/suche.js?v=5ba6b751"></script>
+<script src="../../assets/suche.js?v=b87d1332"></script>
 </body>
 </html>

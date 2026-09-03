@@ -7,7 +7,7 @@
 <title>ERPSync einrichten | Schnittstellen</title>
 <meta name="description" content="Der Dienst ALVARAErpSync gleicht die Kasseninstallation mit der ERP-Cloud ab. Diese Seite beschreibt, wie der Dienst als Windows-Dienst registriert wird und wie Sie ihn in einem Netz mit Proxy so konf">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=4a123430">
+<link rel="stylesheet" href="../../assets/stil.css?v=25f33f2f">
 </head>
 <body>
 <header class="kopf">
@@ -70,7 +70,7 @@
 </code></pre>
 <p class="callout danger" id="bkmrk-das-jasypt-kennwort-">Das Jasypt-Kennwort steht in der Dienstkonfiguration und in der Registry im Klartext. Es wird bei der Einrichtung je Installation vergeben — übernehmen Sie kein Kennwort aus einer anderen Installation oder aus einer Dokumentation und geben Sie es nicht an Dritte weiter. Wer es kennt, kann alle verschlüsselten Werte der <code>syncer.properties</code> lesen.</p>
 <h2 id="bkmrk-proxy-parameter">Proxy-Parameter</h2>
-<table id="bkmrk-parameter-bedeutung-">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-parameter-bedeutung-">
 <thead>
 <tr>
 <th>Parameter</th>
@@ -99,7 +99,7 @@
 <td>Ziele, die ohne Proxy erreicht werden. Einträge mit senkrechtem Strich trennen, Platzhalter <code>*</code> ist zulässig</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-in-nonproxyhosts-geh">In <code>nonProxyHosts</code> gehören mindestens <code>localhost</code> und <code>127.0.0.1</code> sowie die internen Netze und Domänen des Kunden. Ohne diese Ausnahmen leitet Java auch die Verbindung zur lokalen Datenbank über den Proxy.</p>
 <h2 id="bkmrk-ergebnis-pr%C3%BCfen">Ergebnis prüfen</h2>
 <ol id="bkmrk-der-dienst-alvaraerp-1">
@@ -126,6 +126,6 @@
   <span>ITR Partner Service</span>
   <span>Stand 03.09.2026</span>
 </footer>
-<script src="../../assets/suche.js?v=5ba6b751"></script>
+<script src="../../assets/suche.js?v=b87d1332"></script>
 </body>
 </html>

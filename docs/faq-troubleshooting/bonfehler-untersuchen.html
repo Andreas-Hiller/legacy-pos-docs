@@ -7,7 +7,7 @@
 <title>Bonfehler untersuchen | FAQ &amp; Troubleshooting</title>
 <meta name="description" content="Wenn Belegsummen, Zahlungen und Positionen nicht zusammenpassen. Die Analyse läuft über lesende Abfragen auf der Datenbank. Symptome Die Summe eines Belegs entspricht nicht der Summe der zugehörigen Z">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../assets/stil.css?v=4a123430">
+<link rel="stylesheet" href="../assets/stil.css?v=25f33f2f">
 </head>
 <body>
 <header class="kopf">
@@ -43,7 +43,7 @@
 <li><strong>Eskalieren.</strong> Keine Korrektur an den Daten vornehmen.</li>
 </ol>
 <h2 id="bkmrk-woran-die-pr%C3%BCfungen-">Woran die Prüfungen ansetzen</h2>
-<table id="bkmrk-abfrage-pr%C3%BCfung-verg">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-abfrage-pr%C3%BCfung-verg">
 <thead>
 <tr>
 <th>Abfrage</th>
@@ -88,7 +88,7 @@
 <td>Bestätigungszeitpunkt des Belegs gegen Zahlungszeitpunkt</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-beteiligte-tabellen%3A">Beteiligte Tabellen: <code>ipos_receipts</code>, <code>ipos_receiptpositions</code>, <code>ipos_paymentrecord</code>, <code>ipos_receipttypes</code>, <code>ipos_paymentmethod</code>. Für den Einzelfall zusätzlich <code>ipos_receiptrelation</code>, <code>ipos_receipt_cancelations</code>, <code>ipos_pricemodifierreceipts</code> und <code>ipos_pricemodifierreceiptpositions</code>.</p>
 <h2 id="bkmrk-pr%C3%BCfabfragen">Prüfabfragen</h2>
 <p id="bkmrk-zeitraum-einmal-je-s">Zeitraum einmal je Sitzung setzen, danach gilt er für alle folgenden Abfragen:</p>
@@ -270,6 +270,6 @@ SELECT * FROM ipos_pricemodifierreceiptpositions p WHERE p.RECEIPT_ID IN (@recei
   <span>ITR Partner Service</span>
   <span>Stand 03.09.2026</span>
 </footer>
-<script src="../assets/suche.js?v=5ba6b751"></script>
+<script src="../assets/suche.js?v=b87d1332"></script>
 </body>
 </html>

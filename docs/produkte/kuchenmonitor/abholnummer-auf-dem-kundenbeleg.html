@@ -7,7 +7,7 @@
 <title>Abholnummer auf dem Kundenbeleg | Produkte</title>
 <meta name="description" content="Bei Außer-Haus-Verkauf bekommt der Gast eine Nummer auf den Beleg gedruckt, unter der seine Bestellung am Abholmonitor erscheint. Wie die Nummer entsteht Erste Stelle: die iterierte Quersumme der Kass">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=4a123430">
+<link rel="stylesheet" href="../../assets/stil.css?v=25f33f2f">
 </head>
 <body>
 <header class="kopf">
@@ -37,7 +37,7 @@
 </ol>
 <p class="callout info" id="bkmrk-die-dritte-bedingung">Die dritte Bedingung ist neu und der Grund für die Umstellung: Ein Küchenmonitor meldet sich einmalig an und bleibt dauerhaft eingetragen — eine Abmeldung gibt es nicht. Ohne Erreichbarkeitsprüfung würde also weiter eine Nummer gedruckt, obwohl das Gerät längst aus ist.</p>
 <h2 id="bkmrk-betriebsarten">Betriebsarten</h2>
-<table id="bkmrk-wert-verhalten-auto-">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-wert-verhalten-auto-">
 <thead>
 <tr>
 <th>Wert</th>
@@ -58,13 +58,13 @@
 <td>keine Abholnummer</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-ist-der-wert-nicht-g">Ist der Wert nicht gesetzt oder unbekannt, gilt <code>AUTO</code>. Bedingung 1 gilt in allen Betriebsarten.</p>
 <h2 id="bkmrk-ziele-am-artikel">Ziele am Artikel</h2>
 <p id="bkmrk-kitchen%2C-bar%2C-kitche"><code>KITCHEN</code>, <code>BAR</code>, <code>KITCHEN_AND_BAR</code> oder <code>NONE</code>.</p>
 <p id="bkmrk-r%C3%BCckfallebene%3A-hat-e"><strong>Rückfallebene:</strong> Hat ein Artikel kein Ziel, ist aber ein Drucker mit dem Namen <code>KitchenMonitor</code> hinterlegt, wird er wie <code>KITCHEN_AND_BAR</code> behandelt. Unterpositionen mit eigenem Ziel ziehen ihre Hauptposition mit.</p>
 <h2 id="bkmrk-erreichbarkeitspr%C3%BCfu">Erreichbarkeitsprüfung</h2>
-<table id="bkmrk-pr%C3%BCfintervall-30-sek">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-pr%C3%BCfintervall-30-sek">
 <thead>
 <tr>
 <th></th>
@@ -97,11 +97,11 @@
 <td>ab dem ersten Erfolg</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-praktische-folge%3A-na">Praktische Folge: Nach dem Ausschalten eines Monitors dauert es <strong>60 bis 90 Sekunden</strong>, bis keine Nummern mehr gedruckt werden; nach dem Einschalten sind es <strong>höchstens 30 Sekunden</strong>.</p>
 <p id="bkmrk-nach-einem-neustart-">Nach einem Neustart des Synchronisationsdienstes gilt ein noch nie geprüftes Gerät zunächst als erreichbar. Jeder Dienst prüft für sich selbst.</p>
 <h2 id="bkmrk-versionsst%C3%A4nde-beach">Versionsstände beachten</h2>
-<table id="bkmrk-kasse-synchronisatio">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-kasse-synchronisatio">
 <thead>
 <tr>
 <th>Kasse</th>
@@ -126,7 +126,7 @@
 <td><strong>keine Abholnummer mehr</strong></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p class="callout danger" id="bkmrk-kasse-und-synchronis">Kasse und Synchronisationsdienst immer gemeinsam aktualisieren. Wird die Kasse aktualisiert und der Dienst nicht, verschwindet die Abholnummer ersatzlos — ohne Fehlermeldung.</p>
 <h2 id="bkmrk-fehlersuche">Fehlersuche</h2>
 <p id="bkmrk-im-protokoll-des-syn">Im Protokoll des Synchronisationsdienstes, Stufe <code>debug</code>, steht der Grund im Klartext:</p>
@@ -147,6 +147,6 @@ mode is NEVER
   <span>ITR Partner Service</span>
   <span>Stand 03.09.2026</span>
 </footer>
-<script src="../../assets/suche.js?v=5ba6b751"></script>
+<script src="../../assets/suche.js?v=b87d1332"></script>
 </body>
 </html>

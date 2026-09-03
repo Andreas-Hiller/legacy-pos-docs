@@ -7,7 +7,7 @@
 <title>Lagerverwaltung einrichten | Produkte</title>
 <meta name="description" content="Die Lagerverwaltung führt Bestände artikelgenau. Der CentralPoint pflegt dabei die artikelbezogenen Einstellungen und wertet die Bestände filialübergreifend aus; das Grundverhalten wird an jeder Kasse">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=4a123430">
+<link rel="stylesheet" href="../../assets/stil.css?v=25f33f2f">
 </head>
 <body>
 <header class="kopf">
@@ -32,7 +32,7 @@
 <li>Für Auswertungen über Eigene Berichte: das Modul <strong>Erweiterte Berichte</strong> ist lizenziert.</li>
 </ul>
 <h2 id="bkmrk-wer-was-einstellt">Wer was einstellt</h2>
-<table id="bkmrk-ort-was-dort-festgel">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-ort-was-dort-festgel">
 <thead>
 <tr>
 <th>Ort</th>
@@ -53,14 +53,14 @@
 <td>wie ein Vorgang den Bestand verändert</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p class="callout warning" id="bkmrk-solange-an-einer-kas">Solange an einer Kasse <strong>Lager aktiv</strong> nicht gesetzt ist, bleiben alle im CentralPoint gepflegten Lagereinstellungen wirkungslos. Weder Bestandslogik noch Produktionsablauf greifen dann.</p>
 <h2 id="bkmrk-so-gehen-sie-vor">So gehen Sie vor</h2>
 <ol id="bkmrk-an-jeder-kasse-im-ad">
 <li><strong>An jeder Kasse</strong> im Admin-Panel <strong>Einstellungen → Bon → Lager</strong> öffnen und <strong>Lager aktiv</strong> setzen. Die übrigen Optionen dort steuern negative Bestände und die Anzeige auf den Artikelknöpfen.</li>
 <li><strong>Im CentralPoint</strong> die Bon-Typen prüfen: Am Bon-Typ legt die Einstellung <strong>Warenbestandsveränderung</strong> fest, wie ein darüber gebuchter Vorgang den Bestand beeinflusst.</li>
 </ol>
-<table id="bkmrk-wert-wirkung-auf-den">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-wert-wirkung-auf-den">
 <thead>
 <tr>
 <th>Wert</th>
@@ -85,11 +85,11 @@
 <td>Inventur, Korrektur</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <ol start="3" id="bkmrk-im-centralpoint-je-a">
 <li><strong>Im CentralPoint</strong> je Artikel den Dialog <strong>Artikel Details</strong>, Reiter <strong>Lagerverwaltung</strong> öffnen und pflegen:</li>
 </ol>
-<table id="bkmrk-feld-bedeutung-lager">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-feld-bedeutung-lager">
 <thead>
 <tr>
 <th>Feld</th>
@@ -114,7 +114,7 @@
 <td>Hinweistext, der der Verkaufskraft beim Unterschreiten der Chargengröße angezeigt wird</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <ol start="4" id="bkmrk-die-stammdaten-an-di">
 <li>Die Stammdaten an die Kassen verteilen und einen Synchronisationslauf abwarten.</li>
 </ol>
@@ -122,7 +122,7 @@
 <h2 id="bkmrk-produktionsablauf-er">Produktionsablauf ergänzen</h2>
 <p id="bkmrk-ist-die-lagerverwalt">Ist die Lagerverwaltung aktiv und am Artikel eine Chargengröße gepflegt, unterstützt die Kasse einen Nachproduktions-Ablauf. Fällt der Bestand unter die Chargengröße, meldet die Kasse Produktionsbedarf; die Verkaufskraft wählt <strong>Jetzt produzieren</strong> oder <strong>Später produzieren</strong>. Produzierte Mengen lassen sich auch von Hand über den Lagerdialog einbuchen.</p>
 <p id="bkmrk-das-verhalten-steuer">Das Verhalten steuern drei Parameter an der Kasse:</p>
-<table id="bkmrk-parameter-standardwe">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-parameter-standardwe">
 <thead>
 <tr>
 <th>Parameter</th>
@@ -147,7 +147,7 @@
 <td>Code eines Bon-Typs. Ist er gesetzt, wird bei <strong>Jetzt produzieren</strong> ein Produktionsbon gedruckt</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p class="callout warning" id="bkmrk-stock.printreceiptty"><code>Stock.PrintReceiptType</code> erwartet den <strong>Code</strong> des Bon-Typs, nicht Name oder Kennung. Ein falscher Wert führt dazu, dass kein Produktionsbon gedruckt wird — ohne Fehlermeldung.</p>
 <p id="bkmrk-ein-weiterer-paramet">Ein weiterer Parameter betrifft nur die Anzeige: <code>Stock.NullCharacter</code> legt das Zeichen fest, das auf dem Artikelknopf für Artikel ohne Lagerverwaltung erscheint. Standardwert ist <code>-</code>; für gar keine Anzeige wird ein Leerzeichen gespeichert.</p>
 <p id="bkmrk-diese-parameter-werd">Diese Parameter werden an der Kasse gepflegt — siehe <a href="../../produkte/itr-kasse/einstellungen-der-kasse-referenz.html">ITR Partner Service → Produkte → ITR Kasse → Einstellungen der Kasse: Referenz</a>.</p>
@@ -189,6 +189,6 @@
   <span>ITR Partner Service</span>
   <span>Stand 03.09.2026</span>
 </footer>
-<script src="../../assets/suche.js?v=5ba6b751"></script>
+<script src="../../assets/suche.js?v=b87d1332"></script>
 </body>
 </html>

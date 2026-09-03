@@ -7,7 +7,7 @@
 <title>TSE-PIN und PUK verwalten | Fiskalisierung</title>
 <meta name="description" content="Jede Hardware-TSE wird bei der Registrierung mit einer PIN und einer PUK versehen, die die Kasse selbst erzeugt. Beide lassen sich ändern — und beide sperren die TSE, wenn sie verloren gehen. Wie die ">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../assets/stil.css?v=4a123430">
+<link rel="stylesheet" href="../assets/stil.css?v=25f33f2f">
 </head>
 <body>
 <header class="kopf">
@@ -34,7 +34,7 @@
 </ul>
 <p class="callout danger" id="bkmrk-eine-ge%C3%A4nderte-pin-u">Eine geänderte PIN und eine geänderte PUK müssen dokumentiert werden. Gehen beide verloren, ist die TSE nach drei Fehlversuchen unwiederbringlich gesperrt — mit allen darauf gespeicherten Transaktionen.</p>
 <h2 id="bkmrk-die-vier-eintr%C3%A4ge">Die vier Einträge</h2>
-<table id="bkmrk-eintrag-wof%C3%BCr-pin-an">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-eintrag-wof%C3%BCr-pin-an">
 <thead>
 <tr>
 <th>Eintrag</th>
@@ -59,7 +59,7 @@
 <td>PIN des Zeit-Benutzers ändern oder ihn reaktivieren.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-manche-hersteller%2C-d">Manche Hersteller, darunter Swissbit, haben nur <strong>eine Admin-PUK für beide Benutzer</strong>.</p>
 <h2 id="bkmrk-wenn-datenbank-und-t">Wenn Datenbank und TSE nicht mehr zusammenpassen</h2>
 <p id="bkmrk-das-passiert%2C-wenn-e">Das passiert, wenn eine TSE an eine andere Kasse gesteckt oder zwei TSEs zwischen Kassen getauscht werden: Die Werte in der Kassendatenbank stimmen dann nicht mehr mit denen auf der TSE überein, und der erste Anmeldeversuch scheitert.</p>
@@ -91,6 +91,6 @@ timepuk=123456
   <span>ITR Partner Service</span>
   <span>Stand 03.09.2026</span>
 </footer>
-<script src="../assets/suche.js?v=5ba6b751"></script>
+<script src="../assets/suche.js?v=b87d1332"></script>
 </body>
 </html>

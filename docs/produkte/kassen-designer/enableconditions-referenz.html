@@ -7,7 +7,7 @@
 <title>EnableConditions: Referenz | Produkte</title>
 <meta name="description" content="EnableConditions (Bedingungen) entscheiden, ob ein Button an der Kasse betätigt werden kann oder inaktiv und ausgegraut bleibt. Diese Seite listet die verfügbaren Bedingungen je Gruppe mit ihren Param">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=4a123430">
+<link rel="stylesheet" href="../../assets/stil.css?v=25f33f2f">
 </head>
 <body>
 <header class="kopf">
@@ -37,7 +37,7 @@
 </ul>
 <p class="callout warning" id="bkmrk-eine-bedingung-sperr">Eine Bedingung sperrt nur den Button, nicht die bereits ausgelöste Aktion. Solange eine Bedingung erfüllt ist, kann der Bediener den Button betätigen; wird die Bedingung später unwirksam, ist der Button zwar wieder inaktiv, die zwischenzeitlich ausgeführte Aktion wird aber nicht zurückgenommen. Zeitabhängige Bedingungen deshalb nur für Aktionen verwenden, die nachträglich unkritisch sind.</p>
 <h2 id="bkmrk-gruppe%3A-kasse">Gruppe: Kasse</h2>
-<table id="bkmrk-bedingung-beschreibu">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-bedingung-beschreibu">
 <thead>
 <tr>
 <th>Bedingung</th>
@@ -66,10 +66,10 @@
 <td>Wahrheitswert, Standardwert <code>false</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-anwendungsbeispiel-f">Anwendungsbeispiel für <strong>Filialnummern</strong>: Alle Filialen nutzen dieselbe Maskenprogrammierung, der Rabatt-Button soll aber nur in einer Filiale aktiv sein.</p>
 <h2 id="bkmrk-gruppe%3A-bediener">Gruppe: Bediener</h2>
-<table id="bkmrk-bedingung-beschreibu-1">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-bedingung-beschreibu-1">
 <thead>
 <tr>
 <th>Bedingung</th>
@@ -104,10 +104,10 @@
 <td>–</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-die-bedienerrollen-b">Die Bedienerrollen bauen aufeinander auf: <code>OPERATOR</code> hat die kleinste Berechtigungsstufe, <code>ADMIN</code> die höchste. Ein <code>SUPERVISOR</code> darf in der Regel alles, was ein <code>OPERATOR</code> darf, ein <code>BRANCH_MANAGER</code> alles, was ein <code>SUPERVISOR</code> darf.</p>
 <h2 id="bkmrk-gruppe%3A-zahlungen">Gruppe: Zahlungen</h2>
-<table id="bkmrk-bedingung-beschreibu-2">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-bedingung-beschreibu-2">
 <thead>
 <tr>
 <th>Bedingung</th>
@@ -136,9 +136,9 @@
 <td>Geldbeträge, z. B. <code>1,38</code> und <code>12,50</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="bkmrk-gruppe%3A-bon">Gruppe: Bon</h2>
-<table id="bkmrk-bedingung-beschreibu-3">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-bedingung-beschreibu-3">
 <thead>
 <tr>
 <th>Bedingung</th>
@@ -209,11 +209,11 @@
 <td><code>true</code> verlangt zusätzlich PrePaid-Guthaben, <code>false</code> (Standardwert) ignoriert das Guthaben</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-m%C3%B6gliche-werte-f%C3%BCr-w">Mögliche Werte für <strong>Wert-Typ</strong> bei <em>Ist Eigenschaft von Bon im Bereich</em>: Bon-Summe, Bon-Steuer, Bon-Druckanzahl, Positions-Menge, Positions-Summe, Positions-Steuer, Positions-Preisebene.</p>
 <p class="callout info" id="bkmrk-bei-bon-steuer%2C-posi">Bei Bon-Steuer, Positions-Steuer und Positions-Preisebene sind nur Ganzzahlen möglich. Beim Steuersatz zählt die Nummer des Steuersatzes, nicht der Steuerwert.</p>
 <h2 id="bkmrk-gruppe%3A-sonstige">Gruppe: Sonstige</h2>
-<table id="bkmrk-bedingung-beschreibu-4">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-bedingung-beschreibu-4">
 <thead>
 <tr>
 <th>Bedingung</th>
@@ -260,7 +260,7 @@
 <td>Auswahlliste, siehe unten. Ohne Auswahl liefert die Prüfung immer „nicht erfüllt“</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-abfragbare-module%3A-s">Abfragbare Module: <code>Sync2CP</code>, <code>Floating</code>, <code>BonusPoints</code>, <code>PrePaid</code>, <code>QRCodeOrders</code>, <code>PaymentTerminal</code>, <code>Scale</code>, <code>Ordermann</code>, <code>MessagingCoffeeBoardCR</code>, <code>Coinmaster</code>, <code>Glory</code>, <code>SmartTill</code>, <code>smartSCHANK</code>, <code>VideoSurveillance</code>, <code>Airport</code>, <code>Secucard</code>, <code>Stampay</code>.</p>
 <p class="callout warning" id="bkmrk-und--und-oder-verkn%C3%BC">Und- und Oder-Verknüpfungen lassen sich kombinieren, es gibt jedoch keine Klammerung. Kombinierte Bedingungen deshalb vor dem Produktivsetzen an der Kasse durchtesten.</p>
 <h2 id="bkmrk-zu-beachten">Zu beachten</h2>
@@ -272,6 +272,6 @@
   <span>ITR Partner Service</span>
   <span>Stand 03.09.2026</span>
 </footer>
-<script src="../../assets/suche.js?v=5ba6b751"></script>
+<script src="../../assets/suche.js?v=b87d1332"></script>
 </body>
 </html>

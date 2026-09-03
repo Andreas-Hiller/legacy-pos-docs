@@ -7,7 +7,7 @@
 <title>DSFinV-K exportieren | Fiskalisierung</title>
 <meta name="description" content="Der DSFinV-K-Export liefert die Kassendaten in der von der Finanzverwaltung vorgegebenen Struktur. Die Kasse setzt die DSFinV-K in Version 2.3 um. Voraussetzungen Die Stammdaten für den Export sind vo">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../assets/stil.css?v=4a123430">
+<link rel="stylesheet" href="../assets/stil.css?v=25f33f2f">
 </head>
 <body>
 <header class="kopf">
@@ -44,7 +44,7 @@
 <p class="callout warning" id="bkmrk-nutzen-sie-den-expor">Nutzen Sie den Export aus dem CentralPoint nur zu Testzwecken oder zur Abstimmung mit dem Steuerberater. Für eine behördliche Prüfung ist der Export stets direkt an der Kasse zu erstellen.</p>
 <h2 id="bkmrk-was-pr%C3%BCfer-wissen-so">Was Prüfer wissen sollten</h2>
 <p id="bkmrk-die-folgenden-besond">Die folgenden Besonderheiten sind herstellerseitig bekannt und keine Fehler in den Daten. Häufig wird die Prüfsoftware AmadeusVerify eingesetzt, deshalb sind deren Fehlercodes mit genannt.</p>
-<table id="bkmrk-sachverhalt-betroffe">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-sachverhalt-betroffe">
 <thead>
 <tr>
 <th>Sachverhalt</th>
@@ -79,9 +79,9 @@
 <td>Auf dem Beleg zusammengefasste Positionen werden im Export einzeln ausgewiesen, die kumulierte Position mit 0 Euro. Je nach früherer Kumulationsmethode entstehen minimale Abweichungen. Maßgeblich sind die Steuercodes und TSE-Daten.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="bkmrk-vorgangstypen">Vorgangstypen</h2>
-<table id="bkmrk-vorgangstyp-erkl%C3%A4run">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-vorgangstyp-erkl%C3%A4run">
 <thead>
 <tr>
 <th>Vorgangstyp</th>
@@ -106,7 +106,7 @@
 <td>Lieferschein ohne Zahlung, etwa bei externer Rechnungslegung. Die Schuld erscheint als Forderung.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-zu-pfand-und-pfandr%C3%BC">Zu <strong>Pfand</strong> und <strong>Pfandrückzahlung</strong> sind getrennte Artikel zu verwenden; eine Kombination ist nicht möglich. Ohne ausdrückliche Konfiguration am Artikel wird der Vorgang als Umsatz behandelt.</p>
 <p id="bkmrk-beim-geldtransit-bet">Beim <strong>Geldtransit</strong> betrachtet der Kassenschnitt nur das Delta — technisch wird ein Anfangsbestand von 0 Euro angenommen und nicht gebucht.</p>
 <p id="bkmrk-%C3%84ltere-exporte-k%C3%B6nne">Ältere Exporte können Vorgänge als <code>AVSonstige</code> enthalten. Das sind Vorgänge, die einen Beleg erzeugten, aber in der damals eingesetzten Version keinem bekannten Geschäftsvorfall zugeordnet werden konnten.</p>
@@ -133,6 +133,6 @@
   <span>ITR Partner Service</span>
   <span>Stand 03.09.2026</span>
 </footer>
-<script src="../assets/suche.js?v=5ba6b751"></script>
+<script src="../assets/suche.js?v=b87d1332"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@
 <title>Kassenschublade einrichten | Betrieb &amp; Administration</title>
 <meta name="description" content="Die Schublade hängt entweder am Bondrucker oder direkt an einer seriellen Schnittstelle. Am Drucker angeschlossen Der übliche Fall. Der Drucker bekommt in der Kassenkonfiguration die Option Kassenschu">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../assets/stil.css?v=4a123430">
+<link rel="stylesheet" href="../assets/stil.css?v=25f33f2f">
 </head>
 <body>
 <header class="kopf">
@@ -28,7 +28,7 @@
 <h2 id="bkmrk-am-drucker-angeschlo">Am Drucker angeschlossen</h2>
 <p id="bkmrk-der-%C3%BCbliche-fall.-de">Der übliche Fall. Der Drucker bekommt in der Kassenkonfiguration die Option <strong>Kassenschublade</strong> und öffnet sie zusammen mit dem Beleg. Siehe <a href="../betrieb-administration/bondrucker-einrichten.html">ITR Partner Service → Betrieb &amp; Administration → Bondrucker einrichten</a>.</p>
 <p id="bkmrk-passt-die-%C3%96ffnungsse">Passt die Öffnungssequenz nicht, wird sie in der <code>app.properties</code> gesetzt:</p>
-<table id="bkmrk-parameter-bedeutung-">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-parameter-bedeutung-">
 <thead>
 <tr>
 <th>Parameter</th>
@@ -48,11 +48,11 @@
 <td><code>0x1B, 0x70, 0x01, 0x32, -0x06</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="bkmrk-seriell-angeschlosse">Seriell angeschlossen</h2>
 <p id="bkmrk-unter-admin-panel-%E2%86%92-">Unter <strong>Admin-Panel → Einstellungen → Hardware → Ein-/Ausgabe Geräte → Serielle Schubladen</strong>. Mehrere Schubladen sind möglich.</p>
 <p id="bkmrk-je-schublade%3A-nummer">Je Schublade: <strong>Nummer</strong>, <strong>Name</strong>, <strong>COM-Parameter</strong> und die <strong>Öffnungssequenz</strong>.</p>
-<table id="bkmrk-sequenznummer-dezima">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-sequenznummer-dezima">
 <thead>
 <tr>
 <th>Sequenznummer</th>
@@ -87,12 +87,12 @@
 <td><code>1B 70 17 32 FA</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-passt-keine%2C-l%C3%A4sst-s">Passt keine, lässt sich eine eigene Sequenz in Dezimalzahlen eintragen.</p>
 <p id="bkmrk-zus%C3%A4tzlich-einstellb">Zusätzlich einstellbar: ein Signalton beim Öffnen, beim Schließen oder solange die Schublade offen ist, sowie <strong>Anzeige blockieren wenn Lade offen ist</strong> — das sperrt alle Bildschirmeingaben, bis die Schublade zu ist.</p>
 <p id="bkmrk-zum-pr%C3%BCfen-gibt-es-e">Zum Prüfen gibt es einen <strong>Schubladentester</strong>, der die eingestellte Sequenz direkt sendet.</p>
 <h2 id="bkmrk-mehrere-schubladen-u">Mehrere Schubladen und Geldbeutel</h2>
-<table id="bkmrk-parameter-bedeutung--1">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-parameter-bedeutung--1">
 <thead>
 <tr>
 <th>Parameter</th>
@@ -117,7 +117,7 @@
 <td><code>false</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p class="callout warning" id="bkmrk-bei-mehreren-schubla">Bei mehreren Schubladen oder Geldbeuteln muss bei der Tagesabrechnung jede einzelne abgerechnet werden. Wird eine vergessen, stimmt der Kassenbestand nicht.</p>
 <p id="bkmrk-%5Boffen%3A-schreibweise"><code>[OFFEN: Schreibweise von &lt;code&gt;Hardware.Drawer.OneDrawerPerOperator&lt;/code&gt; an der Software prüfen — die Vorlage ist an dieser Stelle beschädigt.]</code></p>
 <h2 id="bkmrk-ergebnis-pr%C3%BCfen">Ergebnis prüfen</h2>
@@ -129,6 +129,6 @@
   <span>ITR Partner Service</span>
   <span>Stand 03.09.2026</span>
 </footer>
-<script src="../assets/suche.js?v=5ba6b751"></script>
+<script src="../assets/suche.js?v=b87d1332"></script>
 </body>
 </html>

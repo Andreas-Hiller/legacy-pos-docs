@@ -7,7 +7,7 @@
 <title>Orgasoft-Anbindung einrichten | Schnittstellen</title>
 <meta name="description" content="Bei der Orgasoft-Anbindung ruft die ERP-Cloud Hauptgruppen, Warengruppen und Artikel über die Orgasoft REST-API ab und übergibt sie über den ERPSync an den CentralPoint. Die Bondaten der Kasse gehen d">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=4a123430">
+<link rel="stylesheet" href="../../assets/stil.css?v=25f33f2f">
 </head>
 <body>
 <header class="kopf">
@@ -33,7 +33,7 @@
 <li>Benutzername und Kennwort für die Orgasoft REST-API liegen vor</li>
 </ul>
 <h2 id="bkmrk-funktionsweise">Funktionsweise</h2>
-<table id="bkmrk-richtung-weg-stammda">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-richtung-weg-stammda">
 <thead>
 <tr>
 <th>Richtung</th>
@@ -50,10 +50,10 @@
 <td>Kasse → ERPSync → ERP-Cloud → Orgasoft REST-API</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-die-verteilung-vom-c">Die Verteilung vom CentralPoint an die Kassen läuft über den bestehenden Synchronisationsmechanismus und ist nicht Teil dieser Schnittstelle.</p>
 <p id="bkmrk-verwendete-endpunkte">Verwendete Endpunkte der Orgasoft REST-API:</p>
-<table id="bkmrk-endpunkt-inhalt-grou">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-endpunkt-inhalt-grou">
 <thead>
 <tr>
 <th>Endpunkt</th>
@@ -82,7 +82,7 @@
 <td>Bons aus der Kasse</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-%C3%9Cbertragen-werden-nu">Übertragen werden nur Artikel, die in Orgasoft beide Werte tragen:</p>
 <pre id="bkmrk-%22kassenartikeljn%22%3A-1"><code class="language-json">"KassenartikelJn": 1
 "VerkaufGesperrt": 0
@@ -100,7 +100,7 @@
 <ol start="2" id="bkmrk-zugangsdaten-und-url">
 <li><strong>Zugangsdaten und URL zusammenstellen</strong> und an YUVENDA übergeben:</li>
 </ol>
-<table id="bkmrk-angabe-beschreibung-">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-angabe-beschreibung-">
 <thead>
 <tr>
 <th>Angabe</th>
@@ -121,7 +121,7 @@
 <td>Kennwort dieses Benutzers</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <ol start="3" id="bkmrk-freischaltung-in-der">
 <li><strong>Freischaltung in der ERP-Cloud.</strong> YUVENDA hinterlegt den Kunden als Orgasoft-Kunden und trägt URL, Benutzername und Kennwort in der ERP-Cloud ein. Dieser Schritt erfolgt nicht durch den Partner.</li>
 <li><strong>Erstimport anstoßen.</strong> YUVENDA löst den initialen Artikelimport in der ERP-Cloud aus. Danach laufen die Änderungen regelmäßig über <code>Article/changed</code>.</li>
@@ -152,6 +152,6 @@
   <span>ITR Partner Service</span>
   <span>Stand 03.09.2026</span>
 </footer>
-<script src="../../assets/suche.js?v=5ba6b751"></script>
+<script src="../../assets/suche.js?v=b87d1332"></script>
 </body>
 </html>

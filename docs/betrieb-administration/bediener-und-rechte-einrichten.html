@@ -7,7 +7,7 @@
 <title>Bediener und Rechte einrichten | Betrieb &amp; Administration</title>
 <meta name="description" content="Ohne Anmeldung ist die Kasse nicht nutzbar. Jeder Vorgang wird dem angemeldeten Bediener zugeordnet — das ist zugleich die Grundlage der Nachvollziehbarkeit gegenüber der Finanzverwaltung. Wo Bediener">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../assets/stil.css?v=4a123430">
+<link rel="stylesheet" href="../assets/stil.css?v=25f33f2f">
 </head>
 <body>
 <header class="kopf">
@@ -29,7 +29,7 @@
 <p id="bkmrk-bei-betrieb-mit-cent">Bei Betrieb mit CentralPoint werden Bediener <strong>in der Zentrale</strong> angelegt und von dort verteilt. An der Kasse sind Anlegen, Bearbeiten und Löschen dann gesperrt. Nur bei einer Standalone-Kasse erfolgt die Pflege direkt an der Kasse unter <strong>Admin-Panel → Stammdaten → Bediener</strong>.</p>
 <h2 id="bkmrk-die-f%C3%BCnf-rollen">Die fünf Rollen</h2>
 <p id="bkmrk-die-rollen-bauen-auf">Die Rollen bauen aufeinander auf: Jede höhere Rolle hat alle Rechte der darunterliegenden.</p>
-<table id="bkmrk-rolle-darf-employee-">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-rolle-darf-employee-">
 <thead>
 <tr>
 <th>Rolle</th>
@@ -58,11 +58,11 @@
 <td>alles</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p class="callout info" id="bkmrk-die-rechtevergabe-er">Die Rechtevergabe erfolgt nicht je Funktion, sondern über die Rolle, die einem Button zugewiesen ist. Neu angelegte Buttons erhalten standardmäßig die Rolle <strong>Operator</strong> — wer eine Funktion beschränken will, setzt am Button eine höhere Rolle.</p>
 <p id="bkmrk-employee-ist-keine-b"><strong>Employee</strong> ist keine Berechtigungsstufe, sondern reine Zeiterfassung. Solche Bediener können in der Anmeldemaske nur die Arbeitszeit starten, eine Pause beginnen und beenden und die Arbeitszeit beenden. Die erste Anmeldung am Tag startet die Arbeitszeit automatisch; bei der zweiten fragt die Kasse, ob eine Pause beginnt oder die Arbeitszeit endet. Eine begonnene Pause endet mit der nächsten Anmeldung von selbst.</p>
 <h2 id="bkmrk-anmeldearten">Anmeldearten</h2>
-<table id="bkmrk-art-hinweis-benutzer">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-art-hinweis-benutzer">
 <thead>
 <tr>
 <th>Art</th>
@@ -91,7 +91,7 @@
 <td>eigener Code für Anmelden und Abmelden</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-alle-codes-werden-oh">Alle Codes werden ohne Rücksicht auf Groß- und Kleinschreibung geprüft.</p>
 <p id="bkmrk-der-dallas-lock-schu">Der <strong>Dallas-Lock-Schutzmodus</strong> ist der gastronomietypische Fall: Das Anstecken des Schlüssels meldet den Bediener an, das Abziehen meldet ihn ab.</p>
 <p id="bkmrk-eingestellt-wird-die">Eingestellt wird die zugelassene Anmeldeart an der Kasse unter <strong>Admin-Panel → Einstellungen → Basis → Anmeldung</strong>; mit der Auswahl <strong>Alle</strong> sind mehrere Arten gleichzeitig möglich.</p>
@@ -134,6 +134,6 @@ Autologin.TimeToWaitBeforeLoginInSeconds=5
   <span>ITR Partner Service</span>
   <span>Stand 03.09.2026</span>
 </footer>
-<script src="../assets/suche.js?v=5ba6b751"></script>
+<script src="../assets/suche.js?v=b87d1332"></script>
 </body>
 </html>

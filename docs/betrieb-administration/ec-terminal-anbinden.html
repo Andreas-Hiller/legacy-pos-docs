@@ -7,7 +7,7 @@
 <title>EC-Terminal anbinden | Betrieb &amp; Administration</title>
 <meta name="description" content="Die Kasse spricht mit dem Zahlungsterminal über das ZVT-Protokoll, wahlweise seriell oder über das Netzwerk. Die Netzwerkanbindung ist die empfohlene. Die Verbindung funktioniert nur, wenn sich das Te">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../assets/stil.css?v=4a123430">
+<link rel="stylesheet" href="../assets/stil.css?v=25f33f2f">
 </head>
 <body>
 <header class="kopf">
@@ -48,7 +48,7 @@
 <li><strong>Kennwort</strong> hinterlegen — das Kassiererkennwort des Terminals. Bei fünfstelligen Kennwörtern wird eine <code>0</code> vorangestellt.</li>
 <li><strong>INIT-Kommando-Verhalten</strong> wählen:</li>
 </ol>
-<table id="bkmrk-wert-wirkung-never-n">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-wert-wirkung-never-n">
 <thead>
 <tr>
 <th>Wert</th>
@@ -69,7 +69,7 @@
 <td>vor jeder Transaktion</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <ol start="6" id="bkmrk-kassenabschluss%3A-mit">
 <li><strong>Kassenabschluss:</strong> Mit <strong>Send End-of-Day Commando</strong> führt die Kasse beim Kassenabschluss automatisch den Terminalabschluss aus und druckt dessen Text auf den Z-Bericht.</li>
 <li>Testzahlung durchführen.</li>
@@ -95,7 +95,7 @@ Hardware.PaymentTerminal.sendCommitAtReconToMultipleTerminals=&lt;IP&gt;:&lt;Por
 <p class="callout warning" id="bkmrk-das-funktioniert-nur">Das funktioniert nur bei Anbindung über das Netzwerk. Seriell angebundene Terminals lassen sich nicht filialweit abschließen.</p>
 <h2 id="bkmrk-unterschriftsfeld-au">Unterschriftsfeld auf dem Beleg</h2>
 <p id="bkmrk-der-vom-terminal-gel">Der vom Terminal gelieferte Text lässt sich vor dem Druck ersetzen — etwa, um Platz für eine Unterschrift zu schaffen:</p>
-<table id="bkmrk-parameter-bedeutung-">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-parameter-bedeutung-">
 <thead>
 <tr>
 <th>Parameter</th>
@@ -116,7 +116,7 @@ Hardware.PaymentTerminal.sendCommitAtReconToMultipleTerminals=&lt;IP&gt;:&lt;Por
 <td>zusätzliche Leerzeilen am Ende</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="bkmrk-auszahlung-am-termin">Auszahlung am Terminal</h2>
 <p id="bkmrk-ab-version-3.8-m%C3%B6gli">Ab Version 3.8 möglich. Im CentralPoint wird ein Bezahlweg angelegt.</p>
 <p class="callout warning" id="bkmrk-der-bezahlweg-muss-a">Der Bezahlweg muss auf <strong>Bar</strong> stehen, und <strong>Nutze EC Terminal</strong> darf <strong>nicht</strong> aktiviert sein — sonst wird die Auszahlung als Kartenzahlung verbucht.</p>
@@ -128,6 +128,6 @@ Hardware.PaymentTerminal.sendCommitAtReconToMultipleTerminals=&lt;IP&gt;:&lt;Por
   <span>ITR Partner Service</span>
   <span>Stand 03.09.2026</span>
 </footer>
-<script src="../assets/suche.js?v=5ba6b751"></script>
+<script src="../assets/suche.js?v=b87d1332"></script>
 </body>
 </html>

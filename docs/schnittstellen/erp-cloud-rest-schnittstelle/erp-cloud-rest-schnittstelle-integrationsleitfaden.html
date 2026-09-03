@@ -7,7 +7,7 @@
 <title>ERP-Cloud REST-Schnittstelle: Integrationsleitfaden | Schnittstellen</title>
 <meta name="description" content="Die ERP-Cloud stellt eine generische REST-Schnittstelle bereit, über die ein externes Kassen- oder App-System Stammdaten abholt und Verkaufs-, Guthaben- und Bonuspunktdaten zurückmeldet. Der Datenaust">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=4a123430">
+<link rel="stylesheet" href="../../assets/stil.css?v=25f33f2f">
 </head>
 <body>
 <header class="kopf">
@@ -38,7 +38,7 @@
 <p id="bkmrk-daten-werden-als-xml">Daten werden als <strong>XML in UTF-8</strong> ausgetauscht. Ein XSD-Schema ist verfügbar.</p>
 <p id="bkmrk-den-wert-f%C3%BCr-%3Cerp-cl">Den Wert für <code>&lt;ERP-CLOUD-HOST&gt;</code> erhalten Sie je Umgebung von YUVENDA Enterprise Solutions GmbH.</p>
 <h2 id="bkmrk-beteiligte-komponent">Beteiligte Komponenten</h2>
-<table id="bkmrk-komponente-rolle-erp">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-komponente-rolle-erp">
 <thead>
 <tr>
 <th>Komponente</th>
@@ -59,9 +59,9 @@
 <td>liefert die Daten in die ERP-Cloud und übernimmt von dort — nicht Teil dieser Schnittstelle</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="bkmrk-nachrichtentypen">Nachrichtentypen</h2>
-<table id="bkmrk-typ-richtung-inhalt-">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-typ-richtung-inhalt-">
 <thead>
 <tr>
 <th>Typ</th>
@@ -111,7 +111,7 @@
 <td>Käufe aus dem externen System</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="bkmrk-authentifizierung">Authentifizierung</h2>
 <p id="bkmrk-jeder-request-tr%C3%A4gt-">Jeder Request trägt zwei HTTP-Header:</p>
 <ul id="bkmrk-x-auth-token-%E2%80%94-die-f">
@@ -128,7 +128,7 @@
 <li><strong>Käufe senden</strong> — gültige <code>orderNotification</code>. Der Type <code>EXTERNAL</code> ist zwingend zu übergeben. <code>Gross</code> und <code>VAT</code> werden je Position übergeben und bilden die Grundlage für die Berechnung von Bonuspunkten; sie dürfen vom Artikelstamm abweichen. Optional sind ein Abholdatum (<code>PickupDatetime</code>) sowie 1 bis n Prepaid- oder Bonuspunkttransaktionen.</li>
 </ul>
 <h2 id="bkmrk-antwortcodes">Antwortcodes</h2>
-<table id="bkmrk-code-bedeutung-200-a">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-code-bedeutung-200-a">
 <thead>
 <tr>
 <th>Code</th>
@@ -165,7 +165,7 @@
 <td>technisches Problem, die Übermittlung sollte wiederholt werden</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="bkmrk-beispiel-einer-benac">Beispiel einer Benachrichtigungsliste</h2>
 <pre id="bkmrk-%3C%3Fxml-version%3D%221.0%22-"><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
 &lt;receivableNotificationList queryLocation="82f0a808-e38e-47cc-89fa-2b072948b348"
@@ -199,6 +199,6 @@
   <span>ITR Partner Service</span>
   <span>Stand 03.09.2026</span>
 </footer>
-<script src="../../assets/suche.js?v=5ba6b751"></script>
+<script src="../../assets/suche.js?v=b87d1332"></script>
 </body>
 </html>

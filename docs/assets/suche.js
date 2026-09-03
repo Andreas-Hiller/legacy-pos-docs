@@ -137,3 +137,57 @@
     if (!kasten.contains(ev.target) && ev.target !== feld) { kasten.hidden = true; }
   });
 })();
+
+/*
+  AKTUELLEN ABSCHNITT IN DER RECHTEN SPALTE MARKIEREN.
+
+  Die Ueberschriftenliste stand vorher unbeweglich da: man scrollte durch eine
+  Referenzseite und sah nicht, wo man ist. Jetzt wandert die Markierung mit,
+  und die Liste scrollt den markierten Eintrag in ihren sichtbaren Bereich -
+  bei einer Seite mit vielen Ueberschriften ist er sonst nicht zu sehen.
+
+  IntersectionObserver mit einem Rand oben statt eines scroll-Handlers: der
+  Browser rechnet das selbst, ohne bei jedem Scrollschritt Code auszufuehren.
+  Der Rand von -78px entspricht der klebenden Kopfleiste - ohne ihn gilt eine
+  Ueberschrift schon als sichtbar, waehrend sie noch dahinter steckt.
+*/
+(function () {
+  var liste = document.querySelector('.seiteninhalt');
+  if (!liste || !('IntersectionObserver' in window)) { return; }
+
+  var eintraege = {};
+  var ziele = [];
+  liste.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    var id = decodeURIComponent(a.getAttribute('href').slice(1));
+    var kopf = document.getElementById(id);
+    if (kopf) { eintraege[id] = a; ziele.push(kopf); }
+  });
+  if (!ziele.length) { return; }
+
+  var aktiv = null;
+  function setze(id) {
+    if (id === aktiv) { return; }
+    if (aktiv && eintraege[aktiv]) { eintraege[aktiv].classList.remove('aktuell'); }
+    aktiv = id;
+    var a = eintraege[id];
+    if (!a) { return; }
+    a.classList.add('aktuell');
+    // Nur scrollen, wenn der Eintrag ausserhalb des Sichtbereichs der Liste
+    // liegt - sonst ruckelt die Liste bei jedem Abschnitt.
+    var lr = liste.parentElement.getBoundingClientRect();
+    var ar = a.getBoundingClientRect();
+    if (ar.top < lr.top || ar.bottom > lr.bottom) {
+      a.scrollIntoView({ block: 'nearest' });
+    }
+  }
+
+  var beobachter = new IntersectionObserver(function (meldungen) {
+    // Die oberste Ueberschrift, die gerade im Blickfeld ist, gewinnt.
+    var sichtbar = meldungen.filter(function (m) { return m.isIntersecting; });
+    if (!sichtbar.length) { return; }
+    sichtbar.sort(function (a, b) { return a.boundingClientRect.top - b.boundingClientRect.top; });
+    setze(sichtbar[0].target.id);
+  }, { rootMargin: '-78px 0px -70% 0px', threshold: 0 });
+
+  ziele.forEach(function (z) { beobachter.observe(z); });
+})();

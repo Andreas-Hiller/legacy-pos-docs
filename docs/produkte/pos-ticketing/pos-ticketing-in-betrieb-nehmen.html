@@ -7,7 +7,7 @@
 <title>POS Ticketing in Betrieb nehmen | Produkte</title>
 <meta name="description" content="Für den Ticketverkauf werden Einträge an der Kasse und im CentralPoint gesetzt, der Ticketserver geprüft und anschließend Tickets angelegt und Artikeln zugeordnet. Voraussetzungen ITR Kasse und Centra">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=4a123430">
+<link rel="stylesheet" href="../../assets/stil.css?v=25f33f2f">
 </head>
 <body>
 <header class="kopf">
@@ -54,7 +54,7 @@ Misc.ExhibitionCode.CodeServer.Url=http\://&lt;Adresse des Ticketservers&gt;\:&l
 </code></pre>
 <p class="callout warning" id="bkmrk-der-doppelpunkt-muss">Der Doppelpunkt muss in dieser Datei mit einem Backslash geschützt werden (<code>\:</code>), sonst wird die Adresse falsch gelesen. Die Adresse muss vorhanden sein — ohne sie wird kein Ticket erzeugt.</p>
 <p id="bkmrk-optionale-eintr%C3%A4ge%3A">Optionale Einträge:</p>
-<table id="bkmrk-eintrag-wirkung-misc">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-eintrag-wirkung-misc">
 <thead>
 <tr>
 <th>Eintrag</th>
@@ -91,11 +91,11 @@ Misc.ExhibitionCode.CodeServer.Url=http\://&lt;Adresse des Ticketservers&gt;\:&l
 <td>Bontypen, für die Tickets erzeugt werden</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p class="callout info" id="bkmrk-ab-version-5.53-lieg">Ab Version 5.53 liegen diese Properties in der Datenbanktabelle <code>ipos_systemproprties</code>, nicht mehr in der Datei <code>cr.properties</code>.</p>
 <h3 id="bkmrk-3.-an-der-kasse%3A-ein">3. An der Kasse: Einträge in <code>ipos_systemvariables</code></h3>
 <p id="bkmrk-in-der-lokalen-kasse">In der lokalen Kassendatenbank müssen diese Einträge vorhanden sein:</p>
-<table id="bkmrk-varname-inhalt-ticke">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-varname-inhalt-ticke">
 <thead>
 <tr>
 <th><code>VARNAME</code></th>
@@ -116,7 +116,7 @@ Misc.ExhibitionCode.CodeServer.Url=http\://&lt;Adresse des Ticketservers&gt;\:&l
 <td>zugehöriges Kennwort</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="bkmrk-4.-im-centralpoint%3A-">4. Im CentralPoint: Einträge in <code>ipos_systemvariables</code></h3>
 <p id="bkmrk-dieselben-drei-eintr">Dieselben drei Einträge müssen mit denselben Werten in der zentralen Datenbank vorhanden sein.</p>
 <h3 id="bkmrk-5.-erreichbarkeit-de">5. Erreichbarkeit des Ticketservers prüfen</h3>
@@ -127,7 +127,7 @@ Misc.ExhibitionCode.CodeServer.Url=http\://&lt;Adresse des Ticketservers&gt;\:&l
 </ol>
 <h3 id="bkmrk-6.-im-centralpoint%3A-">6. Im CentralPoint: Tickets anlegen</h3>
 <p id="bkmrk-unter-kassendaten-%E2%86%92-">Unter <strong>Kassendaten → Tickets</strong> ein Ticket erstellen:</p>
-<table id="bkmrk-feld-inhalt-name-ers">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-feld-inhalt-name-ers">
 <thead>
 <tr>
 <th>Feld</th>
@@ -160,7 +160,7 @@ Misc.ExhibitionCode.CodeServer.Url=http\://&lt;Adresse des Ticketservers&gt;\:&l
 <td>Codeart für den Aufdruck, wenn keine Designvorlage hinterlegt ist</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-%5Bscreenshot%3A-central">[SCREENSHOT: CentralPoint → Kassendaten → Tickets, Anlage eines Tickets]</p>
 <h3 id="bkmrk-7.-im-centralpoint%3A-">7. Im CentralPoint: Ticket am Artikel hinterlegen</h3>
 <p id="bkmrk-in-der-artikelkonfig">In der Artikelkonfiguration im unteren Bereich den Reiter <strong>Sonstiges</strong> öffnen und dort das zuvor erstellte Ticket auswählen.</p>
@@ -202,6 +202,6 @@ Misc.ExhibitionCode.CodeServer.Url=http\://&lt;Adresse des Ticketservers&gt;\:&l
   <span>ITR Partner Service</span>
   <span>Stand 03.09.2026</span>
 </footer>
-<script src="../../assets/suche.js?v=5ba6b751"></script>
+<script src="../../assets/suche.js?v=b87d1332"></script>
 </body>
 </html>

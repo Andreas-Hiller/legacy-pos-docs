@@ -7,7 +7,7 @@
 <title>Zeitaufträge und Jobs einrichten | Produkte</title>
 <meta name="description" content="Die ITR Kasse kann wiederkehrende Aufgaben selbst ausführen, etwa einen nächtlichen Neustart oder die Abmeldung untätiger Bediener. Diese Aufgaben heißen Jobs bzw. Zeitaufträge und werden je Kasse ein">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=4a123430">
+<link rel="stylesheet" href="../../assets/stil.css?v=25f33f2f">
 </head>
 <body>
 <header class="kopf">
@@ -43,7 +43,7 @@
 <p id="bkmrk-%5Bscreenshot%3A-itr-kas">[SCREENSHOT: ITR Kasse, Admin-Seiten → Einstellungen → Admin → Jobs, beide Listen und Ausführungsplan]</p>
 <p class="callout warning" id="bkmrk-ohne-den-knopf-%C3%9Cbern">Ohne den Knopf <strong>Übernehmen</strong> geht jede Änderung am Ausführungsplan verloren. Drücken Sie ihn nach jeder Änderung, auch wenn Sie nur die Uhrzeit angepasst haben.</p>
 <h2 id="bkmrk-verf%C3%BCgbare-jobs">Verfügbare Jobs</h2>
-<table id="bkmrk-job-beschreibung-app">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-job-beschreibung-app">
 <thead>
 <tr>
 <th>Job</th>
@@ -88,7 +88,7 @@
 <td>Löst den Init-String am EC-Terminal aus. Sinnvoll, wenn das EC-Terminal einen Zwangsreset durchführt.</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p class="callout danger" id="bkmrk-die-jobs-operatorlog">Die Jobs <code>OperatorLogout</code> und <code>InactiveOperatorLogout</code> melden den Bediener auf <strong>allen</strong> Kassen der Filiale ab, nicht nur auf der Kasse, an der der Job eingerichtet ist. Läuft ein solcher Job während der Öffnungszeit, verlieren die Bediener aller Kassen ihre Anmeldung. Legen Sie die Ausführung deshalb in eine Zeit ohne Kassenbetrieb.</p>
 <h2 id="bkmrk-ausf%C3%BChrungsplan-und-">Ausführungsplan und Cron</h2>
 <p id="bkmrk-die-einstellungen-de">Die Einstellungen des Ausführungsplans werden intern in einen Wert im Cron-Format übersetzt. Dieser Wert steht im Feld unterhalb des Knopfes <strong>Übernehmen</strong> und eignet sich zur Kontrolle des eingestellten Plans.</p>
@@ -118,6 +118,6 @@
   <span>ITR Partner Service</span>
   <span>Stand 03.09.2026</span>
 </footer>
-<script src="../../assets/suche.js?v=5ba6b751"></script>
+<script src="../../assets/suche.js?v=b87d1332"></script>
 </body>
 </html>

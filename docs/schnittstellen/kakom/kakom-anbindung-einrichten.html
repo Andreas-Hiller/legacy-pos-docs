@@ -7,7 +7,7 @@
 <title>KAKOM-Anbindung einrichten | Schnittstellen</title>
 <meta name="description" content="Der GoodCompanyDaemon liest Stammdaten im KAKOM-Format ein und gibt Umsatzdaten im KAKOM-Format aus. Diese Seite beschreibt, wie Sie den Import konfigurieren und die Exporte als Daemon Jobs anlegen. V">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=4a123430">
+<link rel="stylesheet" href="../../assets/stil.css?v=25f33f2f">
 </head>
 <body>
 <header class="kopf">
@@ -37,7 +37,7 @@
 <li>Aktivieren Sie den Import. Der Daemon prüft dann periodisch, ob neue Dateien vorliegen.</li>
 <li>Setzen Sie die Einstellungen:</li>
 </ol>
-<table id="bkmrk-einstellung-bedeutun">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-einstellung-bedeutun">
 <thead>
 <tr>
 <th>Einstellung</th>
@@ -66,12 +66,12 @@
 <td>optional</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <ol start="4" id="bkmrk-legen-sie-fest%2C-was-">
 <li>Legen Sie fest, was nach dem Import mit der Datei geschieht: löschen, mit einer Endung umbenennen oder verschieben. Der Platzhalter <code>%T%</code> wird dabei durch den Zeitstempel des Imports ersetzt.</li>
 <li>Prüfen Sie die Optionen und setzen Sie nur die, die der Kunde braucht:</li>
 </ol>
-<table id="bkmrk-option-wirkung-overr">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-option-wirkung-overr">
 <thead>
 <tr>
 <th>Option</th>
@@ -104,10 +104,10 @@
 <td>Felder, die beim Kopieren von Artikeleinstellungen ausgenommen bleiben, zum Beispiel <code>NAME1,NAME2,NAME3,GROUP_ID,TAX_ID</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h3 id="bkmrk-dateinamen-der-impor">Dateinamen der Importdateien</h3>
 <p id="bkmrk-die-namen-sind-im-co">Die Namen sind im Config-File hinterlegt und dort ersetzbar:</p>
-<table id="bkmrk-inhalt-datei-kunden-">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-inhalt-datei-kunden-">
 <thead>
 <tr>
 <th>Inhalt</th>
@@ -160,10 +160,10 @@
 <td><code>ORDER.PRG</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="bkmrk-export-einrichten">Export einrichten</h2>
 <p id="bkmrk-f%C3%BCr-die-drei-standar">Für die drei Standard-Exporte stehen vordefinierte Daemon Jobs bereit. Legen Sie je Export einen Job mit dem passenden Aufruf an: <a href="../../produkte/goodcompanydaemon/daemon-jobs-einrichten.html">ITR Partner Service → Produkte → GoodCompanyDaemon → Daemon Jobs einrichten</a></p>
-<table id="bkmrk-bericht-aufruf-arbei">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-bericht-aufruf-arbei">
 <thead>
 <tr>
 <th>Bericht</th>
@@ -184,9 +184,9 @@
 <td><code>ExportKakomTransSal</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-alle-weiteren-export">Alle weiteren Exporte werden als Daemon Job mit einem SQL-Statement angelegt:</p>
-<table id="bkmrk-bericht-ausgabedatei">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-bericht-ausgabedatei">
 <thead>
 <tr>
 <th>Bericht</th>
@@ -219,7 +219,7 @@
 <td><code>ORDER.DAT</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-ersetzen-sie-in-den-">Ersetzen Sie in den Statements den Platzhalter <code>&lt;Dateipfad&gt;</code> durch den gewünschten Pfad, zum Beispiel <code>C:/Temp/PLU.DAT</code>. Beispiel Artikelbericht:</p>
 <pre id="bkmrk-delete-file%3A-%27%3Cdatei"><code class="language-sql">delete file: '&lt;Dateipfad&gt;';
 call:ExecuteSql #sql=
@@ -267,6 +267,6 @@ ORDER BY BranchNo, CrNo, ArticleNo, PositionManualPriceLevel;
   <span>ITR Partner Service</span>
   <span>Stand 03.09.2026</span>
 </footer>
-<script src="../../assets/suche.js?v=5ba6b751"></script>
+<script src="../../assets/suche.js?v=b87d1332"></script>
 </body>
 </html>

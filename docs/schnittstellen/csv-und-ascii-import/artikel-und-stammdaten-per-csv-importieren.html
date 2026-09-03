@@ -7,7 +7,7 @@
 <title>Artikel und Stammdaten per CSV importieren | Schnittstellen</title>
 <meta name="description" content="Der GoodCompanyDaemon liest Artikel, Warengruppen und Hauptgruppen aus Textdateien ein, die ein Fremdsystem bereitstellt. Diese Seite beschreibt, wie Sie den ASCII-CSV-Import einrichten und den Feldau">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=4a123430">
+<link rel="stylesheet" href="../../assets/stil.css?v=25f33f2f">
 </head>
 <body>
 <header class="kopf">
@@ -64,7 +64,7 @@ BIT.Importdatei1.txt
 <p id="bkmrk-kann-das-zuliefersys">Kann das Zuliefersystem den Dateinamen nicht passend erzeugen, lässt sich das Umbenennen oder Verschieben über einen Daemon Job vorschalten: <a href="../../produkte/goodcompanydaemon/daemon-jobs-einrichten.html">ITR Partner Service → Produkte → GoodCompanyDaemon → Daemon Jobs einrichten</a></p>
 <h2 id="bkmrk-feldaufbau-artikel">Feldaufbau Artikel</h2>
 <p id="bkmrk-trennzeichen-%3B%2C-firs">Trennzeichen <code>;</code>, <code>FirstLineHeader = true</code>.</p>
-<table id="bkmrk-%23-feld-typ-hinweis-1">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-%23-feld-typ-hinweis-1">
 <thead>
 <tr>
 <th>#</th>
@@ -165,13 +165,13 @@ BIT.Importdatei1.txt
 <td>zum Beispiel <code>0.345</code>; Werte größer 1 werden als Gramm interpretiert</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <pre id="bkmrk-articlenumber%3Bname1%3B"><code class="language-text">ArticleNumber;Name1;Name2;Name3;SortNumber;Active;Printer;GroupNo;TaxNo;Price1..Price10;Tags;Barcode;Remarks;Ingredients;Allergenes;WeightItem;TARE
 11001;Landbrot 1250 g;;;100;1;;11;7;3.50;0.00;...;;;;;1;0.345
 </code></pre>
 <p id="bkmrk-f%C3%BCr-den-filialbezoge">Für den filialbezogenen Import wird der Schnittstelle vorne das Feld <strong>BranchNo</strong> (Filialnummer) vorangestellt.</p>
 <h2 id="bkmrk-feldaufbau-warengrup">Feldaufbau Warengruppen</h2>
-<table id="bkmrk-%23-feld-typ-hinweis-1-1">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-%23-feld-typ-hinweis-1-1">
 <thead>
 <tr>
 <th>#</th>
@@ -218,12 +218,12 @@ BIT.Importdatei1.txt
 <td></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <pre id="bkmrk-groupnumber%3Bname%3Bact"><code class="language-text">GroupNumber;Name;Active;Printer;MainGroupNo;TaxNo
 11;WG1;1;;999;0
 </code></pre>
 <h2 id="bkmrk-feldaufbau-hauptgrup">Feldaufbau Hauptgruppen</h2>
-<table id="bkmrk-%23-feld-typ-hinweis-1-2">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-%23-feld-typ-hinweis-1-2">
 <thead>
 <tr>
 <th>#</th>
@@ -264,7 +264,7 @@ BIT.Importdatei1.txt
 <td></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <pre id="bkmrk-maingroupnumber%3Bname"><code class="language-text">MainGroupNumber;Name;Active;Printer;TaxNo
 1;HG;1;;0
 </code></pre>
@@ -286,7 +286,7 @@ Customer.LAST_NAME=4
 Customer.CUSTOMER_NO=1
 Customer.ADDRESS=7
 </code></pre>
-<table id="bkmrk-einstellung-bedeutun">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-einstellung-bedeutun">
 <thead>
 <tr>
 <th>Einstellung</th>
@@ -331,7 +331,7 @@ Customer.ADDRESS=7
 <td>1–50</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-jede-einstellung-tr%C3%A4">Jede Einstellung trägt den Prefix des Datentyps, zum Beispiel <code>Customer.</code>, <code>Article.</code>, <code>Group.</code>. Verteilt sich ein Feld auf mehrere Spalten, werden diese kommagetrennt angegeben: <code>Customer.ADDRESS=7,8,9</code> für Straße, Postleitzahl und Ort. Anschließend läuft der Import mit <code>call:VectronIPOSImporter</code>.</p>
 <h2 id="bkmrk-ergebnis-pr%C3%BCfen">Ergebnis prüfen</h2>
 <ol id="bkmrk-warten-sie-einen-tim">
@@ -358,6 +358,6 @@ Customer.ADDRESS=7
   <span>ITR Partner Service</span>
   <span>Stand 03.09.2026</span>
 </footer>
-<script src="../../assets/suche.js?v=5ba6b751"></script>
+<script src="../../assets/suche.js?v=b87d1332"></script>
 </body>
 </html>

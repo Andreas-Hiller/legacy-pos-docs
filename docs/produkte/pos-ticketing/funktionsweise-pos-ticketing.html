@@ -7,7 +7,7 @@
 <title>Funktionsweise POS Ticketing | Produkte</title>
 <meta name="description" content="POS Ticketing erzeugt beim Verkauf über die Kasse Eintrittstickets mit fortlaufender Ticketnummer und druckt sie aus — wahlweise im einfachen Standardformat oder nach einer eigenen Design-Vorlage. Fun">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=4a123430">
+<link rel="stylesheet" href="../../assets/stil.css?v=25f33f2f">
 </head>
 <body>
 <header class="kopf">
@@ -30,7 +30,7 @@
 <p id="bkmrk-der-bon-selbst-wird-">Der Bon selbst wird wie gewohnt von der Kasse gedruckt. Das Ticket dagegen druckt der ERP-Syncer.</p>
 <p class="callout warning" id="bkmrk-eine-elektronische-e">Eine elektronische Einlasskontrolle der erzeugten Tickets ist nicht möglich. Der aufgedruckte Code kann derzeit nicht gegen das System geprüft werden.</p>
 <h2 id="bkmrk-beteiligte-komponent">Beteiligte Komponenten</h2>
-<table id="bkmrk-komponente-rolle-cen">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-komponente-rolle-cen">
 <thead>
 <tr>
 <th>Komponente</th>
@@ -55,7 +55,7 @@
 <td>verkauft den Artikel und löst damit die Ticketerzeugung aus</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-der-ticketserver-ist">Der Ticketserver ist kein eigenes Programm, das getrennt installiert wird — er läuft im ERP-Syncer des CentralPoint mit.</p>
 <h2 id="bkmrk-voraussetzungen-f%C3%BCr-">Voraussetzungen für den Einsatz</h2>
 <ul id="bkmrk-eine-itr-kasse-und-e">
@@ -64,7 +64,7 @@
 </ul>
 <h2 id="bkmrk-aufbau-eines-tickets">Aufbau eines Tickets</h2>
 <p id="bkmrk-ein-ticket-wird-im-c">Ein Ticket wird im CentralPoint über diese Angaben beschrieben:</p>
-<table id="bkmrk-angabe-bedeutung-nam">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-angabe-bedeutung-nam">
 <thead>
 <tr>
 <th>Angabe</th>
@@ -97,7 +97,7 @@
 <td>Codeart für den Aufdruck, wenn keine Designvorlage hinterlegt ist</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-ist-keine-design-vor">Ist keine Design-Vorlage hinterlegt, wird das Ticket im einfachen Standardformat gedruckt.</p>
 <p id="bkmrk-%5Boffen%3A-abbildung-od"><code>[OFFEN: Abbildung oder Beschreibung des Standardformats]</code></p>
 <h2 id="bkmrk-design-vorlagen-und-">Design-Vorlagen und Platzhalter</h2>
@@ -107,7 +107,7 @@
 </code></pre>
 <p id="bkmrk-format-und-parameter"><code>FORMAT</code> und <code>PARAMETER</code> sind optional. Wird ein Platzhalter-Format erkannt, ist aber unbekannt, erscheint im Ausdruck der Text <code>UNKNOWN</code>. Geschweifte Klammern im Fließtext sind unkritisch, solange sie keinen gültigen Platzhalter bilden.</p>
 <p id="bkmrk-verf%C3%BCgbare-platzhalt">Verfügbare Platzhalter:</p>
-<table id="bkmrk-platzhalter-formatie">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-platzhalter-formatie">
 <thead>
 <tr>
 <th>Platzhalter</th>
@@ -172,9 +172,9 @@
 <td>Ersatz für alle nicht erkannten Platzhalter; nicht selbst verwenden</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-bild-formate-f%C3%BCr-%7Bti">Bild-Formate für <code>{TICKETNUMBER}</code>: Eine einzelne Zahl hinter <code>^</code> gibt eine gleiche Seitenlänge an, mit <code>x</code> getrennt Breite und Höhe. Ohne Größenangabe gilt die Standardgröße.</p>
-<table id="bkmrk-format-standardgr%C3%B6%C3%9Fe">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-format-standardgr%C3%B6%C3%9Fe">
 <thead>
 <tr>
 <th>Format</th>
@@ -254,7 +254,7 @@
 <td><code>{TICKETNUMBER_PDF417^200x80}</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-die-formatnamen-werd">Die Formatnamen werden ohne Unterstrich geschrieben, auch wenn die deutsche Bezeichnung getrennt ist — der Matrix-Code heißt im Platzhalter <code>DATAMATRIX</code>.</p>
 <p id="bkmrk-%5Boffen%3A-ab-welcher-v"><code>[OFFEN: ab welcher Version die Formate UPCA, UPCE, UPCEANEXT, CODE93, CODABAR, ITF, RSS14, RSSEXPANDED, AZTEC, DATAMATRIX und PDF417 zur Verfügung stehen]</code></p>
 <h2 id="bkmrk-zu-beachten">Zu beachten</h2>
@@ -276,6 +276,6 @@
   <span>ITR Partner Service</span>
   <span>Stand 03.09.2026</span>
 </footer>
-<script src="../../assets/suche.js?v=5ba6b751"></script>
+<script src="../../assets/suche.js?v=b87d1332"></script>
 </body>
 </html>

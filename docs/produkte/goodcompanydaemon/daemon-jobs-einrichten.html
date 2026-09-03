@@ -7,7 +7,7 @@
 <title>Daemon Jobs einrichten | Produkte</title>
 <meta name="description" content="Ein Daemon Job ist ein Auftrag aus Kommandos, den der Daemon zeitgesteuert oder direkt nach einem Import ausführt. Damit entstehen Exporte, Dateiumbenennungen und Nachverarbeitungen. Voraussetzungen D">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=4a123430">
+<link rel="stylesheet" href="../../assets/stil.css?v=25f33f2f">
 </head>
 <body>
 <header class="kopf">
@@ -35,7 +35,7 @@
 <li>Öffnen Sie im Hauptfenster <strong>Jobs</strong>.</li>
 <li>Legen Sie einen Job an und füllen Sie die Felder:</li>
 </ol>
-<table id="bkmrk-feld-bedeutung-daemo">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-feld-bedeutung-daemo">
 <thead>
 <tr>
 <th>Feld</th>
@@ -64,7 +64,7 @@
 <td>Job läuft automatisch, sobald eine Importdatei verarbeitet wurde</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <ol start="3" id="bkmrk-speichern-sie-den-jo">
 <li>Speichern Sie den Job.</li>
 <li>Zum sofortigen Prüfen: Rechtsklick auf den Job, <strong>Starten (Direkt)</strong> — dabei werden die Ausführungstage ignoriert.</li>
@@ -75,7 +75,7 @@
 <p id="bkmrk-bei-aktivem-direktst">Bei aktivem <strong>Direktstart</strong> werden die Ausführungszeiträume ignoriert — der Job hängt dann am Import, nicht an der Uhr. Der Knopf <strong>Vorverarbeitung jetzt starten</strong> führt alle als Direktstart markierten Jobs aus.</p>
 <h2 id="bkmrk-kommandos">Kommandos</h2>
 <p id="bkmrk-erlaubt-sind-sql-anw">Erlaubt sind SQL-Anweisungen und Dateioperationen:</p>
-<table id="bkmrk-aufgabe-syntax-datei">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-aufgabe-syntax-datei">
 <thead>
 <tr>
 <th>Aufgabe</th>
@@ -108,10 +108,10 @@
 <td><code>touch file: &lt;filename&gt;</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p class="callout warning" id="bkmrk-bei-join-files-m%C3%BCsse">Bei <code>join files</code> müssen Quelle 1, Quelle 2 und Ziel unterschiedliche Dateien sein. Ist das Ziel gleich einer Quelle, ist das Ergebnis unbrauchbar.</p>
 <h2 id="bkmrk-variablen">Variablen</h2>
-<table id="bkmrk-variable-bedeutung-%23">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-variable-bedeutung-%23">
 <thead>
 <tr>
 <th>Variable</th>
@@ -160,7 +160,7 @@
 <td>Ersatz für ein Semikolon innerhalb eines Kommandos</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-datumsplatzhalter-ne">Datumsplatzhalter nehmen ein eigenes Format auf, zum Beispiel <code>###LASTEXECUTIONDATE_yyyyMMdd###</code>.</p>
 <p id="bkmrk-ein-semikolon-im-sql">Ein Semikolon im SQL-Text muss als <code>###ESC_SEMICOLON###</code> geschrieben werden — sonst endet das Kommando an dieser Stelle.</p>
 <h2 id="bkmrk-beispiel%3A-export-mit">Beispiel: Export mit Zeitstempel</h2>
@@ -203,6 +203,6 @@ LOOP-END;
   <span>ITR Partner Service</span>
   <span>Stand 03.09.2026</span>
 </footer>
-<script src="../../assets/suche.js?v=5ba6b751"></script>
+<script src="../../assets/suche.js?v=b87d1332"></script>
 </body>
 </html>

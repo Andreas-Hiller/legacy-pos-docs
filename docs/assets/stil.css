@@ -27,9 +27,21 @@
   --warn: #F55050;
   --ok: #17AB75;
   --kopf: #1a2340;
+  /* Rundungen an einer Stelle, damit sie ueberall gleich sind. */
+  --rund: 8px;        /* Kacheln, Kaesten, Tabellenrahmen */
+  --rund-klein: 5px;  /* Eingabefelder, Code im Text */
 }
 
 * { box-sizing: border-box; }
+
+html {
+  /* Platz fuer die Bildlaufleiste IMMER freihalten. Ohne das erschien sie
+     erst, wenn eine Seite laenger als das Fenster wurde - und weil das Raster
+     mittig steht, sprang dabei der gesamte Inhalt um 7 px zur Seite. Genau
+     das passierte beim Aufklappen eines Buchs in der Navigation
+     (03.09.2026 gemessen). */
+  scrollbar-gutter: stable;
+}
 
 html, body {
   margin: 0; padding: 0;
@@ -38,6 +50,17 @@ html, body {
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   font-size: 16px; line-height: 1.6;
 }
+
+/* FUSSZEILE UNTEN HALTEN. Auf kurzen Seiten (Buchseiten, 404) hing sie
+   mitten im Fenster - gemessen 43 px ueber der Unterkante. Der Koerper ist
+   deshalb eine Spalte ueber die volle Fensterhoehe, der Inhalt dehnt sich,
+   die Fusszeile wird nach unten geschoben. Nicht "fixiert": sie klebt nicht
+   am Fenster, sondern sitzt am Ende der Seite - bei langen Seiten scrollt
+   sie mit, wie es sich gehoert.
+   dvh statt vh, weil vh auf dem Handy die Adressleiste nicht mitrechnet. */
+body { display: flex; flex-direction: column; min-height: 100vh; }
+@supports (height: 100dvh) { body { min-height: 100dvh; } }
+.rahmen { flex: 1 0 auto; }
 
 /* ---------------------------------------------------------------- Kopfleiste */
 /* Die Leiste selbst laeuft ueber die ganze Breite, ihr INHALT sitzt aber im
@@ -60,7 +83,7 @@ html, body {
 /* Lupe als Hintergrundbild statt als zusaetzliches Element im Markup: das
    Suchfeld bleibt ein einzelnes input, das die Suche unveraendert anspricht. */
 #suchfeld {
-  width: 100%; padding: 8px 12px 8px 34px; border: 1px solid #2f3c63; border-radius: 3px;
+  width: 100%; padding: 8px 12px 8px 34px; border: 1px solid #2f3c63; border-radius: var(--rund-klein);
   background: #141a2e no-repeat 11px center;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%237c89a8' stroke-width='1.7' stroke-linecap='round'%3E%3Ccircle cx='6.8' cy='6.8' r='4.6'/%3E%3Cpath d='M10.4 10.4 14 14'/%3E%3C/svg%3E");
   background-size: 15px 15px;
@@ -71,7 +94,7 @@ html, body {
 #suchergebnis {
   position: absolute; left: 0; right: 0; top: calc(100% + 6px);
   background: #fff; color: var(--ink); border: 1px solid var(--line);
-  border-radius: 3px; box-shadow: 0 6px 20px rgba(0,0,0,.18);
+  border-radius: var(--rund); box-shadow: 0 6px 20px rgba(0,0,0,.18);
   max-height: 65vh; overflow-y: auto;
 }
 #suchergebnis a {
@@ -102,7 +125,15 @@ html, body {
    Vorher blieb die Spalte leer und die Kacheln draengten sich links zusammen. */
 .rahmen.ohne-rechts { grid-template-columns: 288px minmax(0,1040px); }
 .spalte-links, .spalte-rechts { align-self: start; position: sticky; top: 76px; }
-.spalte-links { max-height: calc(100vh - 100px); overflow-y: auto; }
+/* Beide Randspalten scrollen fuer sich, wenn sie laenger werden als das
+   Fenster. Bei der rechten fehlte das: hatte eine Seite mehr Ueberschriften
+   als hineinpassen, waren die unteren nicht erreichbar - man konnte sie
+   weder sehen noch anklicken.
+   scrollbar-gutter, damit der Text in der Navigation beim Auf- und Zuklappen
+   nicht umbricht, wenn die Leiste erscheint. */
+.spalte-links, .spalte-rechts {
+  max-height: calc(100vh - 100px); overflow-y: auto; scrollbar-gutter: stable;
+}
 
 /* --------------------------------------------------------------- Navigation */
 .nav { font-size: 14px; }
@@ -181,7 +212,7 @@ h1 { font-size: 32px; font-weight: 600; line-height: 1.15; margin: 0 0 10px;
   font-variant-numeric: tabular-nums;
 }
 .entwurf-band {
-  background: #fdeeee; border: 1px solid var(--warn); border-radius: 3px;
+  background: #fdeeee; border: 1px solid var(--warn); border-radius: var(--rund);
   color: #8f1f1f; font-weight: 600; font-size: 14px; padding: 8px 12px; margin: 0 0 14px;
 }
 .inhalt h2 { font-size: 23px; font-weight: 600; line-height: 1.25; margin: 38px 0 10px; }
@@ -214,10 +245,28 @@ h1 { font-size: 32px; font-weight: 600; line-height: 1.15; margin: 0 0 10px;
 .verweis-inaktiv::before { content: '\00BB\00A0'; }
 
 /* --------------------------------------------------------------- Tabellen */
-.inhalt table {
-  border-collapse: collapse; width: 100%; margin: 14px 0 20px; font-size: 15px;
-  display: block; overflow-x: auto;   /* breite Tabellen scrollen, statt zu sprengen */
+/*
+ * TABELLEN. Das Scrollen macht der umgebende .tabellenrahmen, nicht die
+ * Tabelle selbst.
+ *
+ * Vorher stand hier "display: block; overflow-x: auto" auf der Tabelle - und
+ * das half NICHT: die Tabelle bekam mit "width: 100%" die Breite ihres
+ * Elternteils, und der war schon zu breit. Die Ursache lag im Raster, nicht
+ * hier (siehe die Regel fuer schmale Fenster weiter unten). "display: block"
+ * kostete dabei noch das Spaltenverhalten einer echten Tabelle.
+ *
+ * min-width statt width: die Tabelle darf breiter werden als der Rahmen und
+ * dann darin scrollen, anstatt ihre Spalten auf Handybreite zu quetschen.
+ */
+.tabellenrahmen {
+  overflow-x: auto; margin: 14px 0 20px;
+  border-radius: var(--rund); border: 1px solid var(--line);
 }
+.inhalt table {
+  border-collapse: collapse; min-width: 100%; width: auto; margin: 0; font-size: 15px;
+}
+/* Der Rahmen traegt jetzt den Rand, die Zellen am Aussenrand nicht mehr. */
+.tabellenrahmen tr:last-child td { border-bottom: 0; }
 .inhalt th {
   background: var(--mint); color: var(--ink); font-weight: 600; text-align: left;
   border-bottom: 2px solid var(--blue); padding: 7px 10px; vertical-align: top;
@@ -236,7 +285,7 @@ h1 { font-size: 32px; font-weight: 600; line-height: 1.15; margin: 0 0 10px;
   background: #f4f4f4; border: 1px solid var(--line); border-radius: 2px; padding: 1px 4px;
 }
 .inhalt pre {
-  background: #f4f4f4; border: 1px solid var(--line); border-radius: 3px;
+  background: #f4f4f4; border: 1px solid var(--line); border-radius: var(--rund);
   padding: 10px 12px; overflow-x: auto; font-size: 14px; line-height: 1.45;
 }
 .inhalt pre code { background: none; border: 0; padding: 0; font-size: inherit; }
@@ -261,13 +310,21 @@ h1 { font-size: 32px; font-weight: 600; line-height: 1.15; margin: 0 0 10px;
 .seiteninhalt ul { list-style: none; margin: 0; padding: 0; }
 .seiteninhalt li { margin: 3px 0; }
 .seiteninhalt li.e3 { padding-left: 14px; }
-.seiteninhalt a { color: var(--ink); text-decoration: none; }
-.seiteninhalt a:hover { color: var(--blue); text-decoration: underline; }
+.seiteninhalt a {
+  display: block; color: var(--ink); text-decoration: none;
+  padding: 2px 0 2px 8px; margin-left: -9px;
+  border-left: 2px solid transparent;
+}
+.seiteninhalt a:hover { color: var(--blue); }
+/* Wo man gerade steht. Wird vom Skript gesetzt, waehrend man scrollt. */
+.seiteninhalt a.aktuell {
+  color: var(--blue); font-weight: 600; border-left-color: var(--blue);
+}
 
 /* ------------------------------------------------------------- Startseite */
 .kacheln { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
 .kachel {
-  border: 1px solid var(--line); border-radius: 3px; padding: 16px 18px; background: #fff;
+  border: 1px solid var(--line); border-radius: var(--rund); padding: 16px 18px; background: #fff;
   transition: border-color .12s, box-shadow .12s;
 }
 /* Rueckmeldung beim Zeigen: die Kacheln sind Links, sahen aber wie reine
@@ -311,11 +368,23 @@ h1 { font-size: 32px; font-weight: 600; line-height: 1.15; margin: 0 0 10px;
 
 /* ------------------------------------------------------------ Schmale Fenster */
 @media (max-width: 1100px) {
-  .rahmen { grid-template-columns: 240px minmax(0,1fr); }
+  /* Die Begrenzung der Textspalte MUSS hier mit. Vorher stand hier nur "1fr",
+     und damit verlor die Spalte unterhalb von 1100 px ihre Deckelung: sie
+     wuchs auf 773 px, also zurueck auf rund 93 Zeichen je Zeile - genau das,
+     was oberhalb von 1100 px behoben war. Der Sprung war beim Verkleinern des
+     Fensters deutlich sichtbar. */
+  .rahmen { grid-template-columns: 240px minmax(0,660px); }
   .spalte-rechts { display: none; }
 }
 @media (max-width: 760px) {
-  .rahmen { grid-template-columns: 1fr; gap: 18px; }
+  /* minmax(0,1fr) und NICHT "1fr". Das war der eigentliche Grund, warum bei
+     375 px die ganze Seite quer scrollte: "1fr" bedeutet
+     "minmax(auto, 1fr)", und dieses auto ist die MINDESTBREITE DES INHALTS.
+     Eine Referenztabelle mit 1127 px Mindestbreite hat damit die Spalte
+     aufgerissen, und mit ihr die Seite - der Text war links abgeschnitten.
+     Die Null als Untergrenze erlaubt der Spalte, schmaler zu werden als ihr
+     breitester Inhalt; der scrollt dann in seinem eigenen Rahmen. */
+  .rahmen { grid-template-columns: minmax(0,1fr); gap: 18px; }
   /* INHALT ZUERST. Bei einer Spalte stand die Navigation ueber dem Artikel -
      im Buch "Produkte" waren das 942 px, also 1,3 Bildschirmhoehen Scrollen,
      bevor der Text anfing (am 03.09.2026 bei 375 px gemessen). Wer aus der

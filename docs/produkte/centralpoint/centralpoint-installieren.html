@@ -7,7 +7,7 @@
 <title>CentralPoint installieren | Produkte</title>
 <meta name="description" content="Der CentralPoint ist der zentrale Server der Installation: Er verwaltet Stammdaten, Kassendaten, Lizenzen und Berichte und verteilt Änderungen an die Filialen. Voraussetzungen Server nach ITR Partner ">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=4a123430">
+<link rel="stylesheet" href="../../assets/stil.css?v=25f33f2f">
 </head>
 <body>
 <header class="kopf">
@@ -40,7 +40,7 @@
 </ol>
 <h2 id="bkmrk-datenbank-verbinden">Datenbank verbinden</h2>
 <p id="bkmrk-men%C3%BCweg%3A-programm-%E2%86%92-">Menüweg: <strong>Programm → Einstellungen</strong></p>
-<table id="bkmrk-feld-inhalt-url-jdbc">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-feld-inhalt-url-jdbc">
 <thead>
 <tr>
 <th>Feld</th>
@@ -61,7 +61,7 @@
 <td>dessen Kennwort</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p class="callout warning" id="bkmrk-das-kennwort-muss-na">Das Kennwort muss nach der Eingabe über die Schaltfläche <strong>Passwort verschlüsseln</strong> gesichert werden. Ohne die verschlüsselte Form kommt trotz sonst richtiger Angaben keine Verbindung zustande.</p>
 <h2 id="bkmrk-datenbank-initialisi">Datenbank initialisieren</h2>
 <p id="bkmrk-%C3%9Cber-datenbank-initi">Über <strong>Datenbank initialisieren</strong> — nach Eingabe eines Kennworts — öffnet sich der Dialog mit diesen Schritten:</p>
@@ -80,7 +80,7 @@
 <li>Der CentralPoint startet ohne Fehlermeldung und zeigt die lizenzierten Module.</li>
 </ul>
 <h2 id="bkmrk-protokolldateien">Protokolldateien</h2>
-<table id="bkmrk-zweck-pfad-konfigura">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-zweck-pfad-konfigura">
 <thead>
 <tr>
 <th>Zweck</th>
@@ -101,7 +101,7 @@
 <td><code>C:\Users\&lt;Benutzer&gt;\.itrelations\ITRCP\itrcp_0_0.log</code></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="bkmrk-terminalserver-und-m">Terminalserver und mehrere Benutzer</h2>
 <p class="callout warning" id="bkmrk-f%C3%BCr-den-betrieb-des-">Für den Betrieb des CentralPoint auf einem Terminalserver oder in einer Mehrbenutzerumgebung besteht keine Gewährleistung. Die Verantwortung liegt beim Systemadministrator.</p>
 <p id="bkmrk-bei-einem-update-von">Bei einem Update von einer Version vor 5.36 ist zu beachten: Das Konfigurationsverzeichnis wandert von <code>%appdata%\it relations GmbH\itrcp\xml</code> nach <code>%programdata%\it relations GmbH\itrcp\xml</code>. Beim ersten Start verschiebt der CentralPoint das alte Verzeichnis samt Berechtigungen — das gelingt nur für den ersten Benutzer, alle weiteren haben danach keine Rechte.</p>
@@ -127,6 +127,6 @@ icacls "%programdata%\it relations GmbH\itrcp" /grant *S-1-1-0:(R)
   <span>ITR Partner Service</span>
   <span>Stand 03.09.2026</span>
 </footer>
-<script src="../../assets/suche.js?v=5ba6b751"></script>
+<script src="../../assets/suche.js?v=b87d1332"></script>
 </body>
 </html>

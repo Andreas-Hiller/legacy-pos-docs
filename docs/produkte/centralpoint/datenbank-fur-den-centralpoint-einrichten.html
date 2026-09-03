@@ -7,7 +7,7 @@
 <title>Datenbank für den CentralPoint einrichten | Produkte</title>
 <meta name="description" content="Der CentralPoint bringt keinen Datenbankserver mit. MariaDB muss vorher installiert, ein Schema und ein Benutzer angelegt sein — erst danach lässt sich der CentralPoint verbinden. In dieser Datenbank ">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=4a123430">
+<link rel="stylesheet" href="../../assets/stil.css?v=25f33f2f">
 </head>
 <body>
 <header class="kopf">
@@ -71,7 +71,7 @@ binlog_format=ROW
 [client]
 port=3306
 </code></pre>
-<table id="bkmrk-parameter-wirkung-ma">
+<div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-parameter-wirkung-ma">
 <thead>
 <tr>
 <th>Parameter</th>
@@ -92,7 +92,7 @@ port=3306
 <td>sperrt bei Transaktionen einzelne Zeilen statt ganzer Tabellen</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p id="bkmrk-auf-servern-mit-reic">Auf Servern mit reichlich Arbeitsspeicher lassen sich zusätzlich Puffergrößen erhöhen — etwa <code>query_cache_size</code>, <code>table_cache</code>, <code>key_buffer_size</code>, <code>sort_buffer_size</code> und <code>tmp_table_size</code>.</p>
 <p id="bkmrk-%5Boffen%3A-konkrete-puf"><code>[OFFEN: konkrete Puffergrößen je Installationsgröße. Die vorliegende Quelle stammt aus der Zeit von MariaDB 5.5, ihre Werte und Erläuterungen widersprechen sich teilweise und sind für MariaDB 10.11 nicht ohne Prüfung übertragbar.]</code></p>
 <h2 id="bkmrk-weitere-informatione">Weitere Informationen</h2>
@@ -106,6 +106,6 @@ port=3306
   <span>ITR Partner Service</span>
   <span>Stand 03.09.2026</span>
 </footer>
-<script src="../../assets/suche.js?v=5ba6b751"></script>
+<script src="../../assets/suche.js?v=b87d1332"></script>
 </body>
 </html>

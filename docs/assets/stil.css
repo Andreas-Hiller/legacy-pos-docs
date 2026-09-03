@@ -276,10 +276,33 @@ body { display: flex; flex-direction: column; min-height: 100vh; }
 }
 
 /* ------------------------------------------------------------------- Inhalt */
+/*
+ * BROTKRUME nach dem Muster gaengiger Hilfe-Center: vollstaendige Kette,
+ * aktuelle Seite als letztes Glied, normale Gross- und Kleinschreibung.
+ *
+ * Vorher: Versalien, gesperrt, 12,5 px - und alles nur Text. Versalien nehmen
+ * die Wortumrisse weg, an denen das Auge Woerter erkennt; bei Namen wie
+ * "GOODCOMPANYDAEMON" war das kaum zu erfassen.
+ *
+ * Die Chevrons stehen im CSS, NICHT im Text: ein Vorleseprogramm liest sonst
+ * bei jedem Glied ein Sonderzeichen mit vor.
+ */
 .brotkrumen {
-  font-size: 12.5px; color: var(--ink-soft); margin: 0 0 8px;
-  letter-spacing: .04em; text-transform: uppercase;
+  display: flex; flex-wrap: wrap; align-items: center;
+  list-style: none; margin: 0 0 10px; padding: 0;
+  font-size: 13.5px; line-height: 1.5; color: var(--ink-soft);
 }
+.brotkrumen li { display: flex; align-items: center; }
+.brotkrumen li + li::before {
+  content: '\203A';           /* einfaches Chevron */
+  margin: 0 9px; color: var(--leiste-aktiv);
+  font-size: 15px; line-height: 1;
+}
+.brotkrumen a { color: var(--ink); text-decoration: none; }
+.brotkrumen a:hover { color: var(--blue-text); }
+.brotkrumen a:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 2px; }
+/* Aktuelle Seite: dabei, aber zurueckgenommen - sie ist kein Ziel mehr. */
+.brotkrumen [aria-current="page"] { color: var(--ink-soft); }
 h1 { font-size: 32px; font-weight: 600; line-height: 1.15; margin: 0 0 10px;
      letter-spacing: -.01em; }
 /* EINE Trennlinie unter dem Seitenkopf, nicht zwei. Vorher lagen ein 2-px-Strich

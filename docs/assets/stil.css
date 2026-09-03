@@ -419,8 +419,11 @@ h1 { font-size: 32px; font-weight: 600; line-height: 1.15; margin: 0 0 10px;
  * sichtbar unscharf, und in einem Raster aus acht Kacheln wirkt jede
  * groessere Bewegung unruhig.
  */
+/* Schatten zurueckgenommen: 4/14px bei 13 % war zusammen mit der
+   Vergroesserung zu viel Rueckmeldung fuer eine Kachel. Jetzt traegt die
+   Bewegung den Hinweis, der Schatten begleitet ihn nur. */
 .kachel:hover {
-  box-shadow: 0 4px 14px rgba(40,40,40,.13);
+  box-shadow: 0 2px 8px rgba(40,40,40,.08);
   transform: scale(1.015);
   z-index: 2;
 }

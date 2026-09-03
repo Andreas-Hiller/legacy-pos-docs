@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Einstellungen der Kasse: Referenz | Produkte</title>
+<link rel="stylesheet" href="../../assets/stil.css">
+</head>
+<body>
+<header class="kopf">
+  <a class="kopf-logo" href="../../index.html"><img src="../../assets/logo.png" alt="IT Relations"></a>
+  <div class="kopf-suche">
+    <input type="search" id="suchfeld" placeholder="Alle Inhalte durchsuchen" autocomplete="off"
+           aria-label="Suchen" data-auf="../../">
+    <div id="suchergebnis" hidden></div>
+  </div>
+  <span class="kopf-firma">IT Relations GmbH</span>
+</header>
+<div class="rahmen">
+  <aside class="spalte-links"><nav class="nav" aria-label="Inhalt"><a class="nav-wurzel" href="../../index.html">ITR Partner Service</a><details class="nav-buch"><summary><a href="../../news-releases-pcT/index.html">News &amp; Releases</a></summary><details class="nav-kapitel"><summary>Versionshinweise</summary><a class="nav-seite" href="../../news-releases-pcT/versionshinweise/august-2026.html">August 2026</a><a class="nav-seite" href="../../news-releases-pcT/versionshinweise/25-august-2026.html">25. August 2026</a></details><details class="nav-kapitel"><summary>News</summary><a class="nav-seite" href="../../news-releases-pcT/news/kasse-554-beta-das-wichtigste.html">Kasse 5.54 (Beta) – das Wichtigste...</a><a class="nav-seite" href="../../news-releases-pcT/news/kasse-553-das-wichtigste.html">Kasse 5.53 – das Wichtigste</a></details></details><details class="nav-buch"><summary><a href="../../schnellstart/index.html">Schnellstart</a></summary><a class="nav-seite" href="../../schnellstart/standalone-kasse-und-betrieb-mit-centralpoint.html">Standalone-Kasse und Betrieb mit CentralPoint</a><a class="nav-seite" href="../../schnellstart/wie-diese-dokumentation-aufgebaut-ist.html">Wie diese Dokumentation aufgebaut ist</a><a class="nav-seite" href="../../schnellstart/produktlandschaft-im-uberblick.html">Produktlandschaft im Überblick</a><a class="nav-seite" href="../../schnellstart/rollen-hersteller-partner-endkunde.html">Rollen: Hersteller, Partner, Endkunde</a><a class="nav-seite" href="../../schnellstart/glossar-und-abkurzungen.html">Glossar und Abkürzungen</a></details><details class="nav-buch" open><summary><a href="../../produkte/index.html">Produkte</a></summary><details class="nav-kapitel" open><summary>ITR Kasse</summary><a class="nav-seite" href="../../produkte/itr-kasse/funktionsweise-der-itr-kasse.html">Funktionsweise der ITR Kasse</a><a class="nav-seite" href="../../produkte/itr-kasse/itr-kasse-installieren.html">ITR Kasse installieren</a><a class="nav-seite" href="../../produkte/itr-kasse/ersteinrichtung-mit-dem-setup-wizard.html">Ersteinrichtung mit dem Setup-Wizard</a><a class="nav-seite" href="../../produkte/itr-kasse/lizenz-aktivieren.html">Lizenz aktivieren</a><a class="nav-seite" href="../../produkte/itr-kasse/module-und-lizenzmodelle-referenz.html">Module und Lizenzmodelle: Referenz</a><a class="nav-seite" href="../../produkte/itr-kasse/kasse-mit-dem-centralpoint-verbinden.html">Kasse mit dem CentralPoint verbinden</a><a class="nav-seite" href="../../produkte/itr-kasse/daten-von-hand-synchronisieren.html">Daten von Hand synchronisieren</a><a class="nav-seite" href="../../produkte/itr-kasse/protokolldateien-und-diagnose.html">Protokolldateien und Diagnose</a><a class="nav-seite aktuell" href="../../produkte/itr-kasse/einstellungen-der-kasse-referenz.html">Einstellungen der Kasse: Referenz</a><a class="nav-seite" href="../../produkte/itr-kasse/zeitauftrage-und-jobs-einrichten.html">Zeitaufträge und Jobs einrichten</a></details><details class="nav-kapitel"><summary>Kassen-Designer</summary><a class="nav-seite" href="../../produkte/kassen-designer/kassenmasken-anpassen-grundlagen.html">Kassenmasken anpassen: Grundlagen</a><a class="nav-seite" href="../../produkte/kassen-designer/button-aktionen-referenz.html">Button-Aktionen: Referenz</a><a class="nav-seite" href="../../produkte/kassen-designer/enableconditions-referenz.html">EnableConditions: Referenz</a><a class="nav-seite" href="../../produkte/kassen-designer/kassen-designer-starten-und-einrichten.html">Kassen-Designer starten und einrichten</a><a class="nav-seite" href="../../produkte/kassen-designer/panels-gestalten.html">Panels gestalten</a><a class="nav-seite" href="../../produkte/kassen-designer/bon-und-bestelltabellen-gestalten.html">Bon- und Bestelltabellen gestalten</a><a class="nav-seite" href="../../produkte/kassen-designer/geanderte-masken-auf-die-kassen-ubertragen.html">Geänderte Masken auf die Kassen übertragen</a></details><details class="nav-kapitel"><summary>CentralPoint</summary><a class="nav-seite" href="../../produkte/centralpoint/datenbank-fur-den-centralpoint-einrichten.html">Datenbank für den CentralPoint einrichten</a><a class="nav-seite" href="../../produkte/centralpoint/centralpoint-installieren.html">CentralPoint installieren</a><a class="nav-seite" href="../../produkte/centralpoint/stammdaten-pflegen-und-verteilen.html">Stammdaten pflegen und verteilen</a><a class="nav-seite" href="../../produkte/centralpoint/preise-steuern.html">Preise steuern</a><a class="nav-seite" href="../../produkte/centralpoint/anwendung-registrieren-und-module-lizenzieren.html">Anwendung registrieren und Module lizenzieren</a><a class="nav-seite" href="../../produkte/centralpoint/filialen-und-kassen-anlegen.html">Filialen und Kassen anlegen</a><a class="nav-seite" href="../../produkte/centralpoint/validierung-und-konsistenzprufung.html">Validierung und Konsistenzprüfung</a><a class="nav-seite" href="../../produkte/centralpoint/kassenberichte-und-auswertungen.html">Kassenberichte und Auswertungen</a><a class="nav-seite" href="../../produkte/centralpoint/lagerverwaltung-einrichten.html">Lagerverwaltung einrichten</a></details><details class="nav-kapitel"><summary>POS Gastro App</summary><a class="nav-seite" href="../../produkte/pos-gastro-app/funktionsweise.html">Funktionsweise</a><a class="nav-seite" href="../../produkte/pos-gastro-app/in-betrieb-nehmen.html">In Betrieb nehmen</a><a class="nav-seite" href="../../produkte/pos-gastro-app/im-alltag-arbeiten.html">Im Alltag arbeiten</a><a class="nav-seite" href="../../produkte/pos-gastro-app/storungen-beheben.html">Störungen beheben</a></details><details class="nav-kapitel"><summary>POS Ticketing</summary><a class="nav-seite" href="../../produkte/pos-ticketing/funktionsweise-pos-ticketing.html">Funktionsweise POS Ticketing</a><a class="nav-seite" href="../../produkte/pos-ticketing/pos-ticketing-in-betrieb-nehmen.html">POS Ticketing in Betrieb nehmen</a></details><details class="nav-kapitel"><summary>Küchenmonitor</summary><a class="nav-seite" href="../../produkte/kuchenmonitor/funktionsweise-kuchenmonitor.html">Funktionsweise Küchenmonitor</a><a class="nav-seite" href="../../produkte/kuchenmonitor/kuchenmonitor-in-betrieb-nehmen.html">Küchenmonitor in Betrieb nehmen</a><a class="nav-seite" href="../../produkte/kuchenmonitor/abholnummer-auf-dem-kundenbeleg.html">Abholnummer auf dem Kundenbeleg</a><a class="nav-seite" href="../../produkte/kuchenmonitor/kuchenmonitor-storungen-beheben.html">Küchenmonitor: Störungen beheben</a></details><details class="nav-kapitel"><summary>GoodCompanyDaemon</summary><a class="nav-seite" href="../../produkte/goodcompanydaemon/funktionsweise-O0j.html">Funktionsweise</a><a class="nav-seite" href="../../produkte/goodcompanydaemon/in-betrieb-nehmen-SoC.html">In Betrieb nehmen</a><a class="nav-seite" href="../../produkte/goodcompanydaemon/daemon-jobs-einrichten.html">Daemon Jobs einrichten</a><a class="nav-seite" href="../../produkte/goodcompanydaemon/daemon-jobs-referenz.html">Daemon Jobs: Referenz</a><a class="nav-seite" href="../../produkte/goodcompanydaemon/filialuberwachung-und-timer-einrichten.html">Filialüberwachung und Timer einrichten</a></details></details><details class="nav-buch"><summary><a href="../../losungen/index.html">Lösungen</a></summary><a class="nav-seite" href="../../losungen/waagen.html">Waagen</a><a class="nav-seite" href="../../losungen/prepaid-und-gutscheine-uberblick.html">PrePaid und Gutscheine: Überblick</a><a class="nav-seite" href="../../losungen/kundenkarten-und-bonuspunkte.html">Kundenkarten und Bonuspunkte</a><a class="nav-seite" href="../../losungen/mollie-payment-einrichten.html">Mollie Payment einrichten</a><a class="nav-seite" href="../../losungen/gastronomiebetrieb-tische-und-bestellbons.html">Gastronomiebetrieb: Tische und Bestellbons</a><a class="nav-seite" href="../../losungen/kiosk-und-sb-systeme.html">Kiosk und SB-Systeme</a><a class="nav-seite" href="../../losungen/ebon-einrichten.html">eBon einrichten</a><a class="nav-seite" href="../../losungen/payment-uberblick-uber-die-verfahren.html">Payment: Überblick über die Verfahren</a><a class="nav-seite" href="../../losungen/mehrkassenbetrieb-und-filialen.html">Mehrkassenbetrieb und Filialen</a></details><details class="nav-buch"><summary><a href="../../schnittstellen/index.html">Schnittstellen</a></summary><details class="nav-kapitel"><summary>ERP-Cloud REST-Schnittstelle</summary><a class="nav-seite" href="../../schnittstellen/erp-cloud-rest-schnittstelle/erp-cloud-rest-schnittstelle-integrationsleitfaden.html">ERP-Cloud REST-Schnittstelle: Integrationsleitfaden</a><a class="nav-seite" href="../../schnittstellen/erp-cloud-rest-schnittstelle/gutschein-api-fur-shopbetreiber.html">Gutschein-API für Shopbetreiber</a></details><details class="nav-kapitel"><summary>CSV- und ASCII-Import</summary><a class="nav-seite" href="../../schnittstellen/csv-und-ascii-import/artikel-und-stammdaten-per-csv-importieren.html">Artikel und Stammdaten per CSV importieren</a></details><details class="nav-kapitel"><summary>DATEV</summary><a class="nav-seite" href="../../schnittstellen/datev/datev-export-einrichten.html">DATEV-Export einrichten</a></details><details class="nav-kapitel"><summary>ERPSync</summary><a class="nav-seite" href="../../schnittstellen/erpsync/erpsync-einrichten.html">ERPSync einrichten</a></details><details class="nav-kapitel"><summary>Orgasoft</summary><a class="nav-seite" href="../../schnittstellen/orgasoft/orgasoft-anbindung-einrichten.html">Orgasoft-Anbindung einrichten</a></details><details class="nav-kapitel"><summary>Vectron</summary><a class="nav-seite" href="../../schnittstellen/vectron/vectron-daten-importieren-und-exportieren.html">Vectron-Daten importieren und exportieren</a></details><details class="nav-kapitel"><summary>KAKOM</summary><a class="nav-seite" href="../../schnittstellen/kakom/kakom-anbindung-einrichten.html">KAKOM-Anbindung einrichten</a></details></details><details class="nav-buch"><summary><a href="../../betrieb-administration/index.html">Betrieb &amp; Administration</a></summary><a class="nav-seite" href="../../betrieb-administration/systemvoraussetzungen.html">Systemvoraussetzungen</a><a class="nav-seite" href="../../betrieb-administration/netzwerk-und-ports.html">Netzwerk und Ports</a><a class="nav-seite" href="../../betrieb-administration/updates-einspielen.html">Updates einspielen</a><a class="nav-seite" href="../../betrieb-administration/bediener-und-rechte-einrichten.html">Bediener und Rechte einrichten</a><a class="nav-seite" href="../../betrieb-administration/datenbankbenutzer-und-ssl.html">Datenbankbenutzer und SSL</a><a class="nav-seite" href="../../betrieb-administration/bondrucker-einrichten.html">Bondrucker einrichten</a><a class="nav-seite" href="../../betrieb-administration/kundendisplay-einrichten.html">Kundendisplay einrichten</a><a class="nav-seite" href="../../betrieb-administration/kassenschublade-einrichten.html">Kassenschublade einrichten</a><a class="nav-seite" href="../../betrieb-administration/scanner-einrichten.html">Scanner einrichten</a><a class="nav-seite" href="../../betrieb-administration/ec-terminal-anbinden.html">EC-Terminal anbinden</a><a class="nav-seite" href="../../betrieb-administration/geldwechsler-und-cash-recycling-anbinden.html">Geldwechsler und Cash-Recycling anbinden</a><a class="nav-seite" href="../../betrieb-administration/orderman-handhelds-anbinden.html">Orderman-Handhelds anbinden</a><a class="nav-seite" href="../../betrieb-administration/datenbank-sichern-und-wiederherstellen.html">Datenbank sichern und wiederherstellen</a><a class="nav-seite" href="../../betrieb-administration/smarttill-kassenschublade-anbinden.html">SMARTtill-Kassenschublade anbinden</a><a class="nav-seite" href="../../betrieb-administration/fingerprint-reader-einrichten.html">Fingerprint-Reader einrichten</a><a class="nav-seite" href="../../betrieb-administration/fernwartung-und-zugriff-auf-kassen.html">Fernwartung und Zugriff auf Kassen</a><a class="nav-seite" href="../../betrieb-administration/branding-und-erscheinungsbild-anpassen.html">Branding und Erscheinungsbild anpassen</a></details><details class="nav-buch"><summary><a href="../../fiskalisierung/index.html">Fiskalisierung</a></summary><a class="nav-seite" href="../../fiskalisierung/fiskalisierung-uberblick-fur-partner.html">Fiskalisierung: Überblick für Partner</a><a class="nav-seite" href="../../fiskalisierung/tse-hardware-swissbit-in-betrieb-nehmen.html">TSE Hardware (Swissbit) in Betrieb nehmen</a><a class="nav-seite" href="../../fiskalisierung/cloud-tse-fiskaly-in-betrieb-nehmen.html">Cloud-TSE (fiskaly) in Betrieb nehmen</a><a class="nav-seite" href="../../fiskalisierung/tse-pin-und-puk-verwalten.html">TSE-PIN und PUK verwalten</a><a class="nav-seite" href="../../fiskalisierung/tse-firmware-aktualisieren.html">TSE-Firmware aktualisieren</a><a class="nav-seite" href="../../fiskalisierung/abgelaufene-tse-austauschen.html">Abgelaufene TSE austauschen</a><a class="nav-seite" href="../../fiskalisierung/tse-ausser-betrieb-nehmen.html">TSE außer Betrieb nehmen</a><a class="nav-seite" href="../../fiskalisierung/kassenmeldung-nach-146a-ao.html">Kassenmeldung nach § 146a AO</a><a class="nav-seite" href="../../fiskalisierung/belege-und-kassenabschlusse-prufen.html">Belege und Kassenabschlüsse prüfen</a><a class="nav-seite" href="../../fiskalisierung/dsfinv-k-exportieren.html">DSFinV-K exportieren</a><a class="nav-seite" href="../../fiskalisierung/tse-tar-exportieren.html">TSE-TAR exportieren</a><a class="nav-seite" href="../../fiskalisierung/verfahrensdokumentation-fur-den-betreiber.html">Verfahrensdokumentation für den Betreiber</a><a class="nav-seite" href="../../fiskalisierung/fiskalisierung-von-bestellungen-und-zahlungen-der-pos-gastro-app.html">Fiskalisierung von Bestellungen und Zahlungen der POS Gastro App</a><a class="nav-seite" href="../../fiskalisierung/zertifikate-und-nachweise.html">Zertifikate und Nachweise</a></details><details class="nav-buch"><summary><a href="../../faq-troubleshooting/index.html">FAQ &amp; Troubleshooting</a></summary><a class="nav-seite" href="../../faq-troubleshooting/vorgehen-bei-storungen.html">Vorgehen bei Störungen</a><a class="nav-seite" href="../../faq-troubleshooting/bonfehler-untersuchen.html">Bonfehler untersuchen</a><a class="nav-seite" href="../../faq-troubleshooting/centralpoint-inkonsistente-daten.html">CentralPoint: inkonsistente Daten</a><a class="nav-seite" href="../../faq-troubleshooting/datenbank-update-schlagt-fehl-collations.html">Datenbank-Update schlägt fehl (Collations)</a><a class="nav-seite" href="../../faq-troubleshooting/fernwartung-schwarzbild-an-der-kasse.html">Fernwartung: Schwarzbild an der Kasse</a><a class="nav-seite" href="../../faq-troubleshooting/lizenzprobleme-beheben.html">Lizenzprobleme beheben</a><a class="nav-seite" href="../../faq-troubleshooting/tse-meldet-einen-fehler.html">TSE meldet einen Fehler</a><a class="nav-seite" href="../../faq-troubleshooting/kasse-startet-nicht-oder-synchronisiert-nicht.html">Kasse startet nicht oder synchronisiert nicht</a></details></nav></aside>
+  <main class="spalte-mitte"><p class="brotkrumen">Produkte &rsaquo; ITR Kasse</p><h1>Einstellungen der Kasse: Referenz</h1><p class="entwurf-band">Entwurf &ndash; diese Seite ist noch nicht gepr&uuml;ft und kann Fehler enthalten.</p><p class="seitenmeta">Letzte &Auml;nderung 29.08.2026 &middot; Version 1 &middot; Seiten-ID 775</p><div class="inhalt"><p id="bkmrk-die-itr-kasse-wird-%C3%BC">Die ITR Kasse wird über eine Parameterliste konfiguriert, die nach Bereichen gegliedert ist. Diese Seite beschreibt den Umgang mit der Liste und führt die dokumentierten Parameter je Bereich auf.</p>
+<h2 id="bkmrk-die-parameterliste-b">Die Parameterliste bedienen</h2>
+<p id="bkmrk-die-parameterliste-l">Die Parameterliste liegt unter <strong>Admin-Seiten → Einstellungen → Admin → Alle Einstellungen</strong>. Der Kopf der Seite zeigt eine Übersicht über den eingesteckten Dongle und die freigeschalteten Module.</p>
+<table id="bkmrk-element-zweck-import">
+<thead>
+<tr>
+<th>Element</th>
+<th>Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Import</strong></td>
+<td>Übernimmt alle Parameter einer anderen Kasse aus einer Datei</td>
+</tr>
+<tr>
+<td><strong>Export</strong></td>
+<td>Schreibt alle Parameter dieser Kasse in eine Datei, die an einer anderen Kasse importiert werden kann</td>
+</tr>
+<tr>
+<td><strong>Bearbeitung starten</strong></td>
+<td>Gibt die Parameter zur Änderung frei. Ohne diesen Schritt ist die Liste schreibgeschützt</td>
+</tr>
+<tr>
+<td><strong>Such- und Sortierfeld</strong></td>
+<td>Filtert die Liste nach Namen oder Namensteilen. Die Eingabe <code>Maske</code> zeigt alle Parameter, deren Name das Wort enthält</td>
+</tr>
+<tr>
+<td><strong>Parameter</strong></td>
+<td>Die Liste selbst, gefiltert nach dem Suchfeld</td>
+</tr>
+<tr>
+<td><strong>Beschreibung der Parameter</strong></td>
+<td>Erklärungstext zum gewählten Parameter. Die Beschreibungen werden mit jeder Version ergänzt</td>
+</tr>
+</tbody>
+</table>
+<p id="bkmrk-%5Bscreenshot%3A-itr-kas">[SCREENSHOT: ITR Kasse, Admin-Seiten → Einstellungen → Admin → Alle Einstellungen, gesamte Seite]</p>
+<p class="callout warning" id="bkmrk-ein-import-%C3%BCberschre">Ein Import überschreibt die Parameter dieser Kasse vollständig mit denen der Quellkasse. Exportieren Sie vorher den bestehenden Stand, damit Sie zurückkehren können.</p>
+<h2 id="bkmrk-abrechnung">Abrechnung</h2>
+<table id="bkmrk-name-beschreibung-st">
+<thead>
+<tr>
+<th>Name</th>
+<th>Beschreibung</th>
+<th>Standardwert</th>
+<th>Werte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Billing.ActionNamePAyReceipts</code></td>
+<td>Anzeigename im Kunden-Dialog für „Abrechnen“</td>
+<td>–</td>
+<td>Text</td>
+</tr>
+<tr>
+<td><code>Billing.ActionNameChargeReceipts</code></td>
+<td>Anzeigename im Kunden-Dialog für „Abrechnung auf UNBAR“</td>
+<td>–</td>
+<td>Text</td>
+</tr>
+<tr>
+<td><code>Billing.ActionNamePayReceipt</code></td>
+<td>Anzeigename im Kunden-Dialog für „Bezahlen“</td>
+<td>–</td>
+<td>Text</td>
+</tr>
+<tr>
+<td><code>Billing.ActionNamePrintCustomer</code></td>
+<td>Anzeigename im Kunden-Dialog für „Historie“</td>
+<td>–</td>
+<td>Text</td>
+</tr>
+<tr>
+<td><code>Billing.Article</code></td>
+<td>Artikelnummer des Artikels, über den beim Rechnungsabschluss alle offenen Rechnungen aufaddiert ausgegeben werden</td>
+<td>–</td>
+<td>Beliebige gültige Artikelnummer</td>
+</tr>
+<tr>
+<td><code>Billing.PaymentMethod</code></td>
+<td>Bezahlweg-Code für den automatischen Rechnungsabschluss. Auf diesen Bezahlweg wird gebucht, wenn das PrePaid-Guthaben nicht ausreicht</td>
+<td>–</td>
+<td>Beliebiger gültiger Bezahlweg-Code</td>
+</tr>
+<tr>
+<td><code>Billing.DefaultReceiptTypeToClose</code></td>
+<td>Bon-Typ-Code des Bon-Typs, mit dem Rechnungen dargestellt werden, etwa Abrechnung</td>
+<td>–</td>
+<td>Beliebiger gültiger Bontyp</td>
+</tr>
+<tr>
+<td><code>Billing.ReceiptTypesToClose</code></td>
+<td>Liste von Bon-Typ-Codes, die zum Abschluss von Rechnungen genutzt werden</td>
+<td><code>0</code></td>
+<td>Beliebige gültige Bontypen</td>
+</tr>
+<tr>
+<td><code>Billing.ReceiptsIntervalInDays</code></td>
+<td>Zeitraum in Tagen, für den die Kundendaten zur Abrechnung geladen werden</td>
+<td><code>60</code></td>
+<td><code>1</code> bis <code>120</code></td>
+</tr>
+</tbody>
+</table>
+<p class="callout info" id="bkmrk-die-schreibweise-der">Die Schreibweise der ersten vier Parameter ist der Quelle entnommen. `Billing.ActionNamePAyReceipts` und `Billing.ActionNamePayReceipt` unterscheiden sich in Groß- und Kleinschreibung. [OFFEN: Schreibweise beider Parameternamen gegen die Kasse prüfen]</p>
+<h2 id="bkmrk-anwendungen">Anwendungen</h2>
+<table id="bkmrk-name-beschreibung-st-1">
+<thead>
+<tr>
+<th>Name</th>
+<th>Beschreibung</th>
+<th>Standardwert</th>
+<th>Werte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[OFFEN: Parametername]</td>
+<td>Vergrößert die Scroll-Balken im Auswahlfenster für Menüs und Verknüpfungsgruppen</td>
+<td><code>-1</code> (vom Betriebssystem bestimmt)</td>
+<td><code>-1</code>, <code>1</code> bis <code>999</code></td>
+</tr>
+<tr>
+<td><code>Dialog.SideDishes.dialogWidth</code></td>
+<td>Breite des Menüauswahl-Fensters</td>
+<td><code>900</code></td>
+<td><code>1</code> bis <code>9999</code></td>
+</tr>
+<tr>
+<td><code>Dialog.SideDishes.dialogHeight</code></td>
+<td>Höhe des Menüauswahl-Fensters</td>
+<td><code>600</code></td>
+<td><code>1</code> bis <code>9999</code></td>
+</tr>
+<tr>
+<td><code>Dialog.SideDishes.font.size</code></td>
+<td>Schriftgröße des Menüauswahl-Fensters</td>
+<td>Dynamisch, abhängig von der Anzahl der Gruppen</td>
+<td><code>1</code> bis <code>99</code></td>
+</tr>
+<tr>
+<td><code>Dialog.SideDishes.row.height</code></td>
+<td>Zeilenhöhe des Menüauswahl-Fensters</td>
+<td><code>52</code></td>
+<td><code>1</code> bis <code>99</code></td>
+</tr>
+<tr>
+<td><code>Dialog.SideDishes.title.font.size</code></td>
+<td>Schriftgröße der Titelzeile des Menüauswahl-Fensters</td>
+<td><code>18</code></td>
+<td><code>1</code> bis <code>99</code></td>
+</tr>
+<tr>
+<td><code>Dialog.SideDishes.subtitle.font.size</code></td>
+<td>Schriftgröße der Untertitelzeile des Menüauswahl-Fensters</td>
+<td><code>12</code></td>
+<td>[OFFEN: Wertebereich]</td>
+</tr>
+<tr>
+<td><code>Dialog.SideDishes.splitView</code></td>
+<td>Beeinflusst die Aufteilung des Menüauswahl-Fensters</td>
+<td><code>false</code></td>
+<td><code>true</code>, <code>false</code></td>
+</tr>
+<tr>
+<td><code>Dialog.SideDishes.splitView.from</code></td>
+<td>Beeinflusst die Aufteilung des Menüauswahl-Fensters</td>
+<td><code>6</code></td>
+<td>[OFFEN: Wertebereich]</td>
+</tr>
+<tr>
+<td><code>Dialog.SideDishes.splitView.at</code></td>
+<td>Beeinflusst die Aufteilung des Menüauswahl-Fensters</td>
+<td><code>4</code></td>
+<td>[OFFEN: Wertebereich]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bkmrk-ausf%C3%BChren">Ausführen</h2>
+<table id="bkmrk-name-beschreibung-st-2">
+<thead>
+<tr>
+<th>Name</th>
+<th>Beschreibung</th>
+<th>Standardwert</th>
+<th>Werte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Execute.ButtonToExecute.SwitchOperatorToLogin</code></td>
+<td>Name eines Buttons, der ausgeführt wird, wenn ein Bedienerwechsel zur Login-Seite ausgelöst wird — entweder über „Bediener-Wechsel“ oder durch Abziehen des Dallas-Schlüssels</td>
+<td>–</td>
+<td>Name des Buttons aus dem Designer</td>
+</tr>
+</tbody>
+</table>
+<p id="bkmrk-%5Boffen%3A-schreibweise">[OFFEN: Schreibweise des Parameternamens <code>Execute.ButtonToExecute.SwitchOperatorToLogin</code> gegen die Kasse prüfen — die Quelle ist an dieser Stelle unvollständig]</p>
+<h2 id="bkmrk-kassenabschluss">Kassenabschluss</h2>
+<table id="bkmrk-name-beschreibung-st-3">
+<thead>
+<tr>
+<th>Name</th>
+<th>Beschreibung</th>
+<th>Standardwert</th>
+<th>Werte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Reconciliation.PrintCoinsAndNotesSums</code></td>
+<td>Druckt bei der Aufstellung der ausgezahlten Münzen und Scheine zusätzlich zur Gesamtsumme die Summe für Münzen und die Summe für Scheine</td>
+<td><code>false</code></td>
+<td><code>true</code>, <code>false</code></td>
+</tr>
+<tr>
+<td><code>Reconciliation.PrintCancellationsPerReceiptType</code></td>
+<td>Legt fest, ob Storno-Bons unbarer Bontypen wie Retoure oder Mitarbeiterverkauf auf den Z-Bon gedruckt werden</td>
+<td><code>false</code></td>
+<td><code>true</code>, <code>false</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="bkmrk-orderman">Orderman</h2>
+<table id="bkmrk-name-beschreibung-st-4">
+<thead>
+<tr>
+<th>Name</th>
+<th>Beschreibung</th>
+<th>Standardwert</th>
+<th>Werte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Hardware.Orderman2.TableNumber.NoAreaPostfixNeeded</code></td>
+<td>Verzichtet auf das Anhängen des Service-Bereich-Kennzeichens an die Tischnummer. Nur möglich, wenn Tischnummern über alle Service-Bereiche eindeutig sind und die Tischnummern zusammen mit den Service-Bereichen in Klammern unter <code>Hardware.Orderman2.ListOfServiceAreas</code> vollständig angegeben sind</td>
+<td><code>false</code></td>
+<td><code>true</code>, <code>false</code></td>
+</tr>
+<tr>
+<td><code>Hardware.Orderman2.TableNumber.CheckRegex</code></td>
+<td>Prüft bei Tischen, die über den Orderman eröffnet werden, den unter <code>Receipt.TableNumberRegex</code> definierten Aufbau der Tischnummer</td>
+<td><code>true</code></td>
+<td><code>true</code>, <code>false</code></td>
+</tr>
+<tr>
+<td><code>Hardware.Orderman2.TableNumber.CheckLength</code></td>
+<td>Prüft bei Tischen, die über den Orderman eröffnet werden, die unter <code>Receipt.TableNumberMaxLength</code> definierte maximale Länge</td>
+<td><code>true</code></td>
+<td><code>true</code>, <code>false</code></td>
+</tr>
+<tr>
+<td><code>Hardware.Orderman2.LogoutOperatorAtCashRegister</code></td>
+<td>Meldet den Bediener auch an der Kasse ab, wenn er sich am Orderman abmeldet. Meldet sich ein Bediener am Orderman an, wird er auch an der Kasse angemeldet</td>
+<td><code>true</code></td>
+<td><code>true</code>, <code>false</code></td>
+</tr>
+<tr>
+<td><code>Hardware.Orderman2.OperatorsCanOnlyOpenEmptyOrOwnedTables</code></td>
+<td>Erlaubt nur dem Bediener, der einen Tisch eröffnet hat, diesen erneut zu öffnen</td>
+<td><code>false</code></td>
+<td><code>true</code>, <code>false</code></td>
+</tr>
+<tr>
+<td><code>Hardware.Orderman2.OperatorRoleRequiredForReceiptPositionCancelations</code></td>
+<td>Bedienerrolle, die für das nachträgliche Stornieren bestellter Artikelpositionen mindestens erforderlich ist</td>
+<td><code>OPERATOR</code></td>
+<td><code>OPERATOR</code>, <code>SUPERVISOR</code>, <code>BRANCH_MANAGER</code>, <code>ADMIN</code></td>
+</tr>
+<tr>
+<td><code>Hardware.Orderman2.TableNumber.ServiceAreasShowTableRange</code></td>
+<td>Zeigt die bei den Service-Bereichen definierten Tisch-Bereiche mit an</td>
+<td><code>true</code></td>
+<td><code>true</code>, <code>false</code></td>
+</tr>
+<tr>
+<td><code>Hardware.Orderman2.MergeForPrint</code></td>
+<td>Führt Bonpositionen für den Bon-Ausdruck zusammen. Ohne freigeschaltetes Orderman-Modul und bei Bon-Nachdrucken aus dem CentralPoint bleibt die Buchungsreihenfolge des Orderman erhalten</td>
+<td><code>true</code></td>
+<td><code>true</code>, <code>false</code></td>
+</tr>
+<tr>
+<td><code>Hardware.Orderman2.AdjustPosConfiguration</code></td>
+<td>Setzt beim Neustart der Kasse die Parameter, die für den Betrieb mit Orderman nötig sind, etwa das Verhindern des Zusammenführens von Bonpositionen während der Eingabe</td>
+<td><code>true</code></td>
+<td><code>true</code>, <code>false</code></td>
+</tr>
+<tr>
+<td><code>Hardware.Orderman2.ReceiptTypeCode</code></td>
+<td>Bon-Typ-Code, mit dem über den Orderman eröffnete Bons erstellt werden. Am Bon-Typ lassen sich fester Steuersatz oder feste Preisebene hinterlegen</td>
+<td>–</td>
+<td>Beliebiger gültiger Bontyp</td>
+</tr>
+<tr>
+<td><code>Hardware.Orderman2.ListOfServiceAreas</code></td>
+<td>Kommagetrennte Liste von Service-Bereichen. Hinter jedem Bereich lassen sich in Klammern Wertebereiche oder einzelne Tischnummern angeben, mehrere Werte durch Semikolon getrennt. Hinter dem Namen kann mit Doppelpunkt ein Bon-Typ-Code angegeben werden, der beim Eröffnen eines Bons in diesem Bereich verwendet wird. Für Bereiche ohne eigene Angabe gilt der Bon-Typ aus <code>Table.ReceiptTypeForTableAssignment</code></td>
+<td>Hauptbereich, Terasse, Raum #1, Raum #2, Raum #3, Außen #1, Außen #2, Außen #3</td>
+<td>Frei definierbare Namen, z. B. <code>Hauptbereich (1-10), Bar (11-19;90-99), Terasse:10 (20;21;22)</code></td>
+</tr>
+<tr>
+<td><code>Hardware.Orderman2.CancellationReasons</code></td>
+<td>Kommagetrennte Liste von Stornogründen</td>
+<td>Meinung geändert, Falsch erfasst, Zu spät, Nicht zufrieden, Kunde gegangen, Sonstiger Grund</td>
+<td>Frei definierbare Texte</td>
+</tr>
+<tr>
+<td><code>Hardware.Orderman2.ArticleNameLevel</code></td>
+<td>Namensebene für Artikelnamen, die im Orderman angezeigt werden</td>
+<td><code>3</code></td>
+<td><code>1</code> bis <code>3</code></td>
+</tr>
+<tr>
+<td><code>Hardware.Orderman2.ShowOperatorsOnlyOwnedTables</code></td>
+<td>Zeigt nur die Tische, die der Bediener selbst geöffnet hat. <code>false</code> zeigt auch Tische anderer Bediener</td>
+<td><code>false</code></td>
+<td><code>true</code>, <code>false</code></td>
+</tr>
+<tr>
+<td><code>Hardware.Orderman2.port</code></td>
+<td>Port, auf dem die Kasse auf Anfragen des Orderman-Solution-Servers hört</td>
+<td><code>12346</code></td>
+<td><code>1000</code> bis <code>65535</code></td>
+</tr>
+<tr>
+<td><code>Hardware.Orderman2.OperatorSortLevel</code></td>
+<td>Sortierreihenfolge der Bediener auf der Anmeldeseite des Orderman: <code>1</code> Anzeigename, <code>2</code> Bedienername, <code>3</code> Bedienernummer, <code>4</code> Login-Name</td>
+<td><code>3</code></td>
+<td><code>1</code> bis <code>4</code></td>
+</tr>
+<tr>
+<td><code>Hardware.Orderman2.DisallowSubTables</code></td>
+<td>Verbietet Untertische, etwa Tisch 2.1 als Untertisch zu Tisch 2</td>
+<td><code>false</code></td>
+<td><code>true</code>, <code>false</code></td>
+</tr>
+<tr>
+<td><code>Hardware.Orderman2.ShowAllOperatorsOfBranch</code></td>
+<td>Zeigt alle Bediener der Filiale am Orderman an, nicht nur die in der Datenbank für mobile Geräte gekennzeichneten</td>
+<td><code>false</code></td>
+<td><code>true</code>, <code>false</code></td>
+</tr>
+</tbody>
+</table>
+<p class="callout warning" id="bkmrk-der-parameter-%60hardw">Der Parameter `Hardware.Orderman2.AdjustPosConfiguration` steuert, ob die Kasse beim Neustart ihre Konfiguration selbst an den Orderman-Betrieb anpasst. Eine Änderung wird ausdrücklich nicht empfohlen — ohne diese Anpassung arbeitet die Kasse nicht zuverlässig mit dem Orderman zusammen.</p>
+<h2 id="bkmrk-sonstiges">Sonstiges</h2>
+<table id="bkmrk-name-beschreibung-st-5">
+<thead>
+<tr>
+<th>Name</th>
+<th>Beschreibung</th>
+<th>Standardwert</th>
+<th>Werte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PrintReceipt.IfWeighingItemIsPresent</code></td>
+<td>Druckt den Bon, wenn sich ein gewogener Artikel auf dem Bon befindet</td>
+<td><code>true</code></td>
+<td><code>true</code>, <code>false</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="bkmrk-switchreceiptdialog">SwitchReceiptDialog</h2>
+<table id="bkmrk-name-beschreibung-st-6">
+<thead>
+<tr>
+<th>Name</th>
+<th>Beschreibung</th>
+<th>Standardwert</th>
+<th>Werte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bon Zuweisungen, Umbuchungen und Übergaben allen Bedienern erlauben</td>
+<td>Erlaubt allen Bedienern im Bon-Browser, Tische zuzuweisen, umzubuchen oder zu übergeben. Ohne diese Option dürfen das nur der Eigentümer des Bons oder Bediener ab der Rolle <code>SUPERVISOR</code></td>
+<td><code>false</code></td>
+<td><code>true</code>, <code>false</code></td>
+</tr>
+<tr>
+<td>Breite Dialog Bon-Browser</td>
+<td>Dialogbreite des Bon-Browsers auf der x-Achse</td>
+<td>Aktuelle Bildschirmauflösung</td>
+<td><code>100</code> bis <code>9999</code></td>
+</tr>
+<tr>
+<td>Höhe Dialog Bon-Browser</td>
+<td>Dialoghöhe des Bon-Browsers auf der y-Achse</td>
+<td>Aktuelle Bildschirmauflösung</td>
+<td><code>100</code> bis <code>9999</code></td>
+</tr>
+<tr>
+<td><code>SwitchReceiptDialog.Sorting</code></td>
+<td>[OFFEN: Beschreibung des Parameters]</td>
+<td><code>true</code></td>
+<td><code>true</code>, <code>false</code></td>
+</tr>
+</tbody>
+</table>
+<p id="bkmrk-%5Boffen%3A-technische-p">[OFFEN: Technische Parameternamen zu den ersten drei Einträgen dieses Bereichs]</p>
+<h2 id="bkmrk-waage">Waage</h2>
+<p id="bkmrk-f%C3%BCr-waagen-gibt-es-e">Für Waagen gibt es einen Parameter, der den Wiegevorgang automatisch bestätigt. Das ist etwa dort sinnvoll, wo sich das Gewicht nach dem Auflegen nicht mehr verändert. Der Parameter wird an der Kasse in der Datei <code>cr.properties</code> ergänzt:</p>
+<pre id="bkmrk-misc.scalerader.auto"><code class="language-properties">Misc.ScaleRader.AutoOkay=true
+</code></pre>
+<h2 id="bkmrk-bereiche-ohne-dokume">Bereiche ohne dokumentierte Parameter</h2>
+<p id="bkmrk-die-folgenden-bereic">Die folgenden Bereiche existieren in der Parameterliste, die Quelle führt zu ihnen jedoch keine Parameter auf: BarCode-Druck zur Bon-Suche, BarCode-Scanner, Bezahlterminal, Bon, Bon-Warteschlange, Bonsummen-BarCode Druck, Bonuspunkte, Button, CoinMaster, Dallas-Schlüssel, Dialog, Eingabe, EnableCondition, Entries, Farben, Flughafen, Frame, Glory, Hardware, Kasse, Kundenportal, Lager, LinkedGroup, Login, Modifier, Operator, Panels, PrePaid, Price, RotationSupport, Secucard, Serielle Schubladen, SmartSchank, SmartTill, Stampay, Steuer, Storno, Update, UseFactor, VideoServer.</p>
+<p id="bkmrk-%5Boffen%3A-parameter%2C-s">[OFFEN: Parameter, Standardwerte und Wertebereiche dieser 40 Bereiche gegen die Kasse erheben]</p>
+<h2 id="bkmrk-weitere-informatione">Weitere Informationen</h2>
+<ul id="bkmrk-itr-partner-service-">
+<li><a href="../../produkte/kassen-designer/enableconditions-referenz.html">ITR Partner Service → Produkte → ITR Kasse → EnableConditions: Referenz</a></li>
+<li><a href="../../produkte/kassen-designer/button-aktionen-referenz.html">ITR Partner Service → Produkte → ITR Kasse → Button-Aktionen: Referenz</a></li>
+</ul>
+</div></main>
+  <aside class="spalte-rechts"><div class="seiteninhalt"><h2>Seiteninhalt</h2><ul><li class="e2"><a href="#bkmrk-die-parameterliste-b">Die Parameterliste bedienen</a></li><li class="e2"><a href="#bkmrk-abrechnung">Abrechnung</a></li><li class="e2"><a href="#bkmrk-anwendungen">Anwendungen</a></li><li class="e2"><a href="#bkmrk-ausf%C3%BChren">Ausführen</a></li><li class="e2"><a href="#bkmrk-kassenabschluss">Kassenabschluss</a></li><li class="e2"><a href="#bkmrk-orderman">Orderman</a></li><li class="e2"><a href="#bkmrk-sonstiges">Sonstiges</a></li><li class="e2"><a href="#bkmrk-switchreceiptdialog">SwitchReceiptDialog</a></li><li class="e2"><a href="#bkmrk-waage">Waage</a></li><li class="e2"><a href="#bkmrk-bereiche-ohne-dokume">Bereiche ohne dokumentierte Parameter</a></li><li class="e2"><a href="#bkmrk-weitere-informatione">Weitere Informationen</a></li></ul></div></aside>
+</div>
+<footer class="fuss">
+  <span>ITR Partner Service</span>
+  <span>Stand 03.09.2026</span>
+</footer>
+<script src="../../assets/suche.js"></script>
+</body>
+</html>

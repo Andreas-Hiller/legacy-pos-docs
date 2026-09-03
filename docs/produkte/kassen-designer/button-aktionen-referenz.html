@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Button-Aktionen: Referenz | Produkte</title>
+<link rel="stylesheet" href="../../assets/stil.css">
+</head>
+<body>
+<header class="kopf">
+  <a class="kopf-logo" href="../../index.html"><img src="../../assets/logo.png" alt="IT Relations"></a>
+  <div class="kopf-suche">
+    <input type="search" id="suchfeld" placeholder="Alle Inhalte durchsuchen" autocomplete="off"
+           aria-label="Suchen" data-auf="../../">
+    <div id="suchergebnis" hidden></div>
+  </div>
+  <span class="kopf-firma">IT Relations GmbH</span>
+</header>
+<div class="rahmen">
+  <aside class="spalte-links"><nav class="nav" aria-label="Inhalt"><a class="nav-wurzel" href="../../index.html">ITR Partner Service</a><details class="nav-buch"><summary><a href="../../news-releases-pcT/index.html">News &amp; Releases</a></summary><details class="nav-kapitel"><summary>Versionshinweise</summary><a class="nav-seite" href="../../news-releases-pcT/versionshinweise/august-2026.html">August 2026</a><a class="nav-seite" href="../../news-releases-pcT/versionshinweise/25-august-2026.html">25. August 2026</a></details><details class="nav-kapitel"><summary>News</summary><a class="nav-seite" href="../../news-releases-pcT/news/kasse-554-beta-das-wichtigste.html">Kasse 5.54 (Beta) – das Wichtigste...</a><a class="nav-seite" href="../../news-releases-pcT/news/kasse-553-das-wichtigste.html">Kasse 5.53 – das Wichtigste</a></details></details><details class="nav-buch"><summary><a href="../../schnellstart/index.html">Schnellstart</a></summary><a class="nav-seite" href="../../schnellstart/standalone-kasse-und-betrieb-mit-centralpoint.html">Standalone-Kasse und Betrieb mit CentralPoint</a><a class="nav-seite" href="../../schnellstart/wie-diese-dokumentation-aufgebaut-ist.html">Wie diese Dokumentation aufgebaut ist</a><a class="nav-seite" href="../../schnellstart/produktlandschaft-im-uberblick.html">Produktlandschaft im Überblick</a><a class="nav-seite" href="../../schnellstart/rollen-hersteller-partner-endkunde.html">Rollen: Hersteller, Partner, Endkunde</a><a class="nav-seite" href="../../schnellstart/glossar-und-abkurzungen.html">Glossar und Abkürzungen</a></details><details class="nav-buch" open><summary><a href="../../produkte/index.html">Produkte</a></summary><details class="nav-kapitel"><summary>ITR Kasse</summary><a class="nav-seite" href="../../produkte/itr-kasse/funktionsweise-der-itr-kasse.html">Funktionsweise der ITR Kasse</a><a class="nav-seite" href="../../produkte/itr-kasse/itr-kasse-installieren.html">ITR Kasse installieren</a><a class="nav-seite" href="../../produkte/itr-kasse/ersteinrichtung-mit-dem-setup-wizard.html">Ersteinrichtung mit dem Setup-Wizard</a><a class="nav-seite" href="../../produkte/itr-kasse/lizenz-aktivieren.html">Lizenz aktivieren</a><a class="nav-seite" href="../../produkte/itr-kasse/module-und-lizenzmodelle-referenz.html">Module und Lizenzmodelle: Referenz</a><a class="nav-seite" href="../../produkte/itr-kasse/kasse-mit-dem-centralpoint-verbinden.html">Kasse mit dem CentralPoint verbinden</a><a class="nav-seite" href="../../produkte/itr-kasse/daten-von-hand-synchronisieren.html">Daten von Hand synchronisieren</a><a class="nav-seite" href="../../produkte/itr-kasse/protokolldateien-und-diagnose.html">Protokolldateien und Diagnose</a><a class="nav-seite" href="../../produkte/itr-kasse/einstellungen-der-kasse-referenz.html">Einstellungen der Kasse: Referenz</a><a class="nav-seite" href="../../produkte/itr-kasse/zeitauftrage-und-jobs-einrichten.html">Zeitaufträge und Jobs einrichten</a></details><details class="nav-kapitel" open><summary>Kassen-Designer</summary><a class="nav-seite" href="../../produkte/kassen-designer/kassenmasken-anpassen-grundlagen.html">Kassenmasken anpassen: Grundlagen</a><a class="nav-seite aktuell" href="../../produkte/kassen-designer/button-aktionen-referenz.html">Button-Aktionen: Referenz</a><a class="nav-seite" href="../../produkte/kassen-designer/enableconditions-referenz.html">EnableConditions: Referenz</a><a class="nav-seite" href="../../produkte/kassen-designer/kassen-designer-starten-und-einrichten.html">Kassen-Designer starten und einrichten</a><a class="nav-seite" href="../../produkte/kassen-designer/panels-gestalten.html">Panels gestalten</a><a class="nav-seite" href="../../produkte/kassen-designer/bon-und-bestelltabellen-gestalten.html">Bon- und Bestelltabellen gestalten</a><a class="nav-seite" href="../../produkte/kassen-designer/geanderte-masken-auf-die-kassen-ubertragen.html">Geänderte Masken auf die Kassen übertragen</a></details><details class="nav-kapitel"><summary>CentralPoint</summary><a class="nav-seite" href="../../produkte/centralpoint/datenbank-fur-den-centralpoint-einrichten.html">Datenbank für den CentralPoint einrichten</a><a class="nav-seite" href="../../produkte/centralpoint/centralpoint-installieren.html">CentralPoint installieren</a><a class="nav-seite" href="../../produkte/centralpoint/stammdaten-pflegen-und-verteilen.html">Stammdaten pflegen und verteilen</a><a class="nav-seite" href="../../produkte/centralpoint/preise-steuern.html">Preise steuern</a><a class="nav-seite" href="../../produkte/centralpoint/anwendung-registrieren-und-module-lizenzieren.html">Anwendung registrieren und Module lizenzieren</a><a class="nav-seite" href="../../produkte/centralpoint/filialen-und-kassen-anlegen.html">Filialen und Kassen anlegen</a><a class="nav-seite" href="../../produkte/centralpoint/validierung-und-konsistenzprufung.html">Validierung und Konsistenzprüfung</a><a class="nav-seite" href="../../produkte/centralpoint/kassenberichte-und-auswertungen.html">Kassenberichte und Auswertungen</a><a class="nav-seite" href="../../produkte/centralpoint/lagerverwaltung-einrichten.html">Lagerverwaltung einrichten</a></details><details class="nav-kapitel"><summary>POS Gastro App</summary><a class="nav-seite" href="../../produkte/pos-gastro-app/funktionsweise.html">Funktionsweise</a><a class="nav-seite" href="../../produkte/pos-gastro-app/in-betrieb-nehmen.html">In Betrieb nehmen</a><a class="nav-seite" href="../../produkte/pos-gastro-app/im-alltag-arbeiten.html">Im Alltag arbeiten</a><a class="nav-seite" href="../../produkte/pos-gastro-app/storungen-beheben.html">Störungen beheben</a></details><details class="nav-kapitel"><summary>POS Ticketing</summary><a class="nav-seite" href="../../produkte/pos-ticketing/funktionsweise-pos-ticketing.html">Funktionsweise POS Ticketing</a><a class="nav-seite" href="../../produkte/pos-ticketing/pos-ticketing-in-betrieb-nehmen.html">POS Ticketing in Betrieb nehmen</a></details><details class="nav-kapitel"><summary>Küchenmonitor</summary><a class="nav-seite" href="../../produkte/kuchenmonitor/funktionsweise-kuchenmonitor.html">Funktionsweise Küchenmonitor</a><a class="nav-seite" href="../../produkte/kuchenmonitor/kuchenmonitor-in-betrieb-nehmen.html">Küchenmonitor in Betrieb nehmen</a><a class="nav-seite" href="../../produkte/kuchenmonitor/abholnummer-auf-dem-kundenbeleg.html">Abholnummer auf dem Kundenbeleg</a><a class="nav-seite" href="../../produkte/kuchenmonitor/kuchenmonitor-storungen-beheben.html">Küchenmonitor: Störungen beheben</a></details><details class="nav-kapitel"><summary>GoodCompanyDaemon</summary><a class="nav-seite" href="../../produkte/goodcompanydaemon/funktionsweise-O0j.html">Funktionsweise</a><a class="nav-seite" href="../../produkte/goodcompanydaemon/in-betrieb-nehmen-SoC.html">In Betrieb nehmen</a><a class="nav-seite" href="../../produkte/goodcompanydaemon/daemon-jobs-einrichten.html">Daemon Jobs einrichten</a><a class="nav-seite" href="../../produkte/goodcompanydaemon/daemon-jobs-referenz.html">Daemon Jobs: Referenz</a><a class="nav-seite" href="../../produkte/goodcompanydaemon/filialuberwachung-und-timer-einrichten.html">Filialüberwachung und Timer einrichten</a></details></details><details class="nav-buch"><summary><a href="../../losungen/index.html">Lösungen</a></summary><a class="nav-seite" href="../../losungen/waagen.html">Waagen</a><a class="nav-seite" href="../../losungen/prepaid-und-gutscheine-uberblick.html">PrePaid und Gutscheine: Überblick</a><a class="nav-seite" href="../../losungen/kundenkarten-und-bonuspunkte.html">Kundenkarten und Bonuspunkte</a><a class="nav-seite" href="../../losungen/mollie-payment-einrichten.html">Mollie Payment einrichten</a><a class="nav-seite" href="../../losungen/gastronomiebetrieb-tische-und-bestellbons.html">Gastronomiebetrieb: Tische und Bestellbons</a><a class="nav-seite" href="../../losungen/kiosk-und-sb-systeme.html">Kiosk und SB-Systeme</a><a class="nav-seite" href="../../losungen/ebon-einrichten.html">eBon einrichten</a><a class="nav-seite" href="../../losungen/payment-uberblick-uber-die-verfahren.html">Payment: Überblick über die Verfahren</a><a class="nav-seite" href="../../losungen/mehrkassenbetrieb-und-filialen.html">Mehrkassenbetrieb und Filialen</a></details><details class="nav-buch"><summary><a href="../../schnittstellen/index.html">Schnittstellen</a></summary><details class="nav-kapitel"><summary>ERP-Cloud REST-Schnittstelle</summary><a class="nav-seite" href="../../schnittstellen/erp-cloud-rest-schnittstelle/erp-cloud-rest-schnittstelle-integrationsleitfaden.html">ERP-Cloud REST-Schnittstelle: Integrationsleitfaden</a><a class="nav-seite" href="../../schnittstellen/erp-cloud-rest-schnittstelle/gutschein-api-fur-shopbetreiber.html">Gutschein-API für Shopbetreiber</a></details><details class="nav-kapitel"><summary>CSV- und ASCII-Import</summary><a class="nav-seite" href="../../schnittstellen/csv-und-ascii-import/artikel-und-stammdaten-per-csv-importieren.html">Artikel und Stammdaten per CSV importieren</a></details><details class="nav-kapitel"><summary>DATEV</summary><a class="nav-seite" href="../../schnittstellen/datev/datev-export-einrichten.html">DATEV-Export einrichten</a></details><details class="nav-kapitel"><summary>ERPSync</summary><a class="nav-seite" href="../../schnittstellen/erpsync/erpsync-einrichten.html">ERPSync einrichten</a></details><details class="nav-kapitel"><summary>Orgasoft</summary><a class="nav-seite" href="../../schnittstellen/orgasoft/orgasoft-anbindung-einrichten.html">Orgasoft-Anbindung einrichten</a></details><details class="nav-kapitel"><summary>Vectron</summary><a class="nav-seite" href="../../schnittstellen/vectron/vectron-daten-importieren-und-exportieren.html">Vectron-Daten importieren und exportieren</a></details><details class="nav-kapitel"><summary>KAKOM</summary><a class="nav-seite" href="../../schnittstellen/kakom/kakom-anbindung-einrichten.html">KAKOM-Anbindung einrichten</a></details></details><details class="nav-buch"><summary><a href="../../betrieb-administration/index.html">Betrieb &amp; Administration</a></summary><a class="nav-seite" href="../../betrieb-administration/systemvoraussetzungen.html">Systemvoraussetzungen</a><a class="nav-seite" href="../../betrieb-administration/netzwerk-und-ports.html">Netzwerk und Ports</a><a class="nav-seite" href="../../betrieb-administration/updates-einspielen.html">Updates einspielen</a><a class="nav-seite" href="../../betrieb-administration/bediener-und-rechte-einrichten.html">Bediener und Rechte einrichten</a><a class="nav-seite" href="../../betrieb-administration/datenbankbenutzer-und-ssl.html">Datenbankbenutzer und SSL</a><a class="nav-seite" href="../../betrieb-administration/bondrucker-einrichten.html">Bondrucker einrichten</a><a class="nav-seite" href="../../betrieb-administration/kundendisplay-einrichten.html">Kundendisplay einrichten</a><a class="nav-seite" href="../../betrieb-administration/kassenschublade-einrichten.html">Kassenschublade einrichten</a><a class="nav-seite" href="../../betrieb-administration/scanner-einrichten.html">Scanner einrichten</a><a class="nav-seite" href="../../betrieb-administration/ec-terminal-anbinden.html">EC-Terminal anbinden</a><a class="nav-seite" href="../../betrieb-administration/geldwechsler-und-cash-recycling-anbinden.html">Geldwechsler und Cash-Recycling anbinden</a><a class="nav-seite" href="../../betrieb-administration/orderman-handhelds-anbinden.html">Orderman-Handhelds anbinden</a><a class="nav-seite" href="../../betrieb-administration/datenbank-sichern-und-wiederherstellen.html">Datenbank sichern und wiederherstellen</a><a class="nav-seite" href="../../betrieb-administration/smarttill-kassenschublade-anbinden.html">SMARTtill-Kassenschublade anbinden</a><a class="nav-seite" href="../../betrieb-administration/fingerprint-reader-einrichten.html">Fingerprint-Reader einrichten</a><a class="nav-seite" href="../../betrieb-administration/fernwartung-und-zugriff-auf-kassen.html">Fernwartung und Zugriff auf Kassen</a><a class="nav-seite" href="../../betrieb-administration/branding-und-erscheinungsbild-anpassen.html">Branding und Erscheinungsbild anpassen</a></details><details class="nav-buch"><summary><a href="../../fiskalisierung/index.html">Fiskalisierung</a></summary><a class="nav-seite" href="../../fiskalisierung/fiskalisierung-uberblick-fur-partner.html">Fiskalisierung: Überblick für Partner</a><a class="nav-seite" href="../../fiskalisierung/tse-hardware-swissbit-in-betrieb-nehmen.html">TSE Hardware (Swissbit) in Betrieb nehmen</a><a class="nav-seite" href="../../fiskalisierung/cloud-tse-fiskaly-in-betrieb-nehmen.html">Cloud-TSE (fiskaly) in Betrieb nehmen</a><a class="nav-seite" href="../../fiskalisierung/tse-pin-und-puk-verwalten.html">TSE-PIN und PUK verwalten</a><a class="nav-seite" href="../../fiskalisierung/tse-firmware-aktualisieren.html">TSE-Firmware aktualisieren</a><a class="nav-seite" href="../../fiskalisierung/abgelaufene-tse-austauschen.html">Abgelaufene TSE austauschen</a><a class="nav-seite" href="../../fiskalisierung/tse-ausser-betrieb-nehmen.html">TSE außer Betrieb nehmen</a><a class="nav-seite" href="../../fiskalisierung/kassenmeldung-nach-146a-ao.html">Kassenmeldung nach § 146a AO</a><a class="nav-seite" href="../../fiskalisierung/belege-und-kassenabschlusse-prufen.html">Belege und Kassenabschlüsse prüfen</a><a class="nav-seite" href="../../fiskalisierung/dsfinv-k-exportieren.html">DSFinV-K exportieren</a><a class="nav-seite" href="../../fiskalisierung/tse-tar-exportieren.html">TSE-TAR exportieren</a><a class="nav-seite" href="../../fiskalisierung/verfahrensdokumentation-fur-den-betreiber.html">Verfahrensdokumentation für den Betreiber</a><a class="nav-seite" href="../../fiskalisierung/fiskalisierung-von-bestellungen-und-zahlungen-der-pos-gastro-app.html">Fiskalisierung von Bestellungen und Zahlungen der POS Gastro App</a><a class="nav-seite" href="../../fiskalisierung/zertifikate-und-nachweise.html">Zertifikate und Nachweise</a></details><details class="nav-buch"><summary><a href="../../faq-troubleshooting/index.html">FAQ &amp; Troubleshooting</a></summary><a class="nav-seite" href="../../faq-troubleshooting/vorgehen-bei-storungen.html">Vorgehen bei Störungen</a><a class="nav-seite" href="../../faq-troubleshooting/bonfehler-untersuchen.html">Bonfehler untersuchen</a><a class="nav-seite" href="../../faq-troubleshooting/centralpoint-inkonsistente-daten.html">CentralPoint: inkonsistente Daten</a><a class="nav-seite" href="../../faq-troubleshooting/datenbank-update-schlagt-fehl-collations.html">Datenbank-Update schlägt fehl (Collations)</a><a class="nav-seite" href="../../faq-troubleshooting/fernwartung-schwarzbild-an-der-kasse.html">Fernwartung: Schwarzbild an der Kasse</a><a class="nav-seite" href="../../faq-troubleshooting/lizenzprobleme-beheben.html">Lizenzprobleme beheben</a><a class="nav-seite" href="../../faq-troubleshooting/tse-meldet-einen-fehler.html">TSE meldet einen Fehler</a><a class="nav-seite" href="../../faq-troubleshooting/kasse-startet-nicht-oder-synchronisiert-nicht.html">Kasse startet nicht oder synchronisiert nicht</a></details></nav></aside>
+  <main class="spalte-mitte"><p class="brotkrumen">Produkte &rsaquo; Kassen-Designer</p><h1>Button-Aktionen: Referenz</h1><p class="entwurf-band">Entwurf &ndash; diese Seite ist noch nicht gepr&uuml;ft und kann Fehler enthalten.</p><p class="seitenmeta">Letzte &Auml;nderung 29.08.2026 &middot; Version 1 &middot; Seiten-ID 774</p><div class="inhalt"><p id="bkmrk-jeder-button-der-itr">Jeder Button der ITR Kasse trägt genau eine Aktion. Diese Seite fasst die verfügbaren Aktionen nach Aufgabenbereich zusammen und nennt je Aktion die wichtigsten Parameter.</p>
+<h2 id="bkmrk-aufbau">Aufbau</h2>
+<p id="bkmrk-im-button-designer-w">Im Button Designer wird die Aktion eines Buttons über mehrere Reiter festgelegt. Neben der Voreinstellung <strong>Keine Aktion</strong> stehen zur Verfügung:</p>
+<table id="bkmrk-reiter-zweck-aktion-">
+<thead>
+<tr>
+<th>Reiter</th>
+<th>Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Aktion</strong></td>
+<td>Kommandos der Kasse, siehe die Abschnitte unten</td>
+</tr>
+<tr>
+<td><strong>Artikel/Artikel-Gruppe</strong></td>
+<td>Belegt den Button mit Artikeln, Warengruppen, Hauptgruppen oder Auswahlfenstern</td>
+</tr>
+<tr>
+<td><strong>Modifier</strong></td>
+<td>Weist dem Button einen Preis-, Rabatt- oder Steuer-Modifier zu</td>
+</tr>
+<tr>
+<td><strong>Maskenwechsel</strong></td>
+<td>Wechselt auf eine andere Maske</td>
+</tr>
+<tr>
+<td><strong>Berichte</strong></td>
+<td>Ruft einen Bericht an der Kasse auf oder druckt ihn</td>
+</tr>
+<tr>
+<td><strong>Bildschirmtastatur</strong></td>
+<td>Legt Tasten für ein Bildschirmtastatur-Panel an</td>
+</tr>
+<tr>
+<td><strong>Makro</strong></td>
+<td>Führt mehrere Kommandos hintereinander aus</td>
+</tr>
+<tr>
+<td><strong>Kommentar</strong></td>
+<td>Freitext zur Dokumentation des Buttons, wird auch als Tooltip im Panel Designer angezeigt</td>
+</tr>
+</tbody>
+</table>
+<p class="callout info" id="bkmrk-der-umfang-der-aktio">Der Umfang der Aktionen wächst mit den Kassenversionen. Weicht die Auswahl im Designer von dieser Seite ab, prüfen Sie die Version der Kasse.</p>
+<h2 id="bkmrk-artikel-und-bonposit">Artikel und Bonpositionen</h2>
+<table id="bkmrk-aktion-beschreibung-">
+<thead>
+<tr>
+<th>Aktion</th>
+<th>Beschreibung</th>
+<th>Parameter</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Artikelmenge +1</td>
+<td>Erhöht die Menge der markierten Bonposition um 1. Auch in Bontabellen verwendbar.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Artikelmenge -1</td>
+<td>Reduziert die Menge der markierten Bonposition um 1. Auch in Bontabellen verwendbar.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Artikelmenge ändern</td>
+<td>Öffnet einen Dialog zur Änderung der Menge. Auch in Bontabellen verwendbar.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Artikelmenge überschreiben</td>
+<td>Überschreibt die Menge der ausgewählten Bonposition mit dem eingegebenen Wert.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Artikelmenge negativ</td>
+<td>Setzt die Menge des markierten Artikels auf den negativen Wert.</td>
+<td>–</td>
+<td>Aus 4 Stück werden -4 Stück</td>
+</tr>
+<tr>
+<td>Artikelmenge löschen / Zeilenstorno</td>
+<td>Löscht die aktuell ausgewählte Artikelposition.</td>
+<td><strong>Bestätigungs-Bon</strong>: Bon-Typ-Code für einen einmaligen Ausdruck der stornierten Positionen</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Artikelnummer</td>
+<td>Wählt nach Eingabe einer Artikelnummer über den Ziffernblock den zugehörigen Artikel aus.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Artikelnummeränderung</td>
+<td>Ersetzt an der angegebenen Stelle der Artikelnummer den angegebenen Wert. Nur der Artikel samt Preis wird getauscht, anhängende Unterartikel und Menüverknüpfungen bleiben bestehen. Seriennummern und Waagendialog werden bei Bedarf abgefragt.</td>
+<td><strong>Änderungsposition</strong>, <strong>Wert</strong></td>
+<td>Vierte Stelle von rechts auf <code>0</code>: aus <code>1234</code> wird <code>0234</code></td>
+</tr>
+<tr>
+<td>Bonposition durch Artikelnummeränderung ersetzen</td>
+<td>Wie oben, entfernt aber die Bonposition und bucht eine neue. Dabei laufen alle Prüfungen für neue Artikel erneut: Seriennummern-Scan, Waagendialog, Modifier-Berechnung, Menüverknüpfungen.</td>
+<td><strong>Änderungsposition</strong>, <strong>Wert</strong></td>
+<td>Erste Stelle von rechts auf <code>1</code>: aus <code>1234</code> wird <code>1231</code></td>
+</tr>
+<tr>
+<td>Bonposition durch Berechnung ersetzen</td>
+<td>Berechnet die neue Artikelnummer über eine Formel. Der Platzhalter <code>#NR#</code> steht für die aktuelle Artikelnummer. Führende Nullen gehen verloren, Nachkommastellen werden abgeschnitten, nicht gerundet.</td>
+<td><strong>Formel</strong></td>
+<td><code>#NR# * 10</code> hängt eine Null an; <code>(10000 + #NR#) * 2</code></td>
+</tr>
+<tr>
+<td>Artikelsuche</td>
+<td>Öffnet ein Suchfenster; gefundene Artikel werden in den aktuellen Bon übernommen. Die Bildschirmtastatur wird automatisch eingeblendet. Eine gewünschte Menge größer 1 wird vor dem Start der Suche eingegeben.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Artikel-Filter zurücksetzen</td>
+<td>Setzt den gesetzten Artikel-Filter zurück.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Artikel mit Preisabfrage (Scan)</td>
+<td>Zeigt den Preis eines gescannten Artikels an, ohne ihn zu buchen.</td>
+<td><strong>Preisebene</strong></td>
+<td>Nur Preisebene 4 anzeigen</td>
+</tr>
+<tr>
+<td>Artikel mit Preisabfrage (Tastaturbuffer)</td>
+<td>Zeigt den Preis zu einer eingegebenen Artikelnummer an, ohne den Artikel zu buchen.</td>
+<td><strong>Preisebene</strong>, <strong>Feste Artikel-Nr.</strong></td>
+<td>Mit fester Artikelnummer entfällt die vorherige Eingabe</td>
+</tr>
+<tr>
+<td>Kommentar zu Bonposition hinzufügen</td>
+<td>Öffnet einen Dialog, in dem per Tastatur oder Handschrift ein Kommentar zur Bonposition erfasst wird. Der Kommentar erscheint auf dem Order-Bon.</td>
+<td><strong>Aktiviere Schrifteingabe</strong> – Wahrheitswert, Standardwert <code>false</code></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Programmierbarer Artikel</td>
+<td>Erlaubt es der Verkaufskraft, Buttons direkt an der Kasse per Rechtsklick bzw. langem Druck mit Artikeln aus der Datenbank zu belegen.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Artikelnamen Ebene setzen (druck)</td>
+<td>Setzt die Namensebene für den Artikelnamen im Druck.</td>
+<td>[OFFEN: Parameter der Aktion]</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Eingabe</td>
+<td>Schreibt einen festen oder dynamischen Wert in den Tastaturpuffer. Damit lassen sich Bildschirmtastaturen und feste Eingabewerte umsetzen.</td>
+<td><strong>Text</strong> – alphanumerisch, Variablen erlaubt</td>
+<td><code>@Receipt.Customer@</code> setzt den Namen des gewählten Kunden</td>
+</tr>
+<tr>
+<td>Eingabe löschen</td>
+<td>Löscht den Tastaturpuffer, vergleichbar mit der Taste C auf einem Taschenrechner.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Zellenauswahl aufheben / Tabellenfokus aufheben</td>
+<td>Hebt die Markierung in der Bontabelle auf, sodass eine folgende Aktion erst für den nächsten Artikel gilt.</td>
+<td>–</td>
+<td>Wird Modifiern vorangestellt, die nicht für den zuletzt gebuchten Artikel gelten sollen</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bkmrk-artikel%2C-warengruppe">Artikel, Warengruppen und Auswahlfenster (Reiter Artikel/Artikel-Gruppe)</h2>
+<table id="bkmrk-aktion-beschreibung--1">
+<thead>
+<tr>
+<th>Aktion</th>
+<th>Beschreibung</th>
+<th>Parameter</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Artikel</td>
+<td>Belegt den Button mit einer festen Artikelnummer.</td>
+<td><strong>Artikel</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Artikel der Warengruppe(n)</td>
+<td>Weist dem Button die Artikel einer oder mehrerer Warengruppen zu und gibt sie im Ausgabepanel aus.</td>
+<td><strong>Warengruppen</strong> (kommagetrennt, ohne Leerzeichen), <strong>Ausgabepanel</strong></td>
+<td><code>10,11,12</code></td>
+</tr>
+<tr>
+<td>Artikel der Auswahlfenster</td>
+<td>Ordnet Artikel bestimmter Auswahlfenster einem Panel zu.</td>
+<td><strong>Auswahlfenster</strong>, <strong>Ausgabepanel</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Artikel mit Stichwörtern</td>
+<td>Füllt das Ausgabepanel mit Artikeln, denen mindestens eines der angegebenen Stichwörter zugeordnet ist.</td>
+<td><strong>Stichwörter</strong>, <strong>Ausgabepanel</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Artikel mit Preisabfrage</td>
+<td>Übernimmt einen vorher eingegebenen Wert als Preis. Ohne Eingabe erfolgt eine Abfrage.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Auswahlfenster</td>
+<td>Ordnet Auswahlfenster einem Panel zu. Die erzeugten Buttons zeigen die Artikel des Auswahlfensters auf einem weiteren Panel.</td>
+<td><strong>Ausgabepanel</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Warengruppe</td>
+<td>Erzeugt Warengruppen-Buttons. Ohne Angabe werden alle Warengruppen erzeugt.</td>
+<td><strong>Warengruppennummern</strong> (kommagetrennt, ohne Leerzeichen), <strong>Ausgabepanel</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Hauptgruppe</td>
+<td>Erzeugt Hauptgruppen-Buttons. Ohne Angabe werden alle Hauptgruppen erzeugt.</td>
+<td><strong>Hauptgruppen</strong>, <strong>Ausgabepanel</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Top-Artikel Kasse</td>
+<td>Füllt das Ausgabepanel mit den meistverkauften Artikeln der Kasse.</td>
+<td><strong>Anzahl der Artikel</strong>, <strong>Ausgabepanel</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Top-Artikel Kunden</td>
+<td>Zeigt die bevorzugten Artikel eines vorher identifizierten Kunden.</td>
+<td><strong>Anzahl der Artikel</strong>, <strong>Ausgabepanel</strong></td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bkmrk-modifier%3A-preise%2C-ra">Modifier: Preise, Rabatte, Steuer</h2>
+<p id="bkmrk-wird-kein-wert-im-fr">Wird kein Wert im Freifeld hinterlegt, zieht die Kasse den vor dem Betätigen des Buttons eingegebenen Wert heran.</p>
+<table id="bkmrk-aktion-beschreibung--2">
+<thead>
+<tr>
+<th>Aktion</th>
+<th>Beschreibung</th>
+<th>Parameter</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%-Rabatt auf Bon</td>
+<td>Prozentualer Nachlass auf die Bonsumme.</td>
+<td><strong>Prozentwert</strong></td>
+<td><code>5</code> für 5 Prozent</td>
+</tr>
+<tr>
+<td>%-Rabatt auf Artikel</td>
+<td>Prozentualer Nachlass auf den markierten Artikel.</td>
+<td><strong>Prozentwert</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Währungs-Rabatt auf Artikel</td>
+<td>Reduziert den Stückpreis des markierten Artikels um den eingegebenen Betrag.</td>
+<td><strong>Betrag</strong></td>
+<td><code>0,5</code> für 50 Cent</td>
+</tr>
+<tr>
+<td>Shift Preisgruppe</td>
+<td>Ändert den Preis des markierten Artikels auf den Wert der Zielpreisgruppe.</td>
+<td><strong>Zielpreisgruppe</strong></td>
+<td><code>2</code></td>
+</tr>
+<tr>
+<td>Shift Preisgruppe ab jetzt</td>
+<td>Wie oben, gilt zusätzlich für alle folgenden Artikel bis zum Bonabschluss oder bis zum nächsten Modifier.</td>
+<td><strong>Zielpreisgruppe</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Shift Steuer</td>
+<td>Ändert den Steuersatz des markierten Artikels.</td>
+<td><strong>Nummer des Steuersatzes</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Shift Steuer ab jetzt</td>
+<td>Wie oben, gilt zusätzlich für alle folgenden Artikel bis zum Bonabschluss oder bis zum nächsten Modifier.</td>
+<td><strong>Nummer des Steuersatzes</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Steuer Ersetzung ab jetzt</td>
+<td>Ändert den Steuersatz, der Bruttopreis bleibt unverändert.</td>
+<td><strong>Nummer des Steuersatzes</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Nullpreis</td>
+<td>Setzt den Preis des markierten Artikels auf 0,00.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Fixpreis (überschreibbar)</td>
+<td>Setzt einen Fixpreis. Ohne hinterlegten Fixpreis wird der an der Kasse eingegebene Wert verwendet; ohne Eingabe öffnet sich ein Eingabedialog.</td>
+<td><strong>Fixpreis</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Preis-Modifier</td>
+<td>Aktiviert einen im CentralPoint angelegten Preis-Modifier.</td>
+<td><strong>Nummer des Preis-Modifiers</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Preis-Modifier entfernen</td>
+<td>Entfernt dem Bon zugewiesene Modifier.</td>
+<td><strong>Modifier Nummer</strong> – kommagetrennte Liste</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bkmrk-bon">Bon</h2>
+<table id="bkmrk-aktion-beschreibung--3">
+<thead>
+<tr>
+<th>Aktion</th>
+<th>Beschreibung</th>
+<th>Parameter</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bon neu</td>
+<td>Öffnet einen neuen Bon.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bon abbrechen</td>
+<td>Bricht den noch nicht abgeschlossenen Bon ab.</td>
+<td><strong>Abfrage</strong>: <code>Standard</code> zeigt den Dialog, <code>Autom. Bestätigung</code>, <code>Autom. Abbruch</code>; <strong>Bestätigungs-Bon</strong>: Bon-Typ-Code für einen einmaligen Ausdruck</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bon löschen</td>
+<td>Löscht den aktuellen Bon. Er erscheint im Protokoll unter seiner Bonnummer mit dem Zusatz „Abgebrochen“.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bon drucken</td>
+<td>Druckt den aktuellen Bon. Offene Bons werden mit „OFFENER BON“ markiert, Nachdrucke abgeschlossener Bons mit „BONKOPIE“.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bon nachdrucken</td>
+<td>Druckt den letzten abgeschlossenen Bon des aktuellen Bedieners mit dem Zusatz „Bon Kopie“.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bon abschließen (nicht für Bontyp 0)</td>
+<td>Schließt Bons ab, die keinen Umsatz auslösen, etwa Retouren, Lieferscheine oder Verkostung.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bon vor / Bon zurück</td>
+<td>Wechselt zum folgenden bzw. vorherigen offenen Bon des aktiven Bedieners.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bon-Weitergabe</td>
+<td>Überträgt den Bon an einen anderen Bediener.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bon splitten</td>
+<td>Teilt einen Bon in beliebig viele Bons. Über <strong>Zieltisch</strong> werden die Artikel auf einen Bon dieses Tisches übertragen; ist der Tisch bereits belegt, werden die Artikel in den bestehenden Bon integriert.</td>
+<td><strong>Zieltisch</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bontyp ändern</td>
+<td>Wechselt den Bontyp. Bontypen werden im CentralPoint mit Name, Code, Export-Schlüssel und Verhalten zu Umsatz, Warenbestand und Kassenbestand angelegt.</td>
+<td><strong>Bontyp-Code</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bonwechsel</td>
+<td>Zeigt die Bons eines definierten Zeitraums und übernimmt einen davon ins aktive Bonfenster. Abgeschlossene Bons können nur als Bonkopie gedruckt, nicht bearbeitet werden.</td>
+<td><strong>Zeitraum</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bon-Journal</td>
+<td>Zeigt links die abgeschlossenen Bons, rechts den Inhalt des gewählten Bons; erneuter Druck möglich. Varianten: nur als Journal, mit Bonwechsel, mit MGR Storno, mit Bonwechsel und MGR Storno, Bonwechsel mit Tisch.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bon-Browser</td>
+<td>Konfigurierbare Bonliste. Über <strong>Eigenschaften</strong> wird der Funktionsumfang zusammengestellt, siehe Liste unten.</td>
+<td><strong>Eigenschaften</strong>, <strong>Bontyp überschreiben?</strong> (<code>true</code>/<code>false</code>), <strong>Bontyp-Code</strong> (kommagetrennte Liste, wirksam bei <code>true</code>)</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Warenrücknahme</td>
+<td>Bucht die Artikel des Bons negativ: Umsatz und Kassen-Soll sinken, der Warenbestand steigt.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Storno</td>
+<td>Storniert den aktuell angezeigten, bereits abgeschlossenen Bon.</td>
+<td><strong>Schublade öffnen</strong>, <strong>Auszahlen</strong>, <strong>EC-Rückerstattung</strong> (je Wahrheitswert, Standardwert <code>false</code>), <strong>Bontyp</strong> (Bon-Code), <strong>Bon anzeigen</strong> (<code>true</code> zeigt den Bon vor dem Storno in der Druckansicht)</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Storno über Bon-Nr.</td>
+<td>Storniert den Bon, dessen Nummer im Tastaturpuffer steht.</td>
+<td>Wie <strong>Storno</strong>, zusätzlich <strong>Bons der Filiale</strong> (<code>true</code> bezieht andere Kassen der Filiale ein; bei mehreren Treffern erscheint ein Auswahldialog)</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Zwischensumme</td>
+<td>Bildet eine Zwischensumme für alle Positionen, für die noch keine besteht.</td>
+<td><strong>Auf Hauptmonitor als Popup anzeigen</strong>, <strong>Auch auf Kundenmonitor als Popup anzeigen</strong> – je Wahrheitswert, Standardwert <code>false</code></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Kundenadresse hinzufügen</td>
+<td>Fügt dem Bon einen Kunden samt Anschrift hinzu, etwa für einen Bewirtungsbeleg. Der Eingabedialog schlägt Vervollständigungen über eine externe Suchmaschine vor.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bewirtungsbeleg drucken</td>
+<td>Druckt den Bewirtungsbeleg zu einem abgeschlossenen Bon nach. Die Angaben zur bewirtenden Person können einmalig vor dem Druck angepasst werden.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Kundensuche</td>
+<td>Öffnet eine Kundenliste mit Suchfeld.</td>
+<td><strong>Kundengruppen</strong> (kommagetrennt, ohne Leerzeichen), <strong>Manuelle Eingabe bei Abbruch</strong> (Standardwert <code>false</code>; bei <code>true</code> öffnet der Abbruch einen Dialog zur manuellen Eingabe, die Daten gehen nicht an die Zentrale)</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+<p id="bkmrk-ausw%C3%A4hlbare-eigensch">Auswählbare <strong>Eigenschaften</strong> des Bon-Browsers: Bon wechseln, Bon auswählen, Storno, Bon umbuchen, Bon übergeben, Bon bezahlen, Bon splitten, Bon abbrechen, Bon bearbeiten, Bon kopieren, Bewirtungsbeleg, Offene Bons anzeigen, Abgebrochene Bons anzeigen, Abgeschlossene Bons anzeigen, Kopierte Bons ausblenden, Eigene Bons anzeigen, Andere Bons anzeigen, Nur heutige Bons anzeigen, Leere Bons ausblenden, Mehrfachauswahl aktivieren.</p>
+<h2 id="bkmrk-bezahlung">Bezahlung</h2>
+<table id="bkmrk-aktion-beschreibung--4">
+<thead>
+<tr>
+<th>Aktion</th>
+<th>Beschreibung</th>
+<th>Parameter</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bezahlen starten</td>
+<td>Startet den Barabschluss des aktuellen Bons, samt Maskenwechsel für Haupt- und Kundenmonitor.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bezahlen bestätigen</td>
+<td>Rechnet den eingegebenen Geldwert des Bezahlwegs auf die offene Bonsumme an; ein beim Bezahlweg hinterlegter Umrechnungsfaktor wird berücksichtigt. Deckt der Betrag die Bonsumme, wird der Bon abgeschlossen und das Wechselgeld angezeigt. Ist der Betrag zu niedrig, erscheint eine Meldung und die Aktion bricht ab.</td>
+<td><strong>Maskenwechsel Hauptmonitor</strong>, <strong>Maskenwechsel Kundendisplay</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bezahlen direkt bestätigen</td>
+<td>Schließt den Bon ab, ohne dass das gegebene Geld eingegeben wird.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bezahlen ohne bestätigen</td>
+<td>Fügt den Betrag dem gegebenen Geld hinzu, ohne zu prüfen, ob die Bonsumme erreicht ist. Zum Abschluss ist danach <strong>Bezahlen bestätigen</strong> nötig.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bezahlen mit Scan bestätigen</td>
+<td>Öffnet einen Dialog zum Einscannen von Belegen, deren Wert im Scan-Code kodiert ist, etwa Gutscheine.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bezahlen abbrechen</td>
+<td>Beendet den Bezahlvorgang, löscht einen eingegebenen Zahlgeldbetrag und wechselt bei Bedarf die Maske.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bezahlen bestätigen mit Anzahlung</td>
+<td>Schließt den Bezahlvorgang mit Anzahlung ab.</td>
+<td><strong>Maskenwechsel Mon. 1</strong>, <strong>Maskenwechsel Customer</strong>, <strong>Währungscode</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bezahlen mit EC-Terminal</td>
+<td>Übergibt den offenen Betrag an ein angeschlossenes EC-Terminal; das Terminal bestätigt den Abschluss.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bezahlen mit Bezahlterminal</td>
+<td>Übergibt den offenen Bon an ein angeschlossenes Bezahlterminal; das Terminal bestätigt den Abschluss nach Einzahlung.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bezahlen mit Glory asynchron starten</td>
+<td>Startet die Bezahlung mit Glory asynchron; der Bediener kann bereits den nächsten Bon bearbeiten.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bezahlen mit Glory asynchron abbrechen</td>
+<td>Bricht eine asynchrone Bezahlung mit Glory ab.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bezahlweg ändern</td>
+<td>Bucht einen bereits bezahlten Bon nachträglich auf einen anderen Bezahlweg um.</td>
+<td>–</td>
+<td>Von Bar auf EC</td>
+</tr>
+<tr>
+<td>Geldbetrag einfügen</td>
+<td>Belegt den Button mit einem festen Geldbetrag. Bleibt das Feld leer, wird der Wert aus dem Tastaturpuffer verwendet.</td>
+<td><strong>Amount</strong>, <strong>SmartInput</strong> (Multiplikator, etwa 3 × 10 Euro), <strong>Bezahlen ohne Bestätigen</strong> (bei <code>true</code> wird der Betrag ohne Bestätigung hinzugefügt und <code>@Receipt.PaymentRecords@</code> aktualisiert)</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Münze/Schein einfügen</td>
+<td>Fügt eine Münze oder einen Schein hinzu. Ergänzend stehen Münze/Schein multiplizieren und Münze/Schein entfernen zur Verfügung.</td>
+<td>[OFFEN: Parameter der Aktion]</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Starte Wirecard Bezahlung</td>
+<td>Startet eine Zahlung über den Dienstanbieter Wirecard. Auf dem Kundendisplay erscheint die Aufforderung zum Scannen eines QR- bzw. Barcodes aus der App des Endkunden; alternativ kann der angezeigte Bezahlcode direkt eingegeben werden. Voraussetzung ist ein Vertrag des Endkunden mit Wirecard.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>secucard Zahlung</td>
+<td>Startet eine Zahlung über secucard. Varianten: mit Scan-Ident-Dialog, ohne Scan-Ident-Dialog, cash direkt bestätigen.</td>
+<td>[OFFEN: Parameter der Varianten]</td>
+<td>–</td>
+</tr>
+<tr>
+<td>secucard-Ident manuell hinzufügen</td>
+<td>Fügt einen secucard-Ident von Hand hinzu.</td>
+<td>[OFFEN: Parameter der Aktion]</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bkmrk-kassenabschluss%2C-ein">Kassenabschluss, Ein- und Auszahlungen</h2>
+<table id="bkmrk-aktion-beschreibung--5">
+<thead>
+<tr>
+<th>Aktion</th>
+<th>Beschreibung</th>
+<th>Parameter</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kassenabschluss</td>
+<td>Stellt den Kassenbestand fest und öffnet einen Dialog zur Auswahl der Abrechnungsart: Kassenschnitt, Kassenschnitt bzw. Schichtwechsel mit neuem Wechselgeld, oder Kassenabschluss (Z) mit Erhöhung des Z-Zählers.</td>
+<td><strong>Geldeingabemaske</strong>, <strong>Kassenschnittmaske</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Kassenabschluss (neu)</td>
+<td>Kassenabschluss mit frei wählbarem Abschluss-Typ.</td>
+<td><strong>Geldeingabemaske</strong>, <strong>Kassenschnittmaske</strong>, <strong>Abschluss-Typ</strong> – kommagetrennt: Art (<code>O</code> offen, <code>X</code>, <code>Z</code>), Abrechnungskreis (Filiale oder Kasse), optionaler Text über dem Transaktionsreport</td>
+<td><code>Z,Filiale,Z-Abrechnung Abend</code>; <code>O,Kasse</code></td>
+</tr>
+<tr>
+<td>Kassenabschluss beenden</td>
+<td>Beendet die Eingabe für die gewählte Währung und den Kassenabschluss insgesamt.</td>
+<td><strong>Maskenwechsel</strong>, <strong>Logout abfragen</strong>: <code>true</code> fragt die Abmeldung ab, <code>false</code> lässt den Bediener angemeldet, <code>logout</code> meldet automatisch ab</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Kassenabschluss bestätigen</td>
+<td>Beendet die Eingabe der Beträge für die aktuell gewählte Währung. Ein Rücksprung ist nicht möglich.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Kassenabschluss abbrechen</td>
+<td>Beendet einen eingeleiteten Kassenabschluss und löscht die eingegebenen Werte.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Kassenabschluss (verzögert) beenden</td>
+<td>Wählt einen zuvor eingeleiteten Kassenschnitt zum Abschluss aus und wechselt in die Eingabemaske.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Lösche Geldbetrag</td>
+<td>Löscht den eingegebenen Geldbetrag einer Kassenabrechnung.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Einzahlung</td>
+<td>Erhöht den Bargeldbestand um den eingegebenen Wert. Der aktuelle Bestand lässt sich in Textfeldern über <code>@Drawer.TotalCash@</code> anzeigen.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Auszahlung</td>
+<td>Verringert den Bargeldbestand um den eingegebenen Wert. Der aktuelle Bestand lässt sich in Textfeldern über <code>@Drawer.TotalCash@</code> anzeigen.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Einzahlung mit CashMaster</td>
+<td>Gibt einen Einzahlungsbefehl an das Terminal CashMaster.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Auszahlung mit CashMaster</td>
+<td>Zahlt die zuvor eingegebene Anzahl Münzen bzw. Scheine am CashMaster aus. Die Buchung erfolgt wie eine normale Auszahlung in der Tabelle <code>ipos_drawercashinandout</code>.</td>
+<td>–</td>
+<td>Eingabe <code>5 x 0,02</code> zahlt fünf Zwei-Cent-Münzen aus</td>
+</tr>
+<tr>
+<td>Schublade öffnen</td>
+<td>Öffnet die angeschlossene Schublade.</td>
+<td><strong>Bestätigungs-Bon</strong>: Bon-Typ-Code für einen einmaligen Ausdruck</td>
+<td>–</td>
+</tr>
+<tr>
+<td>CoinMaster Administration</td>
+<td>Löst administrative Operationen am CoinMaster aus.</td>
+<td><strong>Aktion</strong>: <code>Aktivieren</code>, <code>Inhalt abfragen</code></td>
+<td>–</td>
+</tr>
+<tr>
+<td>PrePaid Konto aufladen / entladen / Konto-Information</td>
+<td>Verwaltet PrePaid-Konten an der Kasse.</td>
+<td>[OFFEN: Parameter der drei Aktionen]</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+<p class="callout warning" id="bkmrk-bei-einem-best%C3%A4tigun">Bei einem Bestätigungs-Bon muss der angegebene Bon-Typ bei Umsatzverhalten, Schubladeneffekt und Warenbestandsveränderung jeweils auf „Keine Veränderung“ stehen. Der Ausdruck wird nicht gespeichert und ist deshalb im CentralPoint nicht sichtbar; ein falsch eingestellter Bon-Typ verfälscht dagegen Umsatz oder Kassenbestand.</p>
+<h2 id="bkmrk-bediener">Bediener</h2>
+<table id="bkmrk-aktion-beschreibung--6">
+<thead>
+<tr>
+<th>Aktion</th>
+<th>Beschreibung</th>
+<th>Parameter</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bediener anmelden</td>
+<td>Meldet einen Bediener an. Beim Anmelden werden Bedienernummer und Farbe abgefragt. Sollen mehrere Bediener gleichzeitig arbeiten, braucht die Maske je Bediener einen Button mit eigener Bedienernummer.</td>
+<td><strong>Bedienernummer</strong></td>
+<td>Fünf Buttons mit den Nummern 1 bis 5 für fünf gleichzeitig arbeitende Bediener</td>
+</tr>
+<tr>
+<td>Bediener abmelden</td>
+<td>Meldet den aktiven Bediener von der Kasse bzw. dem Kassenverbund ab. Bestehen noch offene Bons, erscheint ein Hinweis. Die Bestätigung ist per Passwort, RFID-Karte bzw. -Chip oder Dallas-Schlüssel möglich.</td>
+<td><strong>Identifizierung notwendig</strong> – Wahrheitswert, Standardwert <code>false</code></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bediener wechseln</td>
+<td>Wechselt den angemeldeten Bediener.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Pause starten</td>
+<td>Unterbricht die Arbeitszeit und schaltet den Bediener inaktiv. Auf offene Bons wird hingewiesen, sie werden nicht automatisch beendet.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Pause beenden</td>
+<td>Setzt die Arbeitszeit fort und zeigt den zuletzt geöffneten aktiven Bon.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bkmrk-navigation%2C-masken-u">Navigation, Masken und Panels</h2>
+<table id="bkmrk-aktion-beschreibung--7">
+<thead>
+<tr>
+<th>Aktion</th>
+<th>Beschreibung</th>
+<th>Parameter</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Maskenwechsel</td>
+<td>Wechselt auf eine andere Maske, getrennt je angeschlossenem Monitor. Maskenwechsel lassen sich auch über Wischgesten auslösen.</td>
+<td><strong>Zielmaske je Monitor</strong>, <strong>Animation type</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Zurück zur letzten Maske</td>
+<td>Wechselt auf die vorher angezeigte Maske.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Panel Anzeigen</td>
+<td>Zeigt ein Panel an.</td>
+<td><strong>Panel-Name</strong>, <strong>Platzierung</strong> (<code>oben</code>, <code>unten</code>, <code>rechts</code>, <code>links</code>; ohne Angabe zentriert), <strong>Monitor-Nummer</strong> (<code>1</code>, <code>2</code>, <code>3</code>; ohne Angabe Hauptanzeige), <strong>X Koordinate</strong>, <strong>Y Koordinate</strong> (Alternative zur Platzierung, relativ zum linken bzw. oberen Fensterrand), <strong>Animation</strong> (<code>fade-in</code>, <code>fly-in</code>, <code>none</code>)</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Panel Anzeigen bei Buttons mit Swipe</td>
+<td>Zeigt ein Panel bei einer Wischgeste auf dem Button an.</td>
+<td>[OFFEN: Parameter der Aktion]</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Panel Schließen</td>
+<td>Schließt ein eingeblendetes Panel. Die Aktion liegt im Bereich Navigation.</td>
+<td><strong>Panel Name</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Panel vor / Panel zurück</td>
+<td>Blättert innerhalb eines Panels, wenn es mehr Buttons enthält als Platz vorhanden ist.</td>
+<td><strong>Panel</strong></td>
+<td>Warengruppenfenster</td>
+</tr>
+<tr>
+<td>nach oben / nach unten</td>
+<td>Bewegt die Auswahl in Listen und Tabellen.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Blättern vor / Blättern zurück</td>
+<td>Blättert seitenweise.</td>
+<td>[OFFEN: Parameter der Aktionen]</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Screensaver</td>
+<td>Startet den Bildschirmschoner.</td>
+<td>[OFFEN: Parameter der Aktion]</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Touch-Screen Reinigungs-Modus</td>
+<td>Sperrt die Eingaben für eine festgelegte Dauer, damit der Monitor gereinigt werden kann.</td>
+<td><strong>Wartezeit in s</strong> (Ganzzahl, Standardwert 1, Werte 1 bis 9999), <strong>Nachricht</strong> (Standardwert <code>Reinigung:</code>; <code>-</code> unterdrückt die Anzeige), <strong>Verbleibende Zeit anzeigen</strong> (Wahrheitswert, Standardwert <code>false</code>)</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bkmrk-bestellung-und-tisch">Bestellung und Tischbons</h2>
+<table id="bkmrk-aktion-beschreibung--8">
+<thead>
+<tr>
+<th>Aktion</th>
+<th>Beschreibung</th>
+<th>Parameter</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bestellung neu</td>
+<td>Öffnet eine neue Bestellung; ein Dialog fragt das Bestelltag ab.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bestellung abschließen</td>
+<td>Beendet die Bestellung. Ein späterer Aufruf ist nicht mehr möglich.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bestellmenge +1 / -1</td>
+<td>Erhöht bzw. verringert die Menge um 1.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bestellmenge bestätigen</td>
+<td>Übernimmt den eingegebenen Wert.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bestellposition entfernen</td>
+<td>Löscht den Artikel aus der Bestellung.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bestellung drucken</td>
+<td>Druckt die aktuellen Bestellungen.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Bestelltabelle hoch / runter / rechts / links / letzter Eintrag</td>
+<td>Navigiert innerhalb der Bestelltabelle.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Artikelnr. in Bestelltabelle suchen</td>
+<td>Sucht eine Artikelnummer in der Bestelltabelle.</td>
+<td>[OFFEN: Parameter der Aktion]</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Tischbestellung drucken</td>
+<td>Löst den Druck von Bestell-, Order- bzw. Tischbons manuell aus.</td>
+<td><strong>Druckmengen nicht verändern</strong> – Wahrheitswert, Standardwert <code>false</code>; bei <code>true</code> werden die gedruckten Mengen nicht fortgeschrieben</td>
+<td>Nötig, wenn zuerst ein Gesamtbon und danach Einzelbons gedruckt werden</td>
+</tr>
+<tr>
+<td>Tischbestellung Gesamtbon</td>
+<td>Druckmodus „gesamt“: alle Artikel auf einem Bon je zugeordnetem Drucker.</td>
+<td><strong>Drucker-Namen ausgeben</strong> (Wahrheitswert, Standardwert <code>false</code>), <strong>Gültig für Drucker</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Tischbestellung Einzelbons</td>
+<td>Druckmodus „einzeln“: je Artikel ein Bon.</td>
+<td><strong>Mengen einzeln drucken</strong> (je Mengeneinheit ein Bon), <strong>Drucker-Namen ausgeben</strong>, <strong>Gültig für Drucker</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Tisch zuweisen</td>
+<td>Weist dem aktuellen Bon die im Tastaturpuffer stehende Tischnummer zu.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Tischnummer plus Bon</td>
+<td>Sucht einen offenen Bon zur eingegebenen Tischnummer; ist die Tischnummer frei, wird ein neuer Bon erzeugt und zugeordnet. Ein erneuter Aufruf oder <strong>Bezahlen starten</strong> schließt die Bearbeitung ab und löst den Druck der Tisch- bzw. Bestellbons aus.</td>
+<td><strong>Tisch-Nr</strong> (fester Sammeltisch; eine Eingabe im Tastaturpuffer wird dann ignoriert), <strong>Mehrere Bediener</strong> (Wahrheitswert, Standardwert <code>false</code>)</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Platz zuordnen</td>
+<td>Öffnet auf einer Tischmaske die Bons eines Platzes, also Tisch, Stuhl oder Thekenplatz. Sind mehrere Bons zugeordnet, erscheint ein Auswahlfenster.</td>
+<td><strong>Seat ID</strong> (Text oder Zahl), <strong>Nur eigene Bons</strong> (Wahrheitswert, Standardwert <code>false</code>)</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Festen Tisch der Kasse zuordnen</td>
+<td>Ordnet der Kasse einen festen Tisch zu.</td>
+<td>[OFFEN: Parameter der Aktion]</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bkmrk-berichte">Berichte</h2>
+<p id="bkmrk-buttons-mit-einer-be">Buttons mit einer Berichts-Aktion rufen einen Bericht an der Kasse auf oder drucken ihn.</p>
+<table id="bkmrk-parameter-beschreibu">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Name des Berichts</strong></td>
+<td>Auswahl aus den verfügbaren Berichten, siehe Liste unten</td>
+</tr>
+<tr>
+<td><strong>Bontypen</strong></td>
+<td>Kommagetrennte Liste der zu berücksichtigenden Bontypen</td>
+</tr>
+<tr>
+<td><strong>Warengruppen</strong></td>
+<td>Kommagetrennte Liste der zu berücksichtigenden Warengruppen</td>
+</tr>
+<tr>
+<td><strong>Tage</strong></td>
+<td><code>0</code> = heute, <code>1</code> = gestern, <code>2</code> = vorgestern und so weiter</td>
+</tr>
+<tr>
+<td><strong>Direktdruck</strong></td>
+<td>Aktiv: Ausgabe direkt an den Kassendrucker. Inaktiv: Vorschaufenster</td>
+</tr>
+<tr>
+<td><strong>Pro Bediener Aufteilen</strong></td>
+<td>Trennt die Ausgabe nach Bedienern, sofern der Bericht das unterstützt</td>
+</tr>
+</tbody>
+</table>
+<p id="bkmrk-verf%C3%BCgbare-berichte%3A">Verfügbare Berichte: Artikel-Journal des aktuellen Tages und des aktuellen Bedieners, Filial-Umsatz pro Artikel, Filial-Umsatz pro Hauptwarengruppe, Filial-Umsatz pro Stunde, Filial-Umsatz pro Warengruppe, Transaktionsreport Filiale, Transaktionsreport Kasse — jeweils zusätzlich in der Variante „aktueller Bediener“.</p>
+<h2 id="bkmrk-bildschirmtastatur">Bildschirmtastatur</h2>
+<p id="bkmrk-buttons-mit-diesen-a">Buttons mit diesen Aktionen müssen auf einem Bildschirmtastatur-Panel liegen.</p>
+<table id="bkmrk-aktion-beschreibung--9">
+<thead>
+<tr>
+<th>Aktion</th>
+<th>Beschreibung</th>
+<th>Parameter</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tastenfolge</td>
+<td>Belegt den Button mit zwei Werten: dem Standardwert und dem Wert nach Betätigen der Umschalttaste.</td>
+<td><strong>Sequence</strong>, <strong>Shifted</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Backspace</td>
+<td>Letzte Eingabe löschen</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Löschen</td>
+<td>Entfernen</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>ESC</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Home / Ende</td>
+<td>Position 1 bzw. Ende</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Links / Rechts / Auf / Ab</td>
+<td>Pfeiltasten</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Umschalten</td>
+<td>Groß- und Kleinschreibung</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Tab</td>
+<td>Tabulator</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Kopieren / Einfügen</td>
+<td>Entspricht Strg+C bzw. Strg+V</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Enter</td>
+<td>Enter bzw. Zeilenvorschub</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Tastatur ausblenden</td>
+<td>Beendet die Bildschirmtastatur</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Virtuelle Tastatur Standardposition</td>
+<td>Setzt die Tastatur auf ihre Standardposition unten mittig zurück</td>
+<td>–</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+<p id="bkmrk-erg%C3%A4nzend-gibt-es-un">Ergänzend gibt es unter den ToggleButtons die Aktion <strong>Anker Virtuelle Tastatur</strong>. Liegt dieser Button auf der virtuellen Tastatur, lässt sie sich erst verschieben, wenn der Button aktiviert wurde.</p>
+<h2 id="bkmrk-anwendung-und-umsyst">Anwendung und Umsysteme</h2>
+<table id="bkmrk-aktion-beschreibung--10">
+<thead>
+<tr>
+<th>Aktion</th>
+<th>Beschreibung</th>
+<th>Parameter</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kasse beenden</td>
+<td>Beendet die Kasse.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Kasse neu starten</td>
+<td>Startet die Kasse neu.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Kasse minimieren</td>
+<td>Minimiert die Kasse in die Taskleiste.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Externe Anwendung starten</td>
+<td>Startet die angegebene Anwendung. Hinter dem Pfad können Parameter und Variablen übergeben werden. Variablen haben die Form <code>@@&lt;Kategorie&gt;.&lt;Spaltenname&gt;@@</code> mit den Kategorien <code>OPERATOR</code> (<code>ipos_operators</code>), <code>RECEIPT</code> (<code>ipos_receipts</code>) und <code>CUSTOMER</code> (<code>ipos_customers</code>).</td>
+<td><strong>Filename</strong></td>
+<td><code>@@RECEIPT.RECEIPT_NO@@</code>, <code>@@CUSTOMER.CUSTOMER_NO@@</code>, zusätzlich <code>@@BRANCH.NUMBER@@</code>, <code>@@BRANCH.NAME@@</code>, <code>@@CASHREGISTER.NUMBER@@</code>, <code>@@CASHREGISTER.NAME@@</code></td>
+</tr>
+<tr>
+<td>Externe Datei öffnen</td>
+<td>Öffnet die Datei mit dem hinterlegten Standardprogramm.</td>
+<td><strong>Filename</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Externen Link öffnen</td>
+<td>Öffnet eine Webseite im Standardbrowser.</td>
+<td><strong>URL</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Entries extern starten</td>
+<td>Startet Entries aus der Kasse heraus.</td>
+<td>[OFFEN: Parameter der Aktion]</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Daten synchronisieren</td>
+<td>Startet eine Synchronisation von Hand. Während der Synchronisation ist die Kassenmaske gesperrt.</td>
+<td><strong>Aktionen</strong> (eine oder mehrere: Stammdaten herunterladen, Stammdaten hochladen, Bewegungsdaten hochladen, Bewegungsdaten herunterladen, PrePaid/Bonuspunkte hochladen, PrePaid/Bonuspunkte herunterladen), <strong>Sync-Zeitraum in min</strong> (Ganzzahl, Standardwert 60, Werte 5 bis 4320)</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Video-Server Nachricht</td>
+<td>Sendet eine Nachricht an das angebundene Videosystem.</td>
+<td><strong>Nachricht</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>Nachricht anzeigen</td>
+<td>Zeigt eine Nachricht an der Kasse an.</td>
+<td>[OFFEN: Parameter der Aktion]</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Makro abbrechen</td>
+<td>Bricht ein laufendes Makro ab. Wird das Kommando in einem Untermakro ausgeführt, bricht der komplette Makrostamm ab.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Block-Tag setzen</td>
+<td>Setzt ein Stichwort, das die Bedingung <strong>Ist Stichwort gesetzt</strong> auswertet. Das Stichwort wird bei einem Neustart der Kasse gelöscht und nicht an andere Kassen im Netz übertragen. Groß- und Kleinschreibung ist relevant.</td>
+<td><strong>Stichwort</strong> (Pflichtfeld, Text), <strong>Gültigkeit</strong> (Zeit in Minuten oder Uhrzeit im Format <code>HH:mm</code>)</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Block-Tag entfernen</td>
+<td>Entfernt ein zuvor gesetztes Stichwort.</td>
+<td><strong>Stichwort</strong> (Pflichtfeld)</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Tastaturpuffer: plus / minus / mal / geteilt</td>
+<td>Rechenoperationen auf dem Tastaturpuffer.</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Tastaturpuffer-Rechnen per Formel</td>
+<td>Rechnet den Tastaturpuffer nach einer Formel um.</td>
+<td>[OFFEN: Parameter der Aktion]</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Ergebnis in Menge-Puffer / Preis-Puffer verschieben</td>
+<td>Übernimmt ein Rechenergebnis in den Mengen- bzw. Preispuffer.</td>
+<td>[OFFEN: Parameter der Aktionen]</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Dateninhalt in KeyboardBuffer schreiben</td>
+<td>Schreibt einen Dateninhalt in den Tastaturpuffer.</td>
+<td>[OFFEN: Parameter der Aktion]</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Parameter Kasse setzen / Parameter Filiale setzen</td>
+<td>Setzt einen Kassen- bzw. Filialparameter aus der Kasse heraus.</td>
+<td>[OFFEN: Parameter der Aktionen]</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Kundenkarten einlesen</td>
+<td>Liest eine Kundenkarte ein.</td>
+<td>[OFFEN: Parameter der Aktion]</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Flug auswählen / Flüge anzeigen / Flugticket scannen / Flug zuordnen</td>
+<td>Aktionen des Flughafen-Moduls.</td>
+<td>[OFFEN: Parameter der Aktionen]</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bkmrk-weitere-aktionen-ohn">Weitere Aktionen ohne dokumentierte Parameter</h2>
+<p id="bkmrk-diese-aktionen-stehe">Diese Aktionen stehen in der Kasse zur Verfügung, sind in der Quelle aber nur mit ihrem Namen aufgeführt.</p>
+<table id="bkmrk-aktion-aufgabenberei">
+<thead>
+<tr>
+<th>Aktion</th>
+<th>Aufgabenbereich</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Abholdatum setzen</td>
+<td>Ändert bei Kundenvorbestellungen Abholdatum und Referenztext</td>
+</tr>
+<tr>
+<td>Aktuellen Kunden abrechnen, Alle Kunden abrechnen, Drucke Kunden Verkaufs-Bons</td>
+<td>Kundenabrechnung</td>
+</tr>
+<tr>
+<td>Akonto Prozess beenden mit SmartTill, Schichtbeginn mit SmartTILL, Schichtende mit SmartTILL, SmartTill CashLift</td>
+<td>SmartTill</td>
+</tr>
+<tr>
+<td>Alle Bonpositionsmengen multiplizieren, Setze Faktor für Auswahlfenster</td>
+<td>Mengen und Faktoren</td>
+</tr>
+<tr>
+<td>Anzahl Ausdrucke für Bestellbon setzen, Drucke Artikelzusammenfassung von Bestellbons, Bestellbons drucken</td>
+<td>Bestellbons</td>
+</tr>
+<tr>
+<td>Artikel aus Auswahlfenster wählen, Artikel mit Menge und Preis, Artikel mit akt. Bonsumme als Preis, Artikel mit akt. Bon-Steuer als Preis</td>
+<td>Artikelbuchung</td>
+</tr>
+<tr>
+<td>Automatische Bon Warteschlange, Bon Warteschlange zuteilen, Bon Warteschlange entnehmen, Bon Warteschlange beenden, Bon anderer Warteschlange zuweisen</td>
+<td>Bon-Warteschlangen</td>
+</tr>
+<tr>
+<td>Bon anzeigen, Bon fortsetzen, Bon kopieren, Bons gruppieren (inaktives Kommando)</td>
+<td>Bonbearbeitung</td>
+</tr>
+<tr>
+<td>Bon einen Kunden über Kundennummer zuordnen, Kunden-Info Dialog anzeigen</td>
+<td>Kundenzuordnung</td>
+</tr>
+<tr>
+<td>Bon-Bemerkung im Bon-Kopf hinzufügen, Bon-Bermerkung unten hinzufügen, Bon-Referenz-Nummer hinzufügen, Kassenschnitt-Referenz hinzufügen</td>
+<td>Bemerkungen und Referenzen</td>
+</tr>
+<tr>
+<td>Bon-Browser (Erweiterte Einstellungen)</td>
+<td>Bon-Browser</td>
+</tr>
+<tr>
+<td>Einzahlung mit Glory, Auszahlung mit Glory, Geldwechseln mit Glory, Geldwechseln mit Glory (erweitert)</td>
+<td>Glory</td>
+</tr>
+<tr>
+<td>Fehlbon (Bon-Gültigkeit), Fehlbon über Bon-Nr., ManagerStorno (Bon-Gültigkeit), ManagerStorno über Bon-Nr.</td>
+<td>Storno und Fehlbon</td>
+</tr>
+<tr>
+<td>Retouren-Bon erstellen, Retouren-Bon bestätigen</td>
+<td>Retouren</td>
+</tr>
+<tr>
+<td>Zurück zu letztem leeren Bon, Kein Bon</td>
+<td>Bonnavigation</td>
+</tr>
+</tbody>
+</table>
+<p id="bkmrk-%5Boffen%3A-beschreibung">[OFFEN: Beschreibungen und Parameter der in dieser Sammeltabelle genannten Aktionen gegen die Kasse prüfen und ergänzen]</p>
+<h2 id="bkmrk-makros">Makros</h2>
+<p id="bkmrk-%C3%9Cber-den-reiter-makr">Über den Reiter <strong>Makro</strong> werden mehrere Kommandos zu einer Schaltfläche zusammengefasst. Zwei Beispiele aus der Praxis:</p>
+<p id="bkmrk-auszahlung-%E2%80%94-nach-ei"><strong>Auszahlung</strong> — nach Eingabe des Betrags über den Ziffernblock:</p>
+<ol id="bkmrk-kommando-tastaturpuf">
+<li>Kommando <strong>Tastaturpuffer: mal</strong> macht den eingegebenen Wert zur Menge des folgenden Artikels.</li>
+<li>Ein Hilfsartikel mit dem Preis 1,00, der Eigenschaft „überschreibbar“ und ohne hinterlegten Steuersatz wird gebucht.</li>
+<li>Die Artikelmenge wird negativ gesetzt.</li>
+<li>Es wird auf einen Bontyp gewechselt, der Umsatz und Warenbestand nicht verändert, das Kassen-Ist aber verringert.</li>
+<li><strong>Bezahlen direkt bestätigen</strong> schließt den Bon ohne weitere Eingaben ab.</li>
+</ol>
+<p id="bkmrk-im-haus-%E2%80%94-alle-folge"><strong>Im Haus</strong> — alle folgenden Artikel auf Preisgruppe 2 und Steuer 2, Bon auf Bontyp 7:</p>
+<ol id="bkmrk-tabellenfokus-aufheb">
+<li><strong>Tabellenfokus aufheben</strong>, damit kein Artikel markiert ist und die Umstellung erst für den nächsten Artikel gilt.</li>
+<li>Shift auf Preisgruppe 2.</li>
+<li>Shift auf Steuer 2.</li>
+<li>Wechsel auf den gewünschten Bontyp, was die spätere Auswertung der Im-Haus-Verkäufe erlaubt.</li>
+</ol>
+<h2 id="bkmrk-weitere-informatione">Weitere Informationen</h2>
+<ul id="bkmrk-itr-partner-service-">
+<li><a href="../../produkte/kassen-designer/enableconditions-referenz.html">ITR Partner Service → Produkte → ITR Kasse → EnableConditions: Referenz</a></li>
+<li><a href="../../produkte/itr-kasse/daten-von-hand-synchronisieren.html">ITR Partner Service → Produkte → ITR Kasse → Daten von Hand synchronisieren</a></li>
+</ul>
+</div></main>
+  <aside class="spalte-rechts"><div class="seiteninhalt"><h2>Seiteninhalt</h2><ul><li class="e2"><a href="#bkmrk-aufbau">Aufbau</a></li><li class="e2"><a href="#bkmrk-artikel-und-bonposit">Artikel und Bonpositionen</a></li><li class="e2"><a href="#bkmrk-artikel%2C-warengruppe">Artikel, Warengruppen und Auswahlfenster (Reiter Artikel/Artikel-Gruppe)</a></li><li class="e2"><a href="#bkmrk-modifier%3A-preise%2C-ra">Modifier: Preise, Rabatte, Steuer</a></li><li class="e2"><a href="#bkmrk-bon">Bon</a></li><li class="e2"><a href="#bkmrk-bezahlung">Bezahlung</a></li><li class="e2"><a href="#bkmrk-kassenabschluss%2C-ein">Kassenabschluss, Ein- und Auszahlungen</a></li><li class="e2"><a href="#bkmrk-bediener">Bediener</a></li><li class="e2"><a href="#bkmrk-navigation%2C-masken-u">Navigation, Masken und Panels</a></li><li class="e2"><a href="#bkmrk-bestellung-und-tisch">Bestellung und Tischbons</a></li><li class="e2"><a href="#bkmrk-berichte">Berichte</a></li><li class="e2"><a href="#bkmrk-bildschirmtastatur">Bildschirmtastatur</a></li><li class="e2"><a href="#bkmrk-anwendung-und-umsyst">Anwendung und Umsysteme</a></li><li class="e2"><a href="#bkmrk-weitere-aktionen-ohn">Weitere Aktionen ohne dokumentierte Parameter</a></li><li class="e2"><a href="#bkmrk-makros">Makros</a></li><li class="e2"><a href="#bkmrk-weitere-informatione">Weitere Informationen</a></li></ul></div></aside>
+</div>
+<footer class="fuss">
+  <span>ITR Partner Service</span>
+  <span>Stand 03.09.2026</span>
+</footer>
+<script src="../../assets/suche.js"></script>
+</body>
+</html>

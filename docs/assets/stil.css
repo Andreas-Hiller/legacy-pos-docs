@@ -30,6 +30,10 @@
   /* Rundungen an einer Stelle, damit sie ueberall gleich sind. */
   --rund: 8px;        /* Kacheln, Kaesten, Tabellenrahmen */
   --rund-klein: 5px;  /* Eingabefelder, Code im Text */
+  /* Bildlaufleisten in den Spalten: sichtbar genug, um sie zu finden,
+     zurueckhaltend genug, um nicht mitzureden. */
+  --leiste: #d7d7dc;
+  --leiste-aktiv: #b0b0ba;
 }
 
 * { box-sizing: border-box; }
@@ -161,6 +165,41 @@ body { display: flex; flex-direction: column; min-height: 100vh; }
 .spalte-links, .spalte-rechts {
   max-height: calc(100vh - 100px); overflow-y: auto; scrollbar-gutter: stable;
 }
+
+/*
+ * DEZENTE BILDLAUFLEISTEN in den Randspalten und im Suchergebnis.
+ * Die breite Systemleiste zog in der Navigation mehr Aufmerksamkeit auf sich
+ * als die Inhalte daneben.
+ *
+ * Zwei Schreibweisen, weil sie sich die Browser teilen: "scrollbar-width" und
+ * "scrollbar-color" sind der Standard (Firefox, Chromium ab 121), die
+ * "::-webkit-scrollbar"-Regeln decken die aelteren Chromium- und
+ * Safari-Fassungen ab. Beide zusammen, damit es ueberall gleich aussieht.
+ *
+ * NICHT ausgeblendet: ohne Leiste sieht niemand, dass die Spalte weitergeht.
+ * Der Balken bleibt sichtbar, wird beim Zeigen etwas deutlicher - und der
+ * Platz dafuer ist ueber scrollbar-gutter dauerhaft reserviert, damit der Text
+ * beim Auf- und Zuklappen nicht umbricht.
+ */
+.spalte-links, .spalte-rechts, #suchergebnis {
+  scrollbar-width: thin;
+  scrollbar-color: var(--leiste) transparent;
+}
+.spalte-links::-webkit-scrollbar,
+.spalte-rechts::-webkit-scrollbar,
+#suchergebnis::-webkit-scrollbar { width: 8px; }
+.spalte-links::-webkit-scrollbar-track,
+.spalte-rechts::-webkit-scrollbar-track,
+#suchergebnis::-webkit-scrollbar-track { background: transparent; }
+.spalte-links::-webkit-scrollbar-thumb,
+.spalte-rechts::-webkit-scrollbar-thumb,
+#suchergebnis::-webkit-scrollbar-thumb {
+  background: var(--leiste); border-radius: 4px;
+  border: 2px solid transparent; background-clip: content-box;
+}
+.spalte-links:hover, .spalte-rechts:hover { scrollbar-color: var(--leiste-aktiv) transparent; }
+.spalte-links:hover::-webkit-scrollbar-thumb,
+.spalte-rechts:hover::-webkit-scrollbar-thumb { background: var(--leiste-aktiv); }
 
 /* --------------------------------------------------------------- Navigation */
 .nav { font-size: 14px; }

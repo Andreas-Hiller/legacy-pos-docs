@@ -7,7 +7,7 @@
 <title>Fernwartung: Schwarzbild an der Kasse | FAQ &amp; Troubleshooting</title>
 <meta name="description" content="Die Fernwartungsverbindung steht, Steuerung und Statusleiste funktionieren — aber das Bild bleibt schwarz. Tritt sporadisch auf, nicht bei jeder Verbindung. Andere Rechner am selben Standort sind unau">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../assets/stil.css?v=587ff7c5">
+<link rel="stylesheet" href="../assets/stil.css?v=b964d4ee">
 </head>
 <body>
 <header class="kopf">
@@ -34,50 +34,50 @@
 </ol>
 <h2 id="bkmrk-l%C3%B6sung">Lösung</h2>
 <p id="bkmrk-den-bildschirm-energ">Den Bildschirm-Energiesparmodus auf der Kasse abschalten. Wirkt sofort, ein Neustart ist nicht nötig:</p>
-<pre id="bkmrk-powercfg-%2Fchange-mon"><code>powercfg /change monitor-timeout-ac 0
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Text</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code>powercfg /change monitor-timeout-ac 0
 powercfg /change monitor-timeout-dc 0
 powercfg /change standby-timeout-ac 0
-</code></pre>
+</code></pre></div>
 <h2 id="bkmrk-dauerhaft-absichern">Dauerhaft absichern</h2>
 <p id="bkmrk-powercfg-%2Fchange-wir"><code>powercfg /change</code> wirkt nur auf das gerade aktive Energieschema. Wechselt das Schema — etwa durch eine Gruppenrichtlinie, ein Windows-Update oder ein Herstellerwerkzeug —, ist der Zeitgeber wieder aktiv. Für alle Schemata:</p>
-<pre id="bkmrk-powercfg-%2Flist-power"><code>powercfg /list
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Text</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code>powercfg /list
 powercfg /setacvalueindex &lt;GUID&gt; SUB_VIDEO VIDEOIDLE 0
 powercfg /setdcvalueindex &lt;GUID&gt; SUB_VIDEO VIDEOIDLE 0
 powercfg /setactive &lt;GUID des aktiven Schemas&gt;
-</code></pre>
+</code></pre></div>
 <h2 id="bkmrk-ergebnis-pr%C3%BCfen">Ergebnis prüfen</h2>
 <p id="bkmrk-nach-dem-umstellen-b">Nach dem Umstellen bleibt die Anzeige auch nach längerer Inaktivität erhalten, und die Fernwartungsverbindung liefert ein Bild.</p>
 <h2 id="bkmrk-wenn-es-weiterhin-au">Wenn es weiterhin auftritt</h2>
 <p id="bkmrk-in-der-protokolldate">In der Protokolldatei <code>C:\Program Files\TeamViewer\TeamViewer15_Logfile.log</code> nach diesen Einträgen suchen:</p>
-<pre id="bkmrk-could-not-read-the-c"><code>Could not read the current screen resolution: 0
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Text</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code>Could not read the current screen resolution: 0
 No physical monitor found, but the render check on the WinLogon Desktop indicates that there is one.
 Device nodes have changed.
 Primary monitor power state has changed to 'On'.
 Error! TeamViewer terminated unexpectedly!
-</code></pre>
+</code></pre></div>
 <p id="bkmrk-die-zeile-device-nod">Die Zeile <strong>Device nodes have changed</strong> steht bei diesem Fehlerbild viele Male hintereinander — das ist das Umschalten zwischen physischem und virtuellem Display.</p>
 <p id="bkmrk-gezielt-suchen-mit%3A">Gezielt suchen mit:</p>
-<pre id="bkmrk-%24log-%3D-%22c%3A%5Cprogram-f"><code class="language-powershell">$log = "C:\Program Files\TeamViewer\TeamViewer15_Logfile.log"
-Select-String -Path $log -Pattern "GrabbingMethod|DesktopDuplication|HasPhysicalMonitor|Resolution|Monitor" |
-  Where-Object { $_.Line -notmatch "VoIP|Audio|LoopBack" } |
-  Select-Object -Last 30
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">PowerShell</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-powershell"><span class="tk-variable">$log</span> = <span class="tk-text">"C:\Program Files\TeamViewer\TeamViewer15_Logfile.log"</span>
+<span class="tk-funktion">Select-String</span> <span class="tk-schalter">-Path</span> <span class="tk-variable">$log</span> <span class="tk-schalter">-Pattern</span> <span class="tk-text">"GrabbingMethod|DesktopDuplication|HasPhysicalMonitor|Resolution|Monitor"</span> |
+  <span class="tk-funktion">Where-Object</span> { <span class="tk-variable">$_</span>.Line <span class="tk-schalter">-notmatch</span> <span class="tk-text">"VoIP|Audio|LoopBack"</span> } |
+  <span class="tk-funktion">Select-Object</span> <span class="tk-schalter">-Last</span> <span class="tk-zahl">30</span>
+</code></pre></div>
 <p id="bkmrk-nicht-nach-capture-f">Nicht nach <code>Capture</code> filtern — das trifft die Audio-Einträge und überdeckt das eigentliche Bild.</p>
 <p id="bkmrk-als-letzter-schritt-">Als letzter Schritt lässt sich der virtuelle Monitoradapter deaktivieren. Das erfordert eine PowerShell mit Administratorrechten; ohne sie schlägt der Aufruf mit <code>0x80041001</code> fehl:</p>
-<pre id="bkmrk-get-pnpdevice-%7C-wher"><code class="language-powershell">Get-PnpDevice | Where-Object FriendlyName -like "*TeamViewer*" | Select-Object FriendlyName,Status,InstanceId
-Disable-PnpDevice -InstanceId "SWD\TVVIRTUALMONITOR_INDIRECTDISPLAY\TVVIRTUALMONITOR_INDIRECTDISPLAY_0" -Confirm:$false
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">PowerShell</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-powershell"><span class="tk-funktion">Get-PnpDevice</span> | <span class="tk-funktion">Where-Object</span> FriendlyName <span class="tk-schalter">-like</span> <span class="tk-text">"*TeamViewer*"</span> | <span class="tk-funktion">Select-Object</span> FriendlyName,Status,InstanceId
+<span class="tk-funktion">Disable-PnpDevice</span> <span class="tk-schalter">-InstanceId</span> <span class="tk-text">"SWD\TVVIRTUALMONITOR_INDIRECTDISPLAY\TVVIRTUALMONITOR_INDIRECTDISPLAY_0"</span> <span class="tk-schalter">-Confirm</span>:<span class="tk-variable">$false</span>
+</code></pre></div>
 <p id="bkmrk-legt-der-dienst-das-">Legt der Dienst das Gerät danach neu an, hilft nur das Entfernen des Treiberpakets. Den Namen <code>oemXX.inf</code> aus der Ausgabe des ersten Befehls übernehmen:</p>
-<pre id="bkmrk-pnputil-%2Fenum-driver"><code class="language-powershell">pnputil /enum-drivers | Select-String -Context 4 "TeamViewer|tvvirtual"
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">PowerShell</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-powershell">pnputil /enum-drivers | <span class="tk-funktion">Select-String</span> <span class="tk-schalter">-Context</span> <span class="tk-zahl">4</span> <span class="tk-text">"TeamViewer|tvvirtual"</span>
 pnputil /delete-driver oemXX.inf /uninstall /force
-Restart-Service TeamViewer -Force
-</code></pre>
+<span class="tk-funktion">Restart-Service</span> TeamViewer <span class="tk-schalter">-Force</span>
+</code></pre></div>
 <p class="callout warning" id="bkmrk-ohne-virtuellen-moni">Ohne virtuellen Monitoradapter entfällt die Anzeige auf Rechnern ohne angeschlossenen Bildschirm. Ein TeamViewer-Update kann den Treiber zudem erneut installieren. Erst versuchen, wenn das Abschalten des Energiesparmodus nicht genügt.</p>
 <h2 id="bkmrk-zu-beachten">Zu beachten</h2>
 <p id="bkmrk-der-fehler-hat-nicht">Der Fehler hat nichts mit der Netzwerkverbindung zu tun — eine vermutete Ursache im VPN ließ sich ausschließen. Nachweisen lässt sich das an den offenen Verbindungen des TeamViewer-Prozesses:</p>
-<pre id="bkmrk-get-process-%7C-where-"><code class="language-powershell">Get-Process | Where-Object Name -like "*team*" | Select-Object Id,Name
-Get-NetTCPConnection -OwningProcess &lt;Prozess-ID&gt; | Select-Object RemoteAddress,RemotePort,State
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">PowerShell</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-powershell"><span class="tk-funktion">Get-Process</span> | <span class="tk-funktion">Where-Object</span> Name <span class="tk-schalter">-like</span> <span class="tk-text">"*team*"</span> | <span class="tk-funktion">Select-Object</span> Id,Name
+<span class="tk-funktion">Get-NetTCPConnection</span> <span class="tk-schalter">-OwningProcess</span> &lt;<span class="tk-funktion">Prozess-ID</span>&gt; | <span class="tk-funktion">Select-Object</span> RemoteAddress,RemotePort,State
+</code></pre></div>
 <p id="bkmrk-teamviewer-verbindet">TeamViewer verbindet sich dabei über Port 443 zu einem TeamViewer-Server im Internet; Adressen aus dem VPN-Adressbereich tauchen nicht auf. Der Datenverkehr läuft also am VPN vorbei.</p>
 <p id="bkmrk-die-angaben-beziehen">Die Angaben beziehen sich auf TeamViewer 15 in der 64-Bit-Installation: Das Programmverzeichnis ist <code>C:\Program Files\TeamViewer\</code>, <strong>nicht</strong> <code>C:\Program Files (x86)\TeamViewer\</code>; der Dienst heißt dort <code>TeamViewer</code> und nicht mehr <code>TeamViewer_Service</code>.</p>
 </div></main>
@@ -90,6 +90,6 @@ Get-NetTCPConnection -OwningProcess &lt;Prozess-ID&gt; | Select-Object RemoteAdd
     <span>Stand 03.09.2026</span>
   </span>
 </footer>
-<script src="../assets/suche.js?v=c03dc601"></script>
+<script src="../assets/suche.js?v=d4fed229"></script>
 </body>
 </html>

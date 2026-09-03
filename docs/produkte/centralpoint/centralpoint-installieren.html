@@ -7,7 +7,7 @@
 <title>CentralPoint installieren | Produkte</title>
 <meta name="description" content="Der CentralPoint ist der zentrale Server der Installation: Er verwaltet Stammdaten, Kassendaten, Lizenzen und Berichte und verteilt Änderungen an die Filialen. Voraussetzungen Server nach ITR Partner ">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=587ff7c5">
+<link rel="stylesheet" href="../../assets/stil.css?v=b964d4ee">
 </head>
 <body>
 <header class="kopf">
@@ -111,10 +111,10 @@
 <li>Das neue Verzeichnis unter <code>%programdata%</code> für alle Benutzer freigeben.</li>
 <li>Sicherstellen, dass alle Benutzer die nötigen RDP-Berechtigungen haben.</li>
 </ol>
-<pre id="bkmrk-%40echo-off-rd-%2Fs-%2Fq-%22"><code class="language-bat">@echo off
-rd /s /q "%appdata%\it relations GmbH\itrcp"
-icacls "%programdata%\it relations GmbH\itrcp" /grant *S-1-1-0:(R)
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Batch</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-bat">@<span class="tk-schluessel">echo</span> off
+<span class="tk-schluessel">rd</span> /s /q <span class="tk-text">"%appdata%\it relations GmbH\itrcp"</span>
+icacls <span class="tk-text">"%programdata%\it relations GmbH\itrcp"</span> /grant *S-<span class="tk-zahl">1</span>-<span class="tk-zahl">1</span>-<span class="tk-zahl">0</span>:(R)
+</code></pre></div>
 <p id="bkmrk-ausnahme-bei-mehrere"><strong>Ausnahme bei mehreren Datenbankschemata:</strong> Dort muss der Anwender die Datei ändern dürfen, weil die gewählte Datenbank in die <code>connection.xml</code> geschrieben wird. Sonst lädt der CentralPoint trotz Auswahl immer dasselbe Schema. In dem Fall statt <code>(R)</code> die Berechtigung <code>(M)</code> vergeben.</p>
 <h2 id="bkmrk-weitere-informatione">Weitere Informationen</h2>
 <ul id="bkmrk-itr-partner-service-">
@@ -130,6 +130,6 @@ icacls "%programdata%\it relations GmbH\itrcp" /grant *S-1-1-0:(R)
     <span>Stand 03.09.2026</span>
   </span>
 </footer>
-<script src="../../assets/suche.js?v=c03dc601"></script>
+<script src="../../assets/suche.js?v=d4fed229"></script>
 </body>
 </html>

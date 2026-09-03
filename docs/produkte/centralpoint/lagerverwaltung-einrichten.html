@@ -7,7 +7,7 @@
 <title>Lagerverwaltung einrichten | Produkte</title>
 <meta name="description" content="Die Lagerverwaltung führt Bestände artikelgenau. Der CentralPoint pflegt dabei die artikelbezogenen Einstellungen und wertet die Bestände filialübergreifend aus; das Grundverhalten wird an jeder Kasse">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=587ff7c5">
+<link rel="stylesheet" href="../../assets/stil.css?v=b964d4ee">
 </head>
 <body>
 <header class="kopf">
@@ -153,10 +153,10 @@
 <p id="bkmrk-diese-parameter-werd">Diese Parameter werden an der Kasse gepflegt — siehe <a href="../../produkte/itr-kasse/einstellungen-der-kasse-referenz.html">ITR Partner Service → Produkte → ITR Kasse → Einstellungen der Kasse: Referenz</a>.</p>
 <h2 id="bkmrk-best%C3%A4nde-aus-einem-f">Bestände aus einem Fremdsystem übernehmen</h2>
 <p id="bkmrk-liefermengen-aus-ein">Liefermengen aus einem Vectron-Bericht lassen sich über den GoodCompanyDaemon als Lagermengen einspielen. Der Job <code>VectronStockImporter</code> übernimmt dazu den 121er Vectron-Bericht:</p>
-<pre id="bkmrk-call%3Avectronstockimp"><code class="language-text">call:VectronStockImporter
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Text</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-text">call:VectronStockImporter
 #stockField=104_30_1
 #addTag=Handelswarenzubuchung
-</code></pre>
+</code></pre></div>
 <p id="bkmrk-parameter-und-varian">Parameter und Varianten stehen in <a href="../../produkte/goodcompanydaemon/daemon-jobs-referenz.html">ITR Partner Service → Produkte → GoodCompanyDaemon → Daemon Jobs: Referenz</a>.</p>
 <h2 id="bkmrk-auswertungen">Auswertungen</h2>
 <p id="bkmrk-%C3%9Cber-eigene-berichte">Über Eigene Berichte lassen sich lager- und warenwirtschaftsbezogene Auswertungen zusammenstellen, etwa Bestellungen, Retouren und Bruch oder Filialübersichten. Siehe <a href="../../produkte/centralpoint/kassenberichte-und-auswertungen.html">ITR Partner Service → Produkte → CentralPoint → Kassenberichte und Auswertungen</a>.</p>
@@ -192,6 +192,6 @@
     <span>Stand 03.09.2026</span>
   </span>
 </footer>
-<script src="../../assets/suche.js?v=c03dc601"></script>
+<script src="../../assets/suche.js?v=d4fed229"></script>
 </body>
 </html>

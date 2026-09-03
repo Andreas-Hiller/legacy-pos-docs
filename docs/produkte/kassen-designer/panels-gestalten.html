@@ -7,7 +7,7 @@
 <title>Panels gestalten | Produkte</title>
 <meta name="description" content="Ein Panel fasst Buttons, Textfelder und Tabellen zusammen oder füllt sich selbst mit Warengruppen und Artikeln. Diese Seite beschreibt, wie Sie ein Panel im Panel Designer aufbauen, welchen Panel-Typ ">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=587ff7c5">
+<link rel="stylesheet" href="../../assets/stil.css?v=b964d4ee">
 </head>
 <body>
 <header class="kopf">
@@ -157,8 +157,8 @@
 <li><strong>Sortiere Artikel auf dem Panel nach</strong> — <code>Sort-Nummer</code> (Reihenfolge wie in den Auswahlfenstern bzw. wie beim Artikel zugewiesen), <code>Artikelnummer</code>, <code>Artikelname</code> (alphabetisch) oder <code>Keine</code>. Sollen Warengruppen genau in der Reihenfolge erscheinen, in der ihre Nummern eingetragen sind, muss hier <code>Keine</code> stehen.</li>
 </ul>
 <p id="bkmrk-wie-viele-spalten-au">Wie viele Spalten auf ein Panel passen, rechnen Sie vorher aus. Mit Panelbreite <code>P</code>, Buttonbreite <code>B</code>, Abstand <code>M</code> und <code>n</code> Spalten gilt:</p>
-<pre id="bkmrk-p-%3E%3D-2%2Am-%2B-n%2Ab-%2B-%28n-"><code class="language-text">P &gt;= 2*M + n*B + (n-1)*M
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Text</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-text">P &gt;= 2*M + n*B + (n-1)*M
+</code></pre></div>
 <p id="bkmrk-passt-das-nicht%2C-feh">Passt das nicht, fehlt an der Kasse die letzte Spalte.</p>
 <p class="callout warning" id="bkmrk-vorlagebuttons-werde">Vorlagebuttons werden über Masken hinweg geteilt. Ändern Sie die Größe eines Vorlagebuttons erst, nachdem Sie geprüft haben, welche Panels ihn noch verwenden — ein Rechtsklick auf den Button im Button Designer zeigt das. Sonst verschiebt sich das Kachelraster fremder Masken unbemerkt. Im Zweifel eine eigene Kachel anlegen, statt eine bestehende umzubauen.</p>
 <p id="bkmrk-sollen-die-artikelka">Sollen die Artikelkacheln die Artikelbilder aus den Stammdaten zeigen, muss der Vorlagebutton ein Icon-Button aus <code>elements/iconbuttons</code> sein. Ein normaler Button zeigt nur Text. Am Panel selbst ändert sich dabei nichts.</p>
@@ -205,6 +205,6 @@
     <span>Stand 03.09.2026</span>
   </span>
 </footer>
-<script src="../../assets/suche.js?v=c03dc601"></script>
+<script src="../../assets/suche.js?v=d4fed229"></script>
 </body>
 </html>

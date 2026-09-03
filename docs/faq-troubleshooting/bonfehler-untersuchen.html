@@ -7,7 +7,7 @@
 <title>Bonfehler untersuchen | FAQ &amp; Troubleshooting</title>
 <meta name="description" content="Wenn Belegsummen, Zahlungen und Positionen nicht zusammenpassen. Die Analyse läuft über lesende Abfragen auf der Datenbank. Symptome Die Summe eines Belegs entspricht nicht der Summe der zugehörigen Z">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../assets/stil.css?v=587ff7c5">
+<link rel="stylesheet" href="../assets/stil.css?v=b964d4ee">
 </head>
 <body>
 <header class="kopf">
@@ -92,158 +92,158 @@
 <p id="bkmrk-beteiligte-tabellen%3A">Beteiligte Tabellen: <code>ipos_receipts</code>, <code>ipos_receiptpositions</code>, <code>ipos_paymentrecord</code>, <code>ipos_receipttypes</code>, <code>ipos_paymentmethod</code>. Für den Einzelfall zusätzlich <code>ipos_receiptrelation</code>, <code>ipos_receipt_cancelations</code>, <code>ipos_pricemodifierreceipts</code> und <code>ipos_pricemodifierreceiptpositions</code>.</p>
 <h2 id="bkmrk-pr%C3%BCfabfragen">Prüfabfragen</h2>
 <p id="bkmrk-zeitraum-einmal-je-s">Zeitraum einmal je Sitzung setzen, danach gilt er für alle folgenden Abfragen:</p>
-<pre id="bkmrk-set-%40dayinterval-%3A%3D-"><code class="language-sql">SET @dayInterval := -20;
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">SQL</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-sql"><span class="tk-schluessel">SET</span> <span class="tk-variable">@dayInterval</span> := -<span class="tk-zahl">20</span>;
+</code></pre></div>
 <p id="bkmrk-in-den-abfragen-sind">In den Abfragen sind mehrere Filterzeilen auskommentiert (Filiale, Beleg, Belegart). Kommentieren Sie eine davon ein, um den Treffer weiter einzugrenzen, und ersetzen Sie den Platzhalter durch den gesuchten Wert.</p>
 <p id="bkmrk-1a-%E2%80%94-beleg-gegen-zah"><strong>1a — Beleg gegen Zahlungen</strong></p>
-<pre id="bkmrk-select-%2A-from-%28-sele"><code class="language-sql">SELECT * FROM (
-SELECT x.id, x.branch_id, x.opened, x.receipt_type_id, x.NAME, x.turnover_effect, x.TOTAL, SUM(x.MONEY_AMOUNT) AS MONEY_AMOUNT, SUM(x.GIVEN) AS GIVEN, SUM(x.CHANGE_AMOUNT) AS CHANGE_AMOUNT FROM
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">SQL</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-sql"><span class="tk-schluessel">SELECT</span> * <span class="tk-schluessel">FROM</span> (
+<span class="tk-schluessel">SELECT</span> x.id, x.branch_id, x.opened, x.receipt_type_id, x.NAME, x.turnover_effect, x.TOTAL, <span class="tk-funktion">SUM</span>(x.MONEY_AMOUNT) <span class="tk-schluessel">AS</span> MONEY_AMOUNT, <span class="tk-funktion">SUM</span>(x.GIVEN) <span class="tk-schluessel">AS</span> GIVEN, <span class="tk-funktion">SUM</span>(x.CHANGE_AMOUNT) <span class="tk-schluessel">AS</span> CHANGE_AMOUNT <span class="tk-schluessel">FROM</span>
 (
-SELECT r.id, r.branch_id, r.opened, r.receipt_type_id, t.NAME, t.turnover_effect, r.TOTAL, IF(pmeth.PAYMENT_TYPE = 1 OR pmeth.PAYMENT_TYPE = 2 , IF(pay.MONEY_AMOUNT = pay.GIVEN - pay.CHANGE_AMOUNT , pay.MONEY_AMOUNT, pay.GIVEN) , pay.MONEY_AMOUNT) AS MONEY_AMOUNT, pay.GIVEN, IF(pmeth.PAYMENT_TYPE = 1 OR pmeth.PAYMENT_TYPE = 2, IF(pay.MONEY_AMOUNT = pay.GIVEN - pay.CHANGE_AMOUNT , pay.CHANGE_AMOUNT, 0) ,pay.CHANGE_AMOUNT) AS CHANGE_AMOUNT
-FROM ipos_receipts r
- LEFT JOIN ipos_receipttypes t ON t.id = r.RECEIPT_TYPE_ID
- LEFT JOIN ipos_paymentrecord pay ON r.ID = pay.RECEIPT_ID
- LEFT JOIN ipos_paymentmethod pmeth ON pmeth.id = pay.PAYMENT_METHOD_ID
-WHERE r.status = 1
-AND r.deleted = FALSE
-AND r.visibility IN (0,-99)
-AND t.DRAWER_MONEY_EFFECT != 0
-AND t.IS_CASH_IN_OUT = 0
-AND r.DATE_R &gt;= DATE_ADD(NOW(), INTERVAL @dayInterval DAY)
-AND pay.Deleted = FALSE
-AND r.branch_id = pay.branch_id
-) AS x
-GROUP BY x.id, x.branch_id
-) AS y
-WHERE
-IF(turnover_effect = 0,
-  TOTAL != MONEY_AMOUNT OR TOTAL != GIVEN - CHANGE_AMOUNT,
-  (TOTAL*turnover_effect) != MONEY_AMOUNT OR (TOTAL*turnover_effect) != GIVEN - CHANGE_AMOUNT
+<span class="tk-schluessel">SELECT</span> r.id, r.branch_id, r.opened, r.receipt_type_id, t.NAME, t.turnover_effect, r.TOTAL, <span class="tk-schluessel">IF</span>(pmeth.PAYMENT_TYPE = <span class="tk-zahl">1</span> <span class="tk-schluessel">OR</span> pmeth.PAYMENT_TYPE = <span class="tk-zahl">2</span> , <span class="tk-schluessel">IF</span>(pay.MONEY_AMOUNT = pay.GIVEN - pay.CHANGE_AMOUNT , pay.MONEY_AMOUNT, pay.GIVEN) , pay.MONEY_AMOUNT) <span class="tk-schluessel">AS</span> MONEY_AMOUNT, pay.GIVEN, <span class="tk-schluessel">IF</span>(pmeth.PAYMENT_TYPE = <span class="tk-zahl">1</span> <span class="tk-schluessel">OR</span> pmeth.PAYMENT_TYPE = <span class="tk-zahl">2</span>, <span class="tk-schluessel">IF</span>(pay.MONEY_AMOUNT = pay.GIVEN - pay.CHANGE_AMOUNT , pay.CHANGE_AMOUNT, <span class="tk-zahl">0</span>) ,pay.CHANGE_AMOUNT) <span class="tk-schluessel">AS</span> CHANGE_AMOUNT
+<span class="tk-schluessel">FROM</span> ipos_receipts r
+ <span class="tk-schluessel">LEFT</span> <span class="tk-schluessel">JOIN</span> ipos_receipttypes t <span class="tk-schluessel">ON</span> t.id = r.RECEIPT_TYPE_ID
+ <span class="tk-schluessel">LEFT</span> <span class="tk-schluessel">JOIN</span> ipos_paymentrecord pay <span class="tk-schluessel">ON</span> r.ID = pay.RECEIPT_ID
+ <span class="tk-schluessel">LEFT</span> <span class="tk-schluessel">JOIN</span> ipos_paymentmethod pmeth <span class="tk-schluessel">ON</span> pmeth.id = pay.PAYMENT_METHOD_ID
+<span class="tk-schluessel">WHERE</span> r.status = <span class="tk-zahl">1</span>
+<span class="tk-schluessel">AND</span> r.deleted = <span class="tk-schluessel">FALSE</span>
+<span class="tk-schluessel">AND</span> r.visibility <span class="tk-schluessel">IN</span> (<span class="tk-zahl">0</span>,-<span class="tk-zahl">99</span>)
+<span class="tk-schluessel">AND</span> t.DRAWER_MONEY_EFFECT != <span class="tk-zahl">0</span>
+<span class="tk-schluessel">AND</span> t.IS_CASH_IN_OUT = <span class="tk-zahl">0</span>
+<span class="tk-schluessel">AND</span> r.DATE_R &gt;= <span class="tk-funktion">DATE_ADD</span>(<span class="tk-funktion">NOW</span>(), <span class="tk-schluessel">INTERVAL</span> <span class="tk-variable">@dayInterval</span> <span class="tk-schluessel">DAY</span>)
+<span class="tk-schluessel">AND</span> pay.Deleted = <span class="tk-schluessel">FALSE</span>
+<span class="tk-schluessel">AND</span> r.branch_id = pay.branch_id
+) <span class="tk-schluessel">AS</span> x
+<span class="tk-schluessel">GROUP</span> <span class="tk-schluessel">BY</span> x.id, x.branch_id
+) <span class="tk-schluessel">AS</span> y
+<span class="tk-schluessel">WHERE</span>
+<span class="tk-schluessel">IF</span>(turnover_effect = <span class="tk-zahl">0</span>,
+  TOTAL != MONEY_AMOUNT <span class="tk-schluessel">OR</span> TOTAL != GIVEN - CHANGE_AMOUNT,
+  (TOTAL*turnover_effect) != MONEY_AMOUNT <span class="tk-schluessel">OR</span> (TOTAL*turnover_effect) != GIVEN - CHANGE_AMOUNT
   );
-</code></pre>
+</code></pre></div>
 <p id="bkmrk-1b-%E2%80%94-zahlung-an-frem"><strong>1b — Zahlung an fremder Kasse</strong></p>
-<pre id="bkmrk-select-x.%2A%2C-%28x.total"><code class="language-sql">SELECT x.*, (x.total - x.payed) AS diff FROM (
-SELECT id, branch_id, opened, confirmed, CANCELLED, PAYMENT_TIME, CASH_REGISTER_NO_LAST_OWNED, receipt_type_id, receipt_no, total, SUM(payed) AS payed
-, GROUP_CONCAT(DISTINCT IF(PAYMENT_TIME = XXX, payedAtCR, '') SEPARATOR '') AS LastPaymentAt
-FROM (
-    SELECT r.id, r.branch_id, r.opened, r.confirmed, r.CANCELLED, p.PAYMENT_TIME, r.CASH_REGISTER_NO_LAST_OWNED,
-    p.CR_ID AS payedAtCR,
-    (SELECT MAX(ipos_paymentrecord.PAYMENT_TIME) FROM ipos_paymentrecord WHERE ipos_paymentrecord.RECEIPT_ID = r.id AND ipos_paymentrecord.branch_id = r.branch_id AND deleted = FALSE) AS XXX
-    ,r.receipt_type_id , r.receipt_no, r.total, p.MONEY_AMOUNT AS payed
-    FROM ipos_receipts r LEFT JOIN ipos_paymentrecord p ON r.ID = p.RECEIPT_ID AND r.BRANCH_ID = p.BRANCH_ID AND p.Deleted = FALSE
-    WHERE r.status = 2
-    AND r.deleted = FALSE
-    AND r.visibility IN (0,-99)
-    -- AND r.receipt_type_id NOT IN (&lt;Belegart-IDs&gt;) -- kundenspezifische Belegarten ausschließen
-    -- AND r.branch_id = '&lt;Filial-ID&gt;'
-    -- AND r.id = &lt;Belegkennung&gt;
-    AND r.DATE_R &gt;= DATE_ADD(NOW(), INTERVAL @dayInterval DAY)
-    ORDER BY r.CASH_REGISTER_NO_OPENED, r.RECEIPT_NO
-    ) AS y GROUP BY id, branch_id
-) AS x
-WHERE payed IS NOT NULL AND payed != 0
-AND CASH_REGISTER_NO_LAST_OWNED != LastPaymentAt
-ORDER BY opened;
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">SQL</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-sql"><span class="tk-schluessel">SELECT</span> x.*, (x.total - x.payed) <span class="tk-schluessel">AS</span> diff <span class="tk-schluessel">FROM</span> (
+<span class="tk-schluessel">SELECT</span> id, branch_id, opened, confirmed, CANCELLED, PAYMENT_TIME, CASH_REGISTER_NO_LAST_OWNED, receipt_type_id, receipt_no, total, <span class="tk-funktion">SUM</span>(payed) <span class="tk-schluessel">AS</span> payed
+, <span class="tk-funktion">GROUP_CONCAT</span>(<span class="tk-schluessel">DISTINCT</span> <span class="tk-schluessel">IF</span>(PAYMENT_TIME = XXX, payedAtCR, <span class="tk-text">''</span>) SEPARATOR <span class="tk-text">''</span>) <span class="tk-schluessel">AS</span> LastPaymentAt
+<span class="tk-schluessel">FROM</span> (
+    <span class="tk-schluessel">SELECT</span> r.id, r.branch_id, r.opened, r.confirmed, r.CANCELLED, p.PAYMENT_TIME, r.CASH_REGISTER_NO_LAST_OWNED,
+    p.CR_ID <span class="tk-schluessel">AS</span> payedAtCR,
+    (<span class="tk-schluessel">SELECT</span> <span class="tk-funktion">MAX</span>(ipos_paymentrecord.PAYMENT_TIME) <span class="tk-schluessel">FROM</span> ipos_paymentrecord <span class="tk-schluessel">WHERE</span> ipos_paymentrecord.RECEIPT_ID = r.id <span class="tk-schluessel">AND</span> ipos_paymentrecord.branch_id = r.branch_id <span class="tk-schluessel">AND</span> deleted = <span class="tk-schluessel">FALSE</span>) <span class="tk-schluessel">AS</span> XXX
+    ,r.receipt_type_id , r.receipt_no, r.total, p.MONEY_AMOUNT <span class="tk-schluessel">AS</span> payed
+    <span class="tk-schluessel">FROM</span> ipos_receipts r <span class="tk-schluessel">LEFT</span> <span class="tk-schluessel">JOIN</span> ipos_paymentrecord p <span class="tk-schluessel">ON</span> r.ID = p.RECEIPT_ID <span class="tk-schluessel">AND</span> r.BRANCH_ID = p.BRANCH_ID <span class="tk-schluessel">AND</span> p.Deleted = <span class="tk-schluessel">FALSE</span>
+    <span class="tk-schluessel">WHERE</span> r.status = <span class="tk-zahl">2</span>
+    <span class="tk-schluessel">AND</span> r.deleted = <span class="tk-schluessel">FALSE</span>
+    <span class="tk-schluessel">AND</span> r.visibility <span class="tk-schluessel">IN</span> (<span class="tk-zahl">0</span>,-<span class="tk-zahl">99</span>)
+    <span class="tk-kommentar">-- AND r.receipt_type_id NOT IN (&lt;Belegart-IDs&gt;) -- kundenspezifische Belegarten ausschließen</span>
+    <span class="tk-kommentar">-- AND r.branch_id = '&lt;Filial-ID&gt;'</span>
+    <span class="tk-kommentar">-- AND r.id = &lt;Belegkennung&gt;</span>
+    <span class="tk-schluessel">AND</span> r.DATE_R &gt;= <span class="tk-funktion">DATE_ADD</span>(<span class="tk-funktion">NOW</span>(), <span class="tk-schluessel">INTERVAL</span> <span class="tk-variable">@dayInterval</span> <span class="tk-schluessel">DAY</span>)
+    <span class="tk-schluessel">ORDER</span> <span class="tk-schluessel">BY</span> r.CASH_REGISTER_NO_OPENED, r.RECEIPT_NO
+    ) <span class="tk-schluessel">AS</span> y <span class="tk-schluessel">GROUP</span> <span class="tk-schluessel">BY</span> id, branch_id
+) <span class="tk-schluessel">AS</span> x
+<span class="tk-schluessel">WHERE</span> payed <span class="tk-schluessel">IS</span> <span class="tk-schluessel">NOT</span> <span class="tk-schluessel">NULL</span> <span class="tk-schluessel">AND</span> payed != <span class="tk-zahl">0</span>
+<span class="tk-schluessel">AND</span> CASH_REGISTER_NO_LAST_OWNED != LastPaymentAt
+<span class="tk-schluessel">ORDER</span> <span class="tk-schluessel">BY</span> opened;
+</code></pre></div>
 <p id="bkmrk-2-%E2%80%94-beleg-gegen-posi"><strong>2 — Beleg gegen Positionen</strong></p>
-<pre id="bkmrk-select-id%2C-opened%2C-b"><code class="language-sql">SELECT ID, OPENED, BRANCH_ID, RECEIPT_NO, ReceiptTOTAL, PositionTOTAL
-     FROM (
-          SELECT R.ID AS ID, R.OPENED, r.receipt_type_id , R.BRANCH_ID, R.CASH_REGISTER_NO_OPENED, R.RECEIPT_NO, R.TOTAL AS ReceiptTOTAL, SUM(POS.TOTAL) AS PositionTOTAL, SUM(POS.AMOUNT) AS AMOUNT
-          FROM ipos_receiptpositions POS, ipos_receipts R
-          WHERE POS.RECEIPT_ID = R.ID AND POS.DELETED = FALSE AND (POS.is_summed_pos = FALSE OR POS.is_summed_pos IS NULL)
-               AND POS.REMOVED = FALSE AND R.DELETED = FALSE AND R.STATUS = 1 AND R.VISIBILITY IN (0, -99)
---               AND r.branch_id = '&lt;Filial-ID&gt;'
-          AND R.BRANCH_ID = POS.BRANCH_ID
-          AND r.DATE_R &gt;= DATE_ADD(NOW(), INTERVAL @dayInterval DAY)
-               GROUP BY R.ID, R.BRANCH_ID, R.CASH_REGISTER_NO_OPENED, R.RECEIPT_NO
-          ) AS X
-     WHERE ReceiptTOTAL != PositionTOTAL
-     ORDER BY branch_id, opened;
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">SQL</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-sql"><span class="tk-schluessel">SELECT</span> ID, OPENED, BRANCH_ID, RECEIPT_NO, ReceiptTOTAL, PositionTOTAL
+     <span class="tk-schluessel">FROM</span> (
+          <span class="tk-schluessel">SELECT</span> R.ID <span class="tk-schluessel">AS</span> ID, R.OPENED, r.receipt_type_id , R.BRANCH_ID, R.CASH_REGISTER_NO_OPENED, R.RECEIPT_NO, R.TOTAL <span class="tk-schluessel">AS</span> ReceiptTOTAL, <span class="tk-funktion">SUM</span>(POS.TOTAL) <span class="tk-schluessel">AS</span> PositionTOTAL, <span class="tk-funktion">SUM</span>(POS.AMOUNT) <span class="tk-schluessel">AS</span> AMOUNT
+          <span class="tk-schluessel">FROM</span> ipos_receiptpositions POS, ipos_receipts R
+          <span class="tk-schluessel">WHERE</span> POS.RECEIPT_ID = R.ID <span class="tk-schluessel">AND</span> POS.DELETED = <span class="tk-schluessel">FALSE</span> <span class="tk-schluessel">AND</span> (POS.is_summed_pos = <span class="tk-schluessel">FALSE</span> <span class="tk-schluessel">OR</span> POS.is_summed_pos <span class="tk-schluessel">IS</span> <span class="tk-schluessel">NULL</span>)
+               <span class="tk-schluessel">AND</span> POS.REMOVED = <span class="tk-schluessel">FALSE</span> <span class="tk-schluessel">AND</span> R.DELETED = <span class="tk-schluessel">FALSE</span> <span class="tk-schluessel">AND</span> R.STATUS = <span class="tk-zahl">1</span> <span class="tk-schluessel">AND</span> R.VISIBILITY <span class="tk-schluessel">IN</span> (<span class="tk-zahl">0</span>, -<span class="tk-zahl">99</span>)
+<span class="tk-kommentar">--               AND r.branch_id = '&lt;Filial-ID&gt;'</span>
+          <span class="tk-schluessel">AND</span> R.BRANCH_ID = POS.BRANCH_ID
+          <span class="tk-schluessel">AND</span> r.DATE_R &gt;= <span class="tk-funktion">DATE_ADD</span>(<span class="tk-funktion">NOW</span>(), <span class="tk-schluessel">INTERVAL</span> <span class="tk-variable">@dayInterval</span> <span class="tk-schluessel">DAY</span>)
+               <span class="tk-schluessel">GROUP</span> <span class="tk-schluessel">BY</span> R.ID, R.BRANCH_ID, R.CASH_REGISTER_NO_OPENED, R.RECEIPT_NO
+          ) <span class="tk-schluessel">AS</span> X
+     <span class="tk-schluessel">WHERE</span> ReceiptTOTAL != PositionTOTAL
+     <span class="tk-schluessel">ORDER</span> <span class="tk-schluessel">BY</span> branch_id, opened;
+</code></pre></div>
 <p id="bkmrk-3-%E2%80%94-steuer"><strong>3 — Steuer</strong></p>
-<pre id="bkmrk-select-%2A-from-%28-sele-1"><code class="language-sql">SELECT *
-    FROM (
-         SELECT R.ID AS ID, R.OPENED, R.BRANCH_ID, R.CASH_REGISTER_NO_OPENED, R.RECEIPT_NO, R.TOTAL AS ReceiptTOTAL, R.TAX AS ReceiptTax, SUM(POS.TOTAL) AS PositionTOTAL, SUM(POS.TOTAL_EXCL_TAX) AS PositionNetto, SUM(POS.TAX) AS PositionTax, SUM(POS.AMOUNT) AS AMOUNT
-         FROM ipos_ReceiptPositions POS, ipos_Receipts R
-         WHERE POS.RECEIPT_ID = R.ID AND POS.DELETED = FALSE AND (POS.is_summed_pos = FALSE OR POS.is_summed_pos IS NULL)
-         AND POS.REMOVED = FALSE AND R.DELETED = FALSE AND R.STATUS = 1 AND R.VISIBILITY IN (0,-99)
---         AND r.branch_id = '&lt;Filial-ID&gt;'
-          AND r.BRANCH_ID = pos.BRANCH_ID
-AND r.DATE_R &gt;= DATE_ADD(NOW(), INTERVAL @dayInterval DAY)
-          GROUP BY R.ID, r.BRANCH_ID, r.CASH_REGISTER_NO_OPENED, r.RECEIPT_NO
-          ) AS X
-      WHERE ReceiptTax != PositionTax;
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">SQL</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-sql"><span class="tk-schluessel">SELECT</span> *
+    <span class="tk-schluessel">FROM</span> (
+         <span class="tk-schluessel">SELECT</span> R.ID <span class="tk-schluessel">AS</span> ID, R.OPENED, R.BRANCH_ID, R.CASH_REGISTER_NO_OPENED, R.RECEIPT_NO, R.TOTAL <span class="tk-schluessel">AS</span> ReceiptTOTAL, R.TAX <span class="tk-schluessel">AS</span> ReceiptTax, <span class="tk-funktion">SUM</span>(POS.TOTAL) <span class="tk-schluessel">AS</span> PositionTOTAL, <span class="tk-funktion">SUM</span>(POS.TOTAL_EXCL_TAX) <span class="tk-schluessel">AS</span> PositionNetto, <span class="tk-funktion">SUM</span>(POS.TAX) <span class="tk-schluessel">AS</span> PositionTax, <span class="tk-funktion">SUM</span>(POS.AMOUNT) <span class="tk-schluessel">AS</span> AMOUNT
+         <span class="tk-schluessel">FROM</span> ipos_ReceiptPositions POS, ipos_Receipts R
+         <span class="tk-schluessel">WHERE</span> POS.RECEIPT_ID = R.ID <span class="tk-schluessel">AND</span> POS.DELETED = <span class="tk-schluessel">FALSE</span> <span class="tk-schluessel">AND</span> (POS.is_summed_pos = <span class="tk-schluessel">FALSE</span> <span class="tk-schluessel">OR</span> POS.is_summed_pos <span class="tk-schluessel">IS</span> <span class="tk-schluessel">NULL</span>)
+         <span class="tk-schluessel">AND</span> POS.REMOVED = <span class="tk-schluessel">FALSE</span> <span class="tk-schluessel">AND</span> R.DELETED = <span class="tk-schluessel">FALSE</span> <span class="tk-schluessel">AND</span> R.STATUS = <span class="tk-zahl">1</span> <span class="tk-schluessel">AND</span> R.VISIBILITY <span class="tk-schluessel">IN</span> (<span class="tk-zahl">0</span>,-<span class="tk-zahl">99</span>)
+<span class="tk-kommentar">--         AND r.branch_id = '&lt;Filial-ID&gt;'</span>
+          <span class="tk-schluessel">AND</span> r.BRANCH_ID = pos.BRANCH_ID
+<span class="tk-schluessel">AND</span> r.DATE_R &gt;= <span class="tk-funktion">DATE_ADD</span>(<span class="tk-funktion">NOW</span>(), <span class="tk-schluessel">INTERVAL</span> <span class="tk-variable">@dayInterval</span> <span class="tk-schluessel">DAY</span>)
+          <span class="tk-schluessel">GROUP</span> <span class="tk-schluessel">BY</span> R.ID, r.BRANCH_ID, r.CASH_REGISTER_NO_OPENED, r.RECEIPT_NO
+          ) <span class="tk-schluessel">AS</span> X
+      <span class="tk-schluessel">WHERE</span> ReceiptTax != PositionTax;
+</code></pre></div>
 <p id="bkmrk-4-%E2%80%94-beleg-ohne-posit"><strong>4 — Beleg ohne Positionen</strong></p>
-<pre id="bkmrk-select-%2A-from-ipos_r"><code class="language-sql">SELECT *
-          FROM ipos_Receipts R LEFT JOIN ipos_ReceiptPositions POS
-          ON POS.RECEIPT_ID = R.ID
-              AND POS.BRANCH_ID = R.BRANCH_ID
-               WHERE
-               -- R.id = &lt;Belegkennung&gt;
-                   COALESCE(POS.DELETED,FALSE) = FALSE
-           AND COALESCE(POS.REMOVED,FALSE) = FALSE
-                 AND R.DELETED = FALSE
-                 AND R.STATUS = 1
-                 AND POS.total IS NULL AND R.total != 0
-                 AND r.DATE_R &gt;= DATE_ADD(NOW(), INTERVAL @dayInterval DAY)
-                 ORDER BY R.BRANCH_ID, R.opened;
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">SQL</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-sql"><span class="tk-schluessel">SELECT</span> *
+          <span class="tk-schluessel">FROM</span> ipos_Receipts R <span class="tk-schluessel">LEFT</span> <span class="tk-schluessel">JOIN</span> ipos_ReceiptPositions POS
+          <span class="tk-schluessel">ON</span> POS.RECEIPT_ID = R.ID
+              <span class="tk-schluessel">AND</span> POS.BRANCH_ID = R.BRANCH_ID
+               <span class="tk-schluessel">WHERE</span>
+               <span class="tk-kommentar">-- R.id = &lt;Belegkennung&gt;</span>
+                   <span class="tk-funktion">COALESCE</span>(POS.DELETED,<span class="tk-schluessel">FALSE</span>) = <span class="tk-schluessel">FALSE</span>
+           <span class="tk-schluessel">AND</span> <span class="tk-funktion">COALESCE</span>(POS.REMOVED,<span class="tk-schluessel">FALSE</span>) = <span class="tk-schluessel">FALSE</span>
+                 <span class="tk-schluessel">AND</span> R.DELETED = <span class="tk-schluessel">FALSE</span>
+                 <span class="tk-schluessel">AND</span> R.STATUS = <span class="tk-zahl">1</span>
+                 <span class="tk-schluessel">AND</span> POS.total <span class="tk-schluessel">IS</span> <span class="tk-schluessel">NULL</span> <span class="tk-schluessel">AND</span> R.total != <span class="tk-zahl">0</span>
+                 <span class="tk-schluessel">AND</span> r.DATE_R &gt;= <span class="tk-funktion">DATE_ADD</span>(<span class="tk-funktion">NOW</span>(), <span class="tk-schluessel">INTERVAL</span> <span class="tk-variable">@dayInterval</span> <span class="tk-schluessel">DAY</span>)
+                 <span class="tk-schluessel">ORDER</span> <span class="tk-schluessel">BY</span> R.BRANCH_ID, R.opened;
+</code></pre></div>
 <p id="bkmrk-5-%E2%80%94-beleg-gegen-posi"><strong>5 — Beleg gegen Positionen, inklusive positionsloser Belege</strong></p>
-<pre id="bkmrk-select-id%2C-opened%2C-b-1"><code class="language-sql">SELECT ID, OPENED, BRANCH_ID, RECEIPT_NO, ReceiptTOTAL, PositionTOTAL
-     FROM (
-          SELECT R.ID AS ID, R.OPENED, r.receipt_type_id , R.BRANCH_ID, R.CASH_REGISTER_NO_OPENED, R.RECEIPT_NO, R.TOTAL AS ReceiptTOTAL, SUM(IFNULL(POS.TOTAL,0)) AS PositionTOTAL, SUM(POS.AMOUNT) AS AMOUNT
-          FROM ipos_receipts R LEFT JOIN ipos_receiptpositions POS
-          ON POS.RECEIPT_ID = R.ID AND R.BRANCH_ID = POS.BRANCH_ID AND (POS.DELETED = FALSE
-                         AND (POS.is_summed_pos = FALSE OR POS.is_summed_pos IS NULL)
-                   AND POS.REMOVED = FALSE
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">SQL</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-sql"><span class="tk-schluessel">SELECT</span> ID, OPENED, BRANCH_ID, RECEIPT_NO, ReceiptTOTAL, PositionTOTAL
+     <span class="tk-schluessel">FROM</span> (
+          <span class="tk-schluessel">SELECT</span> R.ID <span class="tk-schluessel">AS</span> ID, R.OPENED, r.receipt_type_id , R.BRANCH_ID, R.CASH_REGISTER_NO_OPENED, R.RECEIPT_NO, R.TOTAL <span class="tk-schluessel">AS</span> ReceiptTOTAL, <span class="tk-funktion">SUM</span>(<span class="tk-schluessel">IFNULL</span>(POS.TOTAL,<span class="tk-zahl">0</span>)) <span class="tk-schluessel">AS</span> PositionTOTAL, <span class="tk-funktion">SUM</span>(POS.AMOUNT) <span class="tk-schluessel">AS</span> AMOUNT
+          <span class="tk-schluessel">FROM</span> ipos_receipts R <span class="tk-schluessel">LEFT</span> <span class="tk-schluessel">JOIN</span> ipos_receiptpositions POS
+          <span class="tk-schluessel">ON</span> POS.RECEIPT_ID = R.ID <span class="tk-schluessel">AND</span> R.BRANCH_ID = POS.BRANCH_ID <span class="tk-schluessel">AND</span> (POS.DELETED = <span class="tk-schluessel">FALSE</span>
+                         <span class="tk-schluessel">AND</span> (POS.is_summed_pos = <span class="tk-schluessel">FALSE</span> <span class="tk-schluessel">OR</span> POS.is_summed_pos <span class="tk-schluessel">IS</span> <span class="tk-schluessel">NULL</span>)
+                   <span class="tk-schluessel">AND</span> POS.REMOVED = <span class="tk-schluessel">FALSE</span>
                     )
-          WHERE
-              R.DELETED = FALSE AND R.STATUS = 1 AND R.VISIBILITY IN (0, -99)
-          AND r.DATE_R &gt;= DATE_ADD(NOW(), INTERVAL @dayInterval DAY)
---           AND R.ID = &lt;Belegkennung&gt;
-               GROUP BY R.ID, R.BRANCH_ID, R.CASH_REGISTER_NO_OPENED, R.RECEIPT_NO
-          ) AS X
-     WHERE ReceiptTOTAL != PositionTOTAL
-     ORDER BY branch_id, opened;
-</code></pre>
+          <span class="tk-schluessel">WHERE</span>
+              R.DELETED = <span class="tk-schluessel">FALSE</span> <span class="tk-schluessel">AND</span> R.STATUS = <span class="tk-zahl">1</span> <span class="tk-schluessel">AND</span> R.VISIBILITY <span class="tk-schluessel">IN</span> (<span class="tk-zahl">0</span>, -<span class="tk-zahl">99</span>)
+          <span class="tk-schluessel">AND</span> r.DATE_R &gt;= <span class="tk-funktion">DATE_ADD</span>(<span class="tk-funktion">NOW</span>(), <span class="tk-schluessel">INTERVAL</span> <span class="tk-variable">@dayInterval</span> <span class="tk-schluessel">DAY</span>)
+<span class="tk-kommentar">--           AND R.ID = &lt;Belegkennung&gt;</span>
+               <span class="tk-schluessel">GROUP</span> <span class="tk-schluessel">BY</span> R.ID, R.BRANCH_ID, R.CASH_REGISTER_NO_OPENED, R.RECEIPT_NO
+          ) <span class="tk-schluessel">AS</span> X
+     <span class="tk-schluessel">WHERE</span> ReceiptTOTAL != PositionTOTAL
+     <span class="tk-schluessel">ORDER</span> <span class="tk-schluessel">BY</span> branch_id, opened;
+</code></pre></div>
 <p id="bkmrk-6-%E2%80%94-datumsgleichheit"><strong>6 — Datumsgleichheit</strong></p>
-<pre id="bkmrk-select-r.total%2C-r.id"><code class="language-sql">SELECT r.TOTAL, r.ID, r.BRANCH_ID, r.CR_ID, r.RECEIPT_NO, r.CONFIRMED, p.PAYMENT_TIME, p.LastModified, p.MONEY_AMOUNT, p.GIVEN, p.CHANGE_AMOUNT FROM ipos_paymentrecord p, ipos_receipts r
-WHERE
--- r.branch_id = '&lt;Filial-ID&gt;' AND
-r.DATE_R &gt;= DATE_ADD(NOW(), INTERVAL @dayInterval DAY)
-AND r.deleted IS FALSE
-AND p.deleted IS FALSE
-AND r.visibility IN (0,-99)
-AND r.status = 1
-AND p.RECEIPT_ID = r.ID
--- AND r.ID = &lt;Belegkennung&gt;
-AND DATE_FORMAT(r.CONFIRMED, '%Y-%m-%d') != DATE_FORMAT(p.PAYMENT_TIME, '%Y-%m-%d');
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">SQL</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-sql"><span class="tk-schluessel">SELECT</span> r.TOTAL, r.ID, r.BRANCH_ID, r.CR_ID, r.RECEIPT_NO, r.CONFIRMED, p.PAYMENT_TIME, p.LastModified, p.MONEY_AMOUNT, p.GIVEN, p.CHANGE_AMOUNT <span class="tk-schluessel">FROM</span> ipos_paymentrecord p, ipos_receipts r
+<span class="tk-schluessel">WHERE</span>
+<span class="tk-kommentar">-- r.branch_id = '&lt;Filial-ID&gt;' AND</span>
+r.DATE_R &gt;= <span class="tk-funktion">DATE_ADD</span>(<span class="tk-funktion">NOW</span>(), <span class="tk-schluessel">INTERVAL</span> <span class="tk-variable">@dayInterval</span> <span class="tk-schluessel">DAY</span>)
+<span class="tk-schluessel">AND</span> r.deleted <span class="tk-schluessel">IS</span> <span class="tk-schluessel">FALSE</span>
+<span class="tk-schluessel">AND</span> p.deleted <span class="tk-schluessel">IS</span> <span class="tk-schluessel">FALSE</span>
+<span class="tk-schluessel">AND</span> r.visibility <span class="tk-schluessel">IN</span> (<span class="tk-zahl">0</span>,-<span class="tk-zahl">99</span>)
+<span class="tk-schluessel">AND</span> r.status = <span class="tk-zahl">1</span>
+<span class="tk-schluessel">AND</span> p.RECEIPT_ID = r.ID
+<span class="tk-kommentar">-- AND r.ID = &lt;Belegkennung&gt;</span>
+<span class="tk-schluessel">AND</span> <span class="tk-funktion">DATE_FORMAT</span>(r.CONFIRMED, <span class="tk-text">'%Y-%m-%d'</span>) != <span class="tk-funktion">DATE_FORMAT</span>(p.PAYMENT_TIME, <span class="tk-text">'%Y-%m-%d'</span>);
+</code></pre></div>
 <h2 id="bkmrk-einzelnen-beleg-aufs">Einzelnen Beleg aufschlüsseln</h2>
 <p id="bkmrk-setzen-sie-die-auff%C3%A4">Setzen Sie die auffällige Belegkennung aus einer der Prüfabfragen ein und führen Sie die Abfragen der Reihe nach aus. Die ersten drei zeigen unmittelbar, welche der drei Summen — Beleg, Positionen, Zahlungen — abweicht.</p>
-<pre id="bkmrk-set-%40receipt_id-%3A%3D-%3C"><code class="language-sql">SET @receipt_id := &lt;Belegkennung&gt;;
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">SQL</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-sql"><span class="tk-schluessel">SET</span> <span class="tk-variable">@receipt_id</span> := &lt;Belegkennung&gt;;
 
-SELECT TOTAL, TAX, TOTAL_EXCL_TAX , LastModified, STATUS, receipt_type_id, ID, CR_ID , BRANCH_ID FROM ipos_receipts WHERE id = @receipt_id;
-SELECT SUM(total), SUM(tax), SUM(total_excl_tax) FROM ipos_receiptpositions WHERE receipt_id = @receipt_id AND removed = FALSE AND deleted = FALSE AND IFNULL(is_summed_pos,FALSE) = FALSE;
-SELECT SUM(money_amount) FROM ipos_paymentrecord WHERE receipt_id = @receipt_id AND deleted = FALSE;
+<span class="tk-schluessel">SELECT</span> TOTAL, TAX, TOTAL_EXCL_TAX , LastModified, STATUS, receipt_type_id, ID, CR_ID , BRANCH_ID <span class="tk-schluessel">FROM</span> ipos_receipts <span class="tk-schluessel">WHERE</span> id = <span class="tk-variable">@receipt_id</span>;
+<span class="tk-schluessel">SELECT</span> <span class="tk-funktion">SUM</span>(total), <span class="tk-funktion">SUM</span>(tax), <span class="tk-funktion">SUM</span>(total_excl_tax) <span class="tk-schluessel">FROM</span> ipos_receiptpositions <span class="tk-schluessel">WHERE</span> receipt_id = <span class="tk-variable">@receipt_id</span> <span class="tk-schluessel">AND</span> removed = <span class="tk-schluessel">FALSE</span> <span class="tk-schluessel">AND</span> deleted = <span class="tk-schluessel">FALSE</span> <span class="tk-schluessel">AND</span> <span class="tk-schluessel">IFNULL</span>(is_summed_pos,<span class="tk-schluessel">FALSE</span>) = <span class="tk-schluessel">FALSE</span>;
+<span class="tk-schluessel">SELECT</span> <span class="tk-funktion">SUM</span>(money_amount) <span class="tk-schluessel">FROM</span> ipos_paymentrecord <span class="tk-schluessel">WHERE</span> receipt_id = <span class="tk-variable">@receipt_id</span> <span class="tk-schluessel">AND</span> deleted = <span class="tk-schluessel">FALSE</span>;
 
--- Summe der Positionen einschließlich gelöschter und entfernter Positionen
-SELECT SUM(total), SUM(tax), SUM(total_excl_tax) FROM ipos_receiptpositions WHERE receipt_id = @receipt_id AND IFNULL(is_summed_pos,FALSE) = FALSE;
+<span class="tk-kommentar">-- Summe der Positionen einschließlich gelöschter und entfernter Positionen</span>
+<span class="tk-schluessel">SELECT</span> <span class="tk-funktion">SUM</span>(total), <span class="tk-funktion">SUM</span>(tax), <span class="tk-funktion">SUM</span>(total_excl_tax) <span class="tk-schluessel">FROM</span> ipos_receiptpositions <span class="tk-schluessel">WHERE</span> receipt_id = <span class="tk-variable">@receipt_id</span> <span class="tk-schluessel">AND</span> <span class="tk-schluessel">IFNULL</span>(is_summed_pos,<span class="tk-schluessel">FALSE</span>) = <span class="tk-schluessel">FALSE</span>;
 
--- Einzeldatensätze
-SELECT * FROM ipos_receipts WHERE id = @receipt_id;
-SELECT * FROM ipos_receiptpositions WHERE receipt_id = @receipt_id;
-SELECT * FROM ipos_paymentrecord WHERE receipt_id = @receipt_id;
+<span class="tk-kommentar">-- Einzeldatensätze</span>
+<span class="tk-schluessel">SELECT</span> * <span class="tk-schluessel">FROM</span> ipos_receipts <span class="tk-schluessel">WHERE</span> id = <span class="tk-variable">@receipt_id</span>;
+<span class="tk-schluessel">SELECT</span> * <span class="tk-schluessel">FROM</span> ipos_receiptpositions <span class="tk-schluessel">WHERE</span> receipt_id = <span class="tk-variable">@receipt_id</span>;
+<span class="tk-schluessel">SELECT</span> * <span class="tk-schluessel">FROM</span> ipos_paymentrecord <span class="tk-schluessel">WHERE</span> receipt_id = <span class="tk-variable">@receipt_id</span>;
 
--- Storno-, Kopie- und Referenzeinträge
-SELECT * FROM ipos_receiptrelation r WHERE receipt_id IN (@receipt_id) OR r.CANCELLATION_RECEIPT_ID IN (@receipt_id) OR r.COPY_RECEIPT_ID IN (@receipt_id);
-SELECT * FROM ipos_receipt_cancelations WHERE receipt_id IN (@receipt_id) OR id IN (@receipt_id);
+<span class="tk-kommentar">-- Storno-, Kopie- und Referenzeinträge</span>
+<span class="tk-schluessel">SELECT</span> * <span class="tk-schluessel">FROM</span> ipos_receiptrelation r <span class="tk-schluessel">WHERE</span> receipt_id <span class="tk-schluessel">IN</span> (<span class="tk-variable">@receipt_id</span>) <span class="tk-schluessel">OR</span> r.CANCELLATION_RECEIPT_ID <span class="tk-schluessel">IN</span> (<span class="tk-variable">@receipt_id</span>) <span class="tk-schluessel">OR</span> r.COPY_RECEIPT_ID <span class="tk-schluessel">IN</span> (<span class="tk-variable">@receipt_id</span>);
+<span class="tk-schluessel">SELECT</span> * <span class="tk-schluessel">FROM</span> ipos_receipt_cancelations <span class="tk-schluessel">WHERE</span> receipt_id <span class="tk-schluessel">IN</span> (<span class="tk-variable">@receipt_id</span>) <span class="tk-schluessel">OR</span> id <span class="tk-schluessel">IN</span> (<span class="tk-variable">@receipt_id</span>);
 
--- Preisänderungen auf Beleg- und Positionsebene
-SELECT * FROM ipos_pricemodifierreceipts WHERE receipt_id IN (@receipt_id);
-SELECT * FROM ipos_pricemodifierreceiptpositions p WHERE p.RECEIPT_ID IN (@receipt_id);
-</code></pre>
+<span class="tk-kommentar">-- Preisänderungen auf Beleg- und Positionsebene</span>
+<span class="tk-schluessel">SELECT</span> * <span class="tk-schluessel">FROM</span> ipos_pricemodifierreceipts <span class="tk-schluessel">WHERE</span> receipt_id <span class="tk-schluessel">IN</span> (<span class="tk-variable">@receipt_id</span>);
+<span class="tk-schluessel">SELECT</span> * <span class="tk-schluessel">FROM</span> ipos_pricemodifierreceiptpositions p <span class="tk-schluessel">WHERE</span> p.RECEIPT_ID <span class="tk-schluessel">IN</span> (<span class="tk-variable">@receipt_id</span>);
+</code></pre></div>
 <p id="bkmrk-ist-ein-beleg-storni">Ist ein Beleg storniert worden, liefert <code>ipos_receiptrelation</code> den Bezug zwischen Originalbeleg und Stornobeleg. Prüfen Sie beide Belege getrennt, bevor Sie eine Abweichung melden.</p>
 <h2 id="bkmrk-zu-beachten">Zu beachten</h2>
 <p class="callout warning" id="bkmrk-nur-lesende-abfragen">Nur lesende Abfragen. Korrekturen an Belegdaten sind ein Eingriff in die fiskalisch relevanten Aufzeichnungen und dürfen ausschließlich über die Entwicklung erfolgen.</p>
@@ -273,6 +273,6 @@ SELECT * FROM ipos_pricemodifierreceiptpositions p WHERE p.RECEIPT_ID IN (@recei
     <span>Stand 03.09.2026</span>
   </span>
 </footer>
-<script src="../assets/suche.js?v=c03dc601"></script>
+<script src="../assets/suche.js?v=d4fed229"></script>
 </body>
 </html>

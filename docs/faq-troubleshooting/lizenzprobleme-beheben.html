@@ -7,7 +7,7 @@
 <title>Lizenzprobleme beheben | FAQ &amp; Troubleshooting</title>
 <meta name="description" content="Die Lizenz wird nicht erkannt, Module fehlen, oder die Anwendung wechselt in den Demo-Modus. Symptome POSix meldet ein Lizenzproblem oder startet im Demo-Modus. Freigeschaltete Module stehen nicht zur">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../assets/stil.css?v=587ff7c5">
+<link rel="stylesheet" href="../assets/stil.css?v=b964d4ee">
 </head>
 <body>
 <header class="kopf">
@@ -47,32 +47,32 @@
 <li><strong>Lizenzdienst neu starten.</strong> Der Dienst heißt <code>LicenceServer2</code> und läuft auf dem Lizenz-Dongle. Prüfen Sie danach erneut, ob die Lizenz angenommen wird.</li>
 <li><strong>Gültige Programmversion in der Lizenzdatei ergänzen.</strong> Bleibt das Problem bestehen, fehlt in der Lizenzdatei die Angabe <code>validRelease</code>. Sie wird als letzte Zeile innerhalb des Elements <code>ProductLicense</code> ergänzt:</li>
 </ol>
-<pre id="bkmrk-%3Cvalidrelease%3E5.99.9"><code class="language-xml">&lt;validRelease&gt;5.99.99&lt;/validRelease&gt;
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">XML</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-xml"><span class="tk-marke">&lt;validRelease</span>&gt;5.99.99<span class="tk-marke">&lt;/validRelease</span>&gt;
+</code></pre></div>
 <p id="bkmrk-alle-%C3%BCbrigen-angaben">Alle übrigen Angaben der Datei bleiben unverändert. Aufbau der Datei, kundenspezifische Werte hier durch Platzhalter in Großbuchstaben ersetzt:</p>
-<pre id="bkmrk-%3C%3Fxml-version%3D%221.0%22-"><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
-&lt;ProductLicense&gt;
-   &lt;uniqueId&gt;MASCHINENKENNUNG&lt;/uniqueId&gt;
-   &lt;maxUsers&gt;1&lt;/maxUsers&gt;
-   &lt;centralExpirationTime&gt;ZEITSTEMPEL&lt;/centralExpirationTime&gt;
-   &lt;registrationCode&gt;REGISTRIERUNGSCODE&lt;/registrationCode&gt;
-   &lt;offlineCountUse&gt;0&lt;/offlineCountUse&gt;
-   &lt;currentUsers&gt;0&lt;/currentUsers&gt;
-   &lt;LicenseModules&gt;
-      &lt;LicenseModule&gt;
-         &lt;moduleName&gt;MODULNAME&lt;/moduleName&gt;
-      &lt;/LicenseModule&gt;
-      &lt;LicenseModule&gt;
-         &lt;moduleName&gt;MODULNAME&lt;/moduleName&gt;
-      &lt;/LicenseModule&gt;
-   &lt;/LicenseModules&gt;
-   &lt;checkSum&gt;PRUEFSUMME&lt;/checkSum&gt;
-   &lt;licenseType&gt;LIZENZTYP&lt;/licenseType&gt;
-   &lt;validForMachine&gt;MASCHINENKENNUNG&lt;/validForMachine&gt;
-   &lt;activated&gt;false&lt;/activated&gt;
-   &lt;validRelease&gt;5.99.99&lt;/validRelease&gt;
-&lt;/ProductLicense&gt;
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">XML</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-xml"><span class="tk-anweisung">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+<span class="tk-marke">&lt;ProductLicense</span>&gt;
+   <span class="tk-marke">&lt;uniqueId</span>&gt;MASCHINENKENNUNG<span class="tk-marke">&lt;/uniqueId</span>&gt;
+   <span class="tk-marke">&lt;maxUsers</span>&gt;1<span class="tk-marke">&lt;/maxUsers</span>&gt;
+   <span class="tk-marke">&lt;centralExpirationTime</span>&gt;ZEITSTEMPEL<span class="tk-marke">&lt;/centralExpirationTime</span>&gt;
+   <span class="tk-marke">&lt;registrationCode</span>&gt;REGISTRIERUNGSCODE<span class="tk-marke">&lt;/registrationCode</span>&gt;
+   <span class="tk-marke">&lt;offlineCountUse</span>&gt;0<span class="tk-marke">&lt;/offlineCountUse</span>&gt;
+   <span class="tk-marke">&lt;currentUsers</span>&gt;0<span class="tk-marke">&lt;/currentUsers</span>&gt;
+   <span class="tk-marke">&lt;LicenseModules</span>&gt;
+      <span class="tk-marke">&lt;LicenseModule</span>&gt;
+         <span class="tk-marke">&lt;moduleName</span>&gt;MODULNAME<span class="tk-marke">&lt;/moduleName</span>&gt;
+      <span class="tk-marke">&lt;/LicenseModule</span>&gt;
+      <span class="tk-marke">&lt;LicenseModule</span>&gt;
+         <span class="tk-marke">&lt;moduleName</span>&gt;MODULNAME<span class="tk-marke">&lt;/moduleName</span>&gt;
+      <span class="tk-marke">&lt;/LicenseModule</span>&gt;
+   <span class="tk-marke">&lt;/LicenseModules</span>&gt;
+   <span class="tk-marke">&lt;checkSum</span>&gt;PRUEFSUMME<span class="tk-marke">&lt;/checkSum</span>&gt;
+   <span class="tk-marke">&lt;licenseType</span>&gt;LIZENZTYP<span class="tk-marke">&lt;/licenseType</span>&gt;
+   <span class="tk-marke">&lt;validForMachine</span>&gt;MASCHINENKENNUNG<span class="tk-marke">&lt;/validForMachine</span>&gt;
+   <span class="tk-marke">&lt;activated</span>&gt;false<span class="tk-marke">&lt;/activated</span>&gt;
+   <span class="tk-marke">&lt;validRelease</span>&gt;5.99.99<span class="tk-marke">&lt;/validRelease</span>&gt;
+<span class="tk-marke">&lt;/ProductLicense</span>&gt;
+</code></pre></div>
 <p id="bkmrk-%5Boffen%3A-genauer-date">[OFFEN: genauer Dateiname und Ablageort der Lizenzdatei am System prüfen — die Vorlage schreibt den Namen fehlerhaft.]
 [OFFEN: ob nach dem Ergänzen von <code>validRelease</code> ein erneuter Neustart des Dienstes <code>LicenceServer2</code> nötig ist, und welcher Wert statt <code>5.99.99</code> fachlich richtig ist.]</p>
 <h2 id="bkmrk-aufbau-der-lizenzdat">Aufbau der Lizenzdatei</h2>
@@ -140,6 +140,6 @@
     <span>Stand 03.09.2026</span>
   </span>
 </footer>
-<script src="../assets/suche.js?v=c03dc601"></script>
+<script src="../assets/suche.js?v=d4fed229"></script>
 </body>
 </html>

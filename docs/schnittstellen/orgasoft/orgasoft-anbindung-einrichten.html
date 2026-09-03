@@ -7,7 +7,7 @@
 <title>Orgasoft-Anbindung einrichten | Schnittstellen</title>
 <meta name="description" content="Bei der Orgasoft-Anbindung ruft die ERP-Cloud Hauptgruppen, Warengruppen und Artikel über die Orgasoft REST-API ab und übergibt sie über den ERPSync an den CentralPoint. Die Bondaten der Kasse gehen d">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=587ff7c5">
+<link rel="stylesheet" href="../../assets/stil.css?v=b964d4ee">
 </head>
 <body>
 <header class="kopf">
@@ -84,18 +84,18 @@
 </tbody>
 </table></div>
 <p id="bkmrk-%C3%9Cbertragen-werden-nu">Übertragen werden nur Artikel, die in Orgasoft beide Werte tragen:</p>
-<pre id="bkmrk-%22kassenartikeljn%22%3A-1"><code class="language-json">"KassenartikelJn": 1
-"VerkaufGesperrt": 0
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">JSON</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-json"><span class="tk-eigenschaft">"KassenartikelJn"</span>: <span class="tk-zahl">1</span>
+<span class="tk-eigenschaft">"VerkaufGesperrt"</span>: <span class="tk-zahl">0</span>
+</code></pre></div>
 <h2 id="bkmrk-so-gehen-sie-vor">So gehen Sie vor</h2>
 <ol id="bkmrk-orgasoft-rest-api-er">
 <li><strong>Orgasoft REST-API erreichbar machen.</strong> Die ERP-Cloud greift von außen auf die API des Kunden zu. Geben Sie in der Firewall des Kunden die Adressbereiche frei, aus denen die ERP-Cloud zugreift:</li>
 </ol>
-<pre id="bkmrk-85.232.31.152%2F29-185"><code class="language-text">85.232.31.152/29
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Text</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-text">85.232.31.152/29
 185.141.121.234/32
 185.141.121.236/30
 185.141.123.236/30
-</code></pre>
+</code></pre></div>
 <p class="callout info" id="bkmrk-best%C3%A4tigen-sie-die-a">Bestätigen Sie die aktuell gültigen Adressbereiche vor der Firewall-Freigabe bei YUVENDA Enterprise Solutions GmbH — die Liste kann sich mit dem Ausbau der ERP-Cloud ändern.</p>
 <ol start="2" id="bkmrk-zugangsdaten-und-url">
 <li><strong>Zugangsdaten und URL zusammenstellen</strong> und an YUVENDA übergeben:</li>
@@ -155,6 +155,6 @@
     <span>Stand 03.09.2026</span>
   </span>
 </footer>
-<script src="../../assets/suche.js?v=c03dc601"></script>
+<script src="../../assets/suche.js?v=d4fed229"></script>
 </body>
 </html>

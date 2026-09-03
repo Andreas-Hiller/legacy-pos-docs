@@ -7,7 +7,7 @@
 <title>Kiosk und SB-Systeme | Lösungen</title>
 <meta name="description" content="Selbstbedienung: Der Gast tippt selbst, bezahlt am Automaten und bekommt eine Abholnummer. Technisch ist das eine Kasse mit einer zusätzlichen Anwendung davor. Aufbau Auf dem Gerät laufen zwei Program">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../assets/stil.css?v=587ff7c5">
+<link rel="stylesheet" href="../assets/stil.css?v=b964d4ee">
 </head>
 <body>
 <header class="kopf">
@@ -47,8 +47,8 @@
 <h2 id="bkmrk-belege-automatisch-a">Belege automatisch abbrechen</h2>
 <p id="bkmrk-ein-gast%2C-der-mitten">Ein Gast, der mitten in der Bestellung weggeht, hinterlässt einen offenen Beleg. Dafür gibt es einen Zeitgeber, der den Beleg nach einer Zeit ohne Buchung abbricht.</p>
 <p id="bkmrk-gesteuert-%C3%BCber-appli">Gesteuert über <code>Application.CR.CommandExecuterWhenInactive.Button</code>. Der Wert besteht aus dem Namen des Buttons, der ausgelöst werden soll, und den durchgereichten Parametern:</p>
-<pre id="bkmrk-hauptmaske---tastatu"><code>Hauptmaske - Tastaturblock - Bon abbrechen,true
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Text</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code>Hauptmaske - Tastaturblock - Bon abbrechen,true
+</code></pre></div>
 <p id="bkmrk-das-true-bewirkt-hie">Das <code>true</code> bewirkt hier den Abbruch ohne Rückfrage.</p>
 <p class="callout info" id="bkmrk-ma%C3%9Fgeblich-ist-nicht">Maßgeblich ist nicht die letzte Eingabe, sondern der Zeitpunkt der zuletzt geänderten Belegposition. Die Prüfung läuft <strong>minütlich</strong> — bei einer eingestellten Minute liegt die tatsächliche Wartezeit deshalb zwischen einer und knapp zwei Minuten. In der Anmeldemaske und beim Administrator wird der Abbruch nicht ausgeführt.</p>
 <h2 id="bkmrk-ergebnis-pr%C3%BCfen">Ergebnis prüfen</h2>
@@ -73,6 +73,6 @@
     <span>Stand 03.09.2026</span>
   </span>
 </footer>
-<script src="../assets/suche.js?v=c03dc601"></script>
+<script src="../assets/suche.js?v=d4fed229"></script>
 </body>
 </html>

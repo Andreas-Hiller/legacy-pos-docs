@@ -7,7 +7,7 @@
 <title>ERP-Cloud REST-Schnittstelle: Integrationsleitfaden | Schnittstellen</title>
 <meta name="description" content="Die ERP-Cloud stellt eine generische REST-Schnittstelle bereit, über die ein externes Kassen- oder App-System Stammdaten abholt und Verkaufs-, Guthaben- und Bonuspunktdaten zurückmeldet. Der Datenaust">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=587ff7c5">
+<link rel="stylesheet" href="../../assets/stil.css?v=b964d4ee">
 </head>
 <body>
 <header class="kopf">
@@ -167,17 +167,17 @@
 </tbody>
 </table></div>
 <h2 id="bkmrk-beispiel-einer-benac">Beispiel einer Benachrichtigungsliste</h2>
-<pre id="bkmrk-%3C%3Fxml-version%3D%221.0%22-"><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
-&lt;receivableNotificationList queryLocation="82f0a808-e38e-47cc-89fa-2b072948b348"
-                            furtherNotificationsAvailable="false"&gt;
-    &lt;receivableNotification&gt;
-        &lt;id&gt;4566785&lt;/id&gt;
-        &lt;type&gt;ArticleNotification&lt;/type&gt;
-        &lt;recipient&gt;82f0a808-e38e-47cc-89fa-2b072948b348&lt;/recipient&gt;
-        &lt;time&gt;2024-09-05T12:37:40Z&lt;/time&gt;
-    &lt;/receivableNotification&gt;
-&lt;/receivableNotificationList&gt;
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">XML</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-xml"><span class="tk-anweisung">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;</span>
+<span class="tk-marke">&lt;receivableNotificationList</span> <span class="tk-eigenschaft">queryLocation</span>=<span class="tk-text">"82f0a808-e38e-47cc-89fa-2b072948b348"</span>
+                            <span class="tk-eigenschaft">furtherNotificationsAvailable</span>=<span class="tk-text">"false"</span>&gt;
+    <span class="tk-marke">&lt;receivableNotification</span>&gt;
+        <span class="tk-marke">&lt;id</span>&gt;4566785<span class="tk-marke">&lt;/id</span>&gt;
+        <span class="tk-marke">&lt;type</span>&gt;ArticleNotification<span class="tk-marke">&lt;/type</span>&gt;
+        <span class="tk-marke">&lt;recipient</span>&gt;82f0a808-e38e-47cc-89fa-2b072948b348<span class="tk-marke">&lt;/recipient</span>&gt;
+        <span class="tk-marke">&lt;time</span>&gt;2024-09-05T12:37:40Z<span class="tk-marke">&lt;/time</span>&gt;
+    <span class="tk-marke">&lt;/receivableNotification</span>&gt;
+<span class="tk-marke">&lt;/receivableNotificationList</span>&gt;
+</code></pre></div>
 <h2 id="bkmrk-zu-beachten">Zu beachten</h2>
 <p class="callout warning" id="bkmrk-quittieren-sie-jede-">Quittieren Sie jede abgeholte Nachricht einzeln per <code>commitMessage</code>, auch wenn die fachliche Verarbeitung im Zielsystem später erfolgt oder fehlschlägt. Ohne Quittierung bleibt die Nachricht in der Liste, die Zahl offener Benachrichtigungen wächst unbegrenzt und der Abruf wird zunehmend langsamer.</p>
 <ul id="bkmrk-die-schnittstelle-se">
@@ -202,6 +202,6 @@
     <span>Stand 03.09.2026</span>
   </span>
 </footer>
-<script src="../../assets/suche.js?v=c03dc601"></script>
+<script src="../../assets/suche.js?v=d4fed229"></script>
 </body>
 </html>

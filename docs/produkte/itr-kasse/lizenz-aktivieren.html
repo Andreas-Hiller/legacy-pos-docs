@@ -7,7 +7,7 @@
 <title>Lizenz aktivieren | Produkte</title>
 <meta name="description" content="Die Kasse prüft ihre Lizenz regelmäßig über das Internet. Bleibt die Prüfung zu lange aus, wechselt sie in den Demo-Modus — mit Hinweisfenstern und dem Aufdruck „DEMO&quot; quer über jedem Beleg. Zwei Verf">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=587ff7c5">
+<link rel="stylesheet" href="../../assets/stil.css?v=b964d4ee">
 </head>
 <body>
 <header class="kopf">
@@ -104,12 +104,12 @@
 <h2 id="bkmrk-umstellung-auf-das-n">Umstellung auf das neue Lizenzsystem</h2>
 <p id="bkmrk-%C3%84ltere-installatione">Ältere Installationen nutzen noch das alte Lizenzverfahren. Die Umstellung erfolgt über eine Konfigurationsdatei; die Kasse holt sich beim nächsten Start eine neue Lizenz aus dem Partner-Portal.</p>
 <p id="bkmrk-an-der-kasse%2C-in-cr.">An der Kasse, in <code>cr.properties</code>:</p>
-<pre id="bkmrk-misc.usenewlicensesy"><code class="language-properties">Misc.UseNewLicenseSystem=true
-Misc.UseCrAndBranchIdForId=true
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Properties</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-properties"><span class="tk-eigenschaft">Misc.UseNewLicenseSystem</span>=<span class="tk-text">true</span>
+<span class="tk-eigenschaft">Misc.UseCrAndBranchIdForId</span>=<span class="tk-text">true</span>
+</code></pre></div>
 <p id="bkmrk-am-centralpoint%2C-in-">Am CentralPoint, in <code>C:\GoodCompany\itrCP\sync\syncer.properties</code>:</p>
-<pre id="bkmrk-usenewlicensesystem%3D"><code class="language-properties">useNewLicenseSystem=true
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Properties</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-properties"><span class="tk-eigenschaft">useNewLicenseSystem</span>=<span class="tk-text">true</span>
+</code></pre></div>
 <p id="bkmrk-danach-den-dienst-al">Danach den Dienst <code>ALVARAErpCPSync</code> und den CentralPoint neu starten und in der Lizenzübersicht <strong>Lizenz aktivieren</strong> wählen — der Schlüssel muss sich danach ändern.</p>
 <p class="callout warning" id="bkmrk-die-schreibweise-use">Die Schreibweise <code>useNewLicenseSystem</code> ist genau einzuhalten: kleines „u" am Anfang, kleines „t" in „System" beachten. Eine abweichende Schreibweise wird stillschweigend ignoriert.</p>
 <p id="bkmrk-voraussetzung%3A-die-a">Voraussetzung: Die alte Lizenz muss im alten Partner-Portal dem Partner-Account zugeordnet sein. Erst dann entsteht die neue Lizenz im neuen Portal und lässt sich dem Endkunden zuweisen.</p>
@@ -136,6 +136,6 @@ Misc.UseCrAndBranchIdForId=true
     <span>Stand 03.09.2026</span>
   </span>
 </footer>
-<script src="../../assets/suche.js?v=c03dc601"></script>
+<script src="../../assets/suche.js?v=d4fed229"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@
 <title>Gutschein-API für Shopbetreiber | Schnittstellen</title>
 <meta name="description" content="Referenz der REST-Schnittstelle, mit der ein Online-Shop digitale Gutscheine (Kundenkarten mit Guthaben) in der ERP-Cloud anlegt und auflädt. Angelegte Gutscheine werden an alle Kassen des Kunden repl">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=587ff7c5">
+<link rel="stylesheet" href="../../assets/stil.css?v=b964d4ee">
 </head>
 <body>
 <header class="kopf">
@@ -100,16 +100,16 @@
 <p id="bkmrk-an-der-kasse-wird-de">An der Kasse wird der Gutschein über Kartennummer oder Kundennummer identifiziert, nicht über die UUID. Eine neue UUID legt einen neuen Gutschein an. Fehlt die <code>uid</code>, antwortet der Server mit <code>500</code> („UID must be provided").</p>
 <h2 id="bkmrk-gutschein-anlegen">Gutschein anlegen</h2>
 <p id="bkmrk-post-%2Fbasic%2Fpos%2Fproc"><code>POST /basic/pos/process</code></p>
-<pre id="bkmrk-%3C%3Fxml-version%3D%221.0%22-"><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
-&lt;consumerNotification version="1.0"&gt;
-  &lt;consumer uid="UUID-DES-GUTSCHEINS"&gt;
-    &lt;firstName&gt;Gutschein&lt;/firstName&gt;
-    &lt;lastName&gt;2026&lt;/lastName&gt;
-    &lt;cardNumber&gt;GUTSCHEIN-0001&lt;/cardNumber&gt;
-    &lt;status&gt;ACTIVE&lt;/status&gt;
-  &lt;/consumer&gt;
-&lt;/consumerNotification&gt;
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">XML</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-xml"><span class="tk-anweisung">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;</span>
+<span class="tk-marke">&lt;consumerNotification</span> <span class="tk-eigenschaft">version</span>=<span class="tk-text">"1.0"</span>&gt;
+  <span class="tk-marke">&lt;consumer</span> <span class="tk-eigenschaft">uid</span>=<span class="tk-text">"UUID-DES-GUTSCHEINS"</span>&gt;
+    <span class="tk-marke">&lt;firstName</span>&gt;Gutschein<span class="tk-marke">&lt;/firstName</span>&gt;
+    <span class="tk-marke">&lt;lastName</span>&gt;2026<span class="tk-marke">&lt;/lastName</span>&gt;
+    <span class="tk-marke">&lt;cardNumber</span>&gt;GUTSCHEIN-0001<span class="tk-marke">&lt;/cardNumber</span>&gt;
+    <span class="tk-marke">&lt;status</span>&gt;ACTIVE<span class="tk-marke">&lt;/status</span>&gt;
+  <span class="tk-marke">&lt;/consumer</span>&gt;
+<span class="tk-marke">&lt;/consumerNotification</span>&gt;
+</code></pre></div>
 <div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-feld-pflicht-max.-l%C3%A4">
 <thead>
 <tr>
@@ -205,17 +205,17 @@
 <p class="callout danger" id="bkmrk-senden-sie-immer-bei">Senden Sie immer beide Namensfelder. Fehlt eines der beiden, setzt der Server <strong>beide</strong> auf <code>Anonym</code> — aus „Oster Gutschein 2026" wird „Anonym Anonym", mit Antwortcode <code>200</code> und ohne Hinweis. Der ursprüngliche Name ist damit verloren und lässt sich nur im CentralPoint von Hand wiederherstellen.</p>
 <h2 id="bkmrk-guthaben-aufladen">Guthaben aufladen</h2>
 <p id="bkmrk-post-%2Fbasic%2Fpos%2Fproc-1"><code>POST /basic/pos/process</code></p>
-<pre id="bkmrk-%3C%3Fxml-version%3D%221.0%22--1"><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;prepaidTransactionNotification version="1.0"&gt;
-  &lt;consumer uid="UUID-DES-GUTSCHEINS"/&gt;
-  &lt;prepaidTransaction uid="UUID-DER-BUCHUNG"&gt;
-    &lt;created timezone="UTC"&gt;2026-07-24 20:39:27&lt;/created&gt;
-    &lt;transactionAmount&gt;50.00&lt;/transactionAmount&gt;
-    &lt;currency&gt;EUR&lt;/currency&gt;
-    &lt;type&gt;PREPAID_TOP_UP&lt;/type&gt;
-  &lt;/prepaidTransaction&gt;
-&lt;/prepaidTransactionNotification&gt;
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">XML</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-xml"><span class="tk-anweisung">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="tk-marke">&lt;prepaidTransactionNotification</span> <span class="tk-eigenschaft">version</span>=<span class="tk-text">"1.0"</span>&gt;
+  <span class="tk-marke">&lt;consumer</span> <span class="tk-eigenschaft">uid</span>=<span class="tk-text">"UUID-DES-GUTSCHEINS"</span>/&gt;
+  <span class="tk-marke">&lt;prepaidTransaction</span> <span class="tk-eigenschaft">uid</span>=<span class="tk-text">"UUID-DER-BUCHUNG"</span>&gt;
+    <span class="tk-marke">&lt;created</span> <span class="tk-eigenschaft">timezone</span>=<span class="tk-text">"UTC"</span>&gt;2026-07-24 20:39:27<span class="tk-marke">&lt;/created</span>&gt;
+    <span class="tk-marke">&lt;transactionAmount</span>&gt;50.00<span class="tk-marke">&lt;/transactionAmount</span>&gt;
+    <span class="tk-marke">&lt;currency</span>&gt;EUR<span class="tk-marke">&lt;/currency</span>&gt;
+    <span class="tk-marke">&lt;type</span>&gt;PREPAID_TOP_UP<span class="tk-marke">&lt;/type</span>&gt;
+  <span class="tk-marke">&lt;/prepaidTransaction</span>&gt;
+<span class="tk-marke">&lt;/prepaidTransactionNotification</span>&gt;
+</code></pre></div>
 <div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-feld-pflicht-standar">
 <thead>
 <tr>
@@ -335,6 +335,6 @@
     <span>Stand 03.09.2026</span>
   </span>
 </footer>
-<script src="../../assets/suche.js?v=c03dc601"></script>
+<script src="../../assets/suche.js?v=d4fed229"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@
 <title>Kasse mit dem CentralPoint verbinden | Produkte</title>
 <meta name="description" content="Ist die Kasse mit dem CentralPoint verbunden, bezieht sie ihre Stammdaten von dort und liefert ihre Belege dorthin zurück. Mit dem Verbinden werden das Anlegen und Bearbeiten von Stammdaten an der Kas">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=587ff7c5">
+<link rel="stylesheet" href="../../assets/stil.css?v=b964d4ee">
 </head>
 <body>
 <header class="kopf">
@@ -127,16 +127,16 @@
 <h2 id="bkmrk-proxy-f%C3%BCr-den-erpsyn">Proxy für den ERPSync-Dienst</h2>
 <p id="bkmrk-der-dienst-alvaraerp">Der Dienst <code>ALVARAErpSync</code> überträgt Lizenz- und Clouddaten. Er läuft als Java-Anwendung und übernimmt die Proxy-Einstellungen von Windows <strong>nicht</strong> automatisch. In Netzen mit Proxy schlägt er sonst mit <code>Connection timed out</code> fehl, es kommen keine Lizenzinformationen an und die Synchronisation mit der ERP-Cloud unterbleibt.</p>
 <p id="bkmrk-die-proxy-angaben-we">Die Proxy-Angaben werden dem Dienst als Startparameter mitgegeben:</p>
-<pre id="bkmrk--dhttp.proxyhost%3D%3Cpr"><code>-Dhttp.proxyHost=&lt;Proxy&gt;
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Text</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code>-Dhttp.proxyHost=&lt;Proxy&gt;
 -Dhttp.proxyPort=&lt;Port&gt;
 -Dhttps.proxyHost=&lt;Proxy&gt;
 -Dhttps.proxyPort=&lt;Port&gt;
 -Dhttp.nonProxyHosts="localhost|127.0.0.1|*.local|10.*|172.*|192.168.*"
-</code></pre>
+</code></pre></div>
 <p id="bkmrk-der-dienst-wird-%C3%BCber">Der Dienst wird über NSSM verwaltet; die Parameter landen im Feld <code>AppParameters</code>. Zur Kontrolle steht derselbe Wert in der Registrierung unter <code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\ALVARAErpSync\Parameters</code> und muss dort vom Typ <code>REG_EXPAND_SZ</code> sein.</p>
 <p id="bkmrk-danach-den-dienst-ne">Danach den Dienst neu starten:</p>
-<pre id="bkmrk-nssm-restart-alvarae"><code>nssm restart ALVARAErpSync
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Text</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code>nssm restart ALVARAErpSync
+</code></pre></div>
 <p id="bkmrk-zur-pr%C3%BCfung%3A-die-liz">Zur Prüfung: Die lizenzierten Module erscheinen im Lizenzbereich des Admin-Panels, und in <code>C:\GoodCompany\Kasse\log\spring.log</code> stehen keine Zeitüberschreitungen mehr.</p>
 <p id="bkmrk-%5Boffen%3A-vollst%C3%A4ndige"><code>[OFFEN: vollständiger NSSM-Aufruf zum Neuanlegen des Dienstes. Die vorliegende Quelle enthält an dieser Stelle ein Kennwort im Klartext und ist deshalb nicht übernehmbar.]</code></p>
 <h2 id="bkmrk-weitere-informatione">Weitere Informationen</h2>
@@ -154,6 +154,6 @@
     <span>Stand 03.09.2026</span>
   </span>
 </footer>
-<script src="../../assets/suche.js?v=c03dc601"></script>
+<script src="../../assets/suche.js?v=d4fed229"></script>
 </body>
 </html>

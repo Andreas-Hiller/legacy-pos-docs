@@ -7,7 +7,7 @@
 <title>ERPSync einrichten | Schnittstellen</title>
 <meta name="description" content="Der Dienst ALVARAErpSync gleicht die Kasseninstallation mit der ERP-Cloud ab. Diese Seite beschreibt, wie der Dienst als Windows-Dienst registriert wird und wie Sie ihn in einem Netz mit Proxy so konf">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=587ff7c5">
+<link rel="stylesheet" href="../../assets/stil.css?v=b964d4ee">
 </head>
 <body>
 <header class="kopf">
@@ -45,29 +45,29 @@
 <li>Öffnen Sie eine Eingabeaufforderung als Administrator im Verzeichnis des ERPSync.</li>
 <li>Registrieren Sie den Dienst. Setzen Sie dabei für <code>&lt;Kennwort&gt;</code> das Jasypt-Kennwort dieser Installation und für <code>&lt;Proxy-Host&gt;</code> und <code>&lt;Proxy-Port&gt;</code> die Werte des Kundennetzes ein:</li>
 </ol>
-<pre id="bkmrk-%25%7Edp0nssm.exe-instal"><code class="language-bat">%~dp0nssm.exe install ALVARAErpSync "%~dp0open-jdk-17\bin\java.exe" ^
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Batch</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-bat"><span class="tk-variable">%~dp0nssm</span>.exe install ALVARAErpSync <span class="tk-text">"%~dp0open-jdk-17\bin\java.exe"</span> ^
   -jar ^
-  -Dspring.config.file=%~dp0syncer.properties ^
+  -Dspring.config.file=<span class="tk-variable">%~dp0syncer</span>.properties ^
   -Djasypt.encryptor.password=&lt;Kennwort&gt; ^
   -Xms128m -Xmx512m ^
   -Dhttp.proxyHost=&lt;Proxy-Host&gt; ^
   -Dhttp.proxyPort=&lt;Proxy-Port&gt; ^
   -Dhttps.proxyHost=&lt;Proxy-Host&gt; ^
   -Dhttps.proxyPort=&lt;Proxy-Port&gt; ^
-  -Dhttp.nonProxyHosts="localhost|127.0.0.1|*.local|&lt;weitere Ausnahmen&gt;" ^
-  %~dp0erpsync.jar
+  -Dhttp.nonProxyHosts=<span class="tk-text">"localhost|127.0.0.1|*.local|&lt;weitere Ausnahmen&gt;"</span> ^
+  <span class="tk-variable">%~dp0erpsync</span>.jar
 
-%~dp0nssm.exe set ALVARAErpSync AppDirectory %~dp0
-</code></pre>
+<span class="tk-variable">%~dp0nssm</span>.exe <span class="tk-schluessel">set</span> ALVARAErpSync AppDirectory <span class="tk-variable">%~dp0</span>
+</code></pre></div>
 <ol start="3" id="bkmrk-ist-der-dienst-berei">
 <li>Ist der Dienst bereits registriert, aktualisieren Sie stattdessen dessen Parameter, sodass dieselben Werte im Feld <code>AppParameters</code> landen.</li>
 <li>Starten Sie den Dienst neu, damit Java die Parameter übernimmt:</li>
 </ol>
-<pre id="bkmrk-nssm-restart-alvarae"><code class="language-bat">nssm restart ALVARAErpSync
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Batch</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-bat">nssm restart ALVARAErpSync
+</code></pre></div>
 <p id="bkmrk-alternativ%3A">Alternativ:</p>
-<pre id="bkmrk-net-stop-alvaraerpsy"><code class="language-bat">net stop ALVARAErpSync &amp; net start ALVARAErpSync
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Batch</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-bat">net stop ALVARAErpSync &amp; net <span class="tk-schluessel">start</span> ALVARAErpSync
+</code></pre></div>
 <p class="callout danger" id="bkmrk-das-jasypt-kennwort-">Das Jasypt-Kennwort steht in der Dienstkonfiguration und in der Registry im Klartext. Es wird bei der Einrichtung je Installation vergeben — übernehmen Sie kein Kennwort aus einer anderen Installation oder aus einer Dokumentation und geben Sie es nicht an Dritte weiter. Wer es kennt, kann alle verschlüsselten Werte der <code>syncer.properties</code> lesen.</p>
 <h2 id="bkmrk-proxy-parameter">Proxy-Parameter</h2>
 <div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-parameter-bedeutung-">
@@ -129,6 +129,6 @@
     <span>Stand 03.09.2026</span>
   </span>
 </footer>
-<script src="../../assets/suche.js?v=c03dc601"></script>
+<script src="../../assets/suche.js?v=d4fed229"></script>
 </body>
 </html>

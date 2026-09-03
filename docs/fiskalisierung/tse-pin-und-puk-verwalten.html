@@ -7,7 +7,7 @@
 <title>TSE-PIN und PUK verwalten | Fiskalisierung</title>
 <meta name="description" content="Jede Hardware-TSE wird bei der Registrierung mit einer PIN und einer PUK versehen, die die Kasse selbst erzeugt. Beide lassen sich ändern — und beide sperren die TSE, wenn sie verloren gehen. Wie die ">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../assets/stil.css?v=587ff7c5">
+<link rel="stylesheet" href="../assets/stil.css?v=b964d4ee">
 </head>
 <body>
 <header class="kopf">
@@ -65,11 +65,11 @@
 <p id="bkmrk-das-passiert%2C-wenn-e">Das passiert, wenn eine TSE an eine andere Kasse gesteckt oder zwei TSEs zwischen Kassen getauscht werden: Die Werte in der Kassendatenbank stimmen dann nicht mehr mit denen auf der TSE überein, und der erste Anmeldeversuch scheitert.</p>
 <p id="bkmrk-%C3%9Cber-eine-.propertie">Über eine <code>.properties</code>-Datei lassen sich die Werte <strong>in der Datenbank</strong> überschreiben. Der Dateiname hängt vom Hersteller ab. <code>[OFFEN: Dateiname und Ablageort der .properties-Datei je Hersteller]</code></p>
 <p id="bkmrk-aufbau%3A">Aufbau:</p>
-<pre id="bkmrk-pin%3D1234-puk%3D123456-"><code>pin=1234
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Text</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code>pin=1234
 puk=123456
 timepin=1234
 timepuk=123456
-</code></pre>
+</code></pre></div>
 <p id="bkmrk-jede-zeile-ist-optio">Jede Zeile ist optional und kann einzeln verwendet werden:</p>
 <ul id="bkmrk-neue-pin-in-der-date">
 <li><strong>Neue PIN in der Datenbank setzen:</strong> <code>pin=1234</code></li>
@@ -94,6 +94,6 @@ timepuk=123456
     <span>Stand 03.09.2026</span>
   </span>
 </footer>
-<script src="../assets/suche.js?v=c03dc601"></script>
+<script src="../assets/suche.js?v=d4fed229"></script>
 </body>
 </html>

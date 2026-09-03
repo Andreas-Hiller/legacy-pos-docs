@@ -7,7 +7,7 @@
 <title>ITR Kasse installieren | Produkte</title>
 <meta name="description" content="Von der vorbereiteten Maschine zur startbereiten Kasse. Die Reihenfolge ist wichtig: Kunde und Kasse müssen im Partner-Portal angelegt sein, bevor die Software das erste Mal startet. Voraussetzungen H">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=587ff7c5">
+<link rel="stylesheet" href="../../assets/stil.css?v=b964d4ee">
 </head>
 <body>
 <header class="kopf">
@@ -81,9 +81,9 @@
 </table></div>
 <h2 id="bkmrk-testinstallation">Testinstallation</h2>
 <p id="bkmrk-f%C3%BCr-test--und-demoin">Für Test- und Demoinstallationen wird das Portal <code>https://partner.pos.alvara.live/</code> verwendet. Dazu in <code>%Kasse%\sync\application.properties</code> bei beiden URLs die Endung von <code>cloud</code> auf <code>live</code> ändern und den Rechner neu starten:</p>
-<pre id="bkmrk-erp.url%3Dhttps%3A%2F%2Ferp."><code class="language-properties">erp.url=https://erp.pos.alvara.cloud/
-pp.url=https://partner.pos.alvara.cloud/api/
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Properties</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-properties"><span class="tk-eigenschaft">erp.url</span>=<span class="tk-text">https://erp.pos.alvara.cloud/</span>
+<span class="tk-eigenschaft">pp.url</span>=<span class="tk-text">https://partner.pos.alvara.cloud/api/</span>
+</code></pre></div>
 <h2 id="bkmrk-zu-beachten">Zu beachten</h2>
 <p class="callout warning" id="bkmrk-eigene-maskenprogram">Eigene Maskenprogrammierung muss vor dem Produktivbetrieb gründlich getestet werden — und vor jedem Update erneut auf einem Testsystem. Zum Test gehören auch die Berichte in der Kasse und im CentralPoint sowie die Exporte über den GoodCompanyDaemon. Für fremd erstellte Masken besteht keine Gewährleistung.</p>
 <h2 id="bkmrk-weitere-informatione">Weitere Informationen</h2>
@@ -102,6 +102,6 @@ pp.url=https://partner.pos.alvara.cloud/api/
     <span>Stand 03.09.2026</span>
   </span>
 </footer>
-<script src="../../assets/suche.js?v=c03dc601"></script>
+<script src="../../assets/suche.js?v=d4fed229"></script>
 </body>
 </html>

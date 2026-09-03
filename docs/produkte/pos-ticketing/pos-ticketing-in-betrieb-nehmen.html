@@ -7,7 +7,7 @@
 <title>POS Ticketing in Betrieb nehmen | Produkte</title>
 <meta name="description" content="Für den Ticketverkauf werden Einträge an der Kasse und im CentralPoint gesetzt, der Ticketserver geprüft und anschließend Tickets angelegt und Artikeln zugeordnet. Voraussetzungen ITR Kasse und Centra">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=587ff7c5">
+<link rel="stylesheet" href="../../assets/stil.css?v=b964d4ee">
 </head>
 <body>
 <header class="kopf">
@@ -37,21 +37,21 @@
 <h2 id="bkmrk-so-gehen-sie-vor">So gehen Sie vor</h2>
 <h3 id="bkmrk-1.-an-der-kasse%3A-dat">1. An der Kasse: Datei <code>syncer.properties</code></h3>
 <p id="bkmrk-folgende-eintr%C3%A4ge-se">Folgende Einträge setzen:</p>
-<pre id="bkmrk-%23filialnummer-branch"><code class="language-properties">#Filialnummer
-branch.id=&lt;Filialnummer&gt;
-#Kassennummer
-cr.id=&lt;Kassennummer&gt;
-#Installationspfad zur Kasse, um die eingestellten Drucker zu finden
-cr.installation.path=&lt;Installationspfad der Kasse&gt;
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Properties</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-properties"><span class="tk-kommentar">#Filialnummer</span>
+<span class="tk-eigenschaft">branch.id</span>=<span class="tk-text">&lt;Filialnummer&gt;</span>
+<span class="tk-kommentar">#Kassennummer</span>
+<span class="tk-eigenschaft">cr.id</span>=<span class="tk-text">&lt;Kassennummer&gt;</span>
+<span class="tk-kommentar">#Installationspfad zur Kasse, um die eingestellten Drucker zu finden</span>
+<span class="tk-eigenschaft">cr.installation.path</span>=<span class="tk-text">&lt;Installationspfad der Kasse&gt;</span>
+</code></pre></div>
 <p id="bkmrk-%5Boffen%3A-ablageort-de"><code>[OFFEN: Ablageort der Datei syncer.properties auf dem Kassenrechner]</code></p>
 <h3 id="bkmrk-2.-an-der-kasse%3A-dat">2. An der Kasse: Datei <code>cr.properties</code></h3>
 <p id="bkmrk-pflichteintr%C3%A4ge%3A">Pflichteinträge:</p>
-<pre id="bkmrk-%23ticketdruck-aktivie"><code class="language-properties">#Ticketdruck aktivieren
-Misc.ExhibitionCodes.On=true
-#URL zum Ticketserver
-Misc.ExhibitionCode.CodeServer.Url=http\://&lt;Adresse des Ticketservers&gt;\:&lt;Port&gt;/ticketing/generateTicketNumber
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Properties</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-properties"><span class="tk-kommentar">#Ticketdruck aktivieren</span>
+<span class="tk-eigenschaft">Misc.ExhibitionCodes.On</span>=<span class="tk-text">true</span>
+<span class="tk-kommentar">#URL zum Ticketserver</span>
+<span class="tk-eigenschaft">Misc.ExhibitionCode.CodeServer.Url</span>=<span class="tk-text">http\://&lt;Adresse des Ticketservers&gt;\:&lt;Port&gt;/ticketing/generateTicketNumber</span>
+</code></pre></div>
 <p class="callout warning" id="bkmrk-der-doppelpunkt-muss">Der Doppelpunkt muss in dieser Datei mit einem Backslash geschützt werden (<code>\:</code>), sonst wird die Adresse falsch gelesen. Die Adresse muss vorhanden sein — ohne sie wird kein Ticket erzeugt.</p>
 <p id="bkmrk-optionale-eintr%C3%A4ge%3A">Optionale Einträge:</p>
 <div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-eintrag-wirkung-misc">
@@ -205,6 +205,6 @@ Misc.ExhibitionCode.CodeServer.Url=http\://&lt;Adresse des Ticketservers&gt;\:&l
     <span>Stand 03.09.2026</span>
   </span>
 </footer>
-<script src="../../assets/suche.js?v=c03dc601"></script>
+<script src="../../assets/suche.js?v=d4fed229"></script>
 </body>
 </html>

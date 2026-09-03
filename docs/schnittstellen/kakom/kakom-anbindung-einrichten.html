@@ -7,7 +7,7 @@
 <title>KAKOM-Anbindung einrichten | Schnittstellen</title>
 <meta name="description" content="Der GoodCompanyDaemon liest Stammdaten im KAKOM-Format ein und gibt Umsatzdaten im KAKOM-Format aus. Diese Seite beschreibt, wie Sie den Import konfigurieren und die Exporte als Daemon Jobs anlegen. V">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=587ff7c5">
+<link rel="stylesheet" href="../../assets/stil.css?v=b964d4ee">
 </head>
 <body>
 <header class="kopf">
@@ -221,24 +221,24 @@
 </tbody>
 </table></div>
 <p id="bkmrk-ersetzen-sie-in-den-">Ersetzen Sie in den Statements den Platzhalter <code>&lt;Dateipfad&gt;</code> durch den gewünschten Pfad, zum Beispiel <code>C:/Temp/PLU.DAT</code>. Beispiel Artikelbericht:</p>
-<pre id="bkmrk-delete-file%3A-%27%3Cdatei"><code class="language-sql">delete file: '&lt;Dateipfad&gt;';
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">SQL</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-sql">delete file: <span class="tk-text">'&lt;Dateipfad&gt;'</span>;
 call:ExecuteSql #sql=
-SELECT '0', BranchNo, CrNo, DATE_FORMAT(ReceiptConfirmedTime,'%d%m%Y') as ReportDate,
- DATE_FORMAT(now(),'%H%i') as ReportTime,
- ArticleNo, SUM(PositionAmount), sum(PositionTotal), SUBSTRING(ArticleName1,1,32) as ArticleName,
- COALESCE(PositionManualPriceLevel,0)+1 as PriceLevel
- INTO OUTFILE '&lt;Dateipfad&gt;' FIELDS TERMINATED BY '\t' LINES TERMINATED BY '\n'
-FROM iposmasterview_receiptpositions
-WHERE ReceiptVisibility=0 AND ReceiptDeleted=false AND PositionVisibility=0 AND ReceiptStatus=1
- AND PositionDeleted=false AND PositionRemoved=false AND ReceiptTypeTurnoverEffect!=0
- AND ReceiptConfirmedTime like '###CURRENTEXECUTIONDATE###%'
-GROUP BY BranchNo, CrNo, ArticleNo, PositionManualPriceLevel
-ORDER BY BranchNo, CrNo, ArticleNo, PositionManualPriceLevel;
-</code></pre>
+<span class="tk-schluessel">SELECT</span> <span class="tk-text">'0'</span>, BranchNo, CrNo, <span class="tk-funktion">DATE_FORMAT</span>(ReceiptConfirmedTime,<span class="tk-text">'%d%m%Y'</span>) as ReportDate,
+ <span class="tk-funktion">DATE_FORMAT</span>(<span class="tk-funktion">now</span>(),<span class="tk-text">'%H%i'</span>) as ReportTime,
+ ArticleNo, <span class="tk-funktion">SUM</span>(PositionAmount), <span class="tk-funktion">sum</span>(PositionTotal), <span class="tk-funktion">SUBSTRING</span>(ArticleName1,<span class="tk-zahl">1</span>,<span class="tk-zahl">32</span>) as ArticleName,
+ <span class="tk-funktion">COALESCE</span>(PositionManualPriceLevel,<span class="tk-zahl">0</span>)+<span class="tk-zahl">1</span> as PriceLevel
+ <span class="tk-schluessel">INTO</span> OUTFILE <span class="tk-text">'&lt;Dateipfad&gt;'</span> FIELDS TERMINATED <span class="tk-schluessel">BY</span> <span class="tk-text">'\t'</span> LINES TERMINATED <span class="tk-schluessel">BY</span> <span class="tk-text">'\n'</span>
+<span class="tk-schluessel">FROM</span> iposmasterview_receiptpositions
+<span class="tk-schluessel">WHERE</span> ReceiptVisibility=<span class="tk-zahl">0</span> <span class="tk-schluessel">AND</span> ReceiptDeleted=false <span class="tk-schluessel">AND</span> PositionVisibility=<span class="tk-zahl">0</span> <span class="tk-schluessel">AND</span> ReceiptStatus=<span class="tk-zahl">1</span>
+ <span class="tk-schluessel">AND</span> PositionDeleted=false <span class="tk-schluessel">AND</span> PositionRemoved=false <span class="tk-schluessel">AND</span> ReceiptTypeTurnoverEffect!=<span class="tk-zahl">0</span>
+ <span class="tk-schluessel">AND</span> ReceiptConfirmedTime like <span class="tk-text">'###CURRENTEXECUTIONDATE###%'</span>
+<span class="tk-schluessel">GROUP</span> <span class="tk-schluessel">BY</span> BranchNo, CrNo, ArticleNo, PositionManualPriceLevel
+<span class="tk-schluessel">ORDER</span> <span class="tk-schluessel">BY</span> BranchNo, CrNo, ArticleNo, PositionManualPriceLevel;
+</code></pre></div>
 <p id="bkmrk-der-warengruppenberi">Der Warengruppenbericht folgt demselben Muster, gruppiert aber nach <code>GroupNo</code> und weist die Umsätze zusätzlich je Steuersatz aus. Der Mitarbeiterverkauf ergänzt <code>OperatorNo</code> und <code>ReceiptNo</code>. Frequenz- und Artikelfrequenzbericht bilden aus der Buchungszeit 15-Minuten-Fenster und geben Beginn und Ende des Fensters aus.</p>
 <p id="bkmrk-der-export-der-beste">Der Export der Bestellungen schreibt anschließend die exportierten Positionen schreibgeschützt zurück:</p>
-<pre id="bkmrk-update-ipos_orderpos"><code class="language-sql">UPDATE ipos_orderpositiondeliveries SET READ_ONLY=TRUE, UPDATED=NULL;
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">SQL</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-sql"><span class="tk-schluessel">UPDATE</span> ipos_orderpositiondeliveries <span class="tk-schluessel">SET</span> READ_ONLY=<span class="tk-schluessel">TRUE</span>, UPDATED=<span class="tk-schluessel">NULL</span>;
+</code></pre></div>
 <p class="callout warning" id="bkmrk-der-bestellexport-se">Der Bestellexport setzt die exportierten Bestellpositionen auf schreibgeschützt. Sie lassen sich danach nicht mehr ändern. Prüfen Sie Zeitpunkt und Filter des Jobs, bevor Sie ihn produktiv einplanen.</p>
 <p id="bkmrk-die-variable-%23%23%23curr">Die Variable <code>###CURRENTEXECUTIONDATE###</code> setzt der Daemon beim Lauf auf das Ausführungsdatum. Ein Job, der die Daten des Vortages exportieren soll, braucht deshalb eine entsprechend gesetzte Zeitsteuerung oder die passende Datumsvariable.</p>
 <h2 id="bkmrk-ergebnis-pr%C3%BCfen">Ergebnis prüfen</h2>
@@ -270,6 +270,6 @@ ORDER BY BranchNo, CrNo, ArticleNo, PositionManualPriceLevel;
     <span>Stand 03.09.2026</span>
   </span>
 </footer>
-<script src="../../assets/suche.js?v=c03dc601"></script>
+<script src="../../assets/suche.js?v=d4fed229"></script>
 </body>
 </html>

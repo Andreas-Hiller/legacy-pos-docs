@@ -7,7 +7,7 @@
 <title>Anwendung registrieren und Module lizenzieren | Produkte</title>
 <meta name="description" content="Ein neu installierter CentralPoint läuft zunächst im Demo-Modus. Mit der Registrierung wird er dauerhaft freigeschaltet; über Module wird festgelegt, welche Funktionsbereiche nutzbar sind. Voraussetzu">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=587ff7c5">
+<link rel="stylesheet" href="../../assets/stil.css?v=b964d4ee">
 </head>
 <body>
 <header class="kopf">
@@ -141,8 +141,8 @@
 <li>Prüfen, dass die alte Lizenz mit dem Partner-Account im alten PartnerPortal sichtbar ist. Die neu erzeugte Lizenz wird für diesen Partner im neuen PartnerPortal angelegt und erscheint erst dann zur Zuweisung an den Endkunden.</li>
 <li>In der Datei <code>syncer.properties</code> (Verzeichnis <code>C:\GoodCompany\itrCP\sync</code>) folgenden Eintrag ergänzen:</li>
 </ol>
-<pre id="bkmrk-usenewlicensesystem%3D"><code class="language-properties">useNewLicenseSystem=true
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Properties</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-properties"><span class="tk-eigenschaft">useNewLicenseSystem</span>=<span class="tk-text">true</span>
+</code></pre></div>
 <p class="callout warning" id="bkmrk-schreibweise-exakt-b">Schreibweise exakt beachten: kleines <code>u</code> am Anfang und kleines <code>t</code> in <code>true</code>. Eine abweichende Schreibweise wird ignoriert, ohne dass eine Meldung erscheint.</p>
 <ol start="3" id="bkmrk-den-windows-dienst-a">
 <li>Den Windows-Dienst <code>ALVARAErpCPSync</code> und den CentralPoint neu starten.</li>
@@ -179,6 +179,6 @@
     <span>Stand 03.09.2026</span>
   </span>
 </footer>
-<script src="../../assets/suche.js?v=c03dc601"></script>
+<script src="../../assets/suche.js?v=d4fed229"></script>
 </body>
 </html>

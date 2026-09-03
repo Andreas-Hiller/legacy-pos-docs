@@ -7,7 +7,7 @@
 <title>Daemon Jobs einrichten | Produkte</title>
 <meta name="description" content="Ein Daemon Job ist ein Auftrag aus Kommandos, den der Daemon zeitgesteuert oder direkt nach einem Import ausführt. Damit entstehen Exporte, Dateiumbenennungen und Nachverarbeitungen. Voraussetzungen D">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=587ff7c5">
+<link rel="stylesheet" href="../../assets/stil.css?v=b964d4ee">
 </head>
 <body>
 <header class="kopf">
@@ -164,25 +164,25 @@
 <p id="bkmrk-datumsplatzhalter-ne">Datumsplatzhalter nehmen ein eigenes Format auf, zum Beispiel <code>###LASTEXECUTIONDATE_yyyyMMdd###</code>.</p>
 <p id="bkmrk-ein-semikolon-im-sql">Ein Semikolon im SQL-Text muss als <code>###ESC_SEMICOLON###</code> geschrieben werden — sonst endet das Kommando an dieser Stelle.</p>
 <h2 id="bkmrk-beispiel%3A-export-mit">Beispiel: Export mit Zeitstempel</h2>
-<pre id="bkmrk-select-vorname%2C-nach"><code class="language-sql">SELECT vorname, nachname INTO OUTFILE 'C:/export/teil1_###UNIXTIMESTAMP###.txt'
-  FIELDS TERMINATED BY '\t' LINES TERMINATED BY '\n'
-  FROM mitarbeiter WHERE vorname LIKE 'J%';
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">SQL</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-sql"><span class="tk-schluessel">SELECT</span> vorname, nachname <span class="tk-schluessel">INTO</span> OUTFILE <span class="tk-text">'C:/export/teil1_###UNIXTIMESTAMP###.txt'</span>
+  FIELDS TERMINATED <span class="tk-schluessel">BY</span> <span class="tk-text">'\t'</span> LINES TERMINATED <span class="tk-schluessel">BY</span> <span class="tk-text">'\n'</span>
+  <span class="tk-schluessel">FROM</span> mitarbeiter <span class="tk-schluessel">WHERE</span> vorname <span class="tk-schluessel">LIKE</span> <span class="tk-text">'J%'</span>;
+</code></pre></div>
 <p id="bkmrk-anschlie%C3%9Fend-lassen-">Anschließend lassen sich die erzeugten Dateien im selben Job zusammenführen:</p>
-<pre id="bkmrk-join-files%3A-%27c%3A%2Fexpo"><code class="language-text">join files: 'C:/export/teil1.txt','C:/export/teil2.txt','C:/export/gesamt.txt';
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Text</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-text">join files: 'C:/export/teil1.txt','C:/export/teil2.txt','C:/export/gesamt.txt';
+</code></pre></div>
 <h2 id="bkmrk-schleifen">Schleifen</h2>
 <p id="bkmrk-kommandos-lassen-sic">Kommandos lassen sich für mehrere Werte wiederholen — etwa je Kasse ein Export.</p>
 <p id="bkmrk-feste-werteliste%3A">Feste Werteliste:</p>
-<pre id="bkmrk-loop-start%3A-%40number-"><code class="language-text">LOOP-START: @NUMBER : 1,2,3,4,5;
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Text</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-text">LOOP-START: @NUMBER : 1,2,3,4,5;
 SELECT @NUMBER;
 LOOP-END;
-</code></pre>
+</code></pre></div>
 <p id="bkmrk-werte-aus-einer-abfr">Werte aus einer Abfrage:</p>
-<pre id="bkmrk-loop-start%3A-%40crnr-%3A-"><code class="language-sql">LOOP-START: @CRNR : SELECT DISTINCT(CR_ID) FROM ipos_cashregister c WHERE c.Deleted = FALSE;
-SELECT @CRNR;
-LOOP-END;
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">SQL</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-sql">LOOP-START: <span class="tk-variable">@CRNR</span> : <span class="tk-schluessel">SELECT</span> <span class="tk-schluessel">DISTINCT</span>(CR_ID) <span class="tk-schluessel">FROM</span> ipos_cashregister c <span class="tk-schluessel">WHERE</span> c.Deleted = <span class="tk-schluessel">FALSE</span>;
+<span class="tk-schluessel">SELECT</span> <span class="tk-variable">@CRNR</span>;
+LOOP-<span class="tk-schluessel">END</span>;
+</code></pre></div>
 <p id="bkmrk-der-aktuelle-wert-st">Der aktuelle Wert steht in der Variablen und kann in den Kommandos innerhalb der Schleife verwendet werden, zum Beispiel im Dateinamen des Exports.</p>
 <h2 id="bkmrk-ergebnis-pr%C3%BCfen">Ergebnis prüfen</h2>
 <ol id="bkmrk-job-%C3%BCber-starten-%28di">
@@ -206,6 +206,6 @@ LOOP-END;
     <span>Stand 03.09.2026</span>
   </span>
 </footer>
-<script src="../../assets/suche.js?v=c03dc601"></script>
+<script src="../../assets/suche.js?v=d4fed229"></script>
 </body>
 </html>

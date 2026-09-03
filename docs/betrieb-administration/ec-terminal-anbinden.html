@@ -7,7 +7,7 @@
 <title>EC-Terminal anbinden | Betrieb &amp; Administration</title>
 <meta name="description" content="Die Kasse spricht mit dem Zahlungsterminal über das ZVT-Protokoll, wahlweise seriell oder über das Netzwerk. Die Netzwerkanbindung ist die empfohlene. Die Verbindung funktioniert nur, wenn sich das Te">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../assets/stil.css?v=587ff7c5">
+<link rel="stylesheet" href="../assets/stil.css?v=b964d4ee">
 </head>
 <body>
 <header class="kopf">
@@ -89,9 +89,9 @@
 </ul>
 <h2 id="bkmrk-mehrere-terminals-in">Mehrere Terminals in einer Filiale</h2>
 <p id="bkmrk-f%C3%BCr-einen-filialweit">Für einen filialweiten Kassenabschluss über mehrere Terminals werden diese als Liste hinterlegt:</p>
-<pre id="bkmrk-hardware.paymentterm"><code class="language-properties">Hardware.PaymentTerminal.sendCommitAtRecon=true
-Hardware.PaymentTerminal.sendCommitAtReconToMultipleTerminals=&lt;IP&gt;:&lt;Port&gt;,&lt;IP&gt;:&lt;Port&gt;
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Properties</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-properties"><span class="tk-eigenschaft">Hardware.PaymentTerminal.sendCommitAtRecon</span>=<span class="tk-text">true</span>
+<span class="tk-eigenschaft">Hardware.PaymentTerminal.sendCommitAtReconToMultipleTerminals</span>=<span class="tk-text">&lt;IP&gt;:&lt;Port&gt;,&lt;IP&gt;:&lt;Port&gt;</span>
+</code></pre></div>
 <p class="callout warning" id="bkmrk-das-funktioniert-nur">Das funktioniert nur bei Anbindung über das Netzwerk. Seriell angebundene Terminals lassen sich nicht filialweit abschließen.</p>
 <h2 id="bkmrk-unterschriftsfeld-au">Unterschriftsfeld auf dem Beleg</h2>
 <p id="bkmrk-der-vom-terminal-gel">Der vom Terminal gelieferte Text lässt sich vor dem Druck ersetzen — etwa, um Platz für eine Unterschrift zu schaffen:</p>
@@ -131,6 +131,6 @@ Hardware.PaymentTerminal.sendCommitAtReconToMultipleTerminals=&lt;IP&gt;:&lt;Por
     <span>Stand 03.09.2026</span>
   </span>
 </footer>
-<script src="../assets/suche.js?v=c03dc601"></script>
+<script src="../assets/suche.js?v=d4fed229"></script>
 </body>
 </html>

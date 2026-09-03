@@ -7,7 +7,7 @@
 <title>Bediener und Rechte einrichten | Betrieb &amp; Administration</title>
 <meta name="description" content="Ohne Anmeldung ist die Kasse nicht nutzbar. Jeder Vorgang wird dem angemeldeten Bediener zugeordnet — das ist zugleich die Grundlage der Nachvollziehbarkeit gegenüber der Finanzverwaltung. Wo Bediener">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../assets/stil.css?v=587ff7c5">
+<link rel="stylesheet" href="../assets/stil.css?v=b964d4ee">
 </head>
 <body>
 <header class="kopf">
@@ -111,9 +111,9 @@
 <li>Unter <strong>Admin-Panel → Einstellungen → Basis → Anmeldung</strong> die Anmeldungsart <strong>Autologin</strong> wählen.</li>
 <li>In der Datei <code>cr.properties</code> ergänzen:</li>
 </ol>
-<pre id="bkmrk-autologin.user%3D%3Cbenu"><code class="language-properties">Autologin.User=&lt;Benutzername&gt;
-Autologin.TimeToWaitBeforeLoginInSeconds=5
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Properties</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-properties"><span class="tk-eigenschaft">Autologin.User</span>=<span class="tk-text">&lt;Benutzername&gt;</span>
+<span class="tk-eigenschaft">Autologin.TimeToWaitBeforeLoginInSeconds</span>=<span class="tk-text">5</span>
+</code></pre></div>
 <p id="bkmrk-die-zweite-zeile-ist">Die zweite Zeile ist optional.</p>
 <p class="callout warning" id="bkmrk-der-angegebene-benut">Der angegebene Benutzer muss existieren und für die Filiale freigeschaltet sein. Die Einstellung gilt <strong>je Kasse</strong>, nicht filialweit — bei mehreren Kassen ist sie auf jeder einzeln zu setzen.</p>
 <h2 id="bkmrk-ergebnis-pr%C3%BCfen">Ergebnis prüfen</h2>
@@ -137,6 +137,6 @@ Autologin.TimeToWaitBeforeLoginInSeconds=5
     <span>Stand 03.09.2026</span>
   </span>
 </footer>
-<script src="../assets/suche.js?v=c03dc601"></script>
+<script src="../assets/suche.js?v=d4fed229"></script>
 </body>
 </html>

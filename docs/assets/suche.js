@@ -208,3 +208,42 @@
   window.addEventListener('resize', anstossen);
   pruefen();
 })();
+
+/*
+  KOPIERKNOPF AM CODEFELD.
+
+  Der Knopf steht im HTML, ist per CSS aber verborgen und wird hier
+  freigeschaltet ("kann"). So sieht niemand eine Schaltflaeche, die ohne
+  JavaScript nichts tun wuerde - und wer JS abgeschaltet hat, sieht den Code
+  trotzdem vollstaendig und eingefaerbt, weil die Farben beim Erzeugen
+  entstehen und nicht hier.
+
+  navigator.clipboard braucht einen sicheren Kontext (https oder localhost).
+  Auf GitHub Pages ist das gegeben; wo nicht, bleibt der Knopf weg, statt beim
+  Klicken ins Leere zu laufen.
+*/
+(function () {
+  if (!navigator.clipboard || !window.isSecureContext) { return; }
+
+  Array.prototype.forEach.call(document.querySelectorAll('.codefeld'), function (feld) {
+    var knopf = feld.querySelector('.codefeld-kopieren');
+    var code = feld.querySelector('pre code');
+    if (!knopf || !code) { return; }
+    knopf.classList.add('kann');
+
+    knopf.addEventListener('click', function () {
+      navigator.clipboard.writeText(code.textContent).then(function () {
+        var vorher = knopf.textContent;
+        knopf.textContent = 'Kopiert';
+        knopf.classList.add('fertig');
+        window.setTimeout(function () {
+          knopf.textContent = vorher;
+          knopf.classList.remove('fertig');
+        }, 1600);
+      }).catch(function () {
+        knopf.textContent = 'Ging nicht';
+        window.setTimeout(function () { knopf.textContent = 'Kopieren'; }, 1600);
+      });
+    });
+  });
+})();

@@ -7,7 +7,7 @@
 <title>Fernwartung und Zugriff auf Kassen | Betrieb &amp; Administration</title>
 <meta name="description" content="Fernwartung an Kassen läuft über TeamViewer. Diese Seite beschreibt, was auf der Kasse vorbereitet sein muss, damit eine Sitzung zuverlässig zustande kommt. Voraussetzungen TeamViewer ist auf der Kass">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../assets/stil.css?v=587ff7c5">
+<link rel="stylesheet" href="../assets/stil.css?v=b964d4ee">
 </head>
 <body>
 <header class="kopf">
@@ -35,19 +35,19 @@
 <ol id="bkmrk-bildschirm-energiesp">
 <li><strong>Bildschirm-Energiesparmodus abschalten.</strong> Geht der Bildschirm der Kasse in den Energiesparmodus, kann die Bildübertragung zusammenbrechen. Auf der Kasse:</li>
 </ol>
-<pre id="bkmrk-powercfg-%2Fchange-mon"><code class="language-powershell">powercfg /change monitor-timeout-ac 0
-powercfg /change monitor-timeout-dc 0
-powercfg /change standby-timeout-ac 0
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">PowerShell</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-powershell">powercfg /change monitor-timeout-ac <span class="tk-zahl">0</span>
+powercfg /change monitor-timeout-dc <span class="tk-zahl">0</span>
+powercfg /change standby-timeout-ac <span class="tk-zahl">0</span>
+</code></pre></div>
 <p id="bkmrk-die-einstellung-wirk">Die Einstellung wirkt sofort, ein Neustart ist nicht nötig.</p>
 <ol start="2" id="bkmrk-einstellung-dauerhaf">
 <li><strong>Einstellung dauerhaft absichern.</strong> <code>powercfg /change</code> wirkt nur auf das gerade aktive Energieschema. Wechselt das Schema, ist der Zeitgeber wieder aktiv. Für alle Schemata:</li>
 </ol>
-<pre id="bkmrk-powercfg-%2Flist-power"><code class="language-powershell">powercfg /list
-powercfg /setacvalueindex &lt;GUID&gt; SUB_VIDEO VIDEOIDLE 0
-powercfg /setdcvalueindex &lt;GUID&gt; SUB_VIDEO VIDEOIDLE 0
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">PowerShell</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-powershell">powercfg /list
+powercfg /setacvalueindex &lt;GUID&gt; SUB_VIDEO VIDEOIDLE <span class="tk-zahl">0</span>
+powercfg /setdcvalueindex &lt;GUID&gt; SUB_VIDEO VIDEOIDLE <span class="tk-zahl">0</span>
 powercfg /setactive &lt;GUID des aktiven Schemas&gt;
-</code></pre>
+</code></pre></div>
 <ol start="3" id="bkmrk-zugang-dokumentieren">
 <li><strong>Zugang dokumentieren.</strong> Halten Sie fest, welche Kasse über welchen Zugang erreichbar ist, und wer ihn kennt.</li>
 </ol>
@@ -76,6 +76,6 @@ powercfg /setactive &lt;GUID des aktiven Schemas&gt;
     <span>Stand 03.09.2026</span>
   </span>
 </footer>
-<script src="../assets/suche.js?v=c03dc601"></script>
+<script src="../assets/suche.js?v=d4fed229"></script>
 </body>
 </html>

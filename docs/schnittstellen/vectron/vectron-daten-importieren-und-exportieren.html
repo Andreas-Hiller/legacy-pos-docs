@@ -7,7 +7,7 @@
 <title>Vectron-Daten importieren und exportieren | Schnittstellen</title>
 <meta name="description" content="Der GoodCompanyDaemon liest Stammdaten im Vectron-Format ein und gibt Umsatzdaten und Bestellungen im Vectron-Format aus. Diese Seite beschreibt, wie Sie beide Richtungen einrichten. Voraussetzungen D">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=587ff7c5">
+<link rel="stylesheet" href="../../assets/stil.css?v=b964d4ee">
 </head>
 <body>
 <header class="kopf">
@@ -46,11 +46,11 @@
 <li>Aktivieren Sie <strong>Import aktiv</strong>. Der Daemon prüft dann periodisch, ob neue Dateien vorliegen; das Intervall stellen Sie unter <strong>Konfiguration → Timer</strong> ein.</li>
 <li>Legen Sie einen Daemon Job mit dem Importaufruf an: <a href="../../produkte/goodcompanydaemon/daemon-jobs-einrichten.html">ITR Partner Service → Produkte → GoodCompanyDaemon → Daemon Jobs einrichten</a></li>
 </ol>
-<pre id="bkmrk-call%3Avectroniposimpo"><code class="language-text">call:VectronIPOSImporter #validForImport=Articles
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Text</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-text">call:VectronIPOSImporter #validForImport=Articles
 call:VectronIPOSImporter #validForImport=Articles #objectProperties=C:\Kasse\Import\objectProperties.props
 call:VectronIPOSImporter #validForImport=Articles,Operators #objectProperties=C:\Kasse\Import\objectProperties.props
 call:VectronIPOSImporter #validForImport=Orders #configFileOrders=C:\Kasse\Import\ordersProperties.props
-</code></pre>
+</code></pre></div>
 <h3 id="bkmrk-parameter-des-import">Parameter des Imports</h3>
 <div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-name-beschreibung-st">
 <thead>
@@ -86,11 +86,11 @@ call:VectronIPOSImporter #validForImport=Orders #configFileOrders=C:\Kasse\Impor
 <h3 id="bkmrk-feldzuordnung-%C3%BCber-o">Feldzuordnung über objectProperties</h3>
 <p id="bkmrk-die-objectproperties">Die <code>objectProperties</code> enthält Wertepaare <code>Property=Feldnummer</code>, jede Zeile mit dem Prefix des Datentyps (<code>Article.</code>, <code>Customer.</code>, <code>Operator.</code>, <code>Group.</code>, <code>MainGroup.</code>, <code>Order.</code>).</p>
 <p id="bkmrk-ohne-eintrag-pr%C3%BCft-d">Ohne Eintrag prüft der Importer je Feld die Standardfelder der Reihe nach auf einen gültigen Wert; gültig ist ein Wert ab Länge 1, auch eine leere Zeichenkette zählt. Mit einem Eintrag wird stattdessen nur das angegebene Feld geprüft:</p>
-<pre id="bkmrk-article.article_name"><code class="language-text">Article.ARTICLE_NAME1=25
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Text</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-text">Article.ARTICLE_NAME1=25
+</code></pre></div>
 <p id="bkmrk-auch-parameter-werde">Auch Parameter werden hier gesetzt:</p>
-<pre id="bkmrk-article.remarks_patt"><code class="language-text">Article.REMARKS_PATTERN=Produktinfo:(.*)Inhaltsstoffe
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Text</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-text">Article.REMARKS_PATTERN=Produktinfo:(.*)Inhaltsstoffe
+</code></pre></div>
 <p id="bkmrk-beim-import-pr%C3%BCft-de">Beim Import prüft der Importer je Feld, ob sich der Wert geändert hat, und aktualisiert nur dann. Geprüft wird auf Basis der Felder, für die ein gültiger Wert ermittelt werden konnte — ein <strong>partieller Import</strong> überschreibt also keine anderweitig gepflegten Daten.</p>
 <h3 id="bkmrk-weitere-importe">Weitere Importe</h3>
 <div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-aufgabe-aufruf-auswa">
@@ -204,12 +204,12 @@ call:VectronIPOSImporter #validForImport=Orders #configFileOrders=C:\Kasse\Impor
 <p id="bkmrk-die-importdatei-muss">Die Importdatei muss RFID, Barcode oder Kundennummer sowie eine Spalte mit dem Kontostand enthalten. Vor dem Import wird sie mit Zeitstempel umbenannt; das verhindert einen doppelten Import.</p>
 <h2 id="bkmrk-export-einrichten">Export einrichten</h2>
 <p id="bkmrk-der-export-l%C3%A4uft-%C3%BCbe">Der Export läuft über einen Daemon Job mit dem Aufruf <code>call:VectronExporter</code>:</p>
-<pre id="bkmrk-call%3Avectronexporter"><code class="language-text">call:VectronExporter
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Text</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-text">call:VectronExporter
 call:VectronExporter #autorecreateintervall=10
 call:VectronExporter #branches=1,2
 call:VectronExporter #branches=1 #cashregisters=1 #reports=6
 call:VectronExporter #FromReport10Ignore33001=true
-</code></pre>
+</code></pre></div>
 <h3 id="bkmrk-parameter-des-export">Parameter des Exports</h3>
 <div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-name-beschreibung-st-3">
 <thead>
@@ -327,8 +327,8 @@ call:VectronExporter #FromReport10Ignore33001=true
 <p id="bkmrk-einzelne-felder-unte">Einzelne Felder unterdrücken Sie mit <code>#FromReportXXXIgnoreYYY=true</code>, wobei <code>XXX</code> die Berichtsnummer und <code>YYY</code> die Feldnummer ist, zum Beispiel <code>#FromReport10Ignore33001=true</code>.</p>
 <h3 id="bkmrk-feldnummern-%C3%BCbersetz">Feldnummern übersetzen (transconfig)</h3>
 <p id="bkmrk-die-%C3%9Cbersetzungsdate">Die Übersetzungsdatei ordnet den Feldern des Exports die Feldnummern des Zielprogramms zu; genutzt unter anderem von den Berichten 6 und 4. Aufbau je Zeile:</p>
-<pre id="bkmrk-%3Csektionsname%3E%3B%3Cfeld"><code class="language-text">&lt;Sektionsname&gt;;&lt;Feldname&gt;;&lt;Feldnummer&gt;
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Text</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-text">&lt;Sektionsname&gt;;&lt;Feldname&gt;;&lt;Feldnummer&gt;
+</code></pre></div>
 <p id="bkmrk-fehlt-eine-%C3%9Cbersetzu">Fehlt eine Übersetzung für ein benötigtes Feld, wird es als <code>xxx_&lt;Sektion&gt;_&lt;Feldname&gt;</code> ausgegeben. Optionale Felder werden nur exportiert, wenn eine Übersetzung hinterlegt ist.</p>
 <div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-sektion-feldname-opt">
 <thead>
@@ -387,21 +387,21 @@ call:VectronExporter #FromReport10Ignore33001=true
 </tbody>
 </table></div>
 <p id="bkmrk-beispiel%3A">Beispiel:</p>
-<pre id="bkmrk-general%3Bgesamtumsatz"><code class="language-text">General;Gesamtumsatz;4
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Text</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-text">General;Gesamtumsatz;4
 General;Gaeste / Kunden;138
 Tax;7%_Brutto;80
 Tax;7%_Steuer;89
 PaymentMethod;Bar (Bez.weg);301
 General;EinzahlungPrePaid;810
-</code></pre>
+</code></pre></div>
 <p id="bkmrk-der-steuerexport-f%C3%BCr">Der Steuerexport für Bericht 31 (ab 5.5.10) wird gesondert angegeben: <code>TaxExport;&lt;Steuer-Nr&gt;_Steuer;&lt;Satznummer&gt;</code>. Beispiel: die 7-%-Steuer hat die Steuer-Nr. 1 und soll auf Feld 41 — <code>TaxExport;1_Steuer;41</code>.</p>
 <h3 id="bkmrk-preis%C3%A4nderungen-%C3%BCber">Preisänderungen über Modifier ausweisen</h3>
 <p id="bkmrk-in-den-berichten-1-%28">In den Berichten 1 (Artikel), 2 (Warengruppen) und 6 (Transaktion) lassen sich Alt- und Neupreise sowie Preisänderungen ausweisen. Dazu wird beim Modifier im <strong>Export-Key</strong> hinterlegt, welcher Wert mit welcher Feldnummer exportiert wird:</p>
-<pre id="bkmrk-exp%3D%3Cberichtsnummer%3E"><code class="language-text">Exp=&lt;Berichtsnummer&gt;,&lt;Feldnummer&gt;,&lt;Umsatzwert&gt;
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Text</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-text">Exp=&lt;Berichtsnummer&gt;,&lt;Feldnummer&gt;,&lt;Umsatzwert&gt;
+</code></pre></div>
 <p id="bkmrk-%3Cumsatzwert%3E-ist-bru"><code>&lt;Umsatzwert&gt;</code> ist <code>Brutto</code> (ursprünglicher Umsatzwert der Bonpositionen), <code>Brutto2</code> (neuer Umsatzwert) oder <code>Diff</code> (Differenz). Mehrere Export-Keys werden mit Semikolon getrennt:</p>
-<pre id="bkmrk-exp%3D6%2C10%2Cbrutto%3Bexp%3D"><code class="language-text">Exp=6,10,Brutto;Exp=1,11,Diff;Exp=2,12,Diff
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Text</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-text">Exp=6,10,Brutto;Exp=1,11,Diff;Exp=2,12,Diff
+</code></pre></div>
 <p id="bkmrk-mit-wgshift%3D10-versc">Mit <code>WGShift=10</code> verschieben Sie einen Artikel im Export von Bericht 2 in die Warengruppe 10.</p>
 <h2 id="bkmrk-ergebnis-pr%C3%BCfen">Ergebnis prüfen</h2>
 <p id="bkmrk-import%3A-die-importda"><strong>Import:</strong> Die Importdatei wurde wie eingestellt gelöscht, umbenannt oder verschoben, und ein Artikel aus der Datei ist im Artikelstamm mit den erwarteten Werten sichtbar.</p>
@@ -429,6 +429,6 @@ General;EinzahlungPrePaid;810
     <span>Stand 03.09.2026</span>
   </span>
 </footer>
-<script src="../../assets/suche.js?v=c03dc601"></script>
+<script src="../../assets/suche.js?v=d4fed229"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@
 <title>Datenbankbenutzer und SSL | Betrieb &amp; Administration</title>
 <meta name="description" content="Wer auf die Datenbank zugreift, sollte nur die Rechte haben, die er braucht — und die Verbindung zwischen Kasse und Zentrale sollte verschlüsselt sein. Es gibt keine vollständige Sicherheit. Die folge">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../assets/stil.css?v=587ff7c5">
+<link rel="stylesheet" href="../assets/stil.css?v=b964d4ee">
 </head>
 <body>
 <header class="kopf">
@@ -73,7 +73,7 @@
 <p id="bkmrk-die-verbindung-jedes">Die Verbindung jedes entfernten Zugriffs — Kassen und externe Datenbankbenutzer — sollte über SSL laufen.</p>
 <h3 id="bkmrk-zertifikate-erstelle">Zertifikate erstellen</h3>
 <p id="bkmrk-mit-openssl-f%C3%BCr-wind">Mit OpenSSL für Windows. Umgebungsvariablen setzen, dann im Arbeitsverzeichnis:</p>
-<pre id="bkmrk-openssl-genrsa-2048-"><code>openssl genrsa 2048 &gt; ca-key.pem
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">Text</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code>openssl genrsa 2048 &gt; ca-key.pem
 openssl req -new -x509 -nodes -days 1095 -key ca-key.pem -out ca-cert.pem
 openssl req -newkey rsa:2048 -days 1095 -nodes -keyout server-key.pem -out server-req.pem
 openssl rsa -in server-key.pem -out server-key.pem
@@ -82,22 +82,22 @@ openssl req -newkey rsa:2048 -days 1095 -nodes -keyout client-key.pem -out clien
 openssl rsa -in client-key.pem -out client-key.pem
 openssl x509 -req -in client-req.pem -days 1095 -CA ca-cert.pem -CAkey ca-key.pem -set_serial 01 -out client-cert.pem
 openssl verify -CAfile ca-cert.pem server-cert.pem client-cert.pem
-</code></pre>
+</code></pre></div>
 <p id="bkmrk-die-laufzeit-von-109">Die Laufzeit von 1095 Tagen entspricht drei Jahren. Länger als fünf Jahre (1825 Tage) sollte ein Zertifikat nicht gelten.</p>
 <p class="callout danger" id="bkmrk-das-zertifikat-muss-">Das Zertifikat muss vor seinem Ablauf erneuert werden. Läuft es ab, haben die Kassen keinen Zugriff mehr auf die zentrale Datenbank — im Modus REQUIRED bricht die Datenübertragung vollständig ab. Ablaufdatum bei der Einrichtung notieren und im Wartungskalender vermerken.</p>
 <p id="bkmrk-die-erzeugten-dateie">Die erzeugten Dateien in ein geschütztes Verzeichnis auf dem Datenbankserver legen.</p>
 <h3 id="bkmrk-zertifikate-einbinde">Zertifikate einbinden</h3>
 <p id="bkmrk-in-der-my.ini%3A">In der <code>my.ini</code>:</p>
-<pre id="bkmrk-%5Bmysqld%5D-ssl-ca%3Dc%3A%2Fs"><code class="language-ini">[mysqld]
-ssl-ca=C:/SSL/ca-cert.pem
-ssl-cert=C:/SSL/server-cert.pem
-ssl-key=C:/SSL/server-key.pem
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">INI</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-ini"><span class="tk-abschnitt">[mysqld]</span>
+<span class="tk-eigenschaft">ssl-ca</span>=<span class="tk-text">C:/SSL/ca-cert.pem</span>
+<span class="tk-eigenschaft">ssl-cert</span>=<span class="tk-text">C:/SSL/server-cert.pem</span>
+<span class="tk-eigenschaft">ssl-key</span>=<span class="tk-text">C:/SSL/server-key.pem</span>
 
-[client]
-ssl-ca=C:/SSL/ca-cert.pem
-ssl-cert=C:/SSL/client-cert.pem
-ssl-key=C:/SSL/client-key.pem
-</code></pre>
+<span class="tk-abschnitt">[client]</span>
+<span class="tk-eigenschaft">ssl-ca</span>=<span class="tk-text">C:/SSL/ca-cert.pem</span>
+<span class="tk-eigenschaft">ssl-cert</span>=<span class="tk-text">C:/SSL/client-cert.pem</span>
+<span class="tk-eigenschaft">ssl-key</span>=<span class="tk-text">C:/SSL/client-key.pem</span>
+</code></pre></div>
 <h3 id="bkmrk-kassen-umstellen">Kassen umstellen</h3>
 <p id="bkmrk-die-kasse-im-setup-w">Die Kasse im Setup-Wizard bis zum Punkt <strong>CentralPoint Datenbank</strong> durchlaufen und dort den SSL-Modus wählen:</p>
 <div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-modus-wirkung-prefer">
@@ -150,6 +150,6 @@ ssl-key=C:/SSL/client-key.pem
     <span>Stand 03.09.2026</span>
   </span>
 </footer>
-<script src="../assets/suche.js?v=c03dc601"></script>
+<script src="../assets/suche.js?v=d4fed229"></script>
 </body>
 </html>

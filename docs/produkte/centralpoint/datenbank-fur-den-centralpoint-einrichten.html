@@ -7,7 +7,7 @@
 <title>Datenbank für den CentralPoint einrichten | Produkte</title>
 <meta name="description" content="Der CentralPoint bringt keinen Datenbankserver mit. MariaDB muss vorher installiert, ein Schema und ein Benutzer angelegt sein — erst danach lässt sich der CentralPoint verbinden. In dieser Datenbank ">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/stil.css?v=587ff7c5">
+<link rel="stylesheet" href="../../assets/stil.css?v=b964d4ee">
 </head>
 <body>
 <header class="kopf">
@@ -62,15 +62,15 @@
 <h2 id="bkmrk-konfigurationsdatei-">Konfigurationsdatei my.ini</h2>
 <p class="callout danger" id="bkmrk-%C3%84nderungen-an-my.ini">Änderungen an <code>my.ini</code> gehören in die Hand von Datenbankfachleuten. Falsche Werte können die Datenbank unbrauchbar machen oder zu Datenverlust führen. Im Zweifel den ITR-Support hinzuziehen.</p>
 <p id="bkmrk-eine-grundkonfigurat">Eine Grundkonfiguration für den Betrieb mit dem CentralPoint:</p>
-<pre id="bkmrk-%5Bmysqld%5D-sql_mode%3D%22s"><code class="language-ini">[mysqld]
-sql_mode="STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION"
-max_allowed_packet=64M
-open_files_limit=100000
-transaction-isolation=READ-COMMITTED
-binlog_format=ROW
-[client]
-port=3306
-</code></pre>
+<div class="codefeld"><div class="codefeld-kopf"><span class="codefeld-sprache">INI</span><button type="button" class="codefeld-kopieren">Kopieren</button></div><pre><code class="language-ini"><span class="tk-abschnitt">[mysqld]</span>
+<span class="tk-eigenschaft">sql_mode</span>=<span class="tk-text">"STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION"</span>
+<span class="tk-eigenschaft">max_allowed_packet</span>=<span class="tk-text">64M</span>
+<span class="tk-eigenschaft">open_files_limit</span>=<span class="tk-text">100000</span>
+<span class="tk-eigenschaft">transaction-isolation</span>=<span class="tk-text">READ-COMMITTED</span>
+<span class="tk-eigenschaft">binlog_format</span>=<span class="tk-text">ROW</span>
+<span class="tk-abschnitt">[client]</span>
+<span class="tk-eigenschaft">port</span>=<span class="tk-text">3306</span>
+</code></pre></div>
 <div class="tabellenrahmen" tabindex="0" role="region" aria-label="Tabelle, seitlich scrollbar"><table id="bkmrk-parameter-wirkung-ma">
 <thead>
 <tr>
@@ -109,6 +109,6 @@ port=3306
     <span>Stand 03.09.2026</span>
   </span>
 </footer>
-<script src="../../assets/suche.js?v=c03dc601"></script>
+<script src="../../assets/suche.js?v=d4fed229"></script>
 </body>
 </html>

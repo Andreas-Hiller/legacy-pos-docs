@@ -171,26 +171,44 @@
       var h = '<div class="suchzahl">' + treffer.length + ' Treffer'
             + (treffer.length > 20 ? ' \u2013 die 20 besten' : '') + '</div>';
 
-      /* Nach Buch gruppieren: der Buchname ist das Stueck vor dem ersten
-         Trennzeichen in "Buch > Kapitel". Die Gruppenreihenfolge folgt dem
-         besten Treffer darin, nicht dem Alphabet - sonst stuende die
-         wichtigste Gruppe womoeglich unten. */
-      var letzteGruppe = null;
+      /*
+        ECHT NACH BUCH GRUPPIEREN.
+
+        Der Buchname ist das Stueck vor dem ersten Trennzeichen in
+        "Buch > Kapitel". Jedes Buch erscheint GENAU EINMAL, und die Gruppen
+        stehen in der Reihenfolge ihres besten Treffers - nicht alphabetisch,
+        sonst stuende die wichtigste unten.
+
+        Der erste Versuch fasste nur aufeinanderfolgende Zeilen zusammen. Weil
+        die Liste nach Punkten sortiert ist, wechseln die Buecher dabei hin und
+        her: bei "gastro" erschienen "Loesungen" und "Produkte" je zweimal
+        (03.09.2026 gemessen). Damit war der Zweck der Gruppierung verfehlt -
+        sie soll ja zeigen, wo der Schwerpunkt liegt.
+      */
+      var gruppen = [];
+      var nachName = {};
       gezeigt.forEach(function (t) {
-        var e = t.e;
-        var teile = (e.k || '').split('\u203A');
-        var gruppe = teile[0].trim();
-        var unter = teile.slice(1).join('\u203A').trim();
-        if (gruppe && gruppe !== letzteGruppe) {
-          h += '<div class="suchgruppe">' + schuetzen(gruppe) + '</div>';
-          letzteGruppe = gruppe;
+        var name = ((t.e.k || '').split('\u203A')[0] || '').trim() || '\u2013';
+        if (!nachName[name]) {
+          nachName[name] = { name: name, zeilen: [] };
+          gruppen.push(nachName[name]);   // Reihenfolge = bester Treffer zuerst
         }
-        h += '<a href="' + auf + e.u + '">'
-           + '<span class="titel">' + schuetzen(e.t) + '</span>'
-           + (unter ? '<span class="kap"> \u00B7 ' + schuetzen(unter) + '</span>' : '')
-           + (nurZahl ? '<span class="kap"> \u00B7 ID ' + e.i + '</span>' : '')
-           + (woerter.length ? '<div class="aus">' + ausschnitt(e.x || '', woerter) + '</div>' : '')
-           + '</a>';
+        nachName[name].zeilen.push(t);
+      });
+
+      gruppen.forEach(function (g) {
+        h += '<div class="suchgruppe">' + schuetzen(g.name)
+           + '<span class="suchgruppe-zahl">' + g.zeilen.length + '</span></div>';
+        g.zeilen.forEach(function (t) {
+          var e = t.e;
+          var unter = (e.k || '').split('\u203A').slice(1).join('\u203A').trim();
+          h += '<a href="' + auf + e.u + '">'
+             + '<span class="titel">' + schuetzen(e.t) + '</span>'
+             + (unter ? '<span class="kap"> \u00B7 ' + schuetzen(unter) + '</span>' : '')
+             + (nurZahl ? '<span class="kap"> \u00B7 ID ' + e.i + '</span>' : '')
+             + (woerter.length ? '<div class="aus">' + ausschnitt(e.x || '', woerter) + '</div>' : '')
+             + '</a>';
+        });
       });
 
       kasten.innerHTML = h;

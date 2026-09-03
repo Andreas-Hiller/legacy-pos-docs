@@ -77,6 +77,10 @@ html, body {
   display: grid; grid-template-columns: 288px minmax(0,1fr) 260px;
   gap: 32px; max-width: 1560px; margin: 0 auto; padding: 24px 20px 40px;
 }
+/* Seiten ohne rechte Spalte (Startseite, Buchseiten, 404) bekommen deren
+   Platz. Vorher stand dort eine leere 260-px-Spalte und die Kacheln draengten
+   sich links zusammen, waehrend rechts ein Loch blieb. */
+.rahmen.ohne-rechts { grid-template-columns: 288px minmax(0,1fr); }
 .spalte-links, .spalte-rechts { align-self: start; position: sticky; top: 76px; }
 .spalte-links { max-height: calc(100vh - 100px); overflow-y: auto; }
 
@@ -131,9 +135,20 @@ h1 { font-size: 30px; font-weight: 600; line-height: 1.2; margin: 0 0 14px;
   background: #fdeeee; border: 1px solid var(--warn); border-radius: 3px;
   color: #8f1f1f; font-weight: 600; font-size: 14px; padding: 8px 12px; margin: 0 0 14px;
 }
-.inhalt h2 { font-size: 21px; font-weight: 600; line-height: 1.25; margin: 30px 0 8px; }
-.inhalt h3 { font-size: 17px; font-weight: 600; line-height: 1.3; margin: 22px 0 6px; }
+.inhalt h2 { font-size: 23px; font-weight: 600; line-height: 1.25; margin: 38px 0 10px; }
+.inhalt h3 { font-size: 18px; font-weight: 600; line-height: 1.3; margin: 26px 0 6px; }
+/* Erste Ueberschrift nicht vom Seitenkopf wegdruecken. */
+.inhalt > h2:first-child, .inhalt > h3:first-child { margin-top: 0; }
 .inhalt p, .inhalt li { font-size: 16px; }
+.inhalt p { margin: 0 0 14px; }
+
+/* ZEILENLAENGE. Bei 1440 px war die Textspalte rund 790 px breit, das sind
+   ueber 100 Zeichen je Zeile - beim Zeilenwechsel verliert das Auge dann die
+   Zeile. Angenehm sind 60 bis 75. Begrenzt wird nur der FLIESSTEXT, nicht die
+   Spalte: Tabellen, Codebloecke und Bilder duerfen weiterhin die ganze Breite
+   nutzen, sonst muesste man in ihnen quer scrollen. */
+.inhalt > p, .inhalt > ul, .inhalt > ol, .inhalt > h2, .inhalt > h3,
+.inhalt > h4, .inhalt > blockquote, .inhalt > .callout { max-width: 72ch; }
 .inhalt ul, .inhalt ol { padding-left: 22px; }
 .inhalt li { margin: 3px 0; }
 .inhalt a { color: var(--blue); text-decoration: underline; }
@@ -189,7 +204,14 @@ h1 { font-size: 30px; font-weight: 600; line-height: 1.2; margin: 0 0 14px;
 
 /* ------------------------------------------------------------- Startseite */
 .kacheln { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
-.kachel { border: 1px solid var(--line); border-radius: 3px; padding: 14px 16px; background: #fff; }
+.kachel {
+  border: 1px solid var(--line); border-radius: 3px; padding: 16px 18px; background: #fff;
+  transition: border-color .12s, box-shadow .12s;
+}
+/* Rueckmeldung beim Zeigen: die Kacheln sind Links, sahen aber wie reine
+   Kaesten aus. Nur Rahmen und ein flacher Schatten - kein Anheben, das
+   verrutscht bei einem Raster aus acht Kacheln unruhig. */
+.kachel:hover { border-color: var(--blue); box-shadow: 0 1px 6px rgba(40,40,40,.10); }
 .kachel h2 { font-size: 17px; font-weight: 600; margin: 0 0 8px; }
 .kachel ul { list-style: none; margin: 0; padding: 0; font-size: 14.5px; }
 .kachel li { margin: 4px 0; }

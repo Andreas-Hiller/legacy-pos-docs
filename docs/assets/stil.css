@@ -87,14 +87,20 @@ html, body {
 #suchergebnis .leer { padding: 10px 12px; color: var(--ink-soft); font-size: 14px; }
 
 /* ------------------------------------------------------------------- Rahmen */
+/* Die Textspalte wird BEGRENZT, nicht nur ihr Inhalt, und das Raster steht
+   mittig. Vorher war die Spalte so breit wie der Platz es zuliess (788 px bei
+   1440), waehrend der Text darin auf 600 px endete - zwischen Textende und
+   rechter Spalte klaffte dadurch ein Loch von rund 200 px. Der ueberzaehlige
+   Platz gehoert an den Seitenrand, nicht in die Mitte des Satzes. */
 .rahmen {
-  display: grid; grid-template-columns: 288px minmax(0,1fr) 260px;
-  gap: 32px; max-width: 1560px; margin: 0 auto; padding: 24px 20px 40px;
+  display: grid; grid-template-columns: 288px minmax(0,660px) 260px;
+  gap: 32px; justify-content: center;
+  max-width: 1560px; margin: 0 auto; padding: 24px 20px 40px;
 }
 /* Seiten ohne rechte Spalte (Startseite, Buchseiten, 404) bekommen deren
-   Platz. Vorher stand dort eine leere 260-px-Spalte und die Kacheln draengten
-   sich links zusammen, waehrend rechts ein Loch blieb. */
-.rahmen.ohne-rechts { grid-template-columns: 288px minmax(0,1fr); }
+   Platz - dort stehen Kacheln, die von Breite profitieren, kein Fliesstext.
+   Vorher blieb die Spalte leer und die Kacheln draengten sich links zusammen. */
+.rahmen.ohne-rechts { grid-template-columns: 288px minmax(0,1040px); }
 .spalte-links, .spalte-rechts { align-self: start; position: sticky; top: 76px; }
 .spalte-links { max-height: calc(100vh - 100px); overflow-y: auto; }
 

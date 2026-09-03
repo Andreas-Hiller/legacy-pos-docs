@@ -373,23 +373,40 @@ h1 { font-size: 32px; font-weight: 600; line-height: 1.15; margin: 0 0 10px;
 .tabellenrahmen {
   overflow-x: auto; margin: 14px 0 20px;
   border-radius: var(--rund); border: 1px solid var(--line);
+  /* Ohne isolation schneidet die Rundung die Kopffarbe an den oberen Ecken
+     nicht mit - die Mintflaeche stand dann eckig in einem runden Rahmen. */
+  isolation: isolate;
 }
 .inhalt table {
   border-collapse: collapse; min-width: 100%; width: auto; margin: 0; font-size: 15px;
 }
 /* Der Rahmen traegt jetzt den Rand, die Zellen am Aussenrand nicht mehr. */
 .tabellenrahmen tr:last-child td { border-bottom: 0; }
+/*
+ * TABELLENKOPF: eine blasse Mintflaeche und eine Linie - das genuegt.
+ *
+ * Vorher liefen hier VIER Mittel fuer dieselbe Aufgabe gleichzeitig: volle
+ * Mintflaeche (#BFEEE2), ein 2 px blauer Strich darunter, mintfarbene
+ * Zebrastreifen in jeder zweiten Zeile und ein vollstaendiges Liniengitter.
+ * Zusammen sah das aus wie eine Tabellenkalkulation und stritt mit der
+ * ruhigen Typografie ringsum. Mint bleibt als Marken-Anklang, aber blass.
+ */
 .inhalt th {
-  background: var(--mint); color: var(--ink); font-weight: 600; text-align: left;
-  border-bottom: 2px solid var(--blue); padding: 7px 10px; vertical-align: top;
+  background: var(--mint-pale); color: var(--ink); font-weight: 600; text-align: left;
+  border-bottom: 2px solid var(--mint); padding: 11px 14px; vertical-align: top;
+  white-space: nowrap;
 }
 .inhalt td {
-  border-bottom: 1px solid var(--line); padding: 9px 12px; vertical-align: top;
+  border-bottom: 1px solid var(--line); padding: 11px 14px; vertical-align: top;
   /* Ziffern in gleicher Breite: in den Referenztabellen stehen Versionen,
      Groessen und Nummern untereinander und sollen als Spalte lesbar sein. */
   font-variant-numeric: tabular-nums;
 }
-.inhalt tbody tr:nth-child(even) td { background: var(--mint-pale); }
+/* KEINE Zebrastreifen. Die Haarlinien zwischen den Zeilen fuehren das Auge
+   schon; eine zweite Farbe darueber macht die Tabelle unruhig, ohne etwas
+   hinzuzufuegen. Bei sehr breiten Tabellen hilft stattdessen, dass die erste
+   Spalte stehen bleibt - dazu unten. */
+.inhalt tbody tr:hover td { background: #fafafa; }
 
 /* -------------------------------------------------------------------- Code */
 .inhalt code {

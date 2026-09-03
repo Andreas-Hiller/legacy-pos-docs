@@ -20,6 +20,13 @@
   --ink: #282828;
   --ink-soft: #6b6b6b;
   --blue: #363FBF;
+  /* Tech Blue ist als FLAECHE und Rahmen richtig, als Textfarbe aber kraeftig:
+     stark gesaettigtes Blau auf Weiss wirkt fuer viele Augen unscharf, und
+     seit die Links im Text halbfett sind, fiel es noch mehr auf. Diese
+     Abwandlung ist dunkler und weniger gesaettigt - 10,4:1 Kontrast auf Weiss
+     gegenueber 8,0:1, und deutlich ruhiger zu lesen. Nur fuer Schrift; Rahmen,
+     Fokus und Linien bleiben Tech Blue. */
+  --blue-text: #2A319C;
   --mint: #BFEEE2;
   --mint-pale: #f1fbf7;
   --paper: #FCFCFC;
@@ -316,7 +323,7 @@ h1 { font-size: 32px; font-weight: 600; line-height: 1.15; margin: 0 0 10px;
 /* Keine Unterstreichung, dafuer halbfett: sonst waere die FARBE das
    einzige Merkmal eines Links, und wer Farben schlecht unterscheidet,
    erkennt ihn im Text nicht mehr. Das Gewicht traegt diese Aufgabe jetzt. */
-.inhalt a { color: var(--blue); text-decoration: none; font-weight: 600; }
+.inhalt a { color: var(--blue-text); text-decoration: none; font-weight: 600; }
 .inhalt a:hover { color: #2830a0; }
 .verweis-inaktiv { color: var(--ink-soft); }
 .verweis-inaktiv::before { content: '\00BB\00A0'; }
@@ -392,10 +399,10 @@ h1 { font-size: 32px; font-weight: 600; line-height: 1.15; margin: 0 0 10px;
   padding: 2px 0 2px 8px; margin-left: -9px;
   border-left: 2px solid transparent;
 }
-.seiteninhalt a:hover { color: var(--blue); }
+.seiteninhalt a:hover { color: var(--blue-text); }
 /* Wo man gerade steht. Wird vom Skript gesetzt, waehrend man scrollt. */
 .seiteninhalt a.aktuell {
-  color: var(--blue); font-weight: 600; border-left-color: var(--blue);
+  color: var(--blue-text); font-weight: 600; border-left-color: var(--blue);
 }
 
 /* ------------------------------------------------------------- Startseite */
@@ -444,11 +451,16 @@ h1 { font-size: 32px; font-weight: 600; line-height: 1.15; margin: 0 0 10px;
  * Vorleseprogramme richtig ankuendigen. Ein <a> um die ganze Kachel wuerde
  * Beschreibung und Seitenzahl in den Linktext ziehen.
  */
-.kachel-buch, .kachel-seite { position: relative; }
-.kachel-buch:hover, .kachel-seite:hover { cursor: pointer; }
-.kachel-buch h2 a::after, .kachel-seite h2 a::after {
+.kachel-buch, .kachel-seite, .kachel-kapitel { position: relative; }
+.kachel-buch:hover, .kachel-seite:hover, .kachel-kapitel:hover { cursor: pointer; }
+.kachel-buch h2 a::after, .kachel-seite h2 a::after, .kachel-kapitel h2 a::after {
   content: ''; position: absolute; inset: 0; border-radius: inherit;
 }
+/* Kapitelkacheln enthalten ZUSAETZLICH die Liste ihrer Seiten. Damit die
+   einzelnen Seitenlinks erreichbar bleiben, liegen sie ueber der aufgezogenen
+   Flaeche: Klick auf einen Seitentitel fuehrt zur Seite, Klick daneben ins
+   Kapitel. Ohne diese Stapelung wuerde die Flaeche die Liste zudecken. */
+.kachel-kapitel ul a { position: relative; z-index: 1; }
 /* Bei Tastaturbedienung die ganze Kachel umranden, nicht nur den Text -
    sonst sieht man den Fokus in einer grossen Kachel kaum. Blau bleibt hier
    bewusst: der Fokus MUSS deutlich sein, und er ist damit klar vom Zeigen
@@ -457,10 +469,20 @@ h1 { font-size: 32px; font-weight: 600; line-height: 1.15; margin: 0 0 10px;
   outline: 2px solid var(--blue); outline-offset: 2px;
 }
 .kachel-buch h2 a:focus-visible, .kachel-seite h2 a:focus-visible { outline: none; }
+/* Bei Kapitelkacheln NICHT die ganze Kachel umranden: dort koennen auch die
+   Seitenlinks in der Liste den Fokus haben, und dann waere unklar, was
+   gerade angesprungen ist. Jeder Link zeigt seinen Fokus selbst. */
+.kachel-kapitel a:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 .kachel h2 { font-size: 17px; font-weight: 600; margin: 0 0 8px; }
 .kachel ul { list-style: none; margin: 0; padding: 0; font-size: 14.5px; }
 .kachel li { margin: 4px 0; }
-.kachel a { color: var(--blue); text-decoration: none; }
+/* Kachelueberschriften in Anthrazit, NICHT blau: die ganze Kachel ist der
+   Link, dafuer sorgen Zeigefinger, Schatten und Vergroesserung. Blaue
+   Ueberschriften waren die groessten blauen Textflaechen der Seite und der
+   Hauptgrund, warum das Blau schwer zu lesen war. Nur die Seitenliste in
+   einer Kapitelkachel bleibt blau - das sind einzelne Links im Text. */
+.kachel h2 a { color: var(--ink); text-decoration: none; }
+.kachel ul a { color: var(--blue-text); text-decoration: none; }
 .kachel-buch h2 { font-size: 19px; }
 .kachel-text { font-size: 14px; color: var(--ink-soft); margin: 0 0 8px; }
 .kachel-zahl { font-size: 12.5px; color: var(--ink-soft); margin: 0; }
@@ -477,7 +499,7 @@ h1 { font-size: 32px; font-weight: 600; line-height: 1.15; margin: 0 0 10px;
    space-between wuerden drei einzelne Elemente sonst gleichmaessig ueber die
    ganze Breite verteilt. */
 .fuss-rechts { display: flex; gap: 18px; align-items: baseline; }
-.fuss a { color: var(--blue); text-decoration: none; }
+.fuss a { color: var(--blue-text); text-decoration: none; }
 .fuss a:hover { color: var(--ink); }
 .fuss a:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 

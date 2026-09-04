@@ -204,13 +204,26 @@ body { display: flex; flex-direction: column; min-height: 100vh; }
  * das <html lang="de"> ist dafuer die Voraussetzung und steht. break-word ist
  * nur das Netz darunter, falls der Browser keine Trennmuster fuer ein Wort
  * hat - es trennt ohne Bindestrich, aber immer noch besser als Abschneiden.
- * NICHT fuer Code und Tabellen: dort waere ein Umbruch mitten im Befehl oder
- * im Wert schlimmer als Scrollen, und beide haben ihren eigenen Rahmen.
+ * Gesetzt wird es auf die SPALTEN, nicht auf eine Liste von Selektoren. Mein
+ * erster Versuch zaehlte ".inhalt h1, .inhalt p, ..." auf und liess die
+ * Ueberschrift genau deshalb ueberlaufen: sie steht in ".seitenkopf", nicht in
+ * ".inhalt". Beide Eigenschaften vererben - also einmal oben setzen und unten
+ * fuer Code zurueckstellen, statt Selektoren zu sammeln.
  */
-.inhalt h1, .inhalt h2, .inhalt h3, .inhalt p, .inhalt li,
-.brotkrumen li, .nav a, .nav summary, .kachel a, .kachel p {
+.spalte-links, .spalte-mitte, .spalte-rechts {
   hyphens: auto;
   overflow-wrap: break-word;
+}
+
+/*
+ * CODE NICHT TRENNEN. Ein Umbruch mitten in einem Befehl, einem Pfad oder
+ * einem Wert waere schlimmer als Scrollen - und das Codefeld hat seinen
+ * eigenen waagerechten Rahmen. Beide Eigenschaften werden vererbt, deshalb
+ * muessen sie hier ausdruecklich zurueckgestellt werden.
+ */
+pre, code, .codefeld, .codefeld * {
+  hyphens: manual;
+  overflow-wrap: normal;
 }
 .spalte-links, .spalte-rechts { align-self: start; position: sticky; top: 76px; }
 /* Beide Randspalten scrollen fuer sich, wenn sie laenger werden als das

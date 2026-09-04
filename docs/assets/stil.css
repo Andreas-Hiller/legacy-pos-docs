@@ -191,6 +191,27 @@ body { display: flex; flex-direction: column; min-height: 100vh; }
    werden; dadurch sitzt der Seitenanfang bei beiden Arten an derselben
    Stelle. */
 .rahmen.ohne-rechts { grid-template-columns: 288px minmax(0,960px); }
+
+/*
+ * LANGE WOERTER MUESSEN BRECHEN DUERFEN.
+ *
+ * "Systemvoraussetzungen" braucht als h1 bei 32 px 397 px, die Spalte auf dem
+ * Handy ist 335 px breit - das Wort trat aus seinem Kasten und wurde am Rand
+ * abgeschnitten (04.09.2026 gemessen). Deutsche Komposita sind lang; ohne
+ * Trennung ist das auf jedem schmalen Bildschirm eine Frage der Zeit.
+ *
+ * Silbentrennung zuerst, weil sie lesbar trennt ("System-voraus-setzungen");
+ * das <html lang="de"> ist dafuer die Voraussetzung und steht. break-word ist
+ * nur das Netz darunter, falls der Browser keine Trennmuster fuer ein Wort
+ * hat - es trennt ohne Bindestrich, aber immer noch besser als Abschneiden.
+ * NICHT fuer Code und Tabellen: dort waere ein Umbruch mitten im Befehl oder
+ * im Wert schlimmer als Scrollen, und beide haben ihren eigenen Rahmen.
+ */
+.inhalt h1, .inhalt h2, .inhalt h3, .inhalt p, .inhalt li,
+.brotkrumen li, .nav a, .nav summary, .kachel a, .kachel p {
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
 .spalte-links, .spalte-rechts { align-self: start; position: sticky; top: 76px; }
 /* Beide Randspalten scrollen fuer sich, wenn sie laenger werden als das
    Fenster. Bei der rechten fehlte das: hatte eine Seite mehr Ueberschriften
@@ -745,6 +766,18 @@ h1 { font-size: 32px; font-weight: 600; line-height: 1.15; margin: 0 0 10px;
      Die Null als Untergrenze erlaubt der Spalte, schmaler zu werden als ihr
      breitester Inhalt; der scrollt dann in seinem eigenen Rahmen. */
   .rahmen { grid-template-columns: minmax(0,1fr); gap: 18px; }
+  .rahmen.ohne-rechts { grid-template-columns: minmax(0,1fr); }
+  /* HIER GENAUSO MITNENNEN wie in der 1100er-Query darueber - und das hatte
+     ich beim ersten Mal vergessen. Folge auf jeder Seite ohne rechte Spalte
+     (Startseite, Buch- und Kapitelseiten): ".rahmen.ohne-rechts" aus der
+     1100er-Regel gilt bei 375 px weiter, weil zwei Klassen spezifischer sind
+     als eine. Das Gitter stand damit auf "240px minmax(0,960px)", die zweite
+     Spur bekam den Rest von 77 px, und JEDER Navigationseintrag lief aus
+     seinen 77 px heraus ueber den Text daneben - auf dem Handy sah das aus
+     wie ineinandergeschobene Spalten (04.09.2026 gemeldet und gemessen).
+     Merksatz: wer ".rahmen" in einer Media Query anfasst, muss
+     ".rahmen.ohne-rechts" im selben Block anfassen. Pruefung P13 deckt das
+     jetzt fuer jede Query ab, nicht nur fuer die erste. */
   /* INHALT ZUERST. Bei einer Spalte stand die Navigation ueber dem Artikel -
      im Buch "Produkte" waren das 942 px, also 1,3 Bildschirmhoehen Scrollen,
      bevor der Text anfing (am 03.09.2026 bei 375 px gemessen). Wer aus der

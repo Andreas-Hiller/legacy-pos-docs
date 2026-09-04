@@ -216,14 +216,32 @@ body { display: flex; flex-direction: column; min-height: 100vh; }
 }
 
 /*
- * CODE NICHT TRENNEN. Ein Umbruch mitten in einem Befehl, einem Pfad oder
- * einem Wert waere schlimmer als Scrollen - und das Codefeld hat seinen
- * eigenen waagerechten Rahmen. Beide Eigenschaften werden vererbt, deshalb
- * muessen sie hier ausdruecklich zurueckgestellt werden.
+ * BLOCK-CODE NICHT TRENNEN. Ein Umbruch mitten in einem Befehl waere
+ * schlimmer als Scrollen - und das Codefeld hat seinen eigenen waagerechten
+ * Rahmen. Beide Eigenschaften werden vererbt, deshalb hier zurueckstellen.
  */
-pre, code, .codefeld, .codefeld * {
+pre, .codefeld, .codefeld * {
   hyphens: manual;
   overflow-wrap: normal;
+}
+
+/*
+ * INLINE-CODE MUSS BRECHEN DUERFEN - anders als Block-Code, denn er steht
+ * mitten im Satz und hat KEINEN eigenen Scrollrahmen.
+ *
+ * Gemessen am 04.09.2026 bei 375 px: ein Registry-Pfad
+ * ("HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\...") als <code> in einem
+ * Absatz war 620 px breit und hat die GANZE SEITE 290 px quer geschoben - auf
+ * 11 von 107 Seiten. Ein solcher Pfad enthaelt kein Leerzeichen, also gibt es
+ * ohne diese Regel keine einzige Umbruchstelle.
+ *
+ * Silbentrennung waere hier falsch (ein Bindestrich in einem Pfad liesse sich
+ * fuer einen Teil des Pfades halten), deshalb nur break-word: es bricht ohne
+ * Bindestrich und nur dann, wenn es sonst nicht passt.
+ */
+:not(pre) > code {
+  overflow-wrap: break-word;
+  hyphens: manual;
 }
 .spalte-links, .spalte-rechts { align-self: start; position: sticky; top: 76px; }
 /* Beide Randspalten scrollen fuer sich, wenn sie laenger werden als das

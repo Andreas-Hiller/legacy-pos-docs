@@ -379,7 +379,22 @@ pre, .codefeld, .codefeld * {
 .brotkrumen a:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 2px; }
 /* Aktuelle Seite: dabei, aber zurueckgenommen - sie ist kein Ziel mehr. */
 .brotkrumen [aria-current="page"] { color: var(--ink-soft); }
-h1 { font-size: 32px; font-weight: 600; line-height: 1.15; margin: 0 0 10px;
+/*
+ * GROESSE MIT DER FENSTERBREITE, nicht als harte Stufe.
+ *
+ * Deutsche Komposita in Seitentiteln sind lang: von 38 Woertern mit mehr als
+ * zwoelf Buchstaben passten bei 32 px nur 34 in die 335 px breite Spalte
+ * eines 375-px-Bildschirms ("Verfahrensdokumentation" braucht 438 px). Der
+ * Rest brach mitten im Wort um - ohne Trennstrich, weil Chrome unter Windows
+ * "hyphens: auto" ignoriert (04.09.2026 gegengeprueft: identische Umbrueche
+ * mit auto und manual; auf iOS trennt Safari dagegen sauber, deshalb bleibt
+ * die Regel stehen).
+ *
+ * 6.4vw ergibt 24 px bei 375 px Fensterbreite - damit passen alle 38 Woerter
+ * - und erreicht die 32 px ab 500 px Breite wieder. Untergrenze 22 px, damit
+ * es auf sehr schmalen Geraeten nicht zur Randnotiz schrumpft.
+ */
+h1 { font-size: clamp(22px, 6.4vw, 32px); font-weight: 600; line-height: 1.15; margin: 0 0 10px;
      letter-spacing: -.01em; }
 /* EINE Trennlinie unter dem Seitenkopf, nicht zwei. Vorher lagen ein 2-px-Strich
    unter der Ueberschrift und ein 1-px-Strich unter der Herkunftszeile knapp
